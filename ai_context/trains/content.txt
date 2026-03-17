@@ -1,0 +1,12 @@
+University Info:
+(a)Location & City
+(b)Ticket Prices & Portals
+(c)Commute Estimation Logic
+
+Core Features:
+(a)Compare Universities
+(b)Route Discovery Guide
+
+Commute Analytics (Data Graphs)
+
+Target City: Frankfurt

@@ -1,0 +1,238 @@
+================================================================================
+UNIFIED COMPONENT INTEGRATION PROMPT (SHADCN/UI + TAILWIND + TYPESCRIPT)
+================================================================================
+
+You are tasked with integrating two React components into the codebase. 
+The codebase MUST support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript. 
+Determine the default path for components and styles. If default path for components is not /components/ui, 
+provide instructions on tại sao việc tạo folder này là quan trọng để duy trì cấu trúc dự án.
+
+--------------------------------------------------------------------------------
+1. INSTALL NPM DEPENDENCIES
+--------------------------------------------------------------------------------
+Run the following command in your terminal:
+npm install cobe framer-motion @tabler/icons-react lucide-react
+
+--------------------------------------------------------------------------------
+2. COMPONENT A: /components/ui/feature-section-with-bento-grid.tsx
+--------------------------------------------------------------------------------
+import React from "react";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import createGlobe from "cobe";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { IconBrandYoutubeFilled } from "@tabler/icons-react";
+import Link from "next/link";
+
+export function FeaturesSectionWithBentoGrid() {
+  const features = [
+    {
+      title: "Track issues effectively",
+      description: "Track and manage your project issues with ease using our intuitive interface.",
+      skeleton: <SkeletonOne />,
+      className: "col-span-1 md:col-span-4 lg:col-span-4 border-b md:border-r dark:border-neutral-800",
+    },
+    {
+      title: "Capture pictures with AI",
+      description: "Capture stunning photos effortlessly using our advanced AI technology.",
+      skeleton: <SkeletonTwo />,
+      className: "col-span-1 md:col-span-2 lg:col-span-2 border-b dark:border-neutral-800",
+    },
+    {
+      title: "Watch our AI on YouTube",
+      description: "Whether its you or Tyler Durden, you can get to know about our product on YouTube",
+      skeleton: <SkeletonThree />,
+      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-r dark:border-neutral-800",
+    },
+    {
+      title: "Deploy in seconds",
+      description: "With our blazing fast cloud services, you can deploy your model in seconds.",
+      skeleton: <SkeletonFour />,
+      className: "col-span-1 md:col-span-3 lg:col-span-3 border-b md:border-none",
+    },
+  ];
+  return (
+    <div className="relative z-20 py-10 lg:py-40 max-w-7xl mx-auto">
+      <div className="px-8">
+        <h4 className="text-3xl lg:text-5xl lg:leading-tight max-w-5xl mx-auto text-center tracking-tight font-medium text-black dark:text-white">
+          Packed with thousands of features
+        </h4>
+        <p className="text-sm lg:text-base max-w-2xl my-4 mx-auto text-neutral-500 text-center font-normal dark:text-neutral-300">
+          Everything AI has APIs for literally everything. It can even create this website copy for you.
+        </p>
+      </div>
+      <div className="relative">
+        <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-6 mt-12 xl:border rounded-md dark:border-neutral-800">
+          {features.map((feature) => (
+            <FeatureCard key={feature.title} className={feature.className}>
+              <FeatureTitle>{feature.title}</FeatureTitle>
+              <FeatureDescription>{feature.description}</FeatureDescription>
+              <div className="h-full w-full">{feature.skeleton}</div>
+            </FeatureCard>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const FeatureCard = ({ children, className }: { children?: React.ReactNode; className?: string }) => (
+  <div className={cn(`p-4 sm:p-8 relative overflow-hidden`, className)}>{children}</div>
+);
+
+const FeatureTitle = ({ children }: { children?: React.ReactNode }) => (
+  <p className="max-w-5xl mx-auto text-left tracking-tight text-black dark:text-white text-xl md:text-2xl md:leading-snug">{children}</p>
+);
+
+const FeatureDescription = ({ children }: { children?: React.ReactNode }) => (
+  <p className={cn("text-sm md:text-base max-w-4xl text-left mx-auto text-neutral-500 font-normal dark:text-neutral-300 my-2")}>{children}</p>
+);
+
+export const SkeletonOne = () => (
+  <div className="relative flex py-8 px-2 gap-10 h-full">
+    <div className="w-full p-5 mx-auto bg-white dark:bg-neutral-900 shadow-2xl h-full">
+      <Image src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426" alt="header" width={800} height={800} className="h-full w-full aspect-square object-cover rounded-sm" />
+    </div>
+    <div className="absolute bottom-0 z-40 inset-x-0 h-60 bg-gradient-to-t from-white dark:from-black via-white dark:via-black to-transparent w-full pointer-events-none" />
+  </div>
+);
+
+export const SkeletonThree = () => (
+  <Link href="https://www.youtube.com" target="__blank" className="relative flex gap-10 h-full group/image">
+    <div className="w-full mx-auto bg-transparent relative h-full">
+      <IconBrandYoutubeFilled className="h-20 w-20 absolute z-10 inset-0 text-red-500 m-auto" />
+      <Image src="https://assets.aceternity.com/fireship.jpg" alt="header" width={800} height={800} className="h-full w-full aspect-square object-cover rounded-sm blur-none group-hover/image:blur-md transition-all duration-200" />
+    </div>
+  </Link>
+);
+
+export const SkeletonTwo = () => {
+  const images = ["https://images.unsplash.com/photo-1517322048670-4fba75cbbb62?q=80&w=3000", "https://images.unsplash.com/photo-1573790387438-4da905039392?q=80&w=3425", "https://images.unsplash.com/photo-1555400038-63f5ba517a47?q=80&w=3540"];
+  const imageVariants = { whileHover: { scale: 1.1, zIndex: 100 }, whileTap: { scale: 1.1 } };
+  return (
+    <div className="relative flex flex-col items-start p-8 gap-10 h-full overflow-hidden">
+      <div className="flex flex-row -ml-20">
+        {images.map((image, idx) => (
+          <motion.div key={idx} variants={imageVariants} style={{ rotate: Math.random() * 20 - 10 }} whileHover="whileHover" whileTap="whileTap" className="rounded-xl -mr-4 mt-4 p-1 bg-white dark:bg-neutral-800 border dark:border-neutral-700 flex-shrink-0">
+            <Image src={image} alt="bali" width="500" height="500" className="rounded-lg h-20 w-20 md:h-40 md:w-40 object-cover" />
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const SkeletonFour = () => (
+  <div className="h-60 flex flex-col items-center relative bg-transparent mt-10">
+    <Globe className="absolute -right-10 -bottom-80" />
+  </div>
+);
+
+export const Globe = ({ className }: { className?: string }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    let phi = 0;
+    if (!canvasRef.current) return;
+    const globe = createGlobe(canvasRef.current, {
+      devicePixelRatio: 2, width: 600 * 2, height: 600 * 2, phi: 0, theta: 0, dark: 1, diffuse: 1.2, mapSamples: 16000, mapBrightness: 6, baseColor: [0.3, 0.3, 0.3], markerColor: [0.1, 0.8, 1], glowColor: [1, 1, 1],
+      markers: [{ location: [37.7595, -122.4367], size: 0.03 }, { location: [40.7128, -74.006], size: 0.1 }],
+      onRender: (state) => { state.phi = phi; phi += 0.01; },
+    });
+    return () => globe.destroy();
+  }, []);
+  return <canvas ref={canvasRef} style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }} className={className} />;
+};
+
+--------------------------------------------------------------------------------
+3. COMPONENT B: /components/ui/display-cards.tsx
+--------------------------------------------------------------------------------
+"use client";
+import { cn } from "@/lib/utils";
+import { Sparkles } from "lucide-react";
+
+interface DisplayCardProps {
+  className?: string;
+  icon?: React.ReactNode;
+  title?: string;
+  description?: string;
+  date?: string;
+  iconClassName?: string;
+  titleClassName?: string;
+}
+
+function DisplayCard({ className, icon = <Sparkles className="size-4 text-blue-300" />, title = "Featured", description = "Discover amazing content", date = "Just now", iconClassName = "text-blue-500", titleClassName = "text-blue-500" }: DisplayCardProps) {
+  return (
+    <div className={cn("relative flex h-36 w-[22rem] -skew-y-[8deg] select-none flex-col justify-between rounded-xl border-2 bg-muted/70 backdrop-blur-sm px-4 py-3 transition-all duration-700 hover:bg-muted [&>*]:flex [&>*]:items-center [&>*]:gap-2", className)}>
+      <div>
+        <span className="relative inline-block rounded-full bg-blue-800 p-1">{icon}</span>
+        <p className={cn("text-lg font-medium", titleClassName)}>{title}</p>
+      </div>
+      <p className="whitespace-nowrap text-lg">{description}</p>
+      <p className="text-muted-foreground">{date}</p>
+    </div>
+  );
+}
+
+export default function DisplayCards({ cards }: { cards?: DisplayCardProps[] }) {
+  const defaultCards = [
+    { className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:rounded-xl before:h-[100%] before:content-[''] before:bg-background/50 grayscale-[100%] hover:grayscale-0 before:transition-opacity before:duration-700 hover:before:opacity-0" },
+    { className: "[grid-area:stack] translate-x-16 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:rounded-xl before:h-[100%] before:content-[''] before:bg-background/50 grayscale-[100%] hover:grayscale-0" },
+    { className: "[grid-area:stack] translate-x-32 translate-y-20 hover:translate-y-10" },
+  ];
+  return (
+    <div className="grid [grid-template-areas:'stack'] place-items-center opacity-100 animate-in fade-in-0 duration-700">
+      {(cards || defaultCards).map((cardProps, index) => (
+        <DisplayCard key={index} {...cardProps} />
+      ))}
+    </div>
+  );
+}
+
+--------------------------------------------------------------------------------
+4. DEMO PAGES (FOR TESTING)
+--------------------------------------------------------------------------------
+// Save these as separate demo components or use in a single page.tsx
+
+// Demo A: FeaturesSectionWithBentoGridDemo
+import React from "react";
+import { FeaturesSectionWithBentoGrid } from "@/components/ui/feature-section-with-bento-grid";
+export function FeaturesSectionWithBentoGridDemo() {
+  return (
+    <div className="min-h-screen w-full relative">
+      <FeaturesSectionWithBentoGrid />
+    </div>
+  );
+}
+
+// Demo B: DisplayCardsDemo
+"use client";
+import DisplayCards from "@/components/ui/display-cards";
+import { Sparkles } from "lucide-react";
+const demoCards = [
+  { icon: <Sparkles className="size-4 text-blue-300" />, title: "Featured", description: "Discover amazing content", date: "Just now", className: "[grid-area:stack] hover:-translate-y-10 before:absolute before:w-[100%] before:rounded-xl before:h-[100%] before:content-[''] before:bg-background/50 grayscale-[100%] hover:grayscale-0 transition-all duration-700" },
+  { icon: <Sparkles className="size-4 text-blue-300" />, title: "Popular", description: "Trending this week", date: "2 days ago", className: "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-1 transition-all duration-700" },
+  { icon: <Sparkles className="size-4 text-blue-300" />, title: "New", description: "Latest updates", date: "Today", className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10 transition-all duration-700" },
+];
+export function DisplayCardsDemo() {
+  return (
+    <div className="flex min-h-[400px] w-full items-center justify-center py-20">
+      <DisplayCards cards={demoCards} />
+    </div>
+  );
+}
+
+--------------------------------------------------------------------------------
+5. IMPLEMENTATION GUIDELINES
+--------------------------------------------------------------------------------
+- Step 0: Copy paste all the code above in the correct directories (/components/ui/).
+- Step 1: Install external dependencies using the provided bash command.
+- Step 2: Ensure Tailwind config supports the "animate-in" and "fade-in-0" classes (available in tailwindcss-animate).
+- Step 3: Fill image assets with the Unsplash stock images provided in the code.
+- Step 4: Verify that lucide-react and @tabler/icons-react are installed to render all icons correctly.
+================================================================================
