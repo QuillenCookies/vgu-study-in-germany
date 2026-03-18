@@ -41,6 +41,12 @@ root/
 │   │   ├── hooks/
 │   │   ├── lib/
 │   │   ├── pages/
+|   |   |   ├── EntertainmentPage.tsx
+|   |   |   ├── HomePage.tsx
+|   |   |   ├── UniversitiesPage.tsx
+|   |   |   ├── TrainPage.tsx
+|   |   |   ├── FoodPage.tsx
+|   |   |   └── HousingPage.tsx
 │   │   ├── types/
 │   │   ├── App.tsx
 │   │   ├── main.tsx
@@ -52,7 +58,6 @@ root/
 │   ├── tsconfig.json
 │   ├── tsconfig.node.json
 │   └── vite.config.ts
-│
 ├── backend/
 │   ├── backend/
 │   ├── devserver/
@@ -64,7 +69,7 @@ root/
 │   ├── tests.py
 │   ├── urls.py
 │   └── views.py
-└── .gitignore
+├── .gitignore
 ├── manage.py
 └── requirements.txt
 ```
