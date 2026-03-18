@@ -1,7 +1,7 @@
 // App.tsx
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Hero from './components/Hero';
+import HomePage from './pages/HomePage';
 import UniversityPage from './pages/UniversityPage';
 import TrainsPage from './pages/TrainsPage';
 import EntertainmentPage from './pages/EntertainmentPage';
@@ -13,7 +13,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={
         <Layout>
-          <Hero />
+          <HomePage />
         </Layout>
       } />
       <Route path="/university" element={<UniversityPage />} />

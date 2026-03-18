@@ -13,7 +13,7 @@ const quickLinks = [
   { label: '🎭 Entertainment', href: '/entertainment' },
 ];
 
-const Hero: React.FC = () => {
+const HomePage: React.FC = () => {
   const [query, setQuery] = useState('');
 
   const handleExplore = (e: React.FormEvent) => {
@@ -85,4 +85,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero;
+export default HomePage;
