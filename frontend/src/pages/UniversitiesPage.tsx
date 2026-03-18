@@ -84,7 +84,7 @@ const frankfurtUniversities: University[] = [
   },
 ];
 
-const UniversityPage: React.FC = () => {
+const UniversitiesPage: React.FC = () => {
   return (
     <Layout>
       {/* Hero Banner */}
@@ -238,4 +238,4 @@ const UniversityPage: React.FC = () => {
   );
 };
 
-export default UniversityPage;
+export default UniversitiesPage;
