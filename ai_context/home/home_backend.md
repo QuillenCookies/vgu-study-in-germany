@@ -1,4 +1,4 @@
-# Spec: Home Page (`home-page-spec.md`)
+# Spec: Home Page (`home_backend.md`)
 
 ## 1. PURPOSE
 Provide the landing page for the "Study in Germany" platform. It acts as the primary entry point for international students to search for cities and navigate the 5 main dimensions: University, Housing, Commute, Food, and Entertainment.
