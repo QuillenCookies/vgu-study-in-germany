@@ -55,11 +55,11 @@ const HomePage: React.FC = () => {
             universities: result.data.universities || []
           });
         } else if (Array.isArray(result)) {
-           // Fallback to purely cities array according to api.md
-           setSuggestions({
-             cities: result || [],
-             universities: []
-           });
+          // Fallback to purely cities array according to api.md
+          setSuggestions({
+            cities: result || [],
+            universities: []
+          });
         }
       } catch (error) {
         console.error('Error fetching search results:', error);
@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
     setSelectedLocation(locationState);
     setShowDropdown(false);
     setQuery(locationState.name);
-    
+
     // Auto-navigate to university page on selection
     navigate('/university');
   };
@@ -172,7 +172,7 @@ const HomePage: React.FC = () => {
                     ))}
                   </div>
                 )}
-                
+
                 {/* Cities */}
                 {suggestions.cities.length > 0 && (
                   <div>
