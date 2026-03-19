@@ -29,7 +29,7 @@ class Command(BaseCommand):
         # Station ID for Frankfurt was provided as 8011160 by instructions, though traditionally Berlin Hbf
         stations = [
             {'id': '8000068', 'city': da, 'name': 'Darmstadt', 'desc': 'Central hub for TU Darmstadt students'},
-            {'id': '8011160', 'city': ffm, 'name': 'Frankfurt', 'desc': 'Major transit hub for the region'},
+            {'id': '8000105', 'city': ffm, 'name': 'Frankfurt', 'desc': 'Major transit hub for the region'},
             {'id': '8001396', 'city': die, 'name': 'Dieburg', 'desc': 'Campus Dieburg location'},
             {'id': '8000240', 'city': mz, 'name': 'Mainz', 'desc': 'Rheinland-Pfalz state capital'},
             {'id': '8000250', 'city': wi, 'name': 'Wiesbaden', 'desc': 'Hesse state capital'},
