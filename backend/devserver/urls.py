@@ -10,4 +10,7 @@ urlpatterns = [
     path('food/dishes', views.get_food_dishes),
     path('food/places', views.get_food_places),
     path('trains/routes', views.get_train_routes),
+    path('trains/info', views.get_train_static_info),
+    path('locations/search', views.search_locations),
+    path('locations/save', views.save_location),
 ]
