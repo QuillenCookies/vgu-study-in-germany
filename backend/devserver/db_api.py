@@ -80,3 +80,16 @@ class DBApi:
             return "8000105"  # Frankfurt(Main)Hbf
             
         return "8000105"
+
+    def get_station_details(self, station_id: str):
+        """Fetches details from StaDa API (Station Data)"""
+        # Note: StaDa usually uses the 'number' (Stada-ID), not EVA, 
+        # but the Timetables API find_station_eva usually returns EVA.
+        # We use the Station Data API to get the meta-info.
+        res = requests.get(
+            f"https://apis.deutschebahn.com/db-api-marketplace/apis/station-data/v2/stations/{station_id}",
+            headers=self.headers
+        )
+        if res.status_code == 200:
+            return res.json()
+        return None
