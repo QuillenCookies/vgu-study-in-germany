@@ -1,0 +1,2347 @@
+stop_id,city_id,stop_name,stop_lat,stop_lon
+32242,1,Frankfurt (Main) Achenbachstraße,50.097466,8.676643
+356243,1,Frankfurt (Main) Adalbert-/Schloßstraße,50.119045,8.643569
+370385,1,Frankfurt (Main) Adam-Opel-Straße,50.12381,8.755474
+113443,1,Frankfurt (Main) Adlerflychtplatz,50.12414,8.681428
+539074,1,Frankfurt (Main) Adolph-Prior-Straße,50.12801,8.579871
+381326,1,Frankfurt (Main) Affentorplatz,50.104668,8.689846
+11654,1,Frankfurt (Main) Alemannenweg,50.11368,8.54029
+469743,1,Frankfurt (Main) Alkmenestraße,50.15178,8.699858
+38406,1,Frankfurt (Main) Alleehaus,50.112644,8.538277
+336837,1,Frankfurt (Main) Allerheiligentor,50.113316,8.693663
+662592,1,Frankfurt (Main) Allesinastraße,50.07822,8.512203
+9338,1,Frankfurt (Main) Alt-Bonames,50.1806,8.66403
+515048,1,Frankfurt (Main) Alt-Fechenheim,50.12831,8.767492
+108151,1,Frankfurt (Main) Alt-Niederursel,50.16537,8.62253
+293532,1,Frankfurt (Main) Alt-Praunheim/Krankenh. Nordwest,50.1494,8.619475
+356615,1,Frankfurt (Main) Alt-Rödelheim,50.124626,8.611704
+584372,1,Frankfurt (Main) Alte Falterstraße,50.091167,8.607111
+111405,1,Frankfurt (Main) Alte Gasse,50.118153,8.687228
+201742,1,Frankfurt (Main) Alte Oper,50.11543,8.670916
+321135,1,Frankfurt (Main) Alte Riedbergstraße,50.185448,8.646619
+422652,1,Frankfurt (Main) Altebornstraße,50.14097,8.723637
+287245,1,Frankfurt (Main) Alter Friedhof Schwanheim,50.08996,8.57351
+8886,1,Frankfurt (Main) Am Alten Schloß,50.151497,8.62616
+564051,1,Frankfurt (Main) Am Bonifatiusbrunnen,50.176422,8.641225
+679450,1,Frankfurt (Main) Am Bächelchen,50.154594,8.756297
+378446,1,Frankfurt (Main) Am Eschbachtal,50.184437,8.696135
+364183,1,Frankfurt (Main) Am Felsenkeller,50.098507,8.696622
+246694,1,Frankfurt (Main) Am Gabelacker,50.164135,8.66364
+552343,1,Frankfurt (Main) Am Grünen Graben,50.164143,8.656558
+534732,1,Frankfurt (Main) Am Hessen-Center,50.141113,8.753861
+376035,1,Frankfurt (Main) Am Kapellenberg,50.117058,8.561986
+611380,1,Frankfurt (Main) Am Klingelborn,50.198345,8.715711
+657226,1,Frankfurt (Main) Am Mühlgarten,50.144623,8.650472
+6722,1,Frankfurt (Main) Am Mühlgewann,50.09658,8.610725
+109596,1,Frankfurt (Main) Am Neuenberg,50.168304,8.688091
+617087,1,Frankfurt (Main) Am Rebenborn,50.15222,8.74853
+342255,1,Frankfurt (Main) Am Riedsteg,50.209747,8.701887
+305181,1,Frankfurt (Main) Am Römerbrunnen,50.18685,8.69822
+228500,1,Frankfurt (Main) Am Sandberg,50.0942,8.700339
+397514,1,Frankfurt (Main) Am Schwalbenschwanz,50.148697,8.656571
+360789,1,Frankfurt (Main) Am Weißkirchener Berg,50.18807,8.634445
+545862,1,Frankfurt (Main) An den drei Hohen,50.158333,8.695237
+196647,1,Frankfurt (Main) An der Bornhohl,50.196644,8.666731
+410857,1,Frankfurt (Main) An der Dammheide,50.11726,8.631083
+72398,1,Frankfurt (Main) An der Kreuzheck,50.082314,8.574723
+4897,1,Frankfurt (Main) Andreaskirche,50.1509,8.66999
+566521,1,Frankfurt (Main) Annabergstraße,50.092106,8.502531
+646136,1,Frankfurt (Main) Anne-Frank-Siedlung,50.1605,8.65982
+263803,1,Frankfurt (Main) Annette-Kolb-Weg,50.1786,8.62854
+77002,1,Frankfurt (Main) Anton-Burger-Weg,50.0895,8.706744
+142656,1,Frankfurt (Main) Antoninusstraße,50.157555,8.640699
+88106,1,Frankfurt (Main) Arthur-von-Weinberg-Steg,50.12511,8.769862
+535151,1,Frankfurt (Main) Astrid-Lindgren-Schule,50.13785,8.663255
+632851,1,Frankfurt (Main) Atzelberg Mitte,50.142067,8.719122
+602569,1,Frankfurt (Main) Atzelberg Ost,50.142258,8.722646
+466200,1,Frankfurt (Main) Atzelberg West,50.14055,8.719452
+74285,1,Frankfurt (Main) Auerstraße,50.10583,8.552894
+585162,1,Frankfurt (Main) Auf dem Schafberg,50.090958,8.612098
+168298,1,Frankfurt (Main) August-Schanz-Straße,50.1627,8.684097
+93568,1,Frankfurt (Main) August-Schanz-Straße/Dachsberg,50.160046,8.689614
+259058,1,Frankfurt (Main) Balduinstraße,50.099438,8.714944
+188024,1,Frankfurt (Main) Barbarossastraße/Riedschule,50.14641,8.761296
+246801,1,Frankfurt (Main) Baseler Platz,50.104507,8.664784
+646647,1,Frankfurt (Main) Baumertstraße,50.125324,8.768308
+473416,1,Frankfurt (Main) Bechtenwaldstraße,50.099655,8.503879
+264230,1,Frankfurt (Main) Ben-Gurion-Ring Nord,50.19167,8.661645
+120512,1,Frankfurt (Main) Ben-Gurion-Ring Süd,50.18497,8.660152
+490312,1,Frankfurt (Main) Ben-Gurion-Ring West,50.190353,8.658779
+507908,1,Frankfurt (Main) Bergen Ost,50.157272,8.767833
+484392,1,Frankfurt (Main) Berger Warte,50.159744,8.739912
+601503,1,Frankfurt (Main) Bergkirche,50.088375,8.696714
+401267,1,Frankfurt (Main) Berkersheim Bahnhof,50.176083,8.697327
+427551,1,Frankfurt (Main) Berkersheim Mitte,50.170635,8.696699
+590595,1,Frankfurt (Main) Bernadottestraße,50.157642,8.631546
+296875,1,Frankfurt (Main) Berner Straße,50.1937,8.65963
+650971,1,Frankfurt (Main) Berner Straße/Ben-Gurion-Ring,50.19299,8.662248
+127869,1,Frankfurt (Main) Bertramstraße,50.132164,8.677169
+30680,1,Frankfurt (Main) Bethmannpark,50.11762,8.691832
+567305,1,Frankfurt (Main) Bettinaplatz,50.11401,8.656809
+539758,1,Frankfurt (Main) Beuthener Straße,50.091434,8.674489
+549597,1,Frankfurt (Main) Bingelsweg,50.10111,8.603158
+123203,1,Frankfurt (Main) Birminghamstraße,50.1001,8.57996
+307755,1,Frankfurt (Main) Birsteiner Straße,50.135777,8.763918
+568864,1,Frankfurt (Main) Bleiweißstraße,50.10004,8.719702
+424733,1,Frankfurt (Main) Bockenheimer Warte,50.119946,8.653924
+545391,1,Frankfurt (Main) Bodenseestraße,50.12433,8.765698
+279152,1,Frankfurt (Main) Bodenweg,50.1422,8.701611
+290041,1,Frankfurt (Main) Bolongaropalast,50.101482,8.55306
+627689,1,Frankfurt (Main) Bonames Mitte,50.185284,8.66443
+403793,1,Frankfurt (Main) Bonameser Hainstraße,50.183395,8.664625
+71684,1,Frankfurt (Main) Bonifatiusstraße,50.184155,8.651757
+176120,1,Frankfurt (Main) Bornheim Mitte,50.126343,8.708012
+435174,1,Frankfurt (Main) Bornheim Sportcenter,50.132545,8.716748
+351093,1,Frankfurt (Main) Bornwiesenweg,50.12168,8.680442
+626459,1,Frankfurt (Main) Botanischer Garten,50.12617,8.654382
+306607,1,Frankfurt (Main) Brauerei,50.094254,8.690896
+172521,1,Frankfurt (Main) Bremer Platz,50.12427,8.669918
+152494,1,Frankfurt (Main) Bremer Straße,50.12722,8.671441
+275662,1,Frankfurt (Main) Breslauer Straße,50.093117,8.677525
+93016,1,Frankfurt (Main) Briefzentrum,50.092747,8.634974
+144827,1,Frankfurt (Main) Brigitte-Frauendorf-Straße,50.123013,8.632497
+429725,1,Frankfurt (Main) Bruchfeldplatz,50.086823,8.644241
+310128,1,Frankfurt (Main) Brücken-/Textorstraße,50.101753,8.687013
+45608,1,Frankfurt (Main) Brüningstraße,50.0971,8.54189
+679086,1,Frankfurt (Main) Buchrainplatz,50.100426,8.724373
+292995,1,Frankfurt (Main) Buchrainstraße,50.097267,8.724586
+629308,1,Frankfurt (Main) Buchwaldstraße,50.130177,8.716981
+6147,1,Frankfurt (Main) Budge-Stiftung (Lohrberg),50.149025,8.737661
+501335,1,Frankfurt (Main) Burgenlandweg,50.094437,8.725259
+390818,1,Frankfurt (Main) Burgholzer Straße,50.155704,8.667281
+16080,1,Frankfurt (Main) Burgstraße,50.127617,8.704624
+282631,1,Frankfurt (Main) Burgunderweg,50.113354,8.537487
+629565,1,Frankfurt (Main) Burnitzstraße,50.097164,8.673309
+273080,1,Frankfurt (Main) Börneplatz,50.11255,8.687996
+104587,1,Frankfurt (Main) Börneplatz/Stoltzestraße,50.112606,8.688876
+18944,1,Frankfurt (Main) Büdinger Straße,50.15142,8.68412
+585259,1,Frankfurt (Main) Bürgeler Straße,50.11754,8.770634
+100446,1,Frankfurt (Main) Bürostadt Niederrad,50.078045,8.628212
+19965,1,Frankfurt (Main) Camberger Straße,50.098846,8.651252
+372281,1,Frankfurt (Main) Carl-Benz-Straße Nord,50.12156,8.749766
+544527,1,Frankfurt (Main) Carl-Benz-Straße Süd,50.1164,8.761165
+512169,1,Frankfurt (Main) Carl-Sonnenschein-Straße,50.124,8.57213
+662475,1,Frankfurt (Main) Cassellastraße,50.129738,8.759714
+501989,1,Frankfurt (Main) Chemisches Werk,50.090355,8.594076
+328979,1,Frankfurt (Main) Cheruskerweg,50.116314,8.541108
+621384,1,Frankfurt (Main) Cohausenstraße,50.1597,8.64404
+301210,1,Frankfurt (Main) Comeniusstraße,50.133553,8.706
+242239,1,Frankfurt (Main) DFB-Campus,50.083286,8.651281
+660825,1,Frankfurt (Main) Dachsberg,50.1653,8.69306
+383445,1,Frankfurt (Main) Daimlerstraße,50.12243,8.740099
+87565,1,Frankfurt (Main) Darmstädter Landstraße Mitte,50.09692,8.691014
+366634,1,Frankfurt (Main) Den Haager Straße,50.10882,8.650779
+111304,1,Frankfurt (Main) Deutsche Bundesbank,50.136272,8.659709
+159212,1,Frankfurt (Main) Deutsche Nationalbibliothek,50.13143,8.683939
+386038,1,Frankfurt (Main) Deutschherrnbrücke,50.105274,8.704314
+336841,1,Frankfurt (Main) Dieburger Straße,50.114964,8.763628
+334142,1,Frankfurt (Main) Dielmannstraße,50.0974,8.69912
+615192,1,Frankfurt (Main) Dieselstraße,50.124424,8.744899
+498161,1,Frankfurt (Main) Dom/Römer,50.110855,8.684088
+615254,1,Frankfurt (Main) Dornbusch,50.13864,8.670393
+47316,1,Frankfurt (Main) Dornbusch/Am Grünhof,50.13617,8.671249
+321650,1,Frankfurt (Main) Draisbornstraße,50.145782,8.728771
+251181,1,Frankfurt (Main) Dreihäusergasse,50.161064,8.655699
+322188,1,Frankfurt (Main) Dubliner Straße,50.108578,8.645329
+178517,1,Frankfurt (Main) Dunantring,50.117764,8.556149
+422065,1,Frankfurt (Main) Dürkheimer Straße,50.09632,8.571035
+343009,1,Frankfurt (Main) Eckenheimer Landstraße/Marbachweg,50.14196,8.683562
+241053,1,Frankfurt (Main) Eduard-Bernstein-Weg,50.163822,8.621772
+578096,1,Frankfurt (Main) Eichenstraße,50.09521,8.602532
+321092,1,Frankfurt (Main) Eifelstraße,50.086395,8.579665
+325388,1,Frankfurt (Main) Einbiglerweg,50.12,8.772012
+232896,1,Frankfurt (Main) Eissporthalle Nordeingang,50.124916,8.718541
+338597,1,Frankfurt (Main) Eissporthalle/Festplatz,50.123634,8.717467
+262589,1,Frankfurt (Main) Elektronstraße,50.0966,8.59875
+427621,1,Frankfurt (Main) Eleonore-Sterling-Straße,50.1569,8.66588
+551266,1,Frankfurt (Main) Elisabethenstraße,50.105873,8.688119
+644483,1,Frankfurt (Main) Ellerfeld,50.13537,8.625157
+364959,1,Frankfurt (Main) Elly-Beinhorn-Straße,50.033604,8.591585
+127747,1,Frankfurt (Main) Eltviller Straße,50.11167,8.552962
+450741,1,Frankfurt (Main) Emil-von-Behring-Straße,50.170223,8.637506
+534083,1,Frankfurt (Main) Emmerich-Josef-Straße,50.101635,8.548447
+117356,1,Frankfurt (Main) Emser Straße,50.11414,8.641928
+201858,1,Frankfurt (Main) Engelsruhe,50.11477,8.536719
+635226,1,Frankfurt (Main) Engelthaler Straße,50.14942,8.681106
+303226,1,Frankfurt (Main) Enkheim,50.14256,8.753896
+278327,1,Frankfurt (Main) Eppenhainer Straße,50.1049,8.626005
+62961,1,Frankfurt (Main) Eppsteiner Straße,50.12042,8.667693
+113334,1,Frankfurt (Main) Erlenhof,50.195213,8.705062
+504035,1,Frankfurt (Main) Erlenseer Straße,50.15794,8.759265
+477677,1,Frankfurt (Main) Ernst-Balser-Straße,50.177803,8.61686
+424804,1,Frankfurt (Main) Ernst-Kahn-Straße,50.1548,8.63406
+189076,1,Frankfurt (Main) Ernst-May-Platz,50.12616,8.716212
+581337,1,Frankfurt (Main) Ernst-Wiss-Straße,50.097954,8.590718
+417260,1,Frankfurt (Main) Erntestraße,50.09433,8.638456
+146620,1,Frankfurt (Main) Erzbergerstraße,50.0941,8.6141
+374332,1,Frankfurt (Main) Eschenheimer Tor,50.117496,8.679141
+204821,1,Frankfurt (Main) Eschersheim Bahnhof,50.158146,8.655136
+662772,1,Frankfurt (Main) Eschweger Straße,50.13932,8.717221
+605418,1,Frankfurt (Main) Euckenstraße,50.110004,8.539253
+394079,1,Frankfurt (Main) Europagarten/Messe West,50.10821,8.636734
+423855,1,Frankfurt (Main) Europaturm,50.136204,8.653531
+258462,1,Frankfurt (Main) Europaviertel West,50.10764,8.623864
+140500,1,Frankfurt (Main) Fallerslebenstraße,50.13865,8.664406
+180207,1,Frankfurt (Main) Farbenstraße/Friedhof,50.076694,8.510761
+40899,1,Frankfurt (Main) Farbwerke,50.0979,8.526784
+280353,1,Frankfurt (Main) Ferdinand-Dirichs-Weg,50.08279,8.587172
+668724,1,Frankfurt (Main) Festhalle/Messe,50.11254,8.654271
+476582,1,Frankfurt (Main) Feuerwehrstraße,50.143593,8.690984
+672936,1,Frankfurt (Main) Fischstein,50.129578,8.623016
+510856,1,Frankfurt (Main) Flaschenburgstraße,50.100437,8.730914
+407680,1,Frankfurt (Main) Fliederweg,50.1666,8.67324
+228273,1,Frankfurt (Main) Florianweg,50.14864,8.753743
+287595,1,Frankfurt (Main) Flughafen Fernbahnhof,50.052914,8.569788
+184202,1,Frankfurt (Main) Flughafen Geb. 532,50.025978,8.555501
+525414,1,Frankfurt (Main) Flughafen Geb. 534,50.02613,8.560007
+550401,1,Frankfurt (Main) Flughafen Geb. 536,50.026657,8.562193
+356399,1,Frankfurt (Main) Flughafen Geb. 543,50.026413,8.565629
+581994,1,Frankfurt (Main) Flughafen Geb. 544,50.022232,8.563294
+223807,1,Frankfurt (Main) Flughafen Geb. 555,50.023125,8.57177
+334094,1,Frankfurt (Main) Flughafen Geb. 556,50.02299,8.576572
+672190,1,Frankfurt (Main) Flughafen Geb. 587,50.024853,8.583854
+230859,1,Frankfurt (Main) Flughafen Geb. 681,50.029488,8.590722
+67465,1,Frankfurt (Main) Flughafen Gebäude 116,50.052235,8.599787
+136856,1,Frankfurt (Main) Flughafen Lufthansabasis,50.0493,8.56139
+55078,1,Frankfurt (Main) Flughafen Parkhaus P53,50.045452,8.545539
+628167,1,Frankfurt (Main) Flughafen Parkhaus P60,50.027905,8.586582
+456137,1,Frankfurt (Main) Flughafen Parkplatz P592,50.02312,8.5669
+193325,1,Frankfurt (Main) Flughafen Regionalbahnhof,50.0512,8.571423
+307836,1,Frankfurt (Main) Flughafen Terminal 1,50.051075,8.571522
+479322,1,Frankfurt (Main) Flughafen Terminal 2,50.052387,8.588098
+637973,1,Frankfurt (Main) Flughafen Terminal 3,50.029087,8.581587
+495364,1,Frankfurt (Main) Flughafen Tor 2,50.05272,8.593541
+284409,1,Frankfurt (Main) Flughafen Tor 20,50.04974,8.565516
+110652,1,Frankfurt (Main) Flughafen Tor 23,50.04695,8.551821
+29872,1,Frankfurt (Main) Flughafen Tor 25,50.04179,8.535466
+593472,1,Frankfurt (Main) Flughafen Tor 26,50.0406,8.53249
+88085,1,Frankfurt (Main) Flughafen Tor 3,50.053215,8.579057
+475797,1,Frankfurt (Main) Flughafen Tor 31,50.02325,8.557131
+533244,1,Frankfurt (Main) Flughafen Tor 31 intern,50.023643,8.558634
+658709,1,Frankfurt (Main) Flughafen Tor 32,50.02581,8.58699
+293341,1,Frankfurt (Main) Flughafen Tor 33,50.03732,8.595034
+45364,1,Frankfurt (Main) Francois-Mitterrand-Platz,50.11088,8.664283
+391480,1,Frankfurt (Main) Frankensteiner Platz,50.10691,8.692459
+270326,1,Frankfurt (Main) Frankfurter Berg Bahnhof,50.170235,8.676507
+29934,1,Frankfurt (Main) Franz-Werfel-Straße,50.1391,8.65919
+280692,1,Frankfurt (Main) Frauenfriedenskirche,50.128635,8.646491
+550265,1,Frankfurt (Main) Frauenhofstraße,50.087128,8.649018
+469489,1,Frankfurt (Main) Freiligrathstraße,50.12222,8.710223
+250797,1,Frankfurt (Main) Freßgass,50.1152,8.67298
+147008,1,Frankfurt (Main) Freßgass/Hauptwache,50.11406,8.676545
+341247,1,Frankfurt (Main) Friedberger Anlage,50.115738,8.695395
+316914,1,Frankfurt (Main) Friedberger Platz,50.123325,8.691711
+399996,1,Frankfurt (Main) Friedberger Warte,50.139473,8.698406
+135977,1,Frankfurt (Main) Friedhof Bornheim,50.136303,8.701815
+560321,1,Frankfurt (Main) Friedhof Eckenheim,50.150284,8.686208
+529814,1,Frankfurt (Main) Friedhof Enkheim,50.150707,8.750216
+446909,1,Frankfurt (Main) Friedhof Fechenheim,50.12,8.77254
+224901,1,Frankfurt (Main) Friedhof Höchst,50.11476,8.548351
+1495,1,Frankfurt (Main) Friedhof Kurmainzer Straße,50.1097,8.55142
+644660,1,Frankfurt (Main) Friedhof Sindlingen,50.07986,8.510203
+432831,1,Frankfurt (Main) Friedhof Sossenheim,50.1255,8.565535
+603988,1,Frankfurt (Main) Friedhof Westhausen,50.139397,8.61221
+298807,1,Frankfurt (Main) Friedhof Zeilsheim,50.096336,8.486821
+555494,1,Frankfurt (Main) Friedrich-Ebert-Siedlung,50.09476,8.624495
+546048,1,Frankfurt (Main) Frischezentrum,50.19492,8.647869
+331373,1,Frankfurt (Main) Fritz-Klatte-Straße,50.092308,8.578007
+81102,1,Frankfurt (Main) Fritz-Tarnow-Straße,50.142914,8.668699
+464052,1,Frankfurt (Main) Fuldaer Straße,50.1332,8.761
+5017,1,Frankfurt (Main) Füllerstraße,50.143223,8.64837
+638128,1,Frankfurt (Main) G.-Hauptmann-Ring/Praunheimer Weg,50.16058,8.6196
+403531,1,Frankfurt (Main) Gablonzer Straße,50.08474,8.672313
+110782,1,Frankfurt (Main) Galluspark,50.1003,8.63728
+453922,1,Frankfurt (Main) Galluswarte,50.104183,8.644378
+56130,1,Frankfurt (Main) Gateway Gardens,50.056644,8.594639
+183348,1,Frankfurt (Main) Gateway Gardens Mitte,50.055008,8.596696
+501726,1,Frankfurt (Main) Gateway Gardens Nord,50.058,8.59655
+608259,1,Frankfurt (Main) Gaugrafenstraße,50.124184,8.596573
+143260,1,Frankfurt (Main) Geiselwiesen,50.140865,8.624383
+53089,1,Frankfurt (Main) Geisenheimer Straße,50.08914,8.575841
+113370,1,Frankfurt (Main) Gelastraße,50.14136,8.734756
+418421,1,Frankfurt (Main) Geleitsstraße,50.09977,8.694811
+507607,1,Frankfurt (Main) Genfer Straße,50.1914,8.657614
+350840,1,Frankfurt (Main) Georg-Treser-Straße,50.09845,8.714726
+410038,1,Frankfurt (Main) Geozentrum,50.173885,8.634571
+520214,1,Frankfurt (Main) Gerauer Straße,50.08367,8.644725
+84874,1,Frankfurt (Main) Gerbermühle,50.1054,8.7239
+149208,1,Frankfurt (Main) Gerlachstraße,50.105392,8.544423
+567600,1,Frankfurt (Main) Gewerbegebiet Nieder-Eschbach,50.19471,8.65584
+55222,1,Frankfurt (Main) Ginnheim Bahnhof,50.14323,8.64324
+17275,1,Frankfurt (Main) Ginnheim Mitte,50.140446,8.646226
+82041,1,Frankfurt (Main) Ginnheim/Niddapark,50.143757,8.642201
+205374,1,Frankfurt (Main) Ginnheimer Waldgasse,50.141457,8.647604
+612134,1,Frankfurt (Main) Glauburgstraße,50.126537,8.685733
+373844,1,Frankfurt (Main) Glockengasse,50.2005,8.674426
+74105,1,Frankfurt (Main) Glogauer Straße,50.192265,8.66517
+458559,1,Frankfurt (Main) Goetheturm,50.0895,8.70971
+562446,1,Frankfurt (Main) Goldbergweg,50.096134,8.716166
+181821,1,Frankfurt (Main) Goldsteinstraße,50.08416,8.620857
+444427,1,Frankfurt (Main) Graebestraße/Pflegeheim,50.1512,8.62273
+428605,1,Frankfurt (Main) Graf-Vollrath-Weg,50.12912,8.595263
+433763,1,Frankfurt (Main) Gravensteiner-Platz,50.155388,8.69845
+677592,1,Frankfurt (Main) Grazer Weg,50.098305,8.733106
+667382,1,Frankfurt (Main) Griesheim Bahnhof,50.09398,8.606432
+34765,1,Frankfurt (Main) Griesheim Bf/Eichenstraße,50.09524,8.607204
+227213,1,Frankfurt (Main) Große Nelkenstraße,50.13293,8.628403
+427507,1,Frankfurt (Main) Großer Hasenpfad Mitte,50.09468,8.686239
+123672,1,Frankfurt (Main) Großer Hasenpfad Süd,50.09117,8.684669
+641981,1,Frankfurt (Main) Grüneburgpark,50.1315,8.66156
+3414,1,Frankfurt (Main) Grüneburgweg,50.121647,8.675585
+57830,1,Frankfurt (Main) Guerickestraße,50.1352,8.59916
+116430,1,Frankfurt (Main) Gundelandstraße,50.15625,8.694583
+243839,1,Frankfurt (Main) Gundhofstraße,50.07911,8.647358
+145015,1,Frankfurt (Main) Gutleut-/Heilbronner Straße,50.09975,8.654216
+587021,1,Frankfurt (Main) Gwinnerstraße,50.13366,8.741186
+292756,1,Frankfurt (Main) Gwinnerstraße Mitte,50.138725,8.737078
+19181,1,Frankfurt (Main) Gymnasium Römerhof,50.10661,8.609441
+496508,1,Frankfurt (Main) Gymnasium Westhausen,50.14055,8.609781
+292108,1,Frankfurt (Main) Günthersburgallee,50.12698,8.696848
+171555,1,Frankfurt (Main) Günthersburgpark,50.128834,8.699932
+362253,1,Frankfurt (Main) Güntherstraße,50.081497,8.645677
+670219,1,Frankfurt (Main) Güterplatz,50.10753,8.655732
+420186,1,Frankfurt (Main) H.-Hoffmann-Str./Blutspendedienst,50.092148,8.652908
+494703,1,Frankfurt (Main) Haardtwaldplatz,50.08626,8.636574
+24225,1,Frankfurt (Main) Habelstraße,50.15646,8.644108
+228313,1,Frankfurt (Main) Habsburger-/Wittelsbacherallee,50.12021,8.705341
+254866,1,Frankfurt (Main) Habsburgerallee,50.117435,8.708429
+589651,1,Frankfurt (Main) Hadrianstraße,50.153114,8.633372
+465965,1,Frankfurt (Main) Haeberlinstraße,50.151566,8.657096
+560299,1,Frankfurt (Main) Hafenmühlenweg,50.1093,8.72425
+620411,1,Frankfurt (Main) Hafenstraße,50.10314,8.657278
+643181,1,Frankfurt (Main) Hagebuttenweg,50.1671,8.67723
+453603,1,Frankfurt (Main) Hahnstraße,50.08468,8.632925
+651869,1,Frankfurt (Main) Haigerer Straße,50.123592,8.57811
+127034,1,Frankfurt (Main) Hainer Weg,50.084373,8.698602
+130975,1,Frankfurt (Main) Haingasse,50.156185,8.758197
+64381,1,Frankfurt (Main) Halmstraße,50.096,8.64211
+137553,1,Frankfurt (Main) Hans-Böckler-Straße,50.1143,8.53446
+671794,1,Frankfurt (Main) Hans-Leistikow-Straße,50.180202,8.619557
+258865,1,Frankfurt (Main) Hans-Poelzig-Straße,50.176224,8.617251
+106306,1,Frankfurt (Main) Hansenweg,50.096184,8.718667
+307862,1,Frankfurt (Main) Harheimer Weg,50.183163,8.673452
+300097,1,Frankfurt (Main) Harthweg,50.081028,8.594732
+509684,1,Frankfurt (Main) Hartmann-Ibach-Straße,50.127567,8.702848
+34975,1,Frankfurt (Main) Hasselhorstweg,50.0886,8.70001
+450987,1,Frankfurt (Main) Hauptbahnhof,50.107155,8.663759
+77358,1,Frankfurt (Main) Hauptbahnhof Südseite,50.105717,8.664049
+10619,1,Frankfurt (Main) Hauptbahnhof tief,50.107162,8.662501
+263018,1,Frankfurt (Main) Hauptbahnhof/Fernbusterminal,50.10509,8.66211
+84518,1,Frankfurt (Main) Hauptbahnhof/Karlstraße,50.109146,8.663735
+491052,1,Frankfurt (Main) Hauptbahnhof/Münchener Straße,50.10693,8.666221
+195287,1,Frankfurt (Main) Hauptfriedhof,50.136288,8.684313
+446256,1,Frankfurt (Main) Hauptwache,50.11396,8.679286
+681967,1,Frankfurt (Main) Haus Gallus,50.104866,8.643479
+346200,1,Frankfurt (Main) Haus Nidda,50.18332,8.667528
+260371,1,Frankfurt (Main) Hausen,50.138287,8.624613
+162957,1,Frankfurt (Main) Hausener Weg,50.13156,8.619658
+256944,1,Frankfurt (Main) Heddernheim,50.161953,8.649101
+445543,1,Frankfurt (Main) Heddernheim Kirche,50.159615,8.646869
+225885,1,Frankfurt (Main) Heddernheimer Landstraße,50.163715,8.634784
+448759,1,Frankfurt (Main) Heerstraße,50.144352,8.607484
+383506,1,Frankfurt (Main) Heidenfeld,50.1553,8.6412
+573922,1,Frankfurt (Main) Heilbronner Straße,50.101746,8.654031
+337278,1,Frankfurt (Main) Heiligenstock/Lohrberg,50.15513,8.717688
+645744,1,Frankfurt (Main) Heimatmuseum Bergen-Enkheim,50.155174,8.753052
+91959,1,Frankfurt (Main) Heinrich-Becker-Straße,50.20182,8.676925
+558650,1,Frankfurt (Main) Heinrich-Bingemer-Weg,50.15481,8.759407
+298111,1,Frankfurt (Main) Heinrich-Hardt-Straße,50.1032,8.60258
+371897,1,Frankfurt (Main) Heinrich-Kromer-Schule,50.165302,8.625903
+214807,1,Frankfurt (Main) Heinrich-Lanz-Allee,50.189705,8.652613
+392182,1,Frankfurt (Main) Heinrich-Plett-Straße,50.1684,8.68504
+96716,1,Frankfurt (Main) Heister-/Seehofstraße,50.103725,8.696901
+7507,1,Frankfurt (Main) Heister-/Siemensstraße,50.10408,8.695403
+290320,1,Frankfurt (Main) Heizkraftwerk Niederrad,50.084484,8.62811
+467061,1,Frankfurt (Main) Hellerhofschule,50.106014,8.639668
+454291,1,Frankfurt (Main) Hellerhofstraße,50.105347,8.645691
+517858,1,Frankfurt (Main) Henninger-Turm,50.097996,8.693606
+422575,1,Frankfurt (Main) Henriette-Fürth-Straße,50.0864,8.59206
+143845,1,Frankfurt (Main) Hessen-Center,50.140446,8.748969
+421188,1,Frankfurt (Main) Hessendenkmal,50.1198,8.690088
+229264,1,Frankfurt (Main) Heusingerstraße,50.106167,8.580383
+324378,1,Frankfurt (Main) Hinter den Ulmen,50.1551,8.663232
+338235,1,Frankfurt (Main) Hofgut,50.146526,8.611471
+101516,1,Frankfurt (Main) Hofheimer Straße,50.097027,8.489744
+109412,1,Frankfurt (Main) Hohe Brück,50.200115,8.707857
+357265,1,Frankfurt (Main) Hohe Straße,50.15896,8.761387
+649902,1,Frankfurt (Main) Hohenstaufenstraße,50.110825,8.657652
+481758,1,Frankfurt (Main) Holbein-Schule,50.09929,8.680069
+362200,1,Frankfurt (Main) Holzhausen-Park,50.127132,8.676905
+113872,1,Frankfurt (Main) Holzhausenstraße,50.126713,8.673831
+534464,1,Frankfurt (Main) Homburger Hohl,50.186558,8.661723
+207190,1,Frankfurt (Main) Homburger Landstraße/Marbachweg,50.14411,8.693331
+1064,1,Frankfurt (Main) Hopfenbrunnen,50.188477,8.630679
+353548,1,Frankfurt (Main) Hospital Zum Heiligen Geist,50.110638,8.69272
+304144,1,Frankfurt (Main) Hospitalplatz,50.109123,8.54738
+555479,1,Frankfurt (Main) Hostatostraße,50.10183,8.54647
+161302,1,Frankfurt (Main) Hufeland-Haus,50.13935,8.720625
+124431,1,Frankfurt (Main) Hugo-Eckener-Ring,50.053116,8.58441
+376137,1,Frankfurt (Main) Hugo-Junkers-Straße,50.127583,8.753385
+152230,1,Frankfurt (Main) Hugo-Junkers-Straße/Schleife,50.125874,8.754191
+558941,1,Frankfurt (Main) Humperdinckstraße,50.0879,8.66182
+171879,1,Frankfurt (Main) Hynspergstraße,50.127827,8.681883
+101546,1,Frankfurt (Main) Höchst Bahnhof,50.102215,8.542375
+241300,1,Frankfurt (Main) Höchst Bahnhof Nordseite,50.10473,8.542043
+78974,1,Frankfurt (Main) Höchster Markt,50.100258,8.545468
+62196,1,Frankfurt (Main) Höhenblick,50.14703,8.655268
+365900,1,Frankfurt (Main) Höhenstraße,50.123035,8.701488
+476803,1,Frankfurt (Main) Höllbergstraße,50.15315,8.657225
+539866,1,Frankfurt (Main) Hügelstraße,50.14806,8.666201
+74886,1,Frankfurt (Main) IP Höchst Tor K801,50.0847,8.55113
+362217,1,Frankfurt (Main) Im Fuchsloch,50.207687,8.703767
+352588,1,Frankfurt (Main) Im Geeren,50.162525,8.661332
+658160,1,Frankfurt (Main) Im Mainfeld,50.09014,8.640765
+38749,1,Frankfurt (Main) Im Niederfeld,50.183815,8.684018
+198657,1,Frankfurt (Main) Im Steinbügel,50.167538,8.694493
+175923,1,Frankfurt (Main) Im Uhrig,50.16607,8.655709
+274033,1,Frankfurt (Main) Im Wörth,50.158234,8.659651
+400741,1,Frankfurt (Main) In der Au,50.122482,8.599207
+196041,1,Frankfurt (Main) In der Schildwacht,50.09645,8.592869
+410923,1,Frankfurt (Main) Industriehof,50.128998,8.629384
+480617,1,Frankfurt (Main) Industriepark Höchst Tor H831,50.090305,8.552619
+368585,1,Frankfurt (Main) Industriepark Höchst Tor Nord,50.097946,8.528323
+70039,1,Frankfurt (Main) Industriepark Höchst Tor Ost,50.097282,8.537945
+507599,1,Frankfurt (Main) Industriepark Höchst Tor Süd,50.081158,8.544587
+5375,1,Frankfurt (Main) Industriepark Höchst Tor West,50.08611,8.514243
+14139,1,Frankfurt (Main) Intzestraße,50.11153,8.731784
+40624,1,Frankfurt (Main) Jahrhunderthalle,50.0973,8.52009
+555376,1,Frankfurt (Main) Jakobsbrunnenstraße,50.126217,8.765228
+14845,1,Frankfurt (Main) Johann-Beyer-Weg,50.1823,8.62539
+656569,1,Frankfurt (Main) Johanna-Kirchner-AHZ,50.097557,8.647069
+672815,1,Frankfurt (Main) Johanna-Tesch-Platz,50.127907,8.726658
+536331,1,Frankfurt (Main) Josef-Bautz-Straße,50.195576,8.641731
+47578,1,Frankfurt (Main) Jugenheimer Straße,50.0836,8.6385
+396904,1,Frankfurt (Main) Julius-Brecht-Straße,50.1678,8.681292
+613763,1,Frankfurt (Main) Juliusstraße,50.125546,8.647003
+274070,1,Frankfurt (Main) Jungmannstraße,50.09101,8.605492
+539050,1,Frankfurt (Main) Jägerallee,50.10016,8.590541
+648926,1,Frankfurt (Main) Kaiser-Sigmund-Straße,50.1407,8.67785
+565652,1,Frankfurt (Main) Kaiserkronenweg,50.1656,8.68079
+493384,1,Frankfurt (Main) Kaiserleibrücke,50.112812,8.73393
+430455,1,Frankfurt (Main) Kalbach,50.183064,8.658075
+598133,1,Frankfurt (Main) Karl-Ritscher-Anlage,50.19314,8.646678
+293997,1,Frankfurt (Main) Karl-Wessendorft-Straße,50.156612,8.761147
+147297,1,Frankfurt (Main) Karl-von-Drais-Straße,50.149677,8.678838
+427975,1,Frankfurt (Main) Karlsbader Straße,50.086834,8.67153
+4990,1,Frankfurt (Main) Karmeliterkloster,50.110023,8.677975
+473638,1,Frankfurt (Main) Katharinenkreisel,50.115948,8.629936
+639007,1,Frankfurt (Main) Kelsterbacher Straße,50.089268,8.643482
+194168,1,Frankfurt (Main) Kelsterbacher Weg,50.086758,8.569951
+291301,1,Frankfurt (Main) Kettenhofweg,50.116287,8.658247
+676609,1,Frankfurt (Main) Kiesschneise,50.07649,8.61803
+45517,1,Frankfurt (Main) Kirche Zeilsheim,50.095,8.49287
+562594,1,Frankfurt (Main) Kirchgasse,50.153885,8.746888
+463615,1,Frankfurt (Main) Kirchplatz,50.125076,8.637665
+249037,1,Frankfurt (Main) Kirschbaumweg,50.126293,8.60524
+105337,1,Frankfurt (Main) Kleyerstraße,50.09711,8.629937
+103327,1,Frankfurt (Main) Klinikum Höchst,50.107025,8.543569
+623659,1,Frankfurt (Main) Kolberger Weg,50.0952,8.4954
+657251,1,Frankfurt (Main) Konrad-Duden-Weg,50.1903,8.66661
+565566,1,Frankfurt (Main) Konrad-Glatt-Straße,50.10668,8.548972
+497936,1,Frankfurt (Main) Konstablerwache,50.11459,8.686412
+44353,1,Frankfurt (Main) Krankenhaus Nordwest,50.150837,8.620391
+446782,1,Frankfurt (Main) Kreisel Unterschweinstiege,50.057083,8.588621
+620137,1,Frankfurt (Main) Kreuzstraße,50.1525,8.69105
+582326,1,Frankfurt (Main) Kriegkstraße,50.101315,8.639889
+581729,1,Frankfurt (Main) Kronberger Straße,50.1208,8.67059
+394373,1,Frankfurt (Main) Kruppstraße,50.1379,8.744422
+517136,1,Frankfurt (Main) Kuhwaldstraße,50.116882,8.640583
+596746,1,Frankfurt (Main) Kurfürstenplatz,50.12105,8.640231
+162401,1,Frankfurt (Main) Kurhessenstraße,50.144806,8.654542
+664031,1,Frankfurt (Main) Kurmarkstraße,50.203876,8.703244
+460429,1,Frankfurt (Main) Käthe-Kruse-Straße,50.17829,8.637716
+27838,1,Frankfurt (Main) Königsteiner Straße,50.111336,8.537754
+631306,1,Frankfurt (Main) Lahmeyerstraße,50.131832,8.742487
+503091,1,Frankfurt (Main) Langenselbolder Straße,50.132683,8.753308
+297666,1,Frankfurt (Main) Lauterbacher Straße,50.13234,8.748722
+20510,1,Frankfurt (Main) Leipziger Straße,50.12258,8.645696
+340672,1,Frankfurt (Main) Lenzenbergstraße,50.09721,8.505637
+556518,1,Frankfurt (Main) Leonardo-da-Vinci-Allee,50.113464,8.627882
+642946,1,Frankfurt (Main) Leonhardsgasse,50.1438,8.73217
+10694,1,Frankfurt (Main) Lerchesberg,50.0831,8.681071
+471130,1,Frankfurt (Main) Lerchesbergring,50.0833,8.67896
+202914,1,Frankfurt (Main) Lessing-Gymnasium,50.12495,8.67305
+525540,1,Frankfurt (Main) Lettigkautweg,50.099854,8.70342
+528958,1,Frankfurt (Main) Leuchte,50.142796,8.757271
+1898,1,Frankfurt (Main) Leuchte/Rangenbergstraße,50.143417,8.762248
+653759,1,Frankfurt (Main) Leverkuser Straße,50.0982,8.54533
+388305,1,Frankfurt (Main) Lindenbaum,50.152588,8.661496
+38664,1,Frankfurt (Main) Lindenhag,50.1065,8.60092
+379724,1,Frankfurt (Main) Lindenhof,50.19077,8.700525
+211457,1,Frankfurt (Main) Linnegraben,50.10021,8.596606
+28171,1,Frankfurt (Main) Lohrberg,50.153687,8.727393
+431235,1,Frankfurt (Main) Lokalbahnhof,50.101955,8.692128
+338809,1,Frankfurt (Main) Lokalbahnhof/Textorstraße,50.102844,8.690584
+52186,1,Frankfurt (Main) Lorscher Straße,50.12542,8.609447
+11295,1,Frankfurt (Main) Louisa Bahnhof,50.08388,8.670922
+353164,1,Frankfurt (Main) Lucy-Hillebrand-Straße,50.174618,8.623829
+256537,1,Frankfurt (Main) Ludwig-Erhard-Anlage,50.114193,8.649887
+621627,1,Frankfurt (Main) Ludwig-Erhard-Schule,50.110416,8.535023
+284030,1,Frankfurt (Main) Ludwig-Fulda-Weg,50.17733,8.631115
+143623,1,Frankfurt (Main) Ludwig-Scriba-Straße,50.10269,8.556711
+77758,1,Frankfurt (Main) Ludwigshafener Straße,50.0999,8.541698
+491175,1,Frankfurt (Main) Lufthansa Aviation Center,50.048126,8.556609
+500120,1,Frankfurt (Main) Lurgiallee,50.17096,8.635923
+73766,1,Frankfurt (Main) Luthmerstraße,50.09915,8.572869
+163480,1,Frankfurt (Main) Lyoner Straße,50.082867,8.629558
+441870,1,Frankfurt (Main) Lyoner-/Hahnstraße,50.079376,8.634209
+54421,1,Frankfurt (Main) Lärchenstraße,50.098396,8.586772
+535323,1,Frankfurt (Main) Löwengasse,50.12797,8.717684
+36057,1,Frankfurt (Main) Maastrichter Ring,50.108463,8.628442
+563266,1,Frankfurt (Main) Main-Neckar-Brücke,50.096996,8.654662
+315868,1,Frankfurt (Main) Mainberg,50.1,8.54952
+482497,1,Frankfurt (Main) Mainkur Bahnhof,50.13448,8.768092
+539728,1,Frankfurt (Main) Marbachweg/Sozialzentrum,50.142296,8.684623
+175898,1,Frankfurt (Main) Marktplatz Bergen,50.15875,8.758855
+504041,1,Frankfurt (Main) Marktstraße/Landgraben,50.154987,8.749667
+306970,1,Frankfurt (Main) Markus-Krankenhaus,50.13658,8.645817
+489573,1,Frankfurt (Main) Martinskirchstraße,50.08515,8.588856
+294054,1,Frankfurt (Main) Mathildenstraße,50.096813,8.721906
+538853,1,Frankfurt (Main) Mauritiusstraße,50.08756,8.58013
+174802,1,Frankfurt (Main) Max-Eyth-Straße,50.12436,8.761853
+305155,1,Frankfurt (Main) Max-Horkheimer-Straße,50.12926,8.669856
+231423,1,Frankfurt (Main) Max-Planck-Institut/FIZ,50.175114,8.632672
+242957,1,Frankfurt (Main) Mecklenburger Straße,50.20721,8.705619
+562897,1,Frankfurt (Main) Meerholzer Straße,50.134106,8.763874
+7149,1,Frankfurt (Main) Melanchthonplatz,50.0976,8.72762
+128876,1,Frankfurt (Main) Melibocusstraße,50.08192,8.640253
+395560,1,Frankfurt (Main) Merianplatz,50.120026,8.695256
+454872,1,Frankfurt (Main) Messe,50.111317,8.643435
+431177,1,Frankfurt (Main) Messeparkhaus,50.107903,8.621443
+374488,1,Frankfurt (Main) Michael-Grzimek-Schule,50.20059,8.671414
+626187,1,Frankfurt (Main) Michlersbrunnen,50.155502,8.75487
+222243,1,Frankfurt (Main) Miquel-/Adickesallee,50.131462,8.672079
+416385,1,Frankfurt (Main) Miquel-/Hansaallee,50.131527,8.668474
+146411,1,Frankfurt (Main) Mithrasstraße,50.1526,8.63047
+213526,1,Frankfurt (Main) Mitscherlichplatz,50.12352,8.664917
+673882,1,Frankfurt (Main) Mittelseestraße,50.12222,8.766855
+532350,1,Frankfurt (Main) Mockstädter Straße,50.074017,8.51769
+453220,1,Frankfurt (Main) Mohnblumenstraße,50.172764,8.672608
+5937,1,Frankfurt (Main) Musterschule,50.1217,8.686478
+41623,1,Frankfurt (Main) Märchensiedlung,50.094254,8.504075
+376307,1,Frankfurt (Main) Mönchhofstraße,50.100475,8.61757
+250204,1,Frankfurt (Main) Mühlberg,50.101894,8.699704
+489116,1,Frankfurt (Main) Mühlenwerke,50.108,8.71983
+271469,1,Frankfurt (Main) Mühlheimer Straße,50.118652,8.773626
+258874,1,Frankfurt (Main) Münzenberger Straße,50.132725,8.695208
+301403,1,Frankfurt (Main) Nauheimer Straße,50.116695,8.644262
+431107,1,Frankfurt (Main) Neu-Isenburg Stadtgrenze,50.05989,8.695092
+52022,1,Frankfurt (Main) Neu-Zeilsheim,50.097122,8.493112
+244311,1,Frankfurt (Main) Neuer Jüdischer Friedhof,50.139233,8.684703
+108178,1,Frankfurt (Main) Neufeld,50.11103,8.598613
+261361,1,Frankfurt (Main) Neumarkt,50.107346,8.584515
+586842,1,Frankfurt (Main) Nibelungenplatz,50.12902,8.693143
+592900,1,Frankfurt (Main) Nidda-Kampfbahn,50.10457,8.575034
+27006,1,Frankfurt (Main) Nied Bahnhof,50.102062,8.572284
+589078,1,Frankfurt (Main) Nied Bahnhof/Friedhof,50.10334,8.571229
+667914,1,Frankfurt (Main) Nied Bahnhof/Lotzstraße,50.1021,8.56846
+98311,1,Frankfurt (Main) Nied Brücke,50.100254,8.564305
+437199,1,Frankfurt (Main) Nied Kirche,50.098278,8.567174
+219264,1,Frankfurt (Main) Niedenau,50.11681,8.667275
+588672,1,Frankfurt (Main) Nieder-Eschbach,50.199253,8.670411
+145704,1,Frankfurt (Main) Niederbornstraße,50.152752,8.679251
+14525,1,Frankfurt (Main) Niedereschbacher Straße,50.205704,8.707099
+544874,1,Frankfurt (Main) Niederrad Bahnhof,50.08078,8.63709
+161895,1,Frankfurt (Main) Niederräder Landstraße,50.08852,8.651481
+103609,1,Frankfurt (Main) Niederursel,50.16919,8.622775
+450017,1,Frankfurt (Main) Niedwiesenstraße,50.1588,8.65284
+512051,1,Frankfurt (Main) Niersteiner Straße,50.092518,8.683542
+593088,1,Frankfurt (Main) Nordpark/Alter Flugplatz,50.17733,8.667388
+482174,1,Frankfurt (Main) Nordring/Haingasse,50.1589,8.754992
+112613,1,Frankfurt (Main) Nordring/Landgraben,50.157375,8.748423
+35174,1,Frankfurt (Main) Nordring/Vilbeler Landstr.,50.1572,8.745583
+206255,1,Frankfurt (Main) Nordwestzentrum,50.15876,8.634276
+136355,1,Frankfurt (Main) Oberfeldstraße,50.154232,8.622687
+567872,1,Frankfurt (Main) Oberforsthaus,50.078674,8.654151
+57966,1,Frankfurt (Main) Oberschelder Weg,50.161884,8.640135
+29818,1,Frankfurt (Main) Odenwaldstraße,50.08647,8.641998
+22056,1,Frankfurt (Main) Oppenheimer Landstraße,50.095177,8.681019
+61240,1,Frankfurt (Main) Ordnungsamt,50.098835,8.63366
+547148,1,Frankfurt (Main) Ostbahnhof,50.112724,8.707759
+375331,1,Frankfurt (Main) Ostbahnhof/Danziger Platz,50.11367,8.707632
+84362,1,Frankfurt (Main) Ostbahnhof/Honsellstraße,50.11139,8.708582
+638697,1,Frankfurt (Main) Ostbahnhof/Sonnemannstraße,50.111717,8.704983
+119753,1,Frankfurt (Main) Ostendstraße,50.11291,8.6966
+603794,1,Frankfurt (Main) Osthafenbrücke,50.105183,8.711192
+432555,1,Frankfurt (Main) Osthafenplatz,50.112114,8.71396
+82561,1,Frankfurt (Main) Otto-Hahn-Platz,50.101856,8.675677
+553559,1,Frankfurt (Main) Palmengartenstraße,50.119656,8.657286
+388000,1,Frankfurt (Main) Paquetstraße,50.140785,8.660968
+501506,1,Frankfurt (Main) Parkfriedhof Heiligenstock,50.16202,8.723698
+295623,1,Frankfurt (Main) Parkweg,50.12188,8.615097
+553331,1,Frankfurt (Main) Parlamentsplatz,50.119614,8.712457
+323976,1,Frankfurt (Main) Paul-Apel-Straße,50.1842,8.624118
+440378,1,Frankfurt (Main) Paul-Hindemith-Schule,50.105797,8.634935
+607247,1,Frankfurt (Main) Peter-Bied-Straße,50.104588,8.537823
+282881,1,Frankfurt (Main) Peterskirche,50.1179,8.68371
+30968,1,Frankfurt (Main) Pfaffenwiese/Kolberger Weg,50.09697,8.497701
+561511,1,Frankfurt (Main) Pfeiferstraße,50.143616,8.655129
+666835,1,Frankfurt (Main) Pferdskopfweg,50.1007,8.50283
+543865,1,Frankfurt (Main) Pfingstbornstraße,50.084,8.51536
+54479,1,Frankfurt (Main) Pflanzländer,50.14392,8.624359
+110734,1,Frankfurt (Main) Pfortenstraße,50.12216,8.76933
+608250,1,Frankfurt (Main) Pforzheimer Straße,50.104748,8.663622
+613278,1,Frankfurt (Main) Philipp-Reis-Straße,50.1147,8.635776
+520617,1,Frankfurt (Main) Platanenstraße,50.0977,8.60633
+223271,1,Frankfurt (Main) Platenstraße,50.136402,8.664701
+551361,1,Frankfurt (Main) Platz der Einheit,50.110786,8.653379
+68854,1,Frankfurt (Main) Platz der Republik,50.10912,8.661383
+175505,1,Frankfurt (Main) Plieningerstraße,50.133774,8.668277
+190555,1,Frankfurt (Main) Postsiedlung,50.1188,8.62371
+648573,1,Frankfurt (Main) Praunheimer Brücke,50.148125,8.622969
+613701,1,Frankfurt (Main) Praunheimer Weg Mitte,50.16166,8.620502
+101321,1,Frankfurt (Main) Praunheimer Weg/Schulzentrum,50.157547,8.622073
+405171,1,Frankfurt (Main) Preungesheim,50.15852,8.687665
+178076,1,Frankfurt (Main) Prüfling,50.12845,8.707024
+359642,1,Frankfurt (Main) Rabenkopfweg,50.097,8.51029
+127964,1,Frankfurt (Main) Radilostraße,50.125084,8.610722
+523706,1,Frankfurt (Main) Rangenbergstraße/Riedschule,50.150517,8.759624
+272622,1,Frankfurt (Main) Rathaus Harheim,50.1829,8.69257
+60195,1,Frankfurt (Main) Rathaus Kalbach,50.1893,8.63895
+220415,1,Frankfurt (Main) Rathaus Nieder-Erlenbach,50.20317,8.708963
+409362,1,Frankfurt (Main) Rauenthaler Weg,50.08418,8.570882
+601608,1,Frankfurt (Main) Rauschenberger Straße,50.1538,8.66815
+533721,1,Frankfurt (Main) Rebstockbad,50.11379,8.619407
+497610,1,Frankfurt (Main) Rebstöcker Straße,50.101574,8.628715
+87932,1,Frankfurt (Main) Reifenberger Straße/Sozialzentrum,50.128387,8.615422
+318677,1,Frankfurt (Main) Reinhardstraße,50.149395,8.67308
+464267,1,Frankfurt (Main) Rheinlandstraße,50.08249,8.581107
+210529,1,Frankfurt (Main) Rhonestraße,50.081913,8.624987
+251745,1,Frankfurt (Main) Richard-Wagner-Straße,50.130733,8.688209
+305561,1,Frankfurt (Main) Riedbad,50.151726,8.76257
+53633,1,Frankfurt (Main) Riedberg,50.178913,8.635537
+326455,1,Frankfurt (Main) Riederhöfe,50.116966,8.727955
+396419,1,Frankfurt (Main) Riedwiese/Mertonviertel,50.17138,8.642989
+187620,1,Frankfurt (Main) Robert-Bosch-Straße,50.119946,8.754547
+617257,1,Frankfurt (Main) Rohrbach/Friedberger Landstraße,50.126804,8.692066
+664772,1,Frankfurt (Main) Ronneburgstraße,50.15077,8.688615
+392651,1,Frankfurt (Main) Rotdornweg,50.166,8.66983
+672836,1,Frankfurt (Main) Roter Graben,50.138,8.77598
+397864,1,Frankfurt (Main) Roter Weg,50.06944,8.519733
+587461,1,Frankfurt (Main) Rotfeder-Ring,50.098377,8.655798
+640582,1,Frankfurt (Main) Rothschildallee,50.127995,8.69514
+418271,1,Frankfurt (Main) Rottweiler Platz,50.1012,8.65996
+102827,1,Frankfurt (Main) Roßkopfstraße,50.1627,8.629
+49439,1,Frankfurt (Main) Roßmarkt,50.112522,8.676024
+119195,1,Frankfurt (Main) Rudererdorf,50.105,8.7182
+648042,1,Frankfurt (Main) Ruhestein,50.086094,8.598877
+127284,1,Frankfurt (Main) Rödelheim Bahnhof,50.125156,8.606941
+149223,1,Frankfurt (Main) Römer/Paulskirche,50.110928,8.682005
+65900,1,Frankfurt (Main) Römerhof,50.107685,8.618467
+501894,1,Frankfurt (Main) Römerstadt,50.153435,8.638389
+666016,1,Frankfurt (Main) Römischer Ring,50.10882,8.633151
+682988,1,Frankfurt (Main) Saalburg-/Wittelsbacherallee,50.124622,8.713308
+170295,1,Frankfurt (Main) Sachsenhäuser Warte,50.086735,8.691498
+159127,1,Frankfurt (Main) Sandelmühle,50.166103,8.645123
+483347,1,Frankfurt (Main) Saonestraße,50.082413,8.633515
+225940,1,Frankfurt (Main) Schafheckstraße,50.097977,8.730732
+81457,1,Frankfurt (Main) Scheffeleck,50.11968,8.68739
+187205,1,Frankfurt (Main) Schielestraße West,50.11695,8.734928
+618141,1,Frankfurt (Main) Schießhüttenstraße,50.12144,8.773529
+439740,1,Frankfurt (Main) Schlitzer Straße,50.132,8.7447
+290710,1,Frankfurt (Main) Schloßborner Straße,50.104534,8.622406
+39850,1,Frankfurt (Main) Schmickstraße,50.107227,8.71467
+139547,1,Frankfurt (Main) Schmidtstraße,50.103756,8.618121
+657920,1,Frankfurt (Main) Schnappbornweg,50.093548,8.705825
+141380,1,Frankfurt (Main) Schneidhainer Straße,50.105312,8.629641
+462538,1,Frankfurt (Main) Schubertstraße,50.11867,8.65953
+198960,1,Frankfurt (Main) Schule Am Hang,50.15223,8.753837
+599830,1,Frankfurt (Main) Schule Kalbach,50.188522,8.642497
+31549,1,Frankfurt (Main) Schule Nieder-Erlenbach,50.202,8.71249
+492437,1,Frankfurt (Main) Schwalbacher Straße,50.10231,8.636275
+401255,1,Frankfurt (Main) Schwalbenweg,50.188534,8.631897
+37741,1,Frankfurt (Main) Schwanheimer Straße,50.088062,8.638028
+406233,1,Frankfurt (Main) Schwanheimer Wald,50.0739,8.57739
+133572,1,Frankfurt (Main) Schwanthalerstraße,50.100994,8.681371
+54341,1,Frankfurt (Main) Schwarzbachmühle,50.08245,8.604146
+617155,1,Frankfurt (Main) Schwarzwaldstraße,50.08684,8.64663
+32118,1,Frankfurt (Main) Schwedlerstraße,50.113976,8.719439
+69438,1,Frankfurt (Main) Schweinfurter Weg,50.09309,8.696255
+601456,1,Frankfurt (Main) Schweizer Platz,50.101864,8.680876
+554437,1,Frankfurt (Main) Schweizer Str./Mörfelder Landstr.,50.096603,8.684084
+368697,1,Frankfurt (Main) Schweizer-/Gartenstraße,50.103333,8.679553
+255745,1,Frankfurt (Main) Schäfflestraße,50.131153,8.734094
+597177,1,Frankfurt (Main) Schöffenstraße,50.091232,8.614625
+170323,1,Frankfurt (Main) Schönberger Weg,50.14798,8.615181
+618919,1,Frankfurt (Main) Schönbornstraße,50.141632,8.652275
+453048,1,Frankfurt (Main) Schöne Aussicht,50.109997,8.687998
+190781,1,Frankfurt (Main) Schönhof,50.12415,8.635281
+399507,1,Frankfurt (Main) Sebastian-Kneipp-Straße,50.16986,8.641097
+79604,1,Frankfurt (Main) Seckbacher Landstraße,50.134506,8.711879
+477216,1,Frankfurt (Main) Seehofpark,50.0957,8.70244
+568106,1,Frankfurt (Main) Seilerstraße,50.11714,8.68936
+665534,1,Frankfurt (Main) Senckenbergmuseum,50.11704,8.652714
+419818,1,Frankfurt (Main) Seniorenwohnanlage Bügel,50.18843,8.658429
+206441,1,Frankfurt (Main) Siedlung Frankfurter Berg,50.16774,8.67833
+85744,1,Frankfurt (Main) Siedlung Taunusblick,50.100964,8.497823
+241573,1,Frankfurt (Main) Siemens-Werk,50.11812,8.758262
+557399,1,Frankfurt (Main) Siesmayerstraße,50.12167,8.659956
+589240,1,Frankfurt (Main) Sigmund-Freud-Straße,50.154926,8.686209
+399682,1,Frankfurt (Main) Silobad/Ballsporthalle,50.1013,8.52951
+243143,1,Frankfurt (Main) Silostraße Mitte,50.099464,8.52493
+584361,1,Frankfurt (Main) Sindlingen Bahnhof,50.088047,8.511586
+235753,1,Frankfurt (Main) Sonnenweg,50.087,8.61588
+428377,1,Frankfurt (Main) Sontraer Straße,50.128407,8.742407
+438863,1,Frankfurt (Main) Sophienstraße,50.127743,8.641104
+614474,1,Frankfurt (Main) Sossenheim Bahnhof,50.11439,8.553314
+229425,1,Frankfurt (Main) Sossenheim Volkshaus,50.12229,8.566445
+230701,1,Frankfurt (Main) Sossenheimer Kirchberg,50.119633,8.566539
+159386,1,Frankfurt (Main) Speyerer Straße,50.10556,8.650854
+322753,1,Frankfurt (Main) Spitzenstraße,50.185,8.68883
+400715,1,Frankfurt (Main) Sportanlage Harheim,50.1824,8.69657
+500932,1,Frankfurt (Main) Sportanlage Rebstock,50.109104,8.60491
+53519,1,Frankfurt (Main) Sportzentrum Kalbach,50.186817,8.650127
+678718,1,Frankfurt (Main) Stadion,50.068085,8.632972
+150966,1,Frankfurt (Main) Stadion Osttribüne,50.068905,8.651683
+651502,1,Frankfurt (Main) Stadion Straßenbahn,50.075405,8.653238
+39232,1,Frankfurt (Main) Stadionbad,50.07309,8.652994
+666851,1,Frankfurt (Main) Stadtbahnzentralwerkstatt,50.141132,8.596878
+415555,1,Frankfurt (Main) Stadthalle Zeilsheim,50.0971,8.50152
+443570,1,Frankfurt (Main) Starkenburger Straße,50.11537,8.768608
+387868,1,Frankfurt (Main) Staustufe Griesheim,50.09131,8.60064
+602067,1,Frankfurt (Main) Staustufe Ost,50.1101,8.72699
+238612,1,Frankfurt (Main) Stefan-Zweig-Straße,50.13986,8.655183
+629716,1,Frankfurt (Main) Steinauer Straße,50.133026,8.757712
+239739,1,Frankfurt (Main) Stephan-Heise-Straße,50.135597,8.615724
+122594,1,Frankfurt (Main) Stephensonstraße,50.108498,8.642781
+441174,1,Frankfurt (Main) Sternbrücke,50.121326,8.620655
+120791,1,Frankfurt (Main) Stresemann-/Kennedyallee,50.098648,8.671995
+517783,1,Frankfurt (Main) Stresemannallee Bahnhof,50.094692,8.672511
+71697,1,Frankfurt (Main) Stresemannallee/Gartenstraße,50.09901,8.668852
+243557,1,Frankfurt (Main) Stresemannallee/Mörfelder Landstr,50.089443,8.671503
+73527,1,Frankfurt (Main) Südbahnhof,50.099327,8.686442
+216119,1,Frankfurt (Main) Südbahnhof/Mörfelder Landstraße,50.09854,8.687136
+400940,1,Frankfurt (Main) Südbahnhof/Schweizer Straße,50.09798,8.683781
+124327,1,Frankfurt (Main) Südfriedhof Ost,50.09087,8.696423
+363647,1,Frankfurt (Main) Südfriedhof West,50.09171,8.691233
+400729,1,Frankfurt (Main) Tannenkopfweg,50.08614,8.604703
+661349,1,Frankfurt (Main) Taunusanlage,50.11348,8.668762
+345146,1,Frankfurt (Main) Taunusblick,50.200245,8.695633
+160541,1,Frankfurt (Main) Tempelhof,50.18908,8.699429
+165909,1,Frankfurt (Main) Thea-Rasche-Straße,50.055275,8.590522
+189928,1,Frankfurt (Main) Theobald-Ziegler-Straße,50.147747,8.690127
+362046,1,Frankfurt (Main) Theodor-Fischer-Weg,50.1435,8.60356
+316742,1,Frankfurt (Main) Theodor-Storm-Straße,50.14598,8.65777
+241261,1,Frankfurt (Main) Thomas-Mann-Straße,50.1633,8.61537
+316948,1,Frankfurt (Main) Tillystraße,50.101406,8.560241
+528730,1,Frankfurt (Main) Trieb-/Barbarossastraße,50.145374,8.754679
+306589,1,Frankfurt (Main) Trift-/Frauenhofstraße,50.086273,8.64915
+532611,1,Frankfurt (Main) Triftstraße,50.08708,8.650527
+565036,1,Frankfurt (Main) Tränkweg,50.086353,8.6092
+226292,1,Frankfurt (Main) Tucholskystraße,50.092003,8.685879
+152930,1,Frankfurt (Main) Unfallklinik,50.144863,8.706169
+443250,1,Frankfurt (Main) Unfallklinik/B3,50.145836,8.706177
+467118,1,Frankfurt (Main) Uni Campus Riedberg,50.175495,8.628344
+120403,1,Frankfurt (Main) Uni Campus Westend,50.124084,8.66826
+574590,1,Frankfurt (Main) Universitätsklinikum,50.096207,8.660108
+597601,1,Frankfurt (Main) Universitätssportanlagen,50.130795,8.645151
+653559,1,Frankfurt (Main) Unterliederbach Bahnhof,50.108112,8.527846
+1973,1,Frankfurt (Main) Unterliederbach Markt,50.11071,8.531987
+647223,1,Frankfurt (Main) Unterliederbach West,50.1113,8.52746
+505923,1,Frankfurt (Main) Unterschweinstiege,50.058743,8.584836
+261958,1,Frankfurt (Main) Unterweg,50.119194,8.684415
+64285,1,Frankfurt (Main) Urseler Weg,50.201828,8.669907
+327533,1,Frankfurt (Main) Usinger Straße,50.131207,8.705539
+352990,1,Frankfurt (Main) Valentina-Archipowa-Straße,50.121452,8.627503
+411767,1,Frankfurt (Main) Varrentrappstraße,50.115307,8.647442
+164051,1,Frankfurt (Main) Victor-Slotosch-Straße,50.143906,8.746717
+102796,1,Frankfurt (Main) Vilbeler Landstraße,50.1516,8.74269
+312945,1,Frankfurt (Main) Vogelstraße,50.076916,8.650126
+111539,1,Frankfurt (Main) Vogelweidstraße,50.09744,8.666888
+169386,1,Frankfurt (Main) Voltenseestraße,50.145832,8.749514
+13653,1,Frankfurt (Main) Waldau,50.077,8.610328
+372803,1,Frankfurt (Main) Waldau/Goldsteinstraße,50.082413,8.610564
+13392,1,Frankfurt (Main) Waldfriedhof Goldstein,50.076843,8.603219
+473343,1,Frankfurt (Main) Waldfriedhof Oberrad,50.0937,8.73211
+379077,1,Frankfurt (Main) Waldfriedstraße,50.07742,8.646797
+198167,1,Frankfurt (Main) Waldschmidtstraße,50.118244,8.701657
+215154,1,Frankfurt (Main) Waldschulstraße,50.100266,8.604451
+445833,1,Frankfurt (Main) Waldspielpark Louisa,50.08748,8.667031
+519389,1,Frankfurt (Main) Walter-Kolb-Schule,50.11348,8.542827
+616409,1,Frankfurt (Main) Walter-Kolb-Siedlung,50.146725,8.703192
+294622,1,Frankfurt (Main) Wasgaustraße,50.108246,8.534978
+189959,1,Frankfurt (Main) Wasserpark,50.134968,8.696257
+17155,1,Frankfurt (Main) Wasserweg,50.105427,8.694789
+164810,1,Frankfurt (Main) Weidenbornstraße,50.13145,8.709817
+631763,1,Frankfurt (Main) Weilbrunnstraße,50.1544,8.691362
+396239,1,Frankfurt (Main) Weismüllerstraße Ost,50.12097,8.740876
+503918,1,Frankfurt (Main) Weismüllerstraße West,50.11781,8.733273
+106959,1,Frankfurt (Main) Weißer Stein,50.15678,8.656527
+64836,1,Frankfurt (Main) Weißkirchener Weg,50.166927,8.617899
+300676,1,Frankfurt (Main) Wendelsplatz,50.100624,8.691479
+377504,1,Frankfurt (Main) Wertheimer Straße,50.09538,8.696041
+666599,1,Frankfurt (Main) Weser-/Münchener Straße,50.107956,8.670282
+396121,1,Frankfurt (Main) Weserstraße,50.1099,8.66883
+323540,1,Frankfurt (Main) Westbahnhof,50.11945,8.63946
+542400,1,Frankfurt (Main) Westenbergerstraße,50.0803,8.51716
+388029,1,Frankfurt (Main) Westend,50.11813,8.662955
+537136,1,Frankfurt (Main) Westerbachsiedlung,50.1237,8.58068
+257215,1,Frankfurt (Main) Westerwaldstraße,50.123,8.56922
+202005,1,Frankfurt (Main) Wetzlarer Straße,50.142544,8.696666
+637519,1,Frankfurt (Main) Wickerer Straße,50.100975,8.622616
+26733,1,Frankfurt (Main) Wiener Straße,50.10038,8.736729
+599484,1,Frankfurt (Main) Wiesenau,50.166973,8.629609
+219937,1,Frankfurt (Main) Wiesenhüttenstift,50.15634,8.697661
+165572,1,Frankfurt (Main) Wilhelm-Fay-Straße,50.12359,8.588342
+669361,1,Frankfurt (Main) Wilhelm-Fay-Straße Nord,50.131813,8.576345
+520238,1,Frankfurt (Main) Wilhelm-Flögel-Ring,50.199963,8.665004
+126456,1,Frankfurt (Main) Willy-Brandt-Platz,50.108997,8.6739
+241497,1,Frankfurt (Main) Windthorststraße,50.110607,8.549085
+663741,1,Frankfurt (Main) Wolf-Heidenheim-Straße,50.127716,8.60141
+546694,1,Frankfurt (Main) Xaver-Fendt-Straße,50.191235,8.650585
+676792,1,Frankfurt (Main) Zanderstraße,50.099915,8.658974
+607637,1,Frankfurt (Main) Zehnmorgenstraße,50.15905,8.656543
+464469,1,Frankfurt (Main) Zeilsheim Bahnhof,50.090504,8.506806
+566172,1,Frankfurt (Main) Zeilsheim Kolonie,50.09397,8.496052
+196021,1,Frankfurt (Main) Zeilweg,50.16455,8.64249
+228484,1,Frankfurt (Main) Zentgrafenschule,50.143906,8.726362
+94274,1,Frankfurt (Main) Ziegenhainer Straße,50.15201,8.669228
+615326,1,Frankfurt (Main) Zobelstraße,50.11292,8.701107
+44528,1,Frankfurt (Main) Zoo,50.115513,8.69864
+610103,1,Frankfurt (Main) Zuckschwerdt-/Bauhofstraße,50.103497,8.551836
+465023,1,Frankfurt (Main) Zuckschwerdtstraße,50.103157,8.55251
+225387,1,Frankfurt (Main) Zum Apothekerhof,50.105267,8.697954
+654665,1,Frankfurt (Main) Zum Brommenhof,50.105705,8.700299
+6636,1,Frankfurt (Main) Zum Rebstockbad,50.112812,8.619042
+74495,1,Frankfurt (Main) Ärztehaus Am Bügel,50.18895,8.664572
+114013,2,"Berlin, Wiesbadener Str./Laubacher Str.",52.471573,13.319217
+522350,2,Duisburg Wiesbadener Str.,51.48107,6.807912
+506550,2,Hochheim (Main) Wiesbadener Straße,50.01246,8.34764
+282174,2,Hofheim am Taunus-Wallau Wiesbadener Straße,50.060753,8.370346
+441282,2,Hohenstein-Steckenroth Wiesbadener Straße,50.190132,8.123744
+368707,2,Idstein Wiesbadener Straße,50.21771,8.262443
+118589,2,Kirberg Wiesbadener Straße | Nxxx,50.30645,8.164344
+123938,2,Limburg (Lahn) Wiesbadener Straße/Gartenstraße,50.38063,8.071248
+434358,2,Limburg (Lahn) Wiesbadener Straße/Reha-Zentrum,50.376984,8.074605
+591526,2,Schwalbenohl Wiesbadener Str.,51.13623,7.906639
+652100,2,Waldems-Niederems Wiesbadener Straße,50.255337,8.361061
+83900,2,Wiesbaden A.-Schlüter-Straße,50.064133,8.265766
+368943,2,Wiesbaden Aarstraße,50.089,8.21863
+473342,2,Wiesbaden Abeggstraße,50.0945,8.250041
+402217,2,Wiesbaden Abraham-Lincoln-Straße/SAMSIC,50.0667,8.268391
+143006,2,Wiesbaden Adamstal,50.1044,8.20233
+572547,2,Wiesbaden Adelheidstraße,50.075947,8.237757
+494661,2,Wiesbaden Adlerstraße,50.086746,8.235239
+350151,2,Wiesbaden Albrecht-Dürer-Schule,50.086956,8.218174
+495743,2,Wiesbaden Alwinenstrasse,50.082165,8.255585
+184984,2,Wiesbaden An der Dietenmühle,50.090717,8.257199
+323793,2,Wiesbaden Berliner Straße,50.0725,8.256918
+129342,2,Wiesbaden Berufsschulzentrum,50.06811,8.256556
+419128,2,Wiesbaden Bleichstraße,50.08054,8.229581
+608378,2,Wiesbaden Bleichstraße/Bismarckring,50.08061,8.230792
+666178,2,Wiesbaden Blumenstraße,50.080875,8.250351
+133700,2,Wiesbaden Bornhofenweg,50.093815,8.218356
+151308,2,Wiesbaden Brunhildenstraße,50.063374,8.259479
+485522,2,Wiesbaden Carl-von-Linde-Straße,50.076252,8.208663
+351971,2,Wiesbaden Dambachtal,50.092247,8.239567
+368432,2,Wiesbaden Dernsches Gelände,50.080482,8.242055
+189131,2,Wiesbaden Dotzheimer Str./Bismarckring,50.07835,8.230912
+640870,2,Wiesbaden Dreiweidenstrasse,50.078033,8.227442
+416253,2,Wiesbaden Dürerplatz,50.08578,8.224701
+464937,2,Wiesbaden Dürerplatz (Ersatz),50.08474,8.226151
+244313,2,Wiesbaden Eigenheim,50.097713,8.249152
+295343,2,Wiesbaden Eiserne Hand,50.124355,8.167317
+448944,2,Wiesbaden Elsässer Platz,50.080315,8.221523
+83098,2,Wiesbaden Europaviertel,50.071632,8.222879
+391939,2,Wiesbaden Fasaneriestraße,50.09064,8.211742
+565155,2,Wiesbaden Fichtestraße/Handwerkskammer,50.08301,8.25961
+634047,2,Wiesbaden Fischerstraße,50.06931,8.240153
+133961,2,Wiesbaden Freizeitbad/Velvets Theater,50.058083,8.255032
+588764,2,Wiesbaden Freseniusstraße,50.096115,8.239953
+161484,2,Wiesbaden Friedenstraße,50.068146,8.263624
+72336,2,Wiesbaden Friedrichstraße,50.081017,8.244886
+82903,2,Wiesbaden Gartenfeldstraße P+R,50.06936,8.246466
+279192,2,Wiesbaden Geschwister-Stock-Platz,50.074398,8.242811
+418985,2,Wiesbaden Gneisenaustraße,50.080463,8.22493
+376077,2,Wiesbaden Grillparzerstraße,50.067562,8.235474
+392339,2,Wiesbaden Gustav-Mahler-Straße,50.08773,8.257106
+457618,2,Wiesbaden Gymnasium Mosbacher Berg,50.06263,8.237605
+397212,2,Wiesbaden Hans-Bredow-Straße,50.076534,8.257823
+13883,2,Wiesbaden Hasengartenstraße,50.06019,8.259193
+280647,2,Wiesbaden Hauptbahnhof,50.069477,8.244631
+359080,2,Wiesbaden Hildastraße,50.084694,8.259877
+116546,2,Wiesbaden Hochschule RheinMain,50.081127,8.2186
+405878,2,Wiesbaden Holbeinstraße,50.088448,8.214223
+28267,2,Wiesbaden Holsteinstraße,50.0645,8.234377
+13391,2,Wiesbaden Humboldtstraße,50.078606,8.248501
+554021,2,Wiesbaden Humperdinckstraße,50.094547,8.246365
+591803,2,Wiesbaden Händelstraße,50.098232,8.242939
+313839,2,Wiesbaden J.-F.-Kennedy-Straße,50.066116,8.272869
+625952,2,Wiesbaden Jawlenskystraße,50.08795,8.2412
+548422,2,Wiesbaden Joh.-Sebastian-Bach-Str.,50.09146,8.254738
+561943,2,Wiesbaden Karlsbader Platz,50.075005,8.223383
+181905,2,Wiesbaden Kesselbachstraße,50.087532,8.222455
+387327,2,Wiesbaden Kirchgasse,50.08033,8.239165
+162968,2,Wiesbaden Kleinfeldchen,50.077026,8.216631
+33350,2,Wiesbaden Klopstockstraße,50.069653,8.228526
+320596,2,Wiesbaden Kochbrunnen,50.086582,8.243346
+26696,2,Wiesbaden Kreuzkirche,50.089684,8.220781
+12978,2,Wiesbaden Kriegerdenkmal,50.09079,8.23667
+578785,2,Wiesbaden Kriemhildenstraße,50.05893,8.260678
+445376,2,Wiesbaden Kureck,50.085964,8.245228
+288888,2,Wiesbaden Kurhaus/Theater,50.08374,8.24462
+550584,2,Wiesbaden Künstlerviertel,50.07201,8.21783
+583034,2,Wiesbaden Landesbibliothek,50.077744,8.237589
+612293,2,Wiesbaden Landeshaus,50.07246,8.238176
+577354,2,Wiesbaden Langenbeckplatz/St.-Josefs-Hospital,50.07474,8.25374
+464385,2,Wiesbaden Leberberg,50.085304,8.252207
+175991,2,Wiesbaden Loreleiring,50.077374,8.220659
+665422,2,Wiesbaden Luisenplatz,50.079044,8.239297
+284066,2,Wiesbaden Luisenplatz/Rheinstraße,50.07768,8.239043
+19794,2,Wiesbaden Mainzer Straße/1.Ring,50.07105,8.248475
+441942,2,Wiesbaden Michelsberg,50.08327,8.235923
+463302,2,Wiesbaden Nerobergstraße,50.093365,8.234435
+54240,2,Wiesbaden Nerotal,50.09518,8.226258
+352251,2,Wiesbaden Neuberg,50.089874,8.24445
+109232,2,Wiesbaden Nordfriedhof,50.097027,8.221029
+78080,2,Wiesbaden Nussbaumstraße,50.06456,8.241332
+193311,2,Wiesbaden Paulinen-Klinik,50.07069,8.227322
+235612,2,Wiesbaden Platte,50.13512,8.218058
+529291,2,Wiesbaden Platz der Deutschen Einheit,50.080788,8.236252
+580993,2,Wiesbaden Polizeipräsidium Technik/IGS,50.073303,8.220781
+584925,2,Wiesbaden R.-Schumann-Schule,50.09072,8.249443
+408985,2,Wiesbaden Raiffeisenplatz,50.067577,8.273909
+187164,2,Wiesbaden Rheinstr./Rh-M. CongressCenter,50.076954,8.242502
+516745,2,Wiesbaden Riederbergstraße,50.084183,8.22997
+304748,2,Wiesbaden Ringkirche,50.07727,8.230011
+639429,2,Wiesbaden Rothstraße,50.088276,8.230254
+424140,2,Wiesbaden Ruhbergstraße,50.09103,8.227806
+248754,2,Wiesbaden Röderstraße,50.089394,8.238914
+512079,2,Wiesbaden Sanitas,50.094845,8.230792
+330736,2,Wiesbaden Scheffelstraße,50.07198,8.236088
+345210,2,Wiesbaden Schenkendorfstraße,50.070366,8.235555
+29019,2,Wiesbaden Schiersteiner Straße,50.07439,8.231536
+19129,2,Wiesbaden Schlachthof,50.06654,8.248535
+9881,2,Wiesbaden Schwalbacher Str./LuisenForum,50.078938,8.236519
+156459,2,Wiesbaden Sedanplatz,50.08282,8.229097
+158308,2,Wiesbaden Siegfriedring,50.06476,8.272586
+117294,2,Wiesbaden Statistisches Bundesamt,50.072025,8.251016
+162906,2,Wiesbaden Südfriedhof,50.060734,8.267811
+5113,2,Wiesbaden Thermalbad,50.088722,8.26173
+161254,2,Wiesbaden Thomaestraße,50.091076,8.244547
+37968,2,Wiesbaden Tränkweg,50.098293,8.247323
+550866,2,Wiesbaden Unter den Eichen,50.096287,8.21928
+392606,2,Wiesbaden Waldstraße,50.067688,8.223348
+368445,2,Wiesbaden Webergasse,50.08506,8.241005
+475930,2,Wiesbaden Weidenbornstraße/JUVZ,50.062492,8.252747
+465337,2,Wiesbaden Welfenstraße,50.066708,8.250052
+397193,2,Wiesbaden Westerwaldstraße,50.08605,8.222157
+450313,2,Wiesbaden Wielandstraße,50.06742,8.231998
+601945,2,Wiesbaden Wilhelm-Hauff-Straße,50.06929,8.232719
+266441,2,Wiesbaden Wilhelmstraße,50.07936,8.244535
+468374,2,Wiesbaden Willy-Brandt-Allee/VHS,50.069695,8.226193
+606323,2,Wiesbaden Wittelsbacherstraße,50.06704,8.251401
+63274,2,Wiesbaden Wolkenbruch,50.09367,8.223236
+84239,2,Wiesbaden Zietenring,50.08299,8.224386
+97142,2,Wiesbaden-Auringen Alt Auringen,50.12343,8.325858
+313903,2,Wiesbaden-Auringen Am Weinberg,50.12531,8.321384
+633949,2,Wiesbaden-Auringen August-Ruf-Straße,50.1226,8.325632
+252202,2,Wiesbaden-Auringen Auringer Mühle,50.116596,8.326093
+461120,2,Wiesbaden-Auringen Ginsterweg,50.120388,8.332203
+475825,2,Wiesbaden-Auringen Tannenring,50.12577,8.335037
+676559,2,Wiesbaden-Auringen Überm Wald,50.12228,8.334456
+55577,2,Wiesbaden-Auringen-Medenbach Bahnhof,50.113243,8.331016
+251043,2,Wiesbaden-Biebrich Adolf-Todt-Straße,50.037224,8.237491
+70594,2,Wiesbaden-Biebrich Albert-Schweitzer-Allee,50.0475,8.232386
+378851,2,Wiesbaden-Biebrich Am Kupferberg,50.06023,8.245729
+613357,2,Wiesbaden-Biebrich Am Rheinbahnhof,50.037155,8.245434
+323999,2,Wiesbaden-Biebrich Andreas-Hofer-Strasse,50.05238,8.231679
+310624,2,Wiesbaden-Biebrich Armenruhstraße,50.03979,8.23879
+291578,2,Wiesbaden-Biebrich Bahnhof,50.048084,8.237752
+479037,2,Wiesbaden-Biebrich Bahnhof Wiesbaden Ost,50.041718,8.256444
+632499,2,Wiesbaden-Biebrich Berlichingenstraße,50.064796,8.212329
+278541,2,Wiesbaden-Biebrich Bleichwiesenstraße,50.052036,8.237507
+85161,2,Wiesbaden-Biebrich Bunsenstraße,50.042244,8.247854
+306896,2,Wiesbaden-Biebrich Calvinstraße,50.061806,8.212284
+233970,2,Wiesbaden-Biebrich Carl-Bosch-Straße,50.04287,8.218216
+74100,2,Wiesbaden-Biebrich Chem. Fabrik Kreussler,50.0413,8.216724
+621410,2,Wiesbaden-Biebrich Diesterwegschule,50.063206,8.229314
+48011,2,Wiesbaden-Biebrich E.-Brändström-Straße,50.039883,8.226756
+373543,2,Wiesbaden-Biebrich Erich-Ollenhauer-Straße,50.054222,8.229081
+152914,2,Wiesbaden-Biebrich Faaker Straße,50.05591,8.224362
+420754,2,Wiesbaden-Biebrich Ferdinand-Knettenbrech-Weg,50.043285,8.257819
+382593,2,Wiesbaden-Biebrich Friedrich-Bergius-Straße,50.046127,8.220387
+155967,2,Wiesbaden-Biebrich Gallierweg,50.057552,8.239515
+565332,2,Wiesbaden-Biebrich Glarusstraße,50.034565,8.24232
+262923,2,Wiesbaden-Biebrich Gottfried-Kinkel-Straße,50.058575,8.242822
+514873,2,Wiesbaden-Biebrich Hagenauer Straße,50.048702,8.217357
+526639,2,Wiesbaden-Biebrich Heppenheimer Straße,50.040848,8.243659
+519818,2,Wiesbaden-Biebrich Herzogsplatz,50.04708,8.241076
+202512,2,Wiesbaden-Biebrich Im Kreuzer,50.059116,8.212328
+659612,2,Wiesbaden-Biebrich Im Rosenfeld,50.04623,8.225397
+476946,2,Wiesbaden-Biebrich Jägerstraße/Biberbau,50.06493,8.226381
+261064,2,Wiesbaden-Biebrich Kahle Mühle P+R,50.062435,8.216701
+254028,2,Wiesbaden-Biebrich Kalle,50.033558,8.246049
+309260,2,Wiesbaden-Biebrich Karawankenstraße,50.057926,8.218673
+183710,2,Wiesbaden-Biebrich Kasteler Straße,50.043633,8.251308
+32210,2,Wiesbaden-Biebrich Klagenfurter Ring,50.060658,8.219732
+515868,2,Wiesbaden-Biebrich Landesdenkmal,50.054775,8.243511
+312928,2,Wiesbaden-Biebrich Mainstraße,50.03847,8.239942
+102323,2,Wiesbaden-Biebrich Malmedyer Straße,50.048923,8.221877
+432305,2,Wiesbaden-Biebrich Nansenstraße,50.042854,8.228439
+532730,2,Wiesbaden-Biebrich Paul-Ehrlich-Straße,50.045837,8.230862
+372315,2,Wiesbaden-Biebrich Paul-Friedländer-Straße,50.04864,8.226615
+584085,2,Wiesbaden-Biebrich Rathaus,50.04157,8.239656
+299376,2,Wiesbaden-Biebrich Rathenauplatz,50.039642,8.240496
+415803,2,Wiesbaden-Biebrich Regattastraße,50.039318,8.225606
+269770,2,Wiesbaden-Biebrich Rheinhütte,50.040043,8.22237
+75520,2,Wiesbaden-Biebrich Rheinufer,50.036186,8.237172
+516522,2,Wiesbaden-Biebrich Robert-Krekel-Anlage,50.04375,8.241097
+168844,2,Wiesbaden-Biebrich Rudolf-Vogt-Straße,50.055862,8.247571
+576873,2,Wiesbaden-Biebrich Schiersteiner Brücke,50.041973,8.213627
+243520,2,Wiesbaden-Biebrich Schloß,50.037586,8.231315
+70446,2,Wiesbaden-Biebrich Sickingenstraße,50.054005,8.224839
+22569,2,Wiesbaden-Biebrich Steinberger Straße,50.0599,8.235232
+475505,2,Wiesbaden-Biebrich Tannenstraße,50.061363,8.232611
+24759,2,Wiesbaden-Biebrich Tannhäuserstraße,50.05071,8.241857
+33298,2,Wiesbaden-Biebrich Theodor-Heuss-Ring,50.061096,8.242322
+218907,2,Wiesbaden-Biebrich Varusstraße,50.058346,8.246485
+186132,2,Wiesbaden-Biebrich Wilhelm-Kopp-Straße,50.036472,8.238284
+654612,2,Wiesbaden-Biebrich Wörther-See-Straße,50.05589,8.220438
+183234,2,Wiesbaden-Biebrich Äppelallee,50.04752,8.230026
+90782,2,Wiesbaden-Biebrich Äppelallee-Center,50.046093,8.21423
+359699,2,Wiesbaden-Bierstadt Am Speiergarten,50.084644,8.288005
+427065,2,Wiesbaden-Bierstadt Aukamm,50.09261,8.279418
+243743,2,Wiesbaden-Bierstadt Dresdener Ring,50.088097,8.285131
+459177,2,Wiesbaden-Bierstadt Fasanenhof,50.07091,8.291672
+596394,2,Wiesbaden-Bierstadt Fliednerschule,50.080254,8.281405
+425011,2,Wiesbaden-Bierstadt Goldackerweg,50.079056,8.287706
+320724,2,Wiesbaden-Bierstadt Hof Erlenblick,50.081734,8.298229
+21186,2,Wiesbaden-Bierstadt Hof Niederfeld,50.075996,8.289795
+654022,2,Wiesbaden-Bierstadt Igstadter Straße,50.082237,8.294314
+624540,2,Wiesbaden-Bierstadt Kappenbergweg,50.095436,8.278369
+350918,2,Wiesbaden-Bierstadt Köpfchenweg,50.0821,8.289649
+296663,2,Wiesbaden-Bierstadt Leipziger Straße,50.08648,8.283883
+156446,2,Wiesbaden-Bierstadt Plutoweg,50.085236,8.273894
+146585,2,Wiesbaden-Bierstadt Poststraße,50.083374,8.281624
+79362,2,Wiesbaden-Bierstadt Raiffeisenstraße,50.085827,8.281797
+538978,2,Wiesbaden-Bierstadt Rostocker Straße,50.08783,8.290193
+290193,2,Wiesbaden-Bierstadt St. Birgid,50.083,8.28119
+9464,2,Wiesbaden-Bierstadt Töpferstraße,50.08712,8.28699
+358795,2,Wiesbaden-Bierstadt Venatorstraße,50.082912,8.28642
+466132,2,Wiesbaden-Bierstadt Wartestraße,50.084484,8.266461
+50705,2,Wiesbaden-Bierstadt Weimarer Straße,50.09045,8.286312
+71813,2,Wiesbaden-Bierstadt Wolfsfeld,50.09054,8.283753
+355166,2,Wiesbaden-Bierstadt Zieglerstraße,50.084633,8.277665
+632772,2,Wiesbaden-Breckenheim Alte Dorfstraße,50.077534,8.372757
+552157,2,Wiesbaden-Breckenheim Am Rathaus,50.077774,8.369579
+185608,2,Wiesbaden-Breckenheim Erlenstraße,50.080826,8.371621
+492312,2,Wiesbaden-Breckenheim Finkenhof,50.081554,8.353522
+442962,2,Wiesbaden-Breckenheim Friedhof,50.07581,8.370177
+98840,2,Wiesbaden-Breckenheim Rieslingstraße,50.080357,8.367369
+608414,2,Wiesbaden-Breckenheim Rothenbergstraße,50.081528,8.367564
+194031,2,Wiesbaden-Breckenheim Taunushof,50.080433,8.360061
+125734,2,Wiesbaden-Delkenheim Berta-Cramer-Ring,50.045326,8.354161
+654332,2,Wiesbaden-Delkenheim Domäne Mechtildshausen,50.038692,8.322465
+404322,2,Wiesbaden-Delkenheim EPHY MESS,50.046272,8.352222
+603064,2,Wiesbaden-Delkenheim Eifelstraße,50.047222,8.368014
+137974,2,Wiesbaden-Delkenheim Freiburger Straße,50.039886,8.361521
+143541,2,Wiesbaden-Delkenheim Gewerbegebiet,50.042046,8.355853
+4981,2,Wiesbaden-Delkenheim Lange Seegewann,50.036827,8.355419
+373565,2,Wiesbaden-Delkenheim Max-Planck-Ring,50.043953,8.354319
+246957,2,Wiesbaden-Delkenheim Mühlberg,50.04551,8.359823
+575637,2,Wiesbaden-Delkenheim Nürnberger Straße,50.041996,8.361312
+422392,2,Wiesbaden-Delkenheim Rathausplatz,50.04728,8.362093
+275675,2,Wiesbaden-Delkenheim Rosenheimer Straße,50.038002,8.357526
+391085,2,Wiesbaden-Delkenheim Schlagmühle,50.05066,8.37489
+322350,2,Wiesbaden-Dotzheim Alexej-von-Jawlensky-Schule,50.068195,8.192471
+113419,2,Wiesbaden-Dotzheim Am Hang,50.079834,8.201063
+153225,2,Wiesbaden-Dotzheim August-Bebel-Straße,50.072006,8.185688
+33546,2,Wiesbaden-Dotzheim Bahnhof,50.075836,8.204231
+264886,2,Wiesbaden-Dotzheim Bert-Brecht-Straße,50.05809,8.191425
+346722,2,Wiesbaden-Dotzheim Chausseehaus,50.0972,8.1694
+645980,2,Wiesbaden-Dotzheim Dotzheim-Mitte,50.072433,8.194631
+251818,2,Wiesbaden-Dotzheim HSK Augenklinik,50.066307,8.191231
+521044,2,Wiesbaden-Dotzheim Hans-Böckler-Straße,50.071445,8.184049
+437811,2,Wiesbaden-Dotzheim Helmholtzstraße,50.082745,8.195356
+471811,2,Wiesbaden-Dotzheim Im Wiesengrund,50.07078,8.198727
+188588,2,Wiesbaden-Dotzheim Joseph-Baum-Haus,50.0948,8.15648
+222326,2,Wiesbaden-Dotzheim Juister Straße,50.062145,8.209415
+561935,2,Wiesbaden-Dotzheim Karl-Legien-Straße,50.069527,8.186369
+306083,2,Wiesbaden-Dotzheim Kath. Kirche Kohlheck,50.082054,8.194138
+131164,2,Wiesbaden-Dotzheim Knusperhäuschen,50.0941,8.14207
+551907,2,Wiesbaden-Dotzheim Kornblumenweg,50.06197,8.189265
+593208,2,Wiesbaden-Dotzheim Kuckucksweg,50.088306,8.188444
+22917,2,Wiesbaden-Dotzheim Langendellschlag,50.0785,8.19139
+411218,2,Wiesbaden-Dotzheim Lorenz-Werthmann-Haus,50.08272,8.192339
+257951,2,Wiesbaden-Dotzheim Ludwig-Erhard-Straße,50.067387,8.188867
+418977,2,Wiesbaden-Dotzheim Märchenland,50.067486,8.182356
+115679,2,Wiesbaden-Dotzheim Nelkenweg,50.063507,8.196879
+215928,2,Wiesbaden-Dotzheim Nordstrander Straße,50.064266,8.205596
+130390,2,Wiesbaden-Dotzheim Polizeihochschule,50.0862,8.191522
+385275,2,Wiesbaden-Dotzheim Rheinblick,50.07016,8.177519
+207942,2,Wiesbaden-Dotzheim Schelmengraben,50.072758,8.182658
+470330,2,Wiesbaden-Dotzheim Sonnenblumenweg,50.06486,8.183839
+181642,2,Wiesbaden-Dotzheim Stegerwaldstraße,50.070587,8.196715
+273751,2,Wiesbaden-Dotzheim Stephan-Born-Straße,50.068615,8.190522
+219201,2,Wiesbaden-Dotzheim Straßenmühle,50.067596,8.207272
+606478,2,Wiesbaden-Dotzheim Veilchenweg,50.063995,8.199088
+544873,2,Wiesbaden-Dotzheim Waldfriedhof,50.07476,8.182568
+229251,2,Wiesbaden-Dotzheim Waldviertel,50.089703,8.185692
+221785,2,Wiesbaden-Dotzheim Weilburger Tal,50.0738,8.188954
+354815,2,Wiesbaden-Dotzheim Wilh.-Leuschner-Straße,50.075092,8.197733
+552700,2,Wiesbaden-Dotzheim Willi-Werner-Straße,50.069588,8.19851
+407156,2,Wiesbaden-Erbenheim Am Hochfeld,50.057915,8.291053
+435090,2,Wiesbaden-Erbenheim Aussiedlerhöfe,50.063778,8.31802
+341044,2,Wiesbaden-Erbenheim Bahnhof,50.054455,8.295279
+312677,2,Wiesbaden-Erbenheim Barbarossastraße,50.05324,8.304583
+331613,2,Wiesbaden-Erbenheim Buschungstraße,50.060062,8.301967
+420617,2,Wiesbaden-Erbenheim Clay Kaserne,50.04228,8.314814
+483355,2,Wiesbaden-Erbenheim Egerstraße,50.05497,8.299042
+337317,2,Wiesbaden-Erbenheim Emil-Krag-Straße,50.05927,8.30438
+289256,2,Wiesbaden-Erbenheim Flugplatz,50.041054,8.320171
+554572,2,Wiesbaden-Erbenheim Friedhof,50.048313,8.302644
+285209,2,Wiesbaden-Erbenheim Hermann-Ehlers-Schule,50.06096,8.295994
+42168,2,Wiesbaden-Erbenheim Im Hahn,50.060696,8.282951
+89604,2,Wiesbaden-Erbenheim Im Herzen,50.058853,8.288582
+365690,2,Wiesbaden-Erbenheim Karl-Drebert-Straße,50.06156,8.302494
+389,2,Wiesbaden-Erbenheim Kreuzberger Ring/Berliner Str.,50.056587,8.294648
+1535,2,Wiesbaden-Erbenheim Köpenicker Straße,50.06167,8.291501
+213637,2,Wiesbaden-Erbenheim Nietzerfeld,50.066418,8.293791
+572022,2,Wiesbaden-Erbenheim Oberfeld,50.056,8.307392
+609149,2,Wiesbaden-Erbenheim Rennbahnstraße,50.051945,8.307045
+191640,2,Wiesbaden-Erbenheim Spandauer Straße,50.059513,8.290401
+543800,2,Wiesbaden-Erbenheim Tillpetersrech,50.053715,8.290723
+214972,2,Wiesbaden-Erbenheim Wandersmannstraße,50.055035,8.305409
+19757,2,Wiesbaden-Erbenheim Weglache,50.05826,8.295978
+676962,2,Wiesbaden-Erbenheim Zur Schleifmühle,50.052174,8.295061
+407108,2,Wiesbaden-Frauenstein Alfred-Delp-Straße,50.066437,8.158518
+384560,2,Wiesbaden-Frauenstein Bgm-Schneider-Straße,50.060238,8.157802
+132771,2,Wiesbaden-Frauenstein Burg,50.06578,8.1548
+148746,2,Wiesbaden-Frauenstein Goethestein,50.06651,8.164844
+109865,2,Wiesbaden-Frauenstein Herrnbergstraße,50.062943,8.154026
+573055,2,Wiesbaden-Frauenstein Kirschblütenstraße,50.068676,8.171497
+373482,2,Wiesbaden-Heßloch,50.110924,8.296279
+646983,2,Wiesbaden-Igstadt Am Wiesenhang,50.08067,8.324665
+502935,2,Wiesbaden-Igstadt Bahnhof,50.08178,8.32546
+143333,2,Wiesbaden-Igstadt Hinterbergstraße,50.081093,8.325906
+398912,2,Wiesbaden-Igstadt Oranienhof,50.082012,8.310971
+44870,2,Wiesbaden-Igstadt Sankt-Gallus-Straße,50.08182,8.329054
+47139,2,Wiesbaden-Igstadt Weingartenstraße,50.07848,8.329561
+582831,2,Wiesbaden-Klarenthal Alt-Klarenthal,50.09438,8.198138
+515484,2,Wiesbaden-Klarenthal Anne-Frank-Straße,50.084682,8.207434
+477699,2,Wiesbaden-Klarenthal Carl-von-Ossietzky-Straße,50.082626,8.20328
+514897,2,Wiesbaden-Klarenthal Eishaus,50.096848,8.185728
+272829,2,Wiesbaden-Klarenthal Ernst-von-Harnack-Straße,50.08576,8.205073
+483997,2,Wiesbaden-Klarenthal Flachstraße,50.08052,8.205411
+601996,2,Wiesbaden-Klarenthal Gehrner Weg,50.09015,8.197356
+553683,2,Wiesbaden-Klarenthal Geschwister-Scholl-Straße,50.09005,8.198951
+577293,2,Wiesbaden-Klarenthal Graf-von-Galen-Straße,50.092068,8.199323
+119442,2,Wiesbaden-Klarenthal Heinz-Ranly-Straße,50.087578,8.205322
+327747,2,Wiesbaden-Klarenthal Hermann-Brill-Straße,50.090862,8.19522
+518881,2,Wiesbaden-Klarenthal Klosterweg,50.086998,8.200637
+216888,2,Wiesbaden-Klarenthal Konrad-Arndt-Straße,50.089615,8.204758
+55100,2,Wiesbaden-Klarenthal Moriz-Marxheimer-Straße,50.09228,8.202757
+175041,2,Wiesbaden-Klarenthal Stollenweg,50.09892,8.186476
+200266,2,Wiesbaden-Klarenthal Theodor-Haubach-Straße,50.084995,8.201033
+384653,2,Wiesbaden-Klarenthal Tierpark Fasanerie,50.10184,8.19143
+574902,2,Wiesbaden-Klarenthal Wellritzmühle,50.085304,8.210753
+349878,2,Wiesbaden-Kloppenheim Ernst-Göbel-Schule,50.096535,8.303594
+317303,2,Wiesbaden-Kloppenheim Gartenfeld,50.092686,8.301972
+515373,2,Wiesbaden-Kloppenheim Hockenberger Mühle,50.105797,8.316418
+683382,2,Wiesbaden-Kloppenheim Stiegelstraße,50.094456,8.306545
+331844,2,Wiesbaden-Mainz-Amöneburg Chemie-Werke-Albert,50.031902,8.250388
+179072,2,Wiesbaden-Mainz-Amöneburg Dyckerhoffstraße,50.031242,8.262485
+395895,2,Wiesbaden-Mainz-Amöneburg Entsorgungszentrum ELW,50.04273,8.262626
+317004,2,Wiesbaden-Mainz-Amöneburg Niederfeldstraße,50.029762,8.254427
+171041,2,Wiesbaden-Mainz-Amöneburg Unterer Zwerchweg,50.03841,8.263017
+277294,2,Wiesbaden-Mainz-Kastel Anna-Birle-Straße,50.023903,8.277972
+457808,2,Wiesbaden-Mainz-Kastel Bahnhof,50.007133,8.282617
+413753,2,Wiesbaden-Mainz-Kastel Brückenkopf,50.008068,8.280194
+383007,2,Wiesbaden-Mainz-Kastel Castellumstraße,50.01603,8.294237
+356052,2,Wiesbaden-Mainz-Kastel Eleonorenstraße,50.011837,8.279189
+345533,2,Wiesbaden-Mainz-Kastel Ernst-Galonske-Straße,50.02635,8.290694
+283922,2,Wiesbaden-Mainz-Kastel Fort Biehler,50.03879,8.298049
+12189,2,Wiesbaden-Mainz-Kastel Fritz-Ullmann-Straße,50.02942,8.274194
+593440,2,Wiesbaden-Mainz-Kastel Georg-Beatzel-Straße,50.028297,8.283394
+219837,2,Wiesbaden-Mainz-Kastel Glacisweg,50.010967,8.291269
+301411,2,Wiesbaden-Mainz-Kastel Johannes-Goßner-Straße,50.017,8.275107
+177793,2,Wiesbaden-Mainz-Kastel Kastel/Friedhof,50.01516,8.2836
+596871,2,Wiesbaden-Mainz-Kastel Krautgärten,50.01827,8.297288
+286119,2,Wiesbaden-Mainz-Kastel Lorenz-Schott-Straße,50.02583,8.276523
+534071,2,Wiesbaden-Mainz-Kastel Ludwigsplatz,50.012096,8.282003
+461093,2,Wiesbaden-Mainz-Kastel Mudra Kaserne,50.02643,8.265992
+559743,2,Wiesbaden-Mainz-Kastel Otto-Suhr-Ring,50.019176,8.287489
+277777,2,Wiesbaden-Mainz-Kastel Paulusplatz,50.008068,8.287671
+120917,2,Wiesbaden-Mainz-Kastel Peter-Sander-Straße,50.02926,8.279594
+453290,2,Wiesbaden-Mainz-Kastel Ratsherrenweg,50.014378,8.298656
+619364,2,Wiesbaden-Mainz-Kastel Roonstraße,50.010246,8.283607
+50841,2,Wiesbaden-Mainz-Kastel Ruthof,50.021046,8.270846
+78444,2,Wiesbaden-Mainz-Kastel Römerstraße,50.017773,8.301648
+171936,2,Wiesbaden-Mainz-Kastel Steinern Straße/WLeuSch,50.0128,8.294842
+325365,2,Wiesbaden-Mainz-Kostheim Am Lindequartier,50.002502,8.296607
+487155,2,Wiesbaden-Mainz-Kostheim Hallenbad,50.009335,8.296744
+286294,2,Wiesbaden-Mainz-Kostheim Hallgarter Straße,50.00694,8.300727
+640627,2,Wiesbaden-Mainz-Kostheim Hochheimer Straße,50.00668,8.288818
+666217,2,Wiesbaden-Mainz-Kostheim Klagenfurter Straße,50.004696,8.290953
+314861,2,Wiesbaden-Mainz-Kostheim Linzer Straße,50.007652,8.29468
+649224,2,Wiesbaden-Mainz-Kostheim Luisenstraße,50.000954,8.301515
+331768,2,Wiesbaden-Mainz-Kostheim Mainbrücke,50.000565,8.308268
+578621,2,Wiesbaden-Mainz-Kostheim Sampelweg,50.008034,8.3043
+247977,2,Wiesbaden-Mainz-Kostheim Sankt-Veiter-Platz,50.008923,8.2996
+374266,2,Wiesbaden-Mainz-Kostheim Steinern-Kreuz-Weg,50.008717,8.311224
+450668,2,Wiesbaden-Mainz-Kostheim Uthmannstraße,50.011417,8.298364
+16123,2,Wiesbaden-Mainz-Kostheim Viktoriastraße,50.003006,8.301342
+276637,2,Wiesbaden-Mainz-Kostheim Winterstraße,50.00158,8.30583
+97586,2,Wiesbaden-Medenbach Am Sportfeld,50.11017,8.338514
+88558,2,Wiesbaden-Medenbach Am Wald,50.115253,8.337507
+125741,2,Wiesbaden-Medenbach An den drei Weiden,50.102764,8.344846
+594016,2,Wiesbaden-Medenbach Kirschenbergstraße,50.10729,8.33834
+264998,2,Wiesbaden-Medenbach Münzenbergstraße,50.108074,8.336655
+92794,2,Wiesbaden-Medenbach Neufeldstraße,50.104614,8.339649
+652248,2,Wiesbaden-Medenbach Rossertstraße,50.112137,8.338515
+302042,2,Wiesbaden-Medenbach Wildsachsener Straße,50.103348,8.343262
+378403,2,Wiesbaden-Naurod Bernsteinstraße,50.13307,8.297819
+531740,2,Wiesbaden-Naurod Erbsenacker,50.130207,8.294085
+308463,2,Wiesbaden-Naurod Feldbergblick,50.12736,8.297455
+408874,2,Wiesbaden-Naurod Fondetter Straße,50.1352,8.301463
+335393,2,Wiesbaden-Naurod Laurentiusstraße,50.133587,8.304035
+349170,2,Wiesbaden-Naurod Schillerstraße,50.138416,8.304679
+362038,2,Wiesbaden-Naurod Schule,50.13544,8.30903
+154952,2,Wiesbaden-Naurod Wilhelm-Kempf-Haus,50.144814,8.308433
+429599,2,Wiesbaden-Nordenstadt Am Erbenheimer Feld,50.06288,8.322949
+261472,2,Wiesbaden-Nordenstadt Am Hainpark,50.064716,8.331956
+166919,2,Wiesbaden-Nordenstadt Borsigstraße,50.05762,8.329209
+595097,2,Wiesbaden-Nordenstadt Daimlerring,50.057255,8.333623
+582358,2,Wiesbaden-Nordenstadt Eichendorffweg,50.063248,8.337036
+616145,2,Wiesbaden-Nordenstadt Erfurter Straße,50.067924,8.338424
+234288,2,Wiesbaden-Nordenstadt Friedhofstraße,50.06605,8.342259
+308829,2,Wiesbaden-Nordenstadt Habichtweg,50.060886,8.336147
+381557,2,Wiesbaden-Nordenstadt Horchheimer Straße,50.061077,8.34092
+480009,2,Wiesbaden-Nordenstadt Junkernstraße,50.066185,8.339286
+551224,2,Wiesbaden-Nordenstadt Konrad-Zuse-Str./Hainpark,50.06247,8.330395
+432028,2,Wiesbaden-Nordenstadt Konrad-Zuse-Straße,50.061626,8.329471
+321375,2,Wiesbaden-Nordenstadt Lindenweg,50.063778,8.352671
+291826,2,Wiesbaden-Nordenstadt Otto-von-Guericke-Ring,50.057117,8.337745
+470870,2,Wiesbaden-Nordenstadt Siemensstraße,50.05909,8.334897
+641777,2,Wiesbaden-Nordenstadt Stolberger Straße,50.060616,8.344163
+427924,2,Wiesbaden-Nordenstadt Wallauer Weg,50.063473,8.347759
+185626,2,Wiesbaden-Nordenstadt Westring,50.06796,8.334104
+126702,2,Wiesbaden-Rambach Alte Ziegelei,50.108505,8.281759
+242512,2,Wiesbaden-Rambach Am Burgacker,50.11009,8.281529
+581330,2,Wiesbaden-Rambach Goldsteintal,50.10939,8.268863
+211346,2,Wiesbaden-Rambach Kitzelberg,50.11958,8.276203
+39637,2,Wiesbaden-Rambach Niedernhausener Straße,50.115448,8.270305
+326199,2,Wiesbaden-Rambach Ostpreußenstraße,50.11299,8.272318
+604695,2,Wiesbaden-Rambach Trompeterstraße,50.11705,8.273483
+546806,2,Wiesbaden-Schierstein Alte Schmelze,50.048153,8.209087
+66642,2,Wiesbaden-Schierstein Bahnhof,50.04764,8.195395
+295263,2,Wiesbaden-Schierstein Eichendorff-Schule,50.059475,8.199027
+41876,2,Wiesbaden-Schierstein Floßhafen/DowCorning,50.043167,8.208261
+636707,2,Wiesbaden-Schierstein Friedhof Schierstein,50.044693,8.185141
+159194,2,Wiesbaden-Schierstein Glyco,50.04947,8.19763
+559145,2,Wiesbaden-Schierstein Hafen,50.04282,8.200993
+363372,2,Wiesbaden-Schierstein Heinrich-Zille-Straße,50.05143,8.193125
+294569,2,Wiesbaden-Schierstein Hermann-Löns-Str,50.05469,8.197064
+496693,2,Wiesbaden-Schierstein Kallebad,50.056225,8.209509
+676122,2,Wiesbaden-Schierstein Klabundstraße,50.054993,8.191757
+116972,2,Wiesbaden-Schierstein Neckarstraße,50.04548,8.190073
+311438,2,Wiesbaden-Schierstein Oderstraße,50.045692,8.186729
+177660,2,Wiesbaden-Schierstein Rathaus,50.045624,8.195641
+139307,2,Wiesbaden-Schierstein Reichsapfelstraße,50.044746,8.195935
+649668,2,Wiesbaden-Schierstein Rheingaustraße,50.043934,8.204758
+238757,2,Wiesbaden-Schierstein Saarbrücker Allee,50.04782,8.205294
+526,2,Wiesbaden-Schierstein Stielstraße,50.050316,8.204276
+397245,2,Wiesbaden-Schierstein Vogesenstraße,50.048748,8.192668
+335336,2,Wiesbaden-Schierstein Zeilstraße,50.04592,8.200422
+203460,2,Wiesbaden-Sonnenberg Bahnholz,50.106018,8.243124
+101173,2,Wiesbaden-Sonnenberg Bergstraße,50.097084,8.260204
+60918,2,Wiesbaden-Sonnenberg Friedhof,50.09767,8.269181
+674428,2,Wiesbaden-Sonnenberg Hofgartenplatz,50.10102,8.26442
+237907,2,Wiesbaden-Sonnenberg Kurkliniken,50.092354,8.265824
+508144,2,Wiesbaden-Sonnenberg Liebenaustraße,50.09698,8.265097
+16059,2,Wiesbaden-Sonnenberg Mühlwiese,50.104507,8.266729
+255432,2,Wiesbaden-Sonnenberg Prinz-Nikolas-Straße,50.100636,8.246214
+613269,2,Wiesbaden-Sonnenberg Schlagstraße,50.10479,8.266221
+661316,2,Wiesbaden-Sonnenberg Schleiermacherstraße,50.090626,8.263894
+287674,2,Wiesbaden-Sonnenberg Steinbruch,50.106606,8.268626
+412926,2,Wiesbaden-Sonnenberg Talheim,50.098698,8.262205
+217004,2,Wiesbaden-Sonnenberg Tennelbachstraße,50.094322,8.257451
+355408,2,Wiesbaden-Sonnenberg Württembergstraße,50.095196,8.268604
+655600,2,Wiesbaden-Sonnenberg Zweigstraße,50.09924,8.267173
+662994,2,"Wiesbadener Str., Dillingen",49.375214,6.727248
+42279,3,Bad Orb Friedrichstal/Kasselberg,50.224236,9.336638
+462478,3,Bad Vilbel Kasseler Straße,50.1854,8.74156
+46402,3,Bad Zwesten Kasseler Straße,51.05881,9.181857
+434390,3,"Bahnhof Oberzwehren, Kassel",51.276012,9.452835
+495981,3,"Bahnhof Wilhelmshöhe, Kassel",51.313374,9.446958
+95848,3,Baunatal-Altenbauna Abzweig Kasseler Straße,51.24918,9.398233
+460164,3,Biebergemünd-Kassel (MKK) Gemeindezentrum,50.21665,9.272087
+219319,3,Biebergemünd-Kassel (MKK) Nahversorgungszentrum,50.213116,9.272823
+545688,3,Biebergemünd-Kassel (MKK) Schule,50.20501,9.277391
+94959,3,Bonaforth Alte Kasseler Landstraße,51.397312,9.626586
+518213,3,Bonaforth Kasseler Straße/Löwenau,51.398132,9.639073
+136320,3,Bonn Holtorf Oberkasseler Str.,50.728703,7.166355
+6811,3,Bonn Oberkassel Am Kriegersgraben,50.71081,7.179102
+424030,3,Bonn Oberkassel Bf,50.715073,7.159303
+26908,3,Bonn Oberkassel Grüner Weg,50.704872,7.17629
+80929,3,Bonn Oberkassel Heinrich-Konen-Str.,50.720196,7.156734
+400317,3,Bonn Oberkassel Humbroichweg,50.71131,7.18363
+325658,3,Bonn Oberkassel Im Mohrenfeld,50.709587,7.170335
+288801,3,Bonn Oberkassel Konrad-Zuse-Platz,50.717808,7.154399
+361899,3,Bonn Oberkassel Mitte,50.71326,7.170074
+551963,3,Bonn Oberkassel Mitte,50.71285,7.170649
+516102,3,Bonn Oberkassel Nord,50.71627,7.165439
+408316,3,Bonn Oberkassel Süd/Römlinghoven,50.709736,7.17426
+448590,3,Bonn Oberkassel Süd/Römlinghoven,50.71015,7.173892
+316965,3,Bonn Oberkassel Theresienau,50.707222,7.173083
+107799,3,Calden-Flughafen Kassel Terminal,51.416,9.386013
+227448,3,D-Niederkasseler Kirchweg,51.23761,6.744821
+412826,3,Dortmund Kasseler Straße,51.520557,7.501678
+333770,3,Dresden Kasseler Straße,51.033737,13.691124
+175773,3,"Eisenach, Kasseler Straße",50.9927,10.294139
+24990,3,"Eisenach, Untere Kasseler Straße",50.98258,10.30053
+67808,3,"Eisleben, Kasseler Str.",51.524895,11.535672
+650429,3,Eschwege Kasseler Straße,51.178925,10.028222
+219891,3,Fuldatal-Simmershausen Kasseler Straße,51.367092,9.523033
+360009,3,Gudensberg Kasseler Straße,51.18083,9.376906
+286979,3,Hann. Münden Kasseler Straße,51.413055,9.650633
+217523,3,"Hauptbahnhof Nord, Kassel",51.318897,9.489815
+463181,3,"Heilbad Heiligenstadt, Kasseler Tor",51.37632,10.131442
+461226,3,Homberg(Efze) Kasseler Straße,51.038498,9.39773
+303425,3,"Ifta, Kasseler Straße",51.0669,10.17548
+337450,3,Kassel (Wilhelmshöhe train station),51.31227,9.44807
+523408,3,Kassel Achenbachstraße,51.31787,9.472459
+408664,3,Kassel Agathofstraße,51.310062,9.524635
+401912,3,Kassel Ahnabreite,51.3432,9.487398
+128126,3,Kassel Ahnatalstraße,51.33405,9.440696
+578128,3,Kassel Ahnetal,51.3447,9.379032
+179602,3,Kassel Ahornweg,51.29217,9.543254
+22776,3,Kassel Alt Philippinenhof,51.346294,9.497923
+90208,3,Kassel Alt Waldau,51.289753,9.513595
+299577,3,Kassel Alte Drusel,51.307487,9.395569
+338820,3,Kassel Alte Stadtgrenze,51.326195,9.518966
+642992,3,Kassel Altenbaunaer Str./Europaschule,51.274345,9.445082
+623770,3,Kassel Altmarkt/Regierungspräsidium,51.316273,9.504654
+544480,3,Kassel Am Fasanenhof,51.32856,9.523188
+12466,3,Kassel Am Goldbach,51.273792,9.458719
+507861,3,Kassel Am Kirschrain,51.34525,9.454151
+668692,3,Kassel Am Kranichholz,51.285038,9.458544
+152235,3,Kassel Am Kubergraben,51.335835,9.433739
+502995,3,Kassel Am Kupferhammer,51.295128,9.554199
+180536,3,Kassel Am Osterholz,51.309345,9.547616
+244787,3,Kassel Am Rosengarten,51.285156,9.452683
+528403,3,Kassel Am Steinbruch,51.30313,9.409369
+323959,3,Kassel Am Stern,51.318043,9.500256
+490455,3,Kassel Am Sälzerhof,51.311554,9.532297
+498806,3,Kassel Am Weinberg,51.307255,9.487676
+234037,3,Kassel Am Ziegenberg,51.342888,9.443895
+48896,3,Kassel Am Ziegenkopf,51.30926,9.380397
+250933,3,Kassel An den Rehäckern,51.269775,9.447115
+236848,3,Kassel Annastraße,51.315308,9.479113
+588404,3,Kassel Anne-Frank-Straße,51.291367,9.462435
+410030,3,Kassel Arnimstraße,51.337967,9.515598
+428778,3,Kassel Aschrottstraße,51.31832,9.460798
+550737,3,Kassel Auebad,51.300823,9.499681
+52707,3,Kassel Auerstraße,51.303093,9.468059
+432126,3,Kassel Auestadion,51.298717,9.481105
+298363,3,Kassel Auf dem Kampe,51.279877,9.520173
+111387,3,Kassel Bahnhof Harleshausen,51.331776,9.451751
+292436,3,Kassel Bahnhof Niederzwehren,51.293083,9.475842
+365441,3,Kassel Bahnhof Oberzwehren,51.276283,9.453422
+449424,3,Kassel Bahnhof Wilhelmshöhe,51.31313,9.44705
+669479,3,Kassel Bardelebenstraße,51.322502,9.457727
+639493,3,Kassel Bebelplatz,51.316086,9.46472
+182121,3,Kassel Bei den Weidenbäumen,51.339363,9.470079
+115852,3,Kassel Bereitschaftspolizei,51.276375,9.462857
+596501,3,Kassel Bergshäuser Straße,51.290295,9.506921
+269726,3,Kassel Berlepschstraße,51.312866,9.458777
+125454,3,Kassel Berliner Straße,51.34538,9.476011
+288951,3,Kassel Bettenhäuser Straße,51.310966,9.542888
+584285,3,Kassel Bildungszentrum,51.283085,9.498471
+465984,3,Kassel Bilsteiner Born,51.290974,9.41144
+680748,3,Kassel Birkenkopf,51.28037,9.405942
+142996,3,Kassel Bismarckstraße,51.317284,9.479882
+350803,3,Kassel Blindenheim,51.337364,9.4185
+95879,3,Kassel Blütenweg,51.294037,9.409876
+179448,3,Kassel Botanischer Garten,51.299873,9.472935
+516611,3,Kassel Brabanter Straße,51.309624,9.422076
+31133,3,Kassel Brandaustraße (Technikmuseum),51.325287,9.479131
+220199,3,Kassel Brandgasse,51.275192,9.449848
+409625,3,Kassel Brasselsberg,51.28731,9.410203
+208664,3,Kassel Breitscheidstraße,51.31885,9.456056
+173069,3,Kassel Breslauer Straße,51.292103,9.518925
+37616,3,Kassel Briefpostzentrum,51.274887,9.511011
+331449,3,Kassel Brückenhof Mitte,51.27973,9.442985
+279050,3,Kassel Brüder-Grimm-Straße,51.282066,9.464291
+332136,3,Kassel Bundessozialgericht,51.314857,9.450365
+392792,3,Kassel Bühlchenweg,51.28062,9.426554
+343074,3,Kassel Bürgerhaus Waldau,51.28806,9.522263
+195164,3,Kassel Caldener Straße,51.34443,9.49453
+313527,3,Kassel Carlsdorfer Straße,51.336563,9.441265
+36339,3,Kassel Christuskirche,51.31173,9.432757
+47363,3,Kassel DEZ-Einkaufszentrum,51.28954,9.474157
+570244,3,Kassel Dag-Hammarskjöld-Straße,51.318398,9.450801
+40980,3,Kassel Dahlheimer Weg,51.3082,9.55384
+334820,3,Kassel Damaschkebrücke,51.292904,9.487395
+407544,3,Kassel Dennhäuser Straße,51.285076,9.469237
+495324,3,Kassel Dessenborn,51.335987,9.53654
+270072,3,Kassel Dieselstraße,51.272762,9.520948
+570935,3,Kassel Dornländerweg,51.281944,9.425104
+523739,3,Kassel Dorothea-Viehmann-Schule,51.28546,9.464554
+291542,3,Kassel Drei Brücken,51.324707,9.466902
+76003,3,Kassel Druseltal,51.301105,9.414484
+435528,3,Kassel Döllbachaue,51.327236,9.474417
+548365,3,Kassel Dönche,51.303646,9.426452
+111009,3,Kassel Eberhard-Wildermuth-Straße,51.301132,9.477159
+360048,3,Kassel Eckhardsborn,51.276443,9.461267
+528566,3,Kassel Ehlener Kreuz,51.313442,9.374523
+75623,3,Kassel Eisenhammerstraße,51.28894,9.548147
+302837,3,Kassel Eisenschmiede,51.33092,9.513381
+251881,3,Kassel Elektro-Bergmann,51.275787,9.506804
+527128,3,Kassel Emmauskirche,51.28854,9.415532
+223622,3,Kassel Engelhardstraße,51.32579,9.474086
+341727,3,Kassel Erlenloch,51.347824,9.404299
+656344,3,Kassel Ernteweg,51.280186,9.464458
+504354,3,Kassel Erzbergerstraße,51.32016,9.492354
+534414,3,Kassel Eschebergstraße,51.336857,9.415137
+267238,3,Kassel Eschenstruther Weg,51.290516,9.549735
+511350,3,Kassel Essigberg,51.311733,9.351361
+126373,3,Kassel Falderbaumstraße,51.285553,9.503615
+71847,3,Kassel Feerenstraße,51.30386,9.472616
+251807,3,Kassel Felix-Blumenfeld-Straße,51.335117,9.418493
+301873,3,Kassel Felsburgstraße,51.27161,9.450687
+131355,3,Kassel Fingerhutweg,51.344894,9.451105
+455029,3,Kassel Fohlenäckerweg,51.32815,9.459534
+488182,3,Kassel Forstbachweg,51.291096,9.538503
+621595,3,Kassel Forstfeldstraße,51.298187,9.538522
+74792,3,Kassel Frankenstraße,51.30638,9.437706
+213906,3,Kassel Frasenweg,51.326046,9.461715
+509193,3,Kassel Fraunhofer Institut,51.320244,9.483081
+373521,3,Kassel Freibad Harleshausen,51.34015,9.430459
+447077,3,Kassel Freibad Wilhelmshöhe,51.307358,9.426215
+630383,3,Kassel Friedenskirche,51.31616,9.468895
+101654,3,Kassel Friedhof Waldau,51.28474,9.517203
+478800,3,Kassel Friedhof Wolfsanger,51.331066,9.535048
+588263,3,Kassel Friedrichsplatz,51.31418,9.495323
+237429,3,Kassel Fuhrmannsbreite,51.33039,9.521037
+106033,3,Kassel Fuldaseen,51.29278,9.507393
+478223,3,Kassel Fuldauferweg,51.30426,9.500522
+424838,3,Kassel Försterei,51.344864,9.420922
+291641,3,Kassel GVZ Kassel,51.274147,9.517748
+216716,3,Kassel Gartenstadt Eichwald,51.301666,9.559655
+599560,3,Kassel Gecksbergstraße,51.30421,9.54625
+401110,3,Kassel Gesamtschule Waldau,51.28754,9.527933
+62463,3,Kassel Giesewiesen,51.2925,9.482158
+515592,3,Kassel Gobietstraße,51.282085,9.513863
+398918,3,Kassel Gobietstraße 1,51.28098,9.515528
+38833,3,Kassel Goethestraße,51.314533,9.472966
+63981,3,Kassel Goldbergstraße,51.33107,9.503368
+279800,3,Kassel Goldsternweg,51.34506,9.447941
+350413,3,Kassel Graßweg,51.303257,9.462303
+540098,3,Kassel Gärtnerplatzbrücke,51.296047,9.494124
+278538,3,Kassel Hagenpark,51.30983,9.541685
+158077,3,Kassel Halitplatz/Philipp-Scheidemann-Haus,51.326923,9.500008
+464504,3,Kassel Hallenbad Süd,51.279423,9.438968
+40132,3,Kassel Hannoversche Straße,51.267326,9.473478
+500225,3,Kassel Harleshausen Mitte,51.337566,9.434215
+272120,3,Kassel Harleshäuser Straße,51.323235,9.447908
+655754,3,Kassel Haroldplatz,51.333134,9.447029
+141643,3,Kassel Hasenhecke Mitte,51.342926,9.543955
+177002,3,Kassel Hasenhecke Siedlung,51.34028,9.546937
+243591,3,Kassel Hasenhecke West,51.34414,9.542218
+591306,3,Kassel Hasselweg,51.30781,9.444976
+265088,3,Kassel Hauptbahnhof,51.31809,9.490313
+127600,3,Kassel Hauptbahnhof Nord,51.318935,9.48966
+469246,3,Kassel Hauptfriedhof,51.330692,9.498422
+194595,3,Kassel Hegelsbergstraße,51.336914,9.490474
+222565,3,Kassel Heidenkopfstraße,51.287304,9.545777
+6241,3,Kassel Heideweg,51.30528,9.434023
+424424,3,Kassel Heiligenbergstraße,51.291283,9.449804
+50726,3,Kassel Heinrich-Heine-Straße,51.303864,9.484055
+565220,3,Kassel Heinrich-Hertz-Straße,51.27847,9.523076
+603917,3,Kassel Heinrich-Plett-Straße,51.280582,9.446237
+652539,3,Kassel Heinrich-Schütz-Allee,51.28875,9.451313
+602708,3,Kassel Helleböhn,51.291622,9.453594
+506418,3,Kassel Helleböhnweg,51.302067,9.448032
+311565,3,Kassel Hentzestraße,51.31032,9.463314
+238173,3,Kassel Herkules,51.317257,9.390303
+393558,3,Kassel Hermann-Bücher-Straße,51.300495,9.521343
+478266,3,Kassel Hessenschanze,51.32562,9.425824
+575710,3,Kassel Hessischer Rundfunk,51.314342,9.431198
+201961,3,Kassel Hinter dem Fasanenhof,51.32985,9.521707
+479709,3,Kassel Hohefeldstraße,51.28359,9.420518
+213456,3,Kassel Hohes Gras,51.30869,9.351051
+681121,3,Kassel Holländische Straße,51.33987,9.481114
+110629,3,Kassel Holländischer Platz/Universität,51.320732,9.502078
+468300,3,Kassel Holzgarten,51.29937,9.433481
+548843,3,Kassel Hugo-Preuß-Straße,51.30401,9.415701
+444278,3,Kassel Höheweg,51.33494,9.531682
+61539,3,Kassel Hörnebachweg,51.333076,9.531104
+367671,3,Kassel Hügelweg,51.269913,9.450541
+171632,3,Kassel Hünfelder Straße,51.32847,9.485692
+587917,3,Kassel Ihringshäuser Straße,51.33919,9.517214
+638786,3,Kassel Im Füllchen,51.26923,9.431649
+321678,3,Kassel Im Rosental,51.29971,9.416465
+452078,3,Kassel Im Triesch,51.27125,9.439148
+170350,3,Kassel Im Ährenfeld,51.278522,9.460443
+640483,3,Kassel Industriepark-Waldau-Ost/IKEA,51.276985,9.524029
+26074,3,Kassel Jobcenter,51.322605,9.49461
+63467,3,Kassel Jugendheimstraße,51.2716,9.44656
+214713,3,Kassel Jugendherberge,51.318947,9.475192
+653866,3,Kassel KVG-Betriebshof,51.3096,9.521289
+440535,3,Kassel Kalkbergweg,51.29366,9.553748
+501423,3,Kassel Karlshafener Straße,51.33654,9.439629
+188874,3,Kassel Karthäuserstraße,51.31475,9.484084
+288949,3,Kassel Kasseler Straße,51.28932,9.517331
+527562,3,Kassel Kasseler Werkstatt,51.27809,9.497342
+224808,3,Kassel Kastanienweg,51.289818,9.544559
+274903,3,Kassel Katzensprung/ Universität,51.318638,9.508481
+329433,3,Kassel Kaufungen Papierfabrik,51.291576,9.56572
+611855,3,Kassel Kaulbachstraße,51.32798,9.513305
+185168,3,Kassel Kegelzentrum,51.295483,9.482075
+445028,3,Kassel Keilsbergstraße,51.279194,9.455949
+504275,3,Kassel Kellermannstraße,51.328934,9.519126
+575143,3,Kassel Kieler Straße,51.267868,9.467528
+99713,3,Kassel Kirchbergstraße,51.275013,9.450047
+49981,3,Kassel Kirche Kirchditmold,51.32301,9.44584
+486639,3,Kassel Kirche St. Familia,51.316826,9.48653
+187336,3,Kassel Kirche Wolfsanger,51.326904,9.533278
+432273,3,Kassel Kirchgasse,51.306152,9.526254
+586776,3,Kassel Kirchhainer Straße,51.32614,9.485079
+468400,3,Kassel Kirchweg,51.312542,9.46543
+200260,3,Kassel Kleiner Holzweg,51.305634,9.457192
+180642,3,Kassel Klinikum Kassel,51.32733,9.509787
+657106,3,Kassel Klosterkirche,51.28095,9.434411
+189824,3,Kassel Knallhütter Straße,51.27379,9.459851
+155700,3,Kassel Koboldstraße,51.334866,9.513554
+645083,3,Kassel Kohlenstraße,51.309254,9.466932
+498551,3,Kassel Kongress Palais/Stadthalle,51.316082,9.46079
+161042,3,Kassel Korbacher Straße/Universität,51.285404,9.449274
+641575,3,Kassel Kornblumenweg,51.34353,9.447862
+158506,3,Kassel Kraftwerk Kassel,51.278515,9.486282
+554349,3,Kassel Kronenstraße,51.338085,9.438238
+572323,3,Kassel Kunoldstraße,51.31377,9.440429
+616245,3,Kassel Kupferhammerstraße,51.292202,9.548229
+606308,3,Kassel Kurhessen-Therme,51.31495,9.427819
+547652,3,Kassel Kurt-Kersten-Platz,51.309418,9.47211
+486718,3,Kassel Königinhofstraße,51.314342,9.525946
+469297,3,Kassel Königsberger Straße,51.3054,9.460475
+239683,3,Kassel Königsplatz,51.31579,9.497922
+71591,3,Kassel Königsplatz/Mauerstraße,51.31728,9.497737
+272455,3,Kassel Landesfeuerwehrschule,51.300938,9.429781
+469758,3,Kassel Leipziger Platz,51.30355,9.531186
+202016,3,Kassel Leipziger Straße,51.30126,9.534658
+653867,3,Kassel Lerchenfeldstraße,51.333344,9.426484
+62689,3,Kassel Leuschnerstraße,51.289436,9.471883
+658448,3,Kassel Liegnitzer Straße,51.292377,9.523186
+389374,3,Kassel Lilienthalstraße,51.302616,9.516807
+222847,3,Kassel Lilienweg,51.340008,9.440882
+452837,3,Kassel Linde Kühlhaus,51.276684,9.50293
+52876,3,Kassel Lindenberg,51.29485,9.546658
+416982,3,Kassel Lindenhöher Weg,51.29224,9.552946
+8471,3,Kassel Loipenhaus,51.314632,9.368451
+140247,3,Kassel Lossewerk,51.31604,9.530254
+114305,3,Kassel Lutherplatz,51.318905,9.496306
+468953,3,Kassel Magazinhof,51.291515,9.456208
+487738,3,Kassel Malsburgstraße,51.31835,9.464399
+17596,3,Kassel Marbachshöhe,51.305023,9.445565
+244722,3,Kassel Marienkirche,51.306057,9.528765
+520244,3,Kassel Marienkrankenhaus,51.33002,9.480741
+49348,3,Kassel Mattenberg,51.272263,9.441498
+112452,3,Kassel Mattenbergsiedlung,51.26802,9.435664
+284175,3,Kassel Meierstraße,51.327995,9.533333
+167537,3,Kassel Messehallen,51.290596,9.492761
+66127,3,Kassel Mittelring,51.325237,9.509547
+299803,3,Kassel Murhardstraße/Universität,51.31211,9.474117
+432669,3,Kassel Mönchebergstraße/ Universität,51.319847,9.506644
+338894,3,Kassel Naumburger Straße,51.32495,9.470219
+322250,3,Kassel Neue Drusel,51.305374,9.402893
+406164,3,Kassel Neue Mühle,51.274807,9.487891
+618129,3,Kassel Neuholland,51.308968,9.390433
+183875,3,Kassel Niederwaldstraße,51.302986,9.419625
+123566,3,Kassel Nordfriedhof,51.337585,9.52185
+94586,3,Kassel Nordshausen Linde,51.28012,9.429917
+436890,3,Kassel Nürnberger Straße,51.294132,9.513128
+495596,3,Kassel Obere Bornwiesenstraße,51.281773,9.432684
+40386,3,Kassel Oberzwehren Mitte,51.277542,9.449025
+540216,3,Kassel Orangerie,51.30951,9.502629
+60625,3,Kassel Otto-Hahn-Straße,51.280434,9.500764
+94140,3,Kassel P+R Wilhelmshöhe (Park),51.316586,9.42322
+71433,3,Kassel Park Schönfeld,51.29611,9.479142
+175847,3,Kassel Paul-Gerhardt-Kirche,51.330425,9.457089
+88412,3,Kassel Pettenkoferstraße,51.308987,9.457908
+671064,3,Kassel Philosophenweg,51.308697,9.480722
+339118,3,Kassel Platz der Deutschen Einheit,51.310787,9.513099
+380338,3,Kassel Polizeipräsidium,51.31902,9.490283
+343952,3,Kassel Post-Waypoint,51.313457,9.447944
+399645,3,Kassel Potsdamer Straße,51.269367,9.47182
+473632,3,Kassel Prinzenquelle,51.325176,9.430712
+155968,3,Kassel Querallee,51.315845,9.473496
+401265,3,Kassel Rasenallee,51.331154,9.413062
+308354,3,Kassel Rastebergweg,51.303368,9.551546
+251123,3,Kassel Rathaus,51.312252,9.492075
+24890,3,Kassel Rathaus/Fünffensterstraße,51.31219,9.491192
+188907,3,Kassel Reiherweg,51.337646,9.422621
+102423,3,Kassel Reuterstraße,51.32319,9.49037
+651029,3,Kassel Rhönplatz,51.295853,9.452425
+501799,3,Kassel Richard-Roosen-Straße,51.285114,9.507437
+185518,3,Kassel Riedelstraße,51.32577,9.444762
+506843,3,Kassel Riedwiesen,51.324085,9.439309
+255740,3,Kassel Rohrwiesenstraße,51.344578,9.482476
+107327,3,Kassel Rolandstraße,51.31325,9.442059
+477768,3,Kassel Rotdornweg,51.33559,9.524898
+473809,3,Kassel Rotes Kreuz,51.313156,9.453045
+491992,3,Kassel Rothenberg,51.331326,9.47918
+610900,3,Kassel Rudolphsplatz,51.31463,9.469482
+339511,3,Kassel SWA Lindenberg,51.291916,9.550109
+467930,3,Kassel Salzmannshausen,51.31337,9.536534
+181065,3,Kassel Sandbuschweg,51.285492,9.418672
+104036,3,Kassel Sandershäuser Straße,51.309147,9.517798
+162712,3,Kassel Schaumbergstraße,51.330643,9.50728
+21951,3,Kassel Scheidemannplatz,51.31619,9.492533
+266220,3,Kassel Schenkelsbergstraße,51.27439,9.447475
+632838,3,Kassel Schlehenweg,51.334454,9.528874
+48596,3,Kassel Schloß Wilhelmshöhe,51.316917,9.415416
+352167,3,Kassel Schule Bossental,51.337524,9.518837
+312822,3,Kassel Schule Hegelsberg,51.340046,9.493693
+443713,3,Kassel Schule Heideweg,51.306557,9.430236
+282349,3,Kassel Schule Wolfsanger,51.333267,9.534373
+608862,3,Kassel Schulzentrum Brückenhof,51.282608,9.44476
+121679,3,Kassel Schwedenweg,51.348595,9.498019
+392447,3,Kassel Schützenstraße,51.318607,9.513085
+10811,3,Kassel Seebergstraße,51.33368,9.423029
+456886,3,Kassel Seniorenwohnsitz,51.301376,9.413147
+242009,3,Kassel Siebenbergen,51.294323,9.488987
+480494,3,Kassel Siemensstraße,51.324497,9.484589
+604521,3,Kassel Simmedenweg,51.275795,9.455398
+209455,3,Kassel Simmershäuser Straße,51.3304,9.511424
+138513,3,Kassel Sonnenhang,51.33512,9.41459
+37945,3,Kassel Sperberweg,51.33792,9.426569
+364383,3,Kassel Staatstheater,51.31308,9.500603
+366250,3,Kassel Stahlbergstraße,51.324768,9.434739
+568378,3,Kassel Staufenbergstraße,51.34438,9.489391
+592798,3,Kassel Stegerwaldstraße,51.295,9.532014
+397376,3,Kassel Steinbreite,51.30494,9.537841
+523792,3,Kassel Steinbruchweg,51.290386,9.552092
+419825,3,Kassel Stellbergweg,51.302834,9.554815
+214715,3,Kassel Sternbergstraße,51.305836,9.469372
+522081,3,Kassel Struthbachweg,51.332703,9.491419
+349145,3,Kassel Stuttgarter Straße,51.26809,9.475791
+252487,3,Kassel Ständeplatz,51.31419,9.488424
+155813,3,Kassel Söhrestraße,51.30289,9.51833
+318827,3,Kassel Süsterfeld,51.29848,9.450104
+238193,3,Kassel Teichstraße,51.321175,9.450341
+493178,3,Kassel Theodor-Fliedner-Straße,51.301025,9.468095
+629722,3,Kassel Thomaskirche,51.27699,9.452431
+251492,3,Kassel Todenhäuser Straße,51.329224,9.442357
+66111,3,Kassel Treysaer Straße,51.32953,9.48335
+234999,3,Kassel Töpfenhofweg,51.29106,9.471664
+85947,3,Kassel Udenhäuser Straße,51.34915,9.495772
+340355,3,Kassel Udet-Haus,51.28325,9.501855
+441775,3,Kassel Umbachsweg,51.304653,9.543316
+536566,3,Kassel Unter dem Riedweg,51.269726,9.437484
+414783,3,Kassel Unter dem Steinbruch,51.294804,9.553413
+126673,3,Kassel Unternehmenspark Niederzwehren,51.283554,9.476388
+127871,3,Kassel Unterneustädter Kirchplatz,51.313465,9.509256
+548198,3,Kassel Virchowstraße,51.308296,9.454168
+579422,3,Kassel Vogelsang,51.304375,9.534321
+303381,3,Kassel Vor der Hasenhecke,51.34206,9.540701
+49145,3,Kassel Wahlebach-Siedlung,51.28715,9.542177
+469147,3,Kassel Wahlebachweg,51.289448,9.536857
+158372,3,Kassel Waitzstraße,51.290085,9.509556
+82333,3,Kassel Waldauer Weg,51.287403,9.53216
+189085,3,Kassel Waldemar-Petersen-Straße,51.289627,9.523141
+549572,3,Kassel Waldemar-Petersen/Görlitzer Straße,51.28966,9.52218
+566544,3,Kassel Waldmannstraße,51.2696,9.438445
+87584,3,Kassel Waldorfschule,51.307297,9.417007
+661388,3,Kassel Walther-Schücking-Platz,51.311478,9.440852
+516666,3,Kassel Warteberg,51.348106,9.494555
+298273,3,Kassel Weigelstraße,51.31167,9.482694
+287525,3,Kassel Welleroder Straße,51.30198,9.557895
+259170,3,Kassel Werner-Heisenberg-Straße,51.27794,9.499748
+24497,3,Kassel Weserspitze,51.32314,9.512491
+492238,3,Kassel Westfriedhof,51.296574,9.441024
+168214,3,Kassel Wiener Straße,51.33421,9.494534
+300526,3,Kassel Wigandstraße,51.310017,9.427859
+218418,3,Kassel Wilhelm-Busch-Straße,51.291214,9.466884
+453345,3,Kassel Wilhelm-Führer-Straße,51.332073,9.418021
+412741,3,Kassel Wilhelmshöhe (Park),51.315746,9.423595
+463189,3,Kassel Wilhelmshöhe Pre-Waypoint,51.3085,9.448497
+225303,3,Kassel Wilhelmshöher Weg,51.333565,9.433101
+339557,3,Kassel Wilhelmsstraße/Stadtmuseum,51.314243,9.489314
+403689,3,Kassel Windhukstraße,51.293167,9.535539
+520768,3,Kassel Wintershall,51.3159,9.455094
+64007,3,Kassel Wintertalstraße,51.273453,9.455348
+191555,3,Kassel Witzenhäuser Straße,51.324287,9.487742
+467993,3,Kassel Wohnstraße AEG,51.297962,9.524698
+204127,3,Kassel Wolfsanger,51.327827,9.541309
+646986,3,Kassel Wolfsgraben,51.32819,9.529927
+341724,3,Kassel Zeche-Marie-Weg,51.296772,9.411592
+620210,3,Kassel Zehntscheune,51.291534,9.512568
+571751,3,Kassel Zeppelinstraße,51.32947,9.537425
+117994,3,Kassel Ziegenhagener Straße,51.30204,9.55999
+56258,3,Kassel Zierenberger Straße,51.32349,9.475932
+381653,3,Kassel Zum Feldlager,51.342438,9.458773
+92917,3,Kassel documenta urbana,51.293453,9.445398
+165061,3,Kassel-Jungfernkopf,51.339405,9.463808
+168276,3,Kassel-Kirchditmold,51.324944,9.451813
+407206,3,Kassel-Oberzwehren,51.27635,9.454028
+241017,3,Kasselvitz Ausbau,54.349426,13.182597
+193320,3,Korbach Kasseler Straße,51.27455,8.883272
+79801,3,Köln Feldkassel Edsel-Ford-Str.,51.03034,6.922849
+504453,3,Köln Feldkassel Feldkasseler Weg,51.034782,6.923037
+586135,3,Köln Feldkassel Gewerbegebiet Feldkassel,51.03954,6.91639
+129016,3,Köln Feldkassel Marconistr.,51.033943,6.928382
+361109,3,Köln Feldkassel Marconistr. Ost,51.0356,6.929353
+275194,3,Köln Feldkassel Morsestr.,51.03779,6.922687
+350945,3,Köln Feldkassel Oskar-Schindler-Straße,51.03275,6.91966
+555636,3,Köln Feldkassel Robert-Bosch-Str.,51.031357,6.920971
+259520,3,Köln Lind Niederkasseler Str.,50.840187,7.102045
+237904,3,Köln Lind Niederkasseler Str./Kreisel,50.845154,7.102224
+199614,3,Köln Rheinkassel,51.039444,6.93291
+92152,3,Köln Rheinkassel Kasselberg,51.036648,6.939351
+88496,3,Lohfelden-Vollmarshausen Kasseler Straße,51.268543,9.561086
+513323,3,Marburg Alte Kasseler Straße,50.82276,8.775626
+31450,3,Neuhof-Tiefengruben Kasseler Straße,50.4731,9.648114
+231860,3,Niederkassel Bergstr.,50.817493,7.038471
+382955,3,Niederkassel Bergstr.,50.816376,7.035722
+38992,3,Niederkassel Ev. Kirche,50.812565,7.039423
+326545,3,Niederkassel Kölner Str.,50.813183,7.04166
+526742,3,Niederkassel Lülsdorf Hallenbad,50.83021,7.019813
+87911,3,Niederkassel Lülsdorf Kirche,50.829952,7.012599
+550188,3,Niederkassel Lülsdorf Ludwigsplatz,50.82873,7.010884
+73764,3,Niederkassel Lülsdorf Nord,50.836323,7.009725
+477236,3,Niederkassel Lülsdorf Schulzentrum,50.832146,7.026541
+546803,3,Niederkassel Lülsdorf Stahlenstr.,50.82871,7.002395
+186481,3,Niederkassel Lülsdorf Uhlandstr.,50.832924,7.011324
+356618,3,Niederkassel Mondorf Ahrstr.,50.775692,7.072463
+60154,3,Niederkassel Mondorf Beckergasse,50.77664,7.064836
+529989,3,Niederkassel Mondorf Pastor-Breuer-Str.,50.779606,7.068439
+48,3,Niederkassel Mondorf Provinzialstr.,50.77814,7.079138
+212490,3,Niederkassel Mondorf Realschule,50.77964,7.058261
+148923,3,Niederkassel Mondorf Rosenthalstr.,50.777493,7.076029
+200168,3,Niederkassel Ranzel Kirche,50.833153,7.035704
+497705,3,Niederkassel Ranzel Schule,50.831688,7.030736
+400243,3,Niederkassel Ranzel Schulstr.,50.83325,7.032515
+148288,3,Niederkassel Ranzel Sonnenberger Weg,50.827686,7.031653
+80068,3,Niederkassel Ranzel Weilerhof,50.834984,7.05138
+401783,3,Niederkassel Rathausplatz,50.81304,7.036495
+499626,3,Niederkassel Rheidt An Der Enggasse,50.783817,7.05023
+549781,3,Niederkassel Rheidt Bahnhofstr.,50.791363,7.053688
+286941,3,Niederkassel Rheidt Markt,50.79087,7.041651
+289839,3,Niederkassel Rheidt Nord,50.79839,7.047104
+668825,3,Niederkassel Rheidt Pastor-Ibach-Str.,50.78784,7.045002
+677848,3,Niederkassel Rheidt Südstr.,50.78662,7.058
+542266,3,Niederkassel Rheidt Unterführung,50.7946,7.048595
+535587,3,Niederkassel Spicher Str.,50.810837,7.038237
+160413,3,Niederkassel Sportplatz,50.813816,7.04449
+409026,3,Niederkassel Stockem,50.824265,7.088804
+305332,3,Niederkassel Uckendorf Niederkasseler Str.,50.82064,7.061863
+327028,3,Niederkassel Uckendorf Schäferstr.,50.821888,7.064917
+307608,3,Niederkassel Waldstr.,50.819447,7.033485
+601747,3,Niederkassel Waldstr.,50.820164,7.033701
+384009,3,Nienburg Kasseler Straße,52.63161,9.218617
+376450,3,Nieste Kasseler Straße,51.313988,9.669412
+537510,3,"Oberzwehren Bahnhof, Kassel",51.27583,9.45254
+412943,3,"Paderborn, Kasseler Straße",51.71648,8.759625
+338026,3,Paderborn-Kasseler Tor,51.716164,8.76126
+423078,3,Reinhardshagen-Veckerhagen Kasseler Straße,51.4932,9.595325
+473349,3,"Ri-Volksen, Kasseler Landstr",52.147377,9.100433
+513135,3,Rotenburg (Fulda) Kasseler Straße RMW,51.002495,9.727329
+350619,3,"Schmalkalden, Kasseler Straße/Aue-Center",50.71768,10.428447
+253687,3,"Schmalkalden, Kasseler Straße/Bosch-Dienst",50.717545,10.433748
+160920,3,"Schmalkalden, Kasseler Straße/Schule",50.71982,10.442105
+456135,3,Söhrewald-Wellerode Kasseler Straße,51.23995,9.565736
+339469,3,Troisdorf Spich Kasseler Furt,50.84048,7.105872
+261385,3,Vellmar-Niedervellmar Kasseler Straße,51.34846,9.480105
+660467,3,Wabern(Bz Kassel),51.103134,9.35804
+379887,3,"Waldhof, Kasseler Straße",49.527454,8.498278
+230880,3,"War-Scherfede, Kasseler Tor",51.529785,9.033512
+254192,3,"Warburg, Kasseler Straße",51.48872,9.155117
+335575,3,Wehretal-Oetmannshausen Kasseler Straße,51.139957,9.972263
+491532,4,Darmstadt Alexanderstraße/TU,49.87576,8.660538
+365318,4,Darmstadt Alfred-Messel-Weg,49.885906,8.67274
+284100,4,Darmstadt Alice-Hospital,49.877205,8.663366
+47840,4,Darmstadt Am Kaiserschlag,49.8516,8.63392
+635605,4,Darmstadt Am Karlshof,49.882107,8.665799
+454457,4,Darmstadt Anne-Frank-Straße,49.847942,8.620911
+663097,4,Darmstadt Beckstraße,49.8694,8.6684
+404511,4,Darmstadt Berliner Allee,49.870754,8.635729
+470982,4,Darmstadt Bessunger Forsthaus Jugendhof,49.864834,8.725569
+443956,4,Darmstadt Bessunger Straße,49.857735,8.646938
+145813,4,Darmstadt Botanischer Garten/Vivarium,49.86788,8.678291
+18565,4,Darmstadt Buchenlandweg,49.8475,8.62841
+479742,4,Darmstadt Bunsenstraße,49.8861,8.623327
+506481,4,Darmstadt Böllenfalltor,49.852596,8.669739
+556393,4,Darmstadt Carl-Schenck-Ring,49.8884,8.64634
+476481,4,Darmstadt Daimlerweg,49.8899,8.64057
+114102,4,Darmstadt Edith-Stein-Schule,49.858,8.65491
+446699,4,Darmstadt Eissporthalle,49.889324,8.662396
+235238,4,Darmstadt Elisabethenstift/Woog,49.8734,8.66719
+26278,4,Darmstadt Eschollbrücker Straße,49.86506,8.646973
+522618,4,Darmstadt Evonik,49.8759,8.6349
+41058,4,Darmstadt Fasanerie,49.884125,8.685275
+519571,4,Darmstadt Fliederberg,49.8605,8.63756
+504911,4,Darmstadt Forstweg,49.854,8.62696
+33967,4,Darmstadt Freiberger Platz,49.860683,8.652939
+138277,4,Darmstadt Friedrich-Ebert-Platz,49.8819,8.65507
+277295,4,Darmstadt Fünfkirchner Straße,49.851,8.62195
+365896,4,Darmstadt Goethestraße,49.863247,8.654121
+327471,4,Darmstadt Haardtring,49.85797,8.635421
+679211,4,Darmstadt Haasstraße,49.88563,8.620519
+85292,4,Darmstadt Hannah-Arendt-Weg,49.84952,8.621001
+10581,4,Darmstadt Hauptbahnhof,49.87194,8.631148
+672883,4,Darmstadt Hauptzollamt,49.861816,8.623557
+236038,4,Darmstadt Heidenreichstraße,49.869,8.67173
+266754,4,Darmstadt Heinheimer Straße,49.882343,8.660288
+177991,4,Darmstadt Heinrichstraße,49.86652,8.655901
+632393,4,Darmstadt Herdweg,49.86539,8.665344
+329663,4,Darmstadt Hilpertstraße,49.862274,8.626787
+418561,4,Darmstadt Hochschule,49.8666,8.63504
+157306,4,Darmstadt Hochschule West,49.8659,8.63156
+625611,4,Darmstadt Hochschule West (Ersatz),49.86618,8.630019
+590087,4,Darmstadt Hochschulstadion,49.861572,8.674211
+360034,4,Darmstadt Hochstraße,49.869286,8.659447
+196037,4,Darmstadt Hofgut Oberfeld,49.8731,8.68208
+271008,4,Darmstadt Holzhofallee,49.8639,8.63816
+484360,4,Darmstadt Hügelstraße/Volksbank,49.869675,8.655142
+426823,4,Darmstadt Im Harras,49.878613,8.61864
+35248,4,Darmstadt Im Tiefen See,49.882282,8.643258
+300778,4,Darmstadt Jahnstraße,49.861652,8.667591
+383867,4,Darmstadt Jugendstilbad,49.87288,8.662079
+342966,4,Darmstadt Kahlertstraße,49.879894,8.647505
+116104,4,Darmstadt Kasinostraße,49.875065,8.643394
+41688,4,Darmstadt Kastanienallee,49.890533,8.672546
+209101,4,Darmstadt Kirschenallee,49.874733,8.638597
+549501,4,Darmstadt Klappacher Straße,49.8532,8.65738
+181061,4,Darmstadt Klausenburger Straße,49.8468,8.62403
+329138,4,Darmstadt Kleyerstraße,49.8586,8.62335
+506171,4,Darmstadt Klinikum,49.8758,8.647739
+599844,4,Darmstadt Knabenschule,49.85618,8.651362
+573580,4,Darmstadt Kongresszentrum darmstadtium,49.87387,8.656118
+448690,4,Darmstadt Kopernikusplatz,49.878193,8.661847
+139734,4,Darmstadt Kölner Straße,49.88143,8.617074
+119350,4,Darmstadt Landskronstraße,49.8532,8.646614
+449091,4,Darmstadt Lichtenbergschule,49.850533,8.653572
+123341,4,Darmstadt Lincoln Siedlung | NDarmstadt Hbf,49.84836,8.646464
+102850,4,Darmstadt Lincoln Siedlung | NEberstadt,49.848286,8.646284
+88406,4,Darmstadt Lucasweg/Hochzeitsturm,49.878674,8.667043
+209924,4,Darmstadt Ludwigshöhstraße,49.8534,8.652476
+411192,4,Darmstadt Ludwigshöhviertel,49.84697,8.654764
+555739,4,Darmstadt Luisenplatz,49.872883,8.651252
+659828,4,Darmstadt Mahatma-Gandhi-Straße,49.8564,8.624656
+125381,4,Darmstadt Mainzer Straße,49.8796,8.63572
+577573,4,Darmstadt Maria-Goeppert-Straße,49.86875,8.620183
+312266,4,Darmstadt Marienhospital,49.8511,8.66248
+139994,4,Darmstadt Marienhöhe,49.843494,8.646073
+642150,4,Darmstadt Mathildenplatz,49.874657,8.650029
+493587,4,Darmstadt Maulbeerallee,49.898304,8.654915
+624578,4,Darmstadt Merck,49.895573,8.65422
+391833,4,Darmstadt Merck-Stadion,49.857445,8.668611
+194412,4,Darmstadt Mercksplatz,49.8719,8.66254
+41609,4,Darmstadt Messplatz,49.8868,8.6565
+478764,4,Darmstadt Mina-Rees-Straße,49.867016,8.626511
+525403,4,Darmstadt Moldenhauerweg,49.875774,8.619456
+444066,4,Darmstadt Nordbad,49.8867,8.66175
+566238,4,Darmstadt Nordbahnhof,49.89129,8.653235
+149297,4,Darmstadt Oberwaldhaus,49.890648,8.696825
+55773,4,Darmstadt Orangerie,49.858562,8.651971
+613099,4,Darmstadt Ostbahnhof,49.87483,8.673821
+525685,4,Darmstadt Otto-Hesse-Straße,49.8664,8.60348
+368268,4,Darmstadt Otto-Röhm-Straße,49.8879,8.63279
+242613,4,Darmstadt Pallaswiesenstraße,49.88109,8.65046
+444228,4,Darmstadt Pankratiusstraße,49.882313,8.659606
+105781,4,Darmstadt Peter-Behrens-Straße,49.885277,8.66953
+624247,4,Darmstadt Pfnorstraße,49.8844,8.63151
+628654,4,Darmstadt Philipp-Röth-Weg,49.8631,8.63262
+79521,4,Darmstadt Prinz-Emil-Garten,49.86166,8.647192
+461407,4,Darmstadt Pulverhäuserweg,49.8506,8.62797
+224582,4,Darmstadt Pützerstraße/Mathildenhöhe,49.875286,8.662559
+139252,4,Darmstadt Regerweg,49.881638,8.677587
+463427,4,Darmstadt Rhein-/Neckarstraße,49.87154,8.644695
+35980,4,Darmstadt Rhönring,49.884445,8.651576
+119823,4,Darmstadt Riedstraße,49.85824,8.633811
+473011,4,Darmstadt Rodensteinweg/Altes Schalthaus,49.875492,8.624021
+383613,4,Darmstadt Rosa-Parks-Straße,49.86024,8.623152
+399299,4,Darmstadt Rosenhöhe,49.8735,8.6783
+30785,4,Darmstadt Roßdörfer Platz,49.869,8.66273
+386702,4,Darmstadt Schiebelhuthweg,49.8541,8.64098
+299867,4,Darmstadt Schloss,49.872864,8.65523
+14122,4,Darmstadt Schulstraße,49.8703,8.656616
+448380,4,Darmstadt Schwarzer Weg,49.8857,8.66913
+160508,4,Darmstadt Spessartring,49.879395,8.670697
+421017,4,Darmstadt Sternenallee,49.84425,8.651882
+406775,4,Darmstadt Südbahnhof,49.854965,8.637697
+47681,4,Darmstadt TU-Lichtwiese Bahnhof,49.860878,8.687655
+215623,4,Darmstadt TU-Lichtwiese/Campus,49.86163,8.680623
+17006,4,Darmstadt TZ Rhein Main,49.86979,8.627784
+659395,4,Darmstadt Taunusplatz,49.88036,8.664531
+613367,4,Darmstadt Waldfriedhof,49.867928,8.614176
+24369,4,Darmstadt Willy-Brandt-Platz,49.87626,8.65024
+259427,4,Darmstadt Windmühle,49.883354,8.638268
+70358,4,Darmstadt Wöhlerweg,49.88985,8.636522
+495205,4,Darmstadt-Arheilgen Am Trinkbrunnenpfad,49.9109,8.66903
+235115,4,Darmstadt-Arheilgen Asternweg,49.910458,8.646707
+106845,4,Darmstadt-Arheilgen Auf der Hardt,49.90302,8.667154
+264605,4,Darmstadt-Arheilgen Bahnhof,49.913616,8.645556
+54926,4,Darmstadt-Arheilgen Bahnhof West,49.9148,8.64495
+370743,4,Darmstadt-Arheilgen Bornstraße,49.9122,8.66243
+200825,4,Darmstadt-Arheilgen Dreieichweg,49.920578,8.654501
+170513,4,Darmstadt-Arheilgen Fasanenweg,49.90892,8.67484
+502857,4,Darmstadt-Arheilgen Friedhof,49.9139,8.6511
+130470,4,Darmstadt-Arheilgen Fritz-Meister-Anlage,49.9099,8.649983
+368216,4,Darmstadt-Arheilgen Fuchsstraße,49.906216,8.656399
+626635,4,Darmstadt-Arheilgen Im Fiedlersee,49.901646,8.655471
+284570,4,Darmstadt-Arheilgen Kolpingweg,49.91765,8.654582
+200493,4,Darmstadt-Arheilgen Kornweg,49.90023,8.666742
+387414,4,Darmstadt-Arheilgen Kreuzkirche,49.905716,8.660913
+269773,4,Darmstadt-Arheilgen Löwenplatz,49.910984,8.65766
+675180,4,Darmstadt-Arheilgen Messeler Straße,49.9134,8.65517
+436556,4,Darmstadt-Arheilgen Stadtteilschule,49.903114,8.663339
+416748,4,Darmstadt-Arheilgen Thomas-Mann-Platz,49.903397,8.660456
+354719,4,Darmstadt-Arheilgen Wechslerstraße,49.906494,8.651065
+235717,4,Darmstadt-Arheilgen Wildstraße,49.9122,8.66502
+184261,4,Darmstadt-Eberstadt Alte Post,49.8169,8.64068
+429392,4,Darmstadt-Eberstadt Bahnhof,49.814865,8.625366
+673968,4,Darmstadt-Eberstadt Brunnenweg,49.804195,8.63694
+111962,4,Darmstadt-Eberstadt Carl-Ulrich-Straße,49.832935,8.645186
+78432,4,Darmstadt-Eberstadt Einkaufszentrum Süd,49.80585,8.642596
+127887,4,Darmstadt-Eberstadt Elizabeth-Duncan-Weg,49.811928,8.652495
+491366,4,Darmstadt-Eberstadt Eschelkopfweg,49.806335,8.636424
+243083,4,Darmstadt-Eberstadt Frankenbergers Mühle,49.8085,8.67513
+357557,4,Darmstadt-Eberstadt Frankenstein,49.80771,8.645384
+635922,4,Darmstadt-Eberstadt Franz-Best-Weg,49.8086,8.651578
+623564,4,Darmstadt-Eberstadt Friedhof,49.81131,8.64621
+162361,4,Darmstadt-Eberstadt Friedrich-Ebert-Straße,49.83854,8.645636
+538963,4,Darmstadt-Eberstadt Grazstraße,49.809807,8.655015
+518821,4,Darmstadt-Eberstadt Heinrich-Delp-Straße,49.8184,8.64924
+238143,4,Darmstadt-Eberstadt Kaisermühle,49.8189,8.66789
+366148,4,Darmstadt-Eberstadt Katharinenstraße,49.82461,8.644612
+281787,4,Darmstadt-Eberstadt Kinderheim,49.8112,8.67107
+276782,4,Darmstadt-Eberstadt Kirche,49.814087,8.646176
+185222,4,Darmstadt-Eberstadt Kühler Grund,49.814327,8.671485
+280869,4,Darmstadt-Eberstadt Ludwig-Schwamb-Schule,49.80979,8.641122
+2944,4,Darmstadt-Eberstadt Marktstraße,49.817974,8.647162
+164184,4,Darmstadt-Eberstadt Mittelschneise,49.802338,8.646525
+390552,4,Darmstadt-Eberstadt Modaubrücke,49.817066,8.644042
+471318,4,Darmstadt-Eberstadt Nußbaumallee,49.808666,8.637379
+166343,4,Darmstadt-Eberstadt Odenwaldstraße,49.81575,8.648957
+653325,4,Darmstadt-Eberstadt Schloßstraße,49.813187,8.648697
+427159,4,Darmstadt-Eberstadt Schwimmbad,49.819763,8.657177
+545433,4,Darmstadt-Eberstadt Seeheimer Straße,49.81208,8.645774
+468216,4,Darmstadt-Eberstadt Thüringer Straße,49.820583,8.640135
+64816,4,Darmstadt-Eberstadt Von-Ketteler-Straße,49.8289,8.644914
+403265,4,Darmstadt-Eberstadt Walther-Rathenau-Straße,49.8168,8.63535
+219482,4,Darmstadt-Eberstadt Wartehalle,49.82082,8.64426
+519569,4,Darmstadt-Kranichstein Arheilger Mühlchen,49.9083,8.6735
+278959,4,Darmstadt-Kranichstein Bahnhof,49.904804,8.677986
+389757,4,Darmstadt-Kranichstein Borsdorffstraße,49.8964,8.67419
+185024,4,Darmstadt-Kranichstein Einsiedel,49.906155,8.744769
+362310,4,Darmstadt-Kranichstein Esselborn/Ökum.GZ,49.900936,8.682567
+116733,4,Darmstadt-Kranichstein Grube Prinz von Hessen,49.90287,8.734986
+98517,4,Darmstadt-Kranichstein Gruberstraße,49.898403,8.681053
+252512,4,Darmstadt-Kranichstein Institutszentrum,49.903095,8.680772
+101028,4,Darmstadt-Kranichstein Jagdschloß,49.898937,8.693878
+221760,4,Darmstadt-Kranichstein Kesselhutweg,49.8959,8.686163
+368295,4,Darmstadt-Kranichstein Siemensstraße,49.89633,8.680283
+219102,4,Darmstadt-Kranichstein Steinstraße,49.906017,8.676715
+215924,4,Darmstadt-Kranichstein Wachtelweg,49.9079,8.67783
+479139,4,Darmstadt-Wixhausen Bahnhof,49.93097,8.647593
+590657,4,Darmstadt-Wixhausen Bahnhofstraße,49.927994,8.64696
+591517,4,Darmstadt-Wixhausen Brückengasse,49.9323,8.64212
+453912,4,Darmstadt-Wixhausen GSI Helmholtzzentrum,49.9325,8.67634
+383298,4,Darmstadt-Wixhausen Göthsbachstraße,49.92959,8.643062
+454725,4,Darmstadt-Wixhausen Hindemithstraße,49.9289,8.6531
+680315,4,Darmstadt-Wixhausen Merianstraße/GSI,49.9317,8.66124
+31151,4,Darmstadt-Wixhausen Messeler Park Straße,49.9316,8.65901
+640367,4,Darmstadt-Wixhausen Schönbergstraße,49.9313,8.65588
+215759,4,Darmstadt-Wixhausen Sportplatz,49.931,8.62894
+597045,4,Griesheim Flughafenstraße | Tram NDarmstadt,49.86439,8.588867
+266905,4,Griesheim Flughafenstraße | Tram VDarmstadt,49.86439,8.588867
+479316,5,"Berlin, Jacques-Offenbach-Platz",52.514076,13.612067
+535996,5,D-Offenbacher Weg,51.204384,6.821519
+13582,5,"Hamburg, Offenbachweg",53.632633,10.173916
+145806,5,"Haunstetten, Offenbach Karree",48.301056,10.901864
+161991,5,"Herxheim/Ld, Offenbacher Str.",49.152153,8.207943
+490256,5,Köln Offenbachplatz,50.93792,6.952987
+205660,5,"Lüd., Offenbachstraße",51.224335,7.594843
+314244,5,Mittenaar-Offenbach Bahnhofstraße,50.69671,8.41504
+464884,5,Mittenaar-Offenbach Bürgerhaus,50.700165,8.412976
+68642,5,Mittenaar-Offenbach Einkaufsmärkte,50.69795,8.405177
+110721,5,Mittenaar-Offenbach Koblenzer Straße,50.698345,8.411003
+105504,5,Mühlheim (Main)-Lämmerspiel Offenbacher Weg,50.0975,8.852173
+372413,5,Neu-Isenburg Offenbacher Straße,50.054245,8.701332
+125571,5,Offenbach (Main) Buchrainweiher,50.080296,8.742436
+326016,5,Offenbach (Main) Marktplatz S-Bahn,50.10527,8.765665
+172721,5,Offenbach (Main)-Bieber Am Rebstock,50.08967,8.804262
+150369,5,Offenbach (Main)-Bieber Bieber Bahnhof,50.090553,8.808381
+389871,5,Offenbach (Main)-Bieber Bieber Waldhof,50.082207,8.829274
+313923,5,Offenbach (Main)-Bieber Bremer Straße,50.08458,8.810347
+1080,5,Offenbach (Main)-Bieber Carl-Legien-Straße,50.08406,8.836337
+112664,5,Offenbach (Main)-Bieber Erich-Ollenhauer-Straße,50.085472,8.7957
+138213,5,Offenbach (Main)-Bieber Flurstraße,50.088467,8.800858
+215389,5,Offenbach (Main)-Bieber Geschwister-Scholl-Schule,50.086563,8.798644
+305392,5,Offenbach (Main)-Bieber Grazer Straße,50.091164,8.801755
+288802,5,Offenbach (Main)-Bieber Hamburger Straße,50.08829,8.798511
+229519,5,Offenbach (Main)-Bieber Industriegebiet,50.083714,8.838323
+15474,5,Offenbach (Main)-Bieber Linzer Straße,50.094036,8.805153
+369101,5,Offenbach (Main)-Bieber Markwaldstraße,50.084038,8.82727
+641000,5,Offenbach (Main)-Bieber Nahestraße,50.08466,8.815782
+496780,5,Offenbach (Main)-Bieber Oberhofstraße,50.084866,8.804827
+656897,5,Offenbach (Main)-Bieber Ostendplatz,50.087185,8.808898
+259953,5,Offenbach (Main)-Bieber Ottersfuhrstraße,50.085358,8.825406
+350796,5,Offenbach (Main)-Bieber Otto Scheugenpflug-Straße,50.083282,8.832051
+287944,5,Offenbach (Main)-Bieber Schutzbaumstraße,50.084354,8.822336
+261210,5,Offenbach (Main)-Bieber Waldhofstraße,50.083633,8.820676
+482687,5,Offenbach (Main)-Bieberer Berg Heusenstammer Weg,50.097527,8.790408
+591721,5,Offenbach (Main)-Bieberer Berg Stadion Bieb. Berg,50.094814,8.796234
+114795,5,Offenbach (Main)-Buchhügel Buchhügelallee,50.093178,8.775698
+148125,5,Offenbach (Main)-Buchhügel Elisabethenstraße,50.095924,8.775168
+653379,5,Offenbach (Main)-Buchhügel Feuerwache,50.09876,8.784938
+52261,5,Offenbach (Main)-Buchhügel Goerdelerstraße,50.093945,8.782542
+421546,5,Offenbach (Main)-Buchhügel Hessenring,50.09455,8.77175
+25028,5,Offenbach (Main)-Buchhügel Ketteler Krankenhaus,50.09675,8.783368
+609124,5,Offenbach (Main)-Buchhügel Landgrafenring,50.097584,8.776795
+357745,5,Offenbach (Main)-Buchhügel Lichtenplattenweg,50.096474,8.78028
+172575,5,Offenbach (Main)-Buchhügel Markusplatz,50.095497,8.786755
+648286,5,Offenbach (Main)-Buchhügel Offenbach-Post,50.087395,8.770093
+94079,5,Offenbach (Main)-Buchhügel Polizeipräsidium,50.090385,8.773754
+618101,5,Offenbach (Main)-Buchhügel Seniorenzentrum,50.09604,8.772875
+622481,5,Offenbach (Main)-Buchhügel Seniorenzentrum Ost,50.094864,8.774278
+175298,5,Offenbach (Main)-Buchhügel Theodor-Heuss-Schule,50.092953,8.780422
+446927,5,Offenbach (Main)-Buchhügel Waldstraße,50.09008,8.770598
+248772,5,Offenbach (Main)-Buchhügel Wetterpark,50.092533,8.787132
+270,5,Offenbach (Main)-Buchrain Buchrainweg,50.093258,8.745903
+586269,5,Offenbach (Main)-Buchrain Forsthaus Geißfeld,50.066734,8.732117
+202969,5,Offenbach (Main)-Bürgel Alicestraße,50.11519,8.783592
+79869,5,Offenbach (Main)-Bürgel Anhalterstraße,50.12606,8.789725
+249387,5,Offenbach (Main)-Bürgel Anneliese-Heikaus-Straße,50.11885,8.793461
+505244,5,Offenbach (Main)-Bürgel Arendsstraße,50.121548,8.788346
+30314,5,Offenbach (Main)-Bürgel Bildstockstraße,50.11303,8.782637
+520797,5,Offenbach (Main)-Bürgel Bürgerplatz,50.117905,8.78358
+54806,5,Offenbach (Main)-Bürgel Eppsteiner Straße,50.11256,8.787267
+244755,5,Offenbach (Main)-Bürgel Hafenbahn,50.108418,8.776997
+172952,5,Offenbach (Main)-Bürgel Hans-Böckler-Siedlung,50.123905,8.79014
+490181,5,Offenbach (Main)-Bürgel Hessenstraße,50.11951,8.785503
+546264,5,Offenbach (Main)-Bürgel Kettelerstraße,50.112686,8.785407
+25175,5,Offenbach (Main)-Bürgel Schönbornstraße,50.115353,8.790065
+596899,5,Offenbach (Main)-Bürgel Sportzentrum Bürgel,50.12131,8.792892
+376729,5,Offenbach (Main)-Carl-Ulrich-Siedlung A.-F.-Schule,50.083706,8.76476
+653875,5,Offenbach (Main)-Carl-Ulrich-Siedlung Dietzenb Str,50.078045,8.766114
+376295,5,Offenbach (Main)-Carl-Ulrich-Siedlung Neus. Str.,50.07942,8.769628
+145008,5,Offenbach (Main)-Carl-Ulrich-Siedlung Ostpr. Str.,50.082397,8.766736
+363893,5,Offenbach (Main)-Carl-Ulrich-Siedlung Pommernstr.,50.081196,8.772442
+208624,5,Offenbach (Main)-Hafen Carl-Ulrich-Brücke,50.111984,8.753982
+294574,5,Offenbach (Main)-Hafen Hafenbrücke,50.11236,8.74748
+328714,5,Offenbach (Main)-Hafen Inselsteg,50.112255,8.750248
+150307,5,Offenbach (Main)-Hafen Nordring,50.111897,8.742281
+125908,5,Offenbach (Main)-Kaiserlei Amsterdamer Straße,50.105896,8.73313
+615191,5,Offenbach (Main)-Kaiserlei Fachackerweg,50.10837,8.734178
+290159,5,Offenbach (Main)-Kaiserlei Kaiserlei,50.10518,8.737313
+602437,5,Offenbach (Main)-Kaiserlei Kaiserlei Ostseite,50.105465,8.740848
+497832,5,Offenbach (Main)-Kaiserlei Kaiserlei Westseite,50.105637,8.737031
+250668,5,Offenbach (Main)-Kaiserlei Kaiserleistraße,50.109688,8.739917
+237832,5,Offenbach (Main)-Kaiserlei Strahlenbergerstr/Omega,50.10724,8.74116
+487585,5,Offenbach (Main)-Kaiserlei Warschauer Straße,50.10697,8.734577
+198203,5,Offenbach (Main)-Lauterborn Anton-Bruckner-Straße,50.083363,8.755903
+604627,5,Offenbach (Main)-Lauterborn August-Bebel-Schule,50.08856,8.754395
+373511,5,Offenbach (Main)-Lauterborn Backstraße,50.088642,8.748778
+559941,5,Offenbach (Main)-Lauterborn Bert-Brecht-Straße,50.08363,8.744989
+429177,5,Offenbach (Main)-Lauterborn Caritas/Buchrainweiher,50.079643,8.74508
+210534,5,Offenbach (Main)-Lauterborn Europaplatz,50.085884,8.754102
+291880,5,Offenbach (Main)-Lauterborn Lauterbornschule,50.085537,8.759204
+356314,5,Offenbach (Main)-Lauterborn Merianstraße,50.085796,8.746627
+61972,5,Offenbach (Main)-Lauterborn Odenwaldring,50.09123,8.75079
+156047,5,Offenbach (Main)-Lauterborn Ring Center,50.089245,8.76061
+677691,5,Offenbach (Main)-Lauterborn Schreberstraße,50.087658,8.763469
+393570,5,Offenbach (Main)-Lauterborn Schumannstraße,50.083843,8.748314
+162030,5,Offenbach (Main)-Lindenfeld BÜ Bieberer Straße,50.10181,8.777516
+578865,5,Offenbach (Main)-Mathildenviertel Alter Friedhof,50.105118,8.777879
+570669,5,Offenbach (Main)-Mathildenviertel Blücherstraße,50.101086,8.775004
+504727,5,Offenbach (Main)-Mathildenviertel Diakoniezentrum,50.107533,8.774652
+127802,5,Offenbach (Main)-Mathildenviertel Finanzamt,50.10322,8.773079
+271080,5,Offenbach (Main)-Mathildenviertel Hebestraße,50.102295,8.777794
+223861,5,Offenbach (Main)-Mathildenviertel Kasernenstraße,50.102116,8.773587
+134588,5,Offenbach (Main)-Mathildenviertel Mainpark,50.107296,8.768824
+295887,5,Offenbach (Main)-Mathildenviertel Mathildenplatz,50.104294,8.773899
+63283,5,Offenbach (Main)-Mathildenviertel Tempelseestraße,50.101013,8.77123
+361132,5,Offenbach (Main)-Musikerviertel Arndtstraße,50.094826,8.759423
+549475,5,Offenbach (Main)-Musikerviertel Beethovenschule,50.092407,8.756444
+202170,5,Offenbach (Main)-Musikerviertel Brüder-Grimm-Str.,50.08961,8.764717
+542363,5,Offenbach (Main)-Musikerviertel Dickstraße,50.093056,8.752179
+606753,5,Offenbach (Main)-Musikerviertel Haydnstraße,50.09341,8.762029
+143556,5,Offenbach (Main)-Musikerviertel Humboldtstraße,50.091167,8.769055
+128956,5,Offenbach (Main)-Musikerviertel Klinikum OF West,50.096165,8.754552
+230756,5,Offenbach (Main)-Musikerviertel Klinikum Offenbach,50.096184,8.756621
+545297,5,Offenbach (Main)-Musikerviertel Senefelderstraße,50.09012,8.762646
+254004,5,Offenbach (Main)-Nordend Andrestraße,50.108944,8.745023
+47109,5,Offenbach (Main)-Nordend Goethering,50.108097,8.744007
+388084,5,Offenbach (Main)-Nordend Lilistraße,50.10808,8.748844
+361250,5,Offenbach (Main)-Nordend Ludwigstraße,50.10901,8.750335
+393607,5,Offenbach (Main)-Nordend Taunusstraße,50.10994,8.751994
+545700,5,Offenbach (Main)-Nordend Theater/Messehallen,50.109276,8.75703
+638396,5,Offenbach (Main)-Offenbach Ost Danziger Straße,50.109505,8.795584
+269801,5,Offenbach (Main)-Offenbach Ost Grenzstraße,50.099834,8.783857
+506557,5,Offenbach (Main)-Offenbach Ost Karl-Herdt-Weg,50.1116,8.801196
+1130,5,Offenbach (Main)-Offenbach Ost Kettelerstraße/Aldi,50.108326,8.786796
+417457,5,Offenbach (Main)-Offenbach Ost Mühlheimer Straße,50.105743,8.785312
+431089,5,Offenbach (Main)-Offenbach Ost Ostbahnhof,50.102444,8.784376
+342113,5,Offenbach (Main)-Offenbach Ost Rhönstraße,50.100143,8.785197
+511239,5,Offenbach (Main)-Offenbach Ost Rohrmühle,50.10792,8.791355
+426594,5,Offenbach (Main)-Rosenhöhe BSC-Sportplatz,50.07985,8.760308
+636050,5,Offenbach (Main)-Rosenhöhe Gravenbruchweg,50.080658,8.760429
+39317,5,Offenbach (Main)-Rosenhöhe Sportzentrum Rosenhöhe,50.077972,8.757104
+99442,5,Offenbach (Main)-Rosenhöhe Waldschwimmbad,50.080013,8.757149
+21614,5,Offenbach (Main)-Rumpenheim Biebernseeweg,50.125248,8.807278
+311845,5,Offenbach (Main)-Rumpenheim Ernst-Reuter-Schule,50.126125,8.793057
+343701,5,Offenbach (Main)-Rumpenheim Kurhessenplatz,50.129555,8.797317
+366132,5,Offenbach (Main)-Rumpenheim Kurhessenstraße,50.128258,8.795743
+422643,5,Offenbach (Main)-Rumpenheim Marstallstraße,50.131607,8.799812
+42008,5,Offenbach (Main)-Rumpenheim Schloßpark,50.130024,8.804532
+394603,5,Offenbach (Main)-Senefelderquartier Friedrichsring,50.095325,8.768127
+540258,5,Offenbach (Main)-Tempelsee AWO Hainbachtal,50.075283,8.779203
+518231,5,Offenbach (Main)-Tempelsee Eberhardt-v-Rochow-Str.,50.085007,8.772019
+530539,5,Offenbach (Main)-Tempelsee Gasthaus Wildhof,50.05887,8.77615
+183059,5,Offenbach (Main)-Tempelsee Hainbachtal,50.075066,8.783577
+361722,5,Offenbach (Main)-Tempelsee Stadthalle,50.08227,8.777243
+196376,5,Offenbach (Main)-Tempelsee Waldschule,50.084824,8.790924
+284635,5,Offenbach (Main)-Tempelsee Wilhelm-Schramm-Straße,50.083824,8.783649
+588586,5,Offenbach (Main)-Waldheim Am Wiesengrund,50.114098,8.806232
+93110,5,Offenbach (Main)-Waldheim Bischofsheimer Weg,50.11865,8.807459
+54340,5,Offenbach (Main)-Waldheim Eibenweg,50.10988,8.811324
+253856,5,Offenbach (Main)-Waldheim Neuer Friedhof,50.114433,8.808049
+589314,5,Offenbach (Main)-Waldheim Neuer Friedhof/Ulmenstr.,50.113613,8.807674
+514905,5,Offenbach (Main)-Waldheim Senefelderallee,50.116238,8.811229
+44596,5,Offenbach (Main)-Westend August-Bebel-Ring,50.10203,8.745633
+507316,5,Offenbach (Main)-Westend Deutscher Wetterdienst,50.102654,8.749641
+373096,5,Offenbach (Main)-Westend Ledermuseum,50.105915,8.749582
+665135,5,Offenbach (Main)-Westend Max Willner Platz,50.105507,8.744007
+622083,5,Offenbach (Main)-Westend Offenbach Stadtgrenze,50.101925,8.744948
+254564,5,Offenbach (Main)-Westend Parkstr. (Leibnizschule),50.099102,8.750596
+439742,5,Offenbach (Main)-Westend Tulpenhofstraße,50.098663,8.754973
+45712,5,Offenbach (Main)-Zentrum Bahnüberführung Waldstr.,50.100636,8.76553
+670416,5,Offenbach (Main)-Zentrum Hauptbahnhof,50.09964,8.760661
+213455,5,Offenbach (Main)-Zentrum Justizzentrum,50.10175,8.759835
+143638,5,Offenbach (Main)-Zentrum Kaiserstraße,50.10521,8.758732
+346289,5,Offenbach (Main)-Zentrum Ludwigstraße/Ledermuseum,50.10366,8.753703
+163552,5,Offenbach (Main)-Zentrum Marktplatz/Berliner Str,50.10533,8.766206
+450176,5,Offenbach (Main)-Zentrum Marktplatz/Frankf. Straße,50.105183,8.764459
+390305,5,Offenbach (Main)-Zentrum Rathaus,50.106407,8.761042
+373132,5,Offenbach (Main)-Zentrum Schloßstraße,50.107315,8.764756
+669036,5,Offenbach (Main)-Zentrum Wilhelmsplatz,50.104298,8.766211
+551301,5,"Offenbach (Queich), Interpark",49.198776,8.205877
+639163,5,Offenbach Friedensstraße | NMarktplatz,50.097885,8.766773
+275386,5,Offenbach Friedensstraße | NStadthalle,50.09783,8.76648
+452054,5,"Offenbach, Am See",49.19347,8.195079
+216280,5,"Offenbach, Friedhof",49.19429,8.187946
+550518,5,"Offenbach, Hauptstraße",49.189518,8.191072
+340038,5,"Offenbach, Kulturzentrum",49.193005,8.190318
+32667,5,"Offenbach, Mozartstraße",49.19449,8.190066
+80757,5,"Offenbach, Neumühle",49.209534,8.213234
+479047,5,"Offenbach, Süssel",49.62254,7.550987
+653924,5,"Offenbach, Turn- und Festhalle",49.19905,8.189985
+647647,5,"Offenbach-Hundheim, Bahnhof",49.625885,7.552685
+101796,5,Offenbachstraße,48.146175,11.465485
+182387,5,Troisdorf Kriegsdorf Offenbachstr.,50.80667,7.103572
+449415,5,Woffenbach Am Letten,49.274727,11.429436
+413072,5,Woffenbach BRK-Altenheim,49.27854,11.432733
+119040,5,Woffenbach Kirche,49.276955,11.43444
+38951,5,Woffenbach Kreuzstr.,49.28007,11.435589
+259572,5,Woffenbach Meuselstr.,49.28042,11.432409
+250873,5,Woffenbach Rebhuhnstr.,49.277622,11.438006
+496340,5,Woffenbach Schloßstr.,49.272915,11.440917
+38947,5,Woffenbach Schule,49.275227,11.438572
+141556,5,Woffenbach Tyrolsberger Str.,49.27688,11.430837
+467766,5,Woffenbach Zentrum,49.276726,11.435625
+534829,5,Zimmern Offenbachweg,47.936066,8.717054
+427304,6,"Berlin, Hanauer Str.",52.477016,13.320263
+278157,6,Bruchköbel-Roßdorf Hanauer Straße,50.19762,8.911332
+390882,6,Freigericht-Neuses Hanauer Landstraße,50.13051,9.135535
+72549,6,Hammersbach-Langen-Bergheim Hanauer Straße,50.23644,8.997169
+234800,6,Hanau Akademiestraße,50.12652,8.919709
+681214,6,Hanau Alfred-Delp-Straße,50.128483,8.928605
+682135,6,Hanau Alter Rückinger Weg,50.144844,8.91211
+80728,6,Hanau Am Mainkanal,50.1295,8.90708
+640809,6,Hanau Am Steinheimer Tor,50.130157,8.912277
+500212,6,Hanau Am Steinheimer Tor/Kino,50.12949,8.913271
+73071,6,Hanau Amphitheater,50.12774,8.886889
+574488,6,Hanau Auf dem Unterfeld,50.1354,8.89638
+136851,6,Hanau Auf der Aue,50.130695,8.905273
+272453,6,Hanau August-Schärttner-Halle,50.148285,8.920764
+146737,6,Hanau Barbarossastraße,50.12727,8.929474
+454834,6,Hanau Beethovenplatz,50.142895,8.895205
+538130,6,Hanau Bismarckturm,50.1491,8.88026
+551409,6,Hanau Burgallee,50.133556,8.889155
+261506,6,Hanau Castellstraße,50.132835,8.896444
+117133,6,Hanau Cranachstraße,50.141045,8.939064
+496320,6,Hanau Diebacher Weg,50.150257,8.927113
+14454,6,Hanau Donaustraße,50.152054,8.933099
+390969,6,Hanau Drosselstraße,50.149567,8.874381
+350265,6,Hanau Dunlop,50.12463,8.939057
+631355,6,Hanau Dunlop Übergang,50.12815,8.934717
+357204,6,Hanau Erlenweg,50.1356,8.93464
+621023,6,Hanau Feuerbachstraße,50.141487,8.942729
+110982,6,Hanau Francois-Gärten/VHS,50.142574,8.937174
+8974,6,Hanau Freiheitsplatz,50.135006,8.918534
+632448,6,Hanau Friedenskirche,50.128616,8.896994
+54234,6,Hanau Friedhof Kesselstadt,50.135,8.89887
+299860,6,Hanau Friedrich-Ebert-Anlage,50.129314,8.920404
+41530,6,Hanau Friedrichstraße,50.127342,8.927162
+583915,6,Hanau Gabelsbergerstraße/Lamboypark,50.141933,8.931705
+328771,6,Hanau Gustav-Adolf-Straße,50.139004,8.90895
+502395,6,Hanau Hanauer Straßenbahn,50.1213,8.93334
+93701,6,Hanau Hauptbahnhof,50.121346,8.928415
+269265,6,Hanau Hauptbahnhof/Auheimer Straße,50.12043,8.927494
+339403,6,Hanau Hauptfriedhof,50.125233,8.929388
+268561,6,Hanau Hbf./Auheimer Straße,50.112232,8.895855
+583355,6,Hanau Heinrich-Fischer-Bad,50.139503,8.916335
+642447,6,Hanau Heraeusstraße,50.131027,8.924736
+540675,6,Hanau Heumarkt,50.13238,8.914207
+545686,6,Hanau Hochstädter Landstraße,50.144245,8.887634
+113263,6,Hanau Hohe Landesschule,50.144123,8.918127
+679972,6,Hanau Hohe Tanne,50.147453,8.873659
+92394,6,Hanau Hopfenstraße,50.13362,8.892862
+201266,6,Hanau Hospitalstraße,50.13686,8.913822
+396467,6,Hanau Händelstraße,50.142284,8.899305
+72971,6,Hanau Ikea,50.14983,8.945023
+194056,6,Hanau Industrieweg,50.12105,8.937677
+94938,6,Hanau Johann-Carl-Koch-Straße,50.14314,8.941631
+173374,6,Hanau Johann-Kaiser-Ring,50.14563,8.93419
+650320,6,Hanau Kantstraße,50.13156,8.881733
+297087,6,Hanau Karl-Marx-Straße,50.140385,8.931231
+442549,6,Hanau Karl-Rehbein-Schule,50.137474,8.920031
+226876,6,Hanau Karlsbader Straße,50.13002,8.889914
+142631,6,Hanau Kastanienallee,50.1355,8.8934
+358059,6,Hanau Kaufmännische Schule,50.142056,8.905251
+551542,6,Hanau Kiefernweg,50.13487,8.939505
+662115,6,Hanau Kino,50.128834,8.915668
+500418,6,Hanau Kinzigbogen,50.147163,8.929529
+556370,6,Hanau Klein-Auheim Bahnhof,50.10023,8.934317
+312588,6,Hanau Klinikum,50.132988,8.924747
+113093,6,Hanau Kronprinzenstraße,50.13056,8.890556
+177175,6,Hanau Kurt-Blaum-Platz,50.129765,8.924142
+184348,6,Hanau Königsberger Straße,50.134937,8.884942
+229986,6,Hanau Körnerstraße,50.14242,8.911014
+100100,6,Hanau Landwehr,50.126972,8.931698
+295670,6,Hanau Leimenstraße,50.131973,8.921705
+597010,6,Hanau Liebigstraße,50.130035,8.88494
+635892,6,Hanau Lärchenweg,50.1359,8.93746
+265513,6,Hanau Mainstraße,50.12538,8.914495
+248784,6,Hanau Marktplatz,50.132393,8.917942
+595502,6,Hanau Marköbeler Straße,50.145725,8.911955
+162814,6,Hanau Moselstraße,50.15174,8.927321
+270815,6,Hanau Neuhofstraße,50.136112,8.941504
+505359,6,Hanau Niddastraße,50.1513,8.939466
+218577,6,Hanau Nordbahnhof,50.140404,8.924568
+444096,6,Hanau Nordbahnhof/Friedberger Straße,50.142025,8.923717
+78175,6,Hanau Nordstraße,50.13809,8.921485
+257184,6,Hanau Nussallee,50.135944,8.911749
+627731,6,Hanau Ostheimer Straße,50.148857,8.914159
+430820,6,Hanau Otto-Hahn-Schule,50.138226,8.893215
+581516,6,Hanau Paul-Ehrlich-Straße,50.141518,8.928474
+438011,6,Hanau Plantagenstraße,50.138443,8.931808
+84179,6,Hanau Posener Straße,50.134026,8.88086
+534104,6,Hanau Pumpstation,50.129368,8.900032
+99325,6,Hanau Rembrandtstraße,50.1393,8.9434
+664500,6,Hanau Rhönstraße,50.134605,8.923038
+99680,6,Hanau Rosenau,50.140446,8.902527
+79313,6,Hanau Salisweg,50.133152,8.898625
+67639,6,Hanau Schloss Philippsruhe,50.128445,8.89237
+435917,6,Hanau Schlossplatz,50.1379,8.918151
+361924,6,Hanau Schulzentrum Hessen-Homburg,50.14453,8.936486
+224038,6,Hanau Schwedenstraße,50.14456,8.909891
+361035,6,Hanau Stadtwerke,50.129658,8.925554
+88474,6,Hanau Ulmenweg,50.1379,8.941124
+555784,6,Hanau Vor der Kinzigbrücke,50.139896,8.911382
+639582,6,Hanau Wartburgstraße,50.12613,8.934524
+35716,6,Hanau Weiherfeld,50.148,8.908747
+44718,6,Hanau Weserstraße,50.150818,8.935092
+137944,6,Hanau Westbahnhof,50.132526,8.910986
+1099,6,Hanau Westerburgstraße,50.124657,8.915335
+60969,6,Hanau Wilhelmsbad Bahnhof,50.144444,8.88311
+509731,6,Hanau-Großauheim Am Herlinsee,50.114807,8.934339
+611255,6,Hanau-Großauheim Asea-Brown-Boveri,50.099316,8.95334
+268909,6,Hanau-Großauheim Bahnhof,50.10693,8.944097
+436739,6,Hanau-Großauheim Bahnhofstraße,50.10617,8.942444
+319164,6,Hanau-Großauheim Benzstraße,50.116943,8.930715
+592842,6,Hanau-Großauheim Bruchwiesenweg,50.104618,8.965864
+46187,6,Hanau-Großauheim Brückenstraße,50.109486,8.938694
+666375,6,Hanau-Großauheim Goethestraße,50.11047,8.947066
+69967,6,Hanau-Großauheim Harzweg,50.104187,8.951644
+194355,6,Hanau-Großauheim Hergerswiesenweg,50.0949,8.94897
+167062,6,Hanau-Großauheim Lindenaubad,50.10459,8.960427
+635311,6,Hanau-Großauheim Lindenauschule,50.10513,8.957183
+611583,6,Hanau-Großauheim Lise-Meitner-Straße,50.112026,8.937591
+275178,6,Hanau-Großauheim Marienstraße,50.100365,8.951075
+532176,6,Hanau-Großauheim Philipp-Heck-Straße,50.094776,8.954099
+319306,6,Hanau-Großauheim Rauschsiedlung,50.10838,8.944543
+519849,6,Hanau-Großauheim Rochusplatz,50.10326,8.945844
+532414,6,Hanau-Großauheim Rue de Conflans,50.105537,8.955361
+577803,6,Hanau-Großauheim Spessartstraße,50.10626,8.947914
+377524,6,Hanau-Großauheim Spitzenweg,50.1019,8.954614
+125432,6,Hanau-Großauheim Thomas-Mann-Weg,50.109573,8.95066
+511550,6,Hanau-Großauheim Underwood,50.100426,8.961278
+658152,6,Hanau-Großauheim Vosswaldestraße,50.10735,8.969003
+246429,6,Hanau-Großauheim Wolfstraße,50.107555,8.962614
+224904,6,Hanau-Klein-Auheim Behringstraße,50.09523,8.934454
+82471,6,Hanau-Klein-Auheim Borsigstraße,50.097683,8.934576
+454458,6,Hanau-Klein-Auheim Brüder-Bauer-Straße,50.09867,8.930606
+318689,6,Hanau-Klein-Auheim Dieselstraße,50.091103,8.935787
+585891,6,Hanau-Klein-Auheim Feuerwehrhaus,50.098675,8.927051
+569584,6,Hanau-Klein-Auheim Friedhof,50.095448,8.930256
+103134,6,Hanau-Klein-Auheim Hainstädter Straße,50.100594,8.930114
+509443,6,Hanau-Klein-Auheim Maindamm,50.102077,8.92337
+589132,6,Hanau-Klein-Auheim Obergasse,50.101685,8.933019
+325068,6,Hanau-Klein-Auheim Pfützenweg,50.100437,8.917334
+415965,6,Hanau-Klein-Auheim Reitweg,50.103615,8.919817
+235066,6,Hanau-Mittelbuchen Am Hagen,50.17511,8.883134
+64024,6,Hanau-Mittelbuchen Am Schwaberg,50.178772,8.883815
+384365,6,Hanau-Mittelbuchen Büchertalstraße,50.1765,8.879616
+424586,6,Hanau-Mittelbuchen Kilianstädter Straße,50.178272,8.887582
+376679,6,Hanau-Mittelbuchen Lützelbuchener Straße,50.179012,8.894632
+217134,6,Hanau-Mittelbuchen Raiffeisenstraße,50.17674,8.889336
+210484,6,Hanau-Mittelbuchen Rathausstraße,50.17817,8.891237
+421867,6,Hanau-Mittelbuchen Wachenbuchener Straße,50.17672,8.886307
+53701,6,Hanau-Steinheim (Main) Bahnhof,50.1216,8.908265
+213699,6,Hanau-Steinheim Albrecht-Dürer-Straße,50.105846,8.912572
+250782,6,Hanau-Steinheim Alicestraße,50.12011,8.907429
+438351,6,Hanau-Steinheim Altstadt,50.108257,8.913561
+195082,6,Hanau-Steinheim Berliner Straße,50.118015,8.905019
+247973,6,Hanau-Steinheim Darmstädter Straße,50.1049,8.909066
+509876,6,Hanau-Steinheim Dietzenseestraße,50.110092,8.90119
+45521,6,Hanau-Steinheim Doorner Straße,50.11226,8.914616
+503623,6,Hanau-Steinheim Eppsteinschule,50.113255,8.910616
+636562,6,Hanau-Steinheim Eppsteinstraße,50.107212,8.911004
+36894,6,Hanau-Steinheim Evangelische Kirche,50.109795,8.914872
+655116,6,Hanau-Steinheim Feuerwehr,50.113434,8.908131
+23745,6,Hanau-Steinheim Friedhof Süd,50.10616,8.904609
+584439,6,Hanau-Steinheim Fritz-Erler-Straße,50.11694,8.910777
+23683,6,Hanau-Steinheim Johannes-Machern-Straße,50.11391,8.902338
+532059,6,Hanau-Steinheim Jürgen-Sticher-Platz,50.115395,8.911814
+605164,6,Hanau-Steinheim Karl-Kirstein Straße,50.11701,8.901693
+1403,6,Hanau-Steinheim Obertor,50.10642,8.914044
+633957,6,Hanau-Steinheim Odenwaldstraße,50.109608,8.909704
+294249,6,Hanau-Steinheim Pfaffenbrunnenstraße,50.11563,8.902283
+533848,6,Hanau-Steinheim Rondo,50.112064,8.895771
+497103,6,Hanau-Steinheim Vogesenstraße,50.10709,8.899616
+363451,6,Hanau-Wolfgang Argonnerpark,50.117912,8.957969
+618388,6,Hanau-Wolfgang Bahnhof,50.12242,8.955667
+84453,6,Hanau-Wolfgang Brüningstraße,50.125652,8.94491
+258145,6,Hanau-Wolfgang Christoph-Kolumbus-Straße,50.124992,8.950421
+510280,6,Hanau-Wolfgang Degussa,50.120193,8.962549
+541650,6,Hanau-Wolfgang E.-Schmitz-Schule,50.118572,8.955419
+312717,6,Hanau-Wolfgang Forstamt,50.13038,8.978237
+383921,6,Hanau-Wolfgang In den Tannen,50.113956,8.951583
+401790,6,Hanau-Wolfgang James-Cook-Straße,50.12645,8.953454
+287022,6,Hanau-Wolfgang Maria-Merian-Bogen,50.12622,8.947231
+514398,6,Hanau-Wolfgang Nancy-Johnson-Straße,50.127174,8.948698
+178846,6,Hanau-Wolfgang Paul-Gerhardt-Schule,50.112255,8.952689
+18205,6,Hanau-Wolfgang Pioneer Park,50.124557,8.949316
+550644,6,Hanau-Wolfgang Technologiepark,50.1255,8.969802
+459656,6,Hanau-Wolfgang Technologiepark Mitte,50.12408,8.970936
+505446,6,Hanau-Wolfgang Technologiepark Ost,50.121906,8.975775
+361139,6,Hanau-Wolfgang Vor der Pulvermühle,50.11967,8.95869
+109489,6,"Hanauer Mühle, Steinbach Ottweiler",49.395634,7.216185
+155442,6,Hanauer Straße,48.17215,11.528655
+442874,6,Hanauerhof (Pfalz),49.66107,7.832168
+308239,6,Hasselroth-Niedermittlau Hanauer Landstraße,50.1723,9.12391
+348627,6,Limeshain-Hainchen Hanauer Straße,50.2675,8.99352
+442486,6,"Lohma, Gh Hanauer",49.621002,12.425892
+374946,6,Mühlheim (Main)-Dietesheim Hanauer Straße,50.123398,8.851712
+129737,6,Niddatal-Ilbenstadt Hanauer Straße,50.2776,8.80238
+115691,6,Nidderau-Ostheim Hanauer Straße,50.221855,8.907266
+14587,6,Pforzheim Hanauer Straße,48.886993,8.74536
+379577,6,Schöneck-Kilianstädten Hanauer Straße,50.19959,8.856608
+402081,6,"Vinningen, Hanauerhof",49.16856,7.51809
+235254,6,Wöllstadt-Ober-Wöllstadt Hanauer Straße,50.2945,8.7544
