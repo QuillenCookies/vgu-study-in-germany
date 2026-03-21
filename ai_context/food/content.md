@@ -1,0 +1,12 @@
+# Food Info:
+(a) Geography: Regional availability (City-specific vs. Nationwide Germany).
+(b) Dish Profiles: Name, ingredients, dietary compatibility (Vegetarian, Beef-free, Pork-free), flavor profiles (Sweet, Savory, Sour, etc.), cost, dining etiquette (e.g., traditional times for specific drinks), and regional variations/specialties.
+(c) Local Restaurant Directory: Location, price point, cuisine type, origin (German, Chinese, Vietnamese, etc.), and cultural/dietary suitability.
+
+# Key Features:
+(a) Multi-university comparison based on the following dimensions.
+(b) Culinary Directory: Categorized dish listings based on dietary, regional, and flavor profiles.
+(c) Restaurant Discovery Assistant.
+(d) AI Vision: Integrated menu recognition and automated dish lookup.
+
+# Target City: Frankfurt

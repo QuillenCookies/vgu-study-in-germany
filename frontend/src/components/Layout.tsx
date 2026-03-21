@@ -1,27 +1,24 @@
 // Layout.tsx
 import React from 'react';
-
 import Navbar from './Navbar';
+import Footer from './Footer';
 
 interface LayoutProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({children}) => {
-    return (
-        // Wrapper
-        <div className="flex flex-col min-h-screen w-full">
-            <Navbar />
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div className="flex flex-col min-h-screen w-full bg-white">
+      <Navbar />
 
-            <main className="bg-red-700">
-                {children}
-            </main>
+      <main className="flex-1">
+        {children}
+      </main>
 
-            <footer className="py-4 text-center border-t">
-                @ 2026 The website
-            </footer>
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 
 export default Layout;

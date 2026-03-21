@@ -1,29 +1,26 @@
 // App.tsx
+import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import UniversitiesPage from './pages/UniversitiesPage';
+import TrainPage from './pages/TrainPage';
+import EntertainmentPage from './pages/EntertainmentPage';
+import FoodPage from './pages/FoodPage';
+import HousingPage from './pages/HousingPage';
 
 export default function App() {
   return (
-    <Layout>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-      <h1 className="text-3xl font-bold">Welcome my Friend</h1>
-      <p className="mt-4">This is the main content of the website</p>
-    </Layout>
-  )
-};
+    <Routes>
+      <Route path="/" element={
+        <Layout>
+          <HomePage />
+        </Layout>
+      } />
+      <Route path="/university" element={<UniversitiesPage />} />
+      <Route path="/bahn" element={<TrainPage />} />
+      <Route path="/entertainment" element={<EntertainmentPage />} />
+      <Route path="/food" element={<FoodPage />} />
+      <Route path="/housing" element={<HousingPage />} />
+    </Routes>
+  );
+}
