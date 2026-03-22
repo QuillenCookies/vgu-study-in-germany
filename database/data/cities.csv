@@ -1,7 +1,7 @@
 city_id,state_id,city_name,avg_rent,avg_col
-1,1,"Frankfurt am Main",,
-2,1,"Wiesbaden",,
-3,1,"Kassel",,
-4,1,"Darmstadt",,
-5,1,"Offenbach am Main",,
-6,1,"Hanau",,
+1,1,"Frankfurt am Main",650,1200
+2,1,"Wiesbaden",600,1100
+3,1,"Kassel",550,1000
+4,1,"Darmstadt",620,1150
+5,1,"Offenbach am Main",580,1050
+6,1,"Hanau",530,950
