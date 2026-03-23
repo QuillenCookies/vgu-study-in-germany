@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "https://vgu-study-in-germany.onrender.com/api/:path*"
+        }
+    ]
+}

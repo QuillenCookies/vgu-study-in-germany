@@ -10,7 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+# Check dev or deployment build
+IS_PRODUCTION = os.environ.get('RENDER') == 'true'
+DEBUG = not IS_PRODUCTION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,17 +25,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-tkcz9@v!j&m*^wrijk@*)5)a&b9)+&dnvq1^cular(k1j6_(d)'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
+DJANGO_SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-tkcz9@v!j&m*^wrijk@*)5)a&b9)+&dnvq1^cular(k1j6_(d)')
 
 # Application definition
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+if IS_PRODUCTION:
+    ALLOWED_HOSTS = ['vgu-study-in-germany.onrender.com']
+    CORS_ALLOWED_ORIGINS = [
+        "https://notiz-von-ente.vercel.app",
+    ]
+else:
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    CORS_ALLOWED_ORIGINS = [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -48,7 +56,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware', # Must be at the top
-    'django.middleware.common.CommonMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
