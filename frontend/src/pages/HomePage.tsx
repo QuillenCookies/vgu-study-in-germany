@@ -86,14 +86,15 @@ const HomePage: React.FC = () => {
     // Clear the search bar so the new placeholder takes over visually
     setQuery('');
 
-    // 3. Removed navigate('/university') to stop the throwing effect
+    navigate('/university');
   };
 
   const handleExplore = (e: React.FormEvent) => {
     e.preventDefault();
-    // 3. Removed navigate('/university') here as well. 
-    // Just close the dropdown if they hit enter.
+
+    // Close the dropdown and navigate to university
     setShowDropdown(false);
+    navigate('/university');
   };
 
   // 4. Dynamic Hero Message based on Context
