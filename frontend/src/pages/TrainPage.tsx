@@ -107,7 +107,7 @@ const TrainPage: React.FC = () => {
   // Save external station to local DB when user confirms
   const saveExternalStation = useCallback(async (station: {id: string; name: string}) => {
     try {
-      await fetch('http://localhost:8000/api/locations/save', {
+      await fetch('/api/locations/save', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(station),
@@ -122,7 +122,7 @@ const TrainPage: React.FC = () => {
   // Helper for station ID resolution (local-first, no auto-save for external)
   const resolveStation = useCallback(async (query: string, signal?: AbortSignal): Promise<{id: string; name: string; source?: string} | null> => {
     try {
-      const res = await fetch(`http://localhost:8000/api/locations/search?q=${encodeURIComponent(query)}`, { signal });
+      const res = await fetch(`/api/locations/search?q=${encodeURIComponent(query)}`, { signal });
       const data = await res.json();
       if (data.status === 'success' && data.data.length > 0) {
         return data.data[0]; // includes { id, name, source: 'local'|'external' }
@@ -157,7 +157,7 @@ const TrainPage: React.FC = () => {
       }
 
       const queryParam = resolved ? resolved.id : trimmed;
-      const liveRes = await fetch(`http://localhost:8000/api/trains/routes?station=${encodeURIComponent(queryParam)}`, { signal: controller.signal });
+      const liveRes = await fetch(`/api/trains/routes?station=${encodeURIComponent(queryParam)}`, { signal: controller.signal });
       const liveData = await liveRes.json();
 
       if (liveData.status === 'success') {
@@ -175,7 +175,7 @@ const TrainPage: React.FC = () => {
 
   const fetchStaticTrainData = async (query: string) => {
     try {
-      const res = await fetch(`http://localhost:8000/api/trains/info?station=${encodeURIComponent(query)}`);
+      const res = await fetch(`/api/trains/info?station=${encodeURIComponent(query)}`);
       const data = await res.json();
       if (data.status === 'success') {
         setFrankfurtRoutes(data.data.routes || []);
