@@ -23,7 +23,7 @@ SUPABASE_URL = os.environ.get('DATABASE_URL')
 
 # Application definition
 if IS_PRODUCTION:
-    DEBUG = True
+    DEBUG = False
     ALLOWED_HOSTS = [
         BACKEND_URL,
         FRONTEND_URL,
