@@ -22,7 +22,9 @@ const HomePage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const { setSelectedLocation } = useUniversity();
+
+  // 1. Pull selectedLocation to use in our placeholder
+  const { selectedLocation, setSelectedLocation } = useUniversity();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,9 +38,9 @@ const HomePage: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!query.trim()) {
+    // 2. Search engine: only trigger after 3 characters
+    if (query.trim().length < 3) {
       setSuggestions({ cities: [], universities: [] });
-      setShowDropdown(false);
       return;
     }
 
@@ -48,14 +50,13 @@ const HomePage: React.FC = () => {
       try {
         const res = await fetch(`/api/cities/search?q=${encodeURIComponent(query)}`);
         const result = await res.json();
-        // Fallback for different payload structures just in case
+
         if (result.status === 'success' && result.data) {
           setSuggestions({
             cities: result.data.cities || [],
             universities: result.data.universities || []
           });
         } else if (Array.isArray(result)) {
-          // Fallback to purely cities array according to api.md
           setSuggestions({
             cities: result || [],
             universities: []
@@ -77,20 +78,29 @@ const HomePage: React.FC = () => {
       name: item.name || item.city_name || item.uni_name,
       type
     };
+
+    // Save to context to persist across pages
     setSelectedLocation(locationState);
     setShowDropdown(false);
-    setQuery(locationState.name);
 
-    // Auto-navigate to university page on selection
+    // Clear the search bar so the new placeholder takes over visually
+    setQuery('');
+
     navigate('/university');
   };
 
   const handleExplore = (e: React.FormEvent) => {
     e.preventDefault();
-    if (query.trim()) {
-      navigate('/university');
-    }
+
+    // Close the dropdown and navigate to university
+    setShowDropdown(false);
+    navigate('/university');
   };
+
+  // 4. Dynamic Hero Message based on Context
+  const searchPlaceholder = selectedLocation?.name
+    ? `What are you exploring today in ${selectedLocation.name}?`
+    : "What are you exploring today?";
 
   return (
     <section className="relative w-full flex items-center justify-center" style={{ minHeight: '85vh' }}>
@@ -130,12 +140,13 @@ const HomePage: React.FC = () => {
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
-                setShowDropdown(true);
+                // Only show dropdown if they have typed enough
+                if (e.target.value.trim().length >= 3) setShowDropdown(true);
               }}
               onFocus={() => {
-                if (query.trim()) setShowDropdown(true);
+                if (query.trim().length >= 3) setShowDropdown(true);
               }}
-              placeholder="What are you exploring today?"
+              placeholder={searchPlaceholder}
               className="flex-1 px-4 py-4 text-gray-800 text-base outline-none bg-transparent placeholder-gray-400"
             />
             {isLoading && (
@@ -153,8 +164,9 @@ const HomePage: React.FC = () => {
 
           {/* Dropdown Suggestions */}
           {showDropdown && (suggestions.cities.length > 0 || suggestions.universities.length > 0) && (
-            <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 z-50 animate-in fade-in slide-in-from-top-2 duration-200 text-left">
               <div className="max-h-80 overflow-y-auto py-2">
+
                 {/* Universities */}
                 {suggestions.universities.length > 0 && (
                   <div className="mb-2">
@@ -164,10 +176,15 @@ const HomePage: React.FC = () => {
                         key={`uni-${uni.id || uni.uni_id || idx}`}
                         type="button"
                         onClick={() => handleSelectLocation(uni, 'university')}
-                        className="w-full text-left px-4 py-2 hover:bg-orange-50 text-gray-800 focus:bg-orange-50 focus:outline-none transition-colors flex items-center gap-3"
+                        className="w-full text-left px-4 py-2 hover:bg-orange-50 text-gray-800 focus:bg-orange-50 focus:outline-none transition-colors flex flex-col"
                       >
-                        <span className="text-xl">🎓</span>
-                        <span>{uni.name || uni.uni_name}</span>
+                        <div className="flex items-center gap-3">
+                          <span className="text-xl">🎓</span>
+                          <span className="font-medium">{uni.name || uni.uni_name}</span>
+                        </div>
+                        {uni.city_name && (
+                          <span className="text-sm text-gray-500 ml-9">{uni.city_name}, Germany</span>
+                        )}
                       </button>
                     ))}
                   </div>
@@ -185,7 +202,11 @@ const HomePage: React.FC = () => {
                         className="w-full text-left px-4 py-2 hover:bg-orange-50 text-gray-800 focus:bg-orange-50 focus:outline-none transition-colors flex items-center gap-3"
                       >
                         <span className="text-xl">📍</span>
-                        <span>{city.name || city.city_name}</span>
+                        <span className="font-medium">
+                          {/* Format: Frankfurt, Hesse, Germany */}
+                          {city.name || city.city_name}
+                          {city.state ? `, ${city.state}` : ''}, Germany
+                        </span>
                       </button>
                     ))}
                   </div>
@@ -195,7 +216,7 @@ const HomePage: React.FC = () => {
           )}
         </div>
 
-        {/* Quick tags — now using router Links */}
+        {/* Quick tags */}
         <div className="flex flex-wrap gap-3 mt-8 justify-center">
           {quickLinks.map((tag) => (
             <Link

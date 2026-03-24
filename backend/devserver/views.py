@@ -9,20 +9,29 @@ from django.conf import settings
 from django.core.cache import cache
 from .db_api import DBApi
 
-# Create your views here.
 def search_cities(request):
     query = request.GET.get('q', '').strip()
-    if not query:
+    # Require at least 3 characters on the backend too as a safeguard
+    if len(query) < 3:
         return JsonResponse({
             "status": "success",
             "data": {"cities": [], "universities": []}
         })
     
     cities = City.objects.filter(city_name__icontains=query)[:10]
-    universities = University.objects.filter(uni_name__icontains=query)[:10]
+    # select_related to easily grab the city name without extra queries
+    universities = University.objects.select_related('city').filter(uni_name__icontains=query)[:10]
     
-    cities_data = [{"id": city.city_id, "name": city.city_name, "type": "city"} for city in cities]
-    unis_data = [{"id": uni.uni_id, "name": uni.uni_name, "city_id": uni.city_id, "type": "university"} for uni in universities]
+    # Added state to the response
+    cities_data = [{"id": city.city_id, "name": city.city_name, "state": city.state, "type": "city"} for city in cities]
+    
+    # Added city_name to universities so we can show "TU Darmstadt, Darmstadt"
+    unis_data = [{
+        "id": uni.uni_id, 
+        "name": uni.uni_name, 
+        "city_name": uni.city.city_name if uni.city else None,
+        "type": uni.type
+    } for uni in universities]
     
     return JsonResponse({
         "status": "success",
@@ -32,14 +41,33 @@ def search_cities(request):
         }
     })
 
+from django.http import JsonResponse
+from .models import University
+
 def get_universities(request):
-    # This automatically grabs the city name from the linked table!
-    unis = University.objects.all().values(
-        'uni_id', 'uni_name', 'type', 'ranking_global', 
-        'ranking_by_sub', 'website_url', 
-        city_name=F('city__city_name') # Grabs the 'city_name' field from the 'city' foreign key
-    )
-    return JsonResponse(list(unis), safe=False)
+    unis = University.objects.select_related('city').prefetch_related('highlights')
+    
+    data = []
+    for uni in unis:
+        highlight_list = [h.aca_highlight_name for h in uni.highlights.all()]
+
+        best_subject_rank = None
+        first_sub_rank = uni.unisubjectrank_set.first()
+        if first_sub_rank:
+            best_subject_rank = first_sub_rank.rank
+
+        data.append({
+            'uni_id': uni.uni_id,
+            'uni_name': uni.uni_name,
+            'type': uni.type,
+            'ranking_global': uni.ranking_global,
+            'ranking_by_sub': best_subject_rank, 
+            'website_url': uni.uni_url,
+            'city_name': uni.city.city_name if uni.city else None,
+            'highlights': highlight_list
+        })
+        
+    return JsonResponse(data, safe=False)
 
 def get_housing_districts(request):
     districts = Housing.objects.all().values()
@@ -293,3 +321,7 @@ def save_location(request):
         except Exception as e:
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
     return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)
+
+def health_check(request):
+    data = {"status": "success", "mesage": "Health check good"}
+    return JsonResponse(data)

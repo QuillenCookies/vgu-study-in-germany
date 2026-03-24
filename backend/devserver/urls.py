@@ -13,4 +13,7 @@ urlpatterns = [
     path('trains/info', views.get_train_static_info),
     path('locations/search', views.search_locations),
     path('locations/save', views.save_location),
+
+    # Health check for Render
+    path('health_check', views.health_check),
 ]
