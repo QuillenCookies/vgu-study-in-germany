@@ -321,3 +321,7 @@ def save_location(request):
         except Exception as e:
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
     return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)
+
+def health_check(request):
+    data = {"status": "success", "mesage": "Health check good"}
+    return JsonResponse(data)
