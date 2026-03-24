@@ -22,10 +22,16 @@ SUPABASE_URL = os.environ.get('DATABASE_URL')
 
 # Application definition
 if IS_PRODUCTION:
-    ALLOWED_HOSTS = [BACKEND_URL]
+    ALLOWED_HOSTS = [
+        BACKEND_URL,
+        FRONTEND_URL,
+        ".onrender.com",
+        "notiz-von-ente.vercel.app"
+    ]
     CORS_ALLOWED_ORIGINS = [
         FRONTEND_URL,
     ]
+    CSRF_TRUSTED_ORIGINS = [FRONTEND_URL]
 else:
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
     CORS_ALLOWED_ORIGINS = [
