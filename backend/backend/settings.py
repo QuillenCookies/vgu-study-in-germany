@@ -2,10 +2,11 @@ import os
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
+import dj_database_url
+
 
 # Check dev or deployment build
 IS_PRODUCTION = os.environ.get('RENDER') == 'true'
-DEBUG = not IS_PRODUCTION
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,6 +23,7 @@ SUPABASE_URL = os.environ.get('DATABASE_URL')
 
 # Application definition
 if IS_PRODUCTION:
+    DEBUG = True
     ALLOWED_HOSTS = [
         BACKEND_URL,
         FRONTEND_URL,
@@ -31,8 +33,23 @@ if IS_PRODUCTION:
     CORS_ALLOWED_ORIGINS = [
         FRONTEND_URL,
     ]
+
+    # HTTPS & Cookies (Errors W004, W008, W012, W016)
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    
+    # To let Django understand it's running behind a Proxy (Render)
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+    CORS_ALLOWED_ORIGINS = [FRONTEND_URL]
     CSRF_TRUSTED_ORIGINS = [FRONTEND_URL]
+
 else:
+    DEBUG = True
     ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
     CORS_ALLOWED_ORIGINS = [
         "http://localhost:5173",
