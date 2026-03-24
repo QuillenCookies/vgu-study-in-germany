@@ -8,7 +8,7 @@ class Nation(models.Model):
     nation_name = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'nation'
+        db_table = 'nations'
 
 class State(models.Model):
     state_id = models.IntegerField(primary_key=True)
@@ -16,7 +16,7 @@ class State(models.Model):
     state_name = models.CharField(max_length=100)
 
     class Meta:
-        db_table = 'state'
+        db_table = 'states'
 
 class City(models.Model):
     city_id = models.IntegerField(primary_key=True)
@@ -26,7 +26,7 @@ class City(models.Model):
     avg_col = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     class Meta:
-        db_table = 'city'
+        db_table = 'cities'
 
 # ==========================================
 # 2. UNIVERSITY DOMAIN (M2M)
@@ -62,18 +62,23 @@ class University(models.Model):
     lat = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     long = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     uni_url = models.TextField(null=True, blank=True)
-
-    # Các quan hệ Nhiều - Nhiều
-    languages = models.ManyToManyField(Language, db_table='university_languages')
-    highlights = models.ManyToManyField(AcaHighlight, db_table='uni_highlights')
     
     # Quan hệ Nhiều-Nhiều có chứa extra field (rank) -> Phải dùng bảng trung gian custom
+    languages = models.ManyToManyField(Language, through='UniLanguage')
     subjects = models.ManyToManyField(Subject, through='UniSubjectRank')
+    highlights = models.ManyToManyField(AcaHighlight, through='UniHighlight')
 
     class Meta:
         db_table = 'universities'
 
-# Bảng trung gian custom cho Subjects và University vì có cột 'rank'
+class UniLanguage(models.Model):
+    uni = models.ForeignKey(University, on_delete=models.CASCADE, db_column='uni_id')
+    language = models.ForeignKey(Language, on_delete=models.CASCADE, db_column='lang_id')
+
+    class Meta:
+        db_table = 'uni_languages'
+        unique_together = ('uni', 'language')
+
 class UniSubjectRank(models.Model):
     uni = models.ForeignKey(University, on_delete=models.CASCADE, db_column='uni_id')
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE, db_column='subject_id')
@@ -82,6 +87,14 @@ class UniSubjectRank(models.Model):
     class Meta:
         db_table = 'uni_subject_ranks'
         unique_together = ('uni', 'subject')
+
+class UniHighlight(models.Model):
+    uni = models.ForeignKey(University, on_delete=models.CASCADE, db_column='uni_id')
+    aca_highlight = models.ForeignKey(AcaHighlight, on_delete=models.CASCADE, db_column='aca_highlight_id')
+
+    class Meta:
+        db_table = 'uni_highlights'
+        unique_together = ('uni', 'aca_highlight')
 
 # ==========================================
 # 3. HOUSING DOMAIN
@@ -112,17 +125,35 @@ class RouteType(models.Model):
 
 class Station(models.Model):
     station_id = models.CharField(max_length=50, primary_key=True) # GTFS ID
-    city = models.ForeignKey(City, on_delete=models.CASCADE, db_column='city_id', null=True)
+    city = models.ForeignKey('City', on_delete=models.CASCADE, db_column='city_id', null=True)
     station_name = models.CharField(max_length=255)
     transport_type = models.CharField(max_length=50, null=True, blank=True)
     lat = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     long = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
 
-    # Quan hệ Nhiều - Nhiều
-    route_types = models.ManyToManyField(RouteType, db_table='station_route_types')
+    # Explicit Many-to-Many
+    route_types = models.ManyToManyField(RouteType, through='StationRouteType')
 
     class Meta:
         db_table = 'stations'
+
+class Stop(models.Model):
+    """Handles individual platforms/stops from stop_to_stations.csv"""
+    stop_id = models.CharField(max_length=50, primary_key=True)
+    station = models.ForeignKey(Station, on_delete=models.CASCADE, db_column='station_id')
+    lat = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    long = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+
+    class Meta:
+        db_table = 'stops'
+
+class StationRouteType(models.Model):
+    station = models.ForeignKey(Station, on_delete=models.CASCADE, db_column='station_id')
+    route_type = models.ForeignKey(RouteType, on_delete=models.CASCADE, db_column='route_type_id')
+
+    class Meta:
+        db_table = 'station_route_types'
+        unique_together = ('station', 'route_type')
 
 # ==========================================
 # 5. FOOD & LEISURE DOMAIN (M2M)
@@ -156,7 +187,7 @@ class Dish(models.Model):
     about = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
     
-    ingredients = models.ManyToManyField(Ingredient, db_table='dish_ingredients')
+    ingredients = models.ManyToManyField(Ingredient, db_table='DishIngredient')
 
     class Meta:
         db_table = 'dishes'
@@ -193,3 +224,12 @@ class Event(models.Model):
 
     class Meta:
         db_table = 'events'
+
+# M2M for Dishes and Ingredients
+class DishIngredient(models.Model):
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE, db_column='dish_id', null=True)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, db_column='ingredient_id', null=True)
+
+    class Meta:
+        db_table = 'dish_ingredients'
+        unique_together = ('dish', 'ingredient')
