@@ -6,7 +6,7 @@ import {
   MapPin, Users, Sparkles, Film, Coffee, Moon, Sun
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import SiteFooter from '../components/SiteFooter';
+import Footer from '../components/Footer';
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -398,7 +398,7 @@ const EntertainmentPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <SiteFooter accentColor="#7c3aed" />
+      <Footer />
     </div>
   );
 };

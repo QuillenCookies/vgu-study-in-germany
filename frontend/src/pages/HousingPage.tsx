@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Home, MapPin, FileText, Shield, Phone, AlertCircle } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import SiteFooter from '../components/SiteFooter';
+import Footer from '../components/Footer';
 
 const districts = [
   {
@@ -269,7 +269,7 @@ const HousingPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <SiteFooter accentColor="#3b82f6" />
+      <Footer />
     </div>
   );
 };

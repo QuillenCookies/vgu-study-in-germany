@@ -7,6 +7,7 @@ import TrainPage from './pages/TrainPage';
 import EntertainmentPage from './pages/EntertainmentPage';
 import FoodPage from './pages/FoodPage';
 import HousingPage from './pages/HousingPage';
+import CommunityPage from './pages/CommunityPage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
       <Route path="/entertainment" element={<EntertainmentPage />} />
       <Route path="/food" element={<FoodPage />} />
       <Route path="/housing" element={<HousingPage />} />
+      <Route path="/community" element={<CommunityPage />} />
     </Routes>
   );
 }

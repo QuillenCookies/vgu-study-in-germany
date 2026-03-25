@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Euro, Search, Leaf, Globe, Star, Filter, ChefHat, MapPin, UtensilsCrossed } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import SiteFooter from '../components/SiteFooter';
+import Footer from '../components/Footer';
 
 type DietTag = 'Vegetarian' | 'Beef-free' | 'Pork-free' | 'Vegan' | 'All';
 
@@ -215,7 +215,7 @@ const FoodPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <SiteFooter accentColor="#f97316" />
+      <Footer />
     </div>
   );
 };

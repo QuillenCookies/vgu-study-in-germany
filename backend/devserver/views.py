@@ -41,6 +41,12 @@ def search_cities(request):
         }
     })
 
+def get_all_cities(request):
+    """Returns all cities as a flat list for populating dropdowns."""
+    cities = City.objects.all().values('city_id', 'city_name').order_by('city_name')
+    data = [{"id": c['city_id'], "name": c['city_name']} for c in cities]
+    return JsonResponse({"status": "success", "data": data})
+
 def get_universities(request):
     unis = University.objects.select_related('city').prefetch_related('highlights')
     
@@ -318,6 +324,44 @@ def save_location(request):
         except Exception as e:
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
     return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)
+
+def proxy_journey(request):
+    """Server-side proxy for v6.db.transport.rest/journeys to avoid browser CORS."""
+    from_id = request.GET.get('from', '').strip()
+    to_id   = request.GET.get('to', '').strip()
+    results = request.GET.get('results', '1')
+    tickets = request.GET.get('tickets', 'true')
+
+    if not from_id or not to_id:
+        return JsonResponse({"status": "error", "message": "Missing from/to params"}, status=400)
+
+    try:
+        res = py_requests.get(
+            "https://v6.db.transport.rest/journeys",
+            params={"from": from_id, "to": to_id, "results": results, "tickets": tickets},
+            timeout=30, # Increased timeout
+        )
+        print(f"[proxy_journey] status={res.status_code} from={from_id} to={to_id}")
+        
+        try:
+            return JsonResponse(res.json(), safe=False, status=res.status_code)
+        except Exception:
+            # External API returned non-JSON (HTML error page, etc.)
+            print(f"[proxy_journey] non-JSON body: {res.text[:500]}")
+            return JsonResponse(
+                {"status": "error", "message": f"External API error ({res.status_code})"},
+                status=502,
+            )
+            
+    except py_requests.exceptions.Timeout:
+        print(f"[proxy_journey] Timeout when calling v6.db.transport.rest")
+        return JsonResponse({"status": "error", "message": "The journey search timed out. Please try again later."}, status=504)
+    except py_requests.exceptions.RequestException as e:
+        print(f"[proxy_journey] RequestException: {e}")
+        return JsonResponse({"status": "error", "message": "Failed to connect to the external journey service."}, status=503)
+    except Exception as e:
+        import traceback; traceback.print_exc()
+        return JsonResponse({"status": "error", "message": str(e)}, status=500)
 
 def health_check(request):
     data = {"status": "success", "mesage": "Health check good"}
