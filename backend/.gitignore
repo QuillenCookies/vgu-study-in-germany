@@ -5,3 +5,6 @@
 # Venv
 venv/
 __pycache__/
+
+# Temporary ignore of DB migrations
+backend/devserver/migrations/00**.py

@@ -15,4 +15,7 @@ urlpatterns = [
     path('trains/journey', views.proxy_journey),
     path('locations/search', views.search_locations),
     path('locations/save', views.save_location),
+
+    # Health check for Render
+    path('health_check', views.health_check),
 ]

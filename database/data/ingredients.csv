@@ -1,0 +1,13 @@
+ingredient_id,ingredient_name,how_to_eat,has_pork,has_beef,has_chicken,for_vegan,for_vegetarian,has_diary,has_glutten,has_nut,has_shellfish,has_seafood,has_sugar,has_salt,has_high_protein
+1,Pork,"Cooked, grilled, or smoked",TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+2,Beef,"Stewed until tender or grilled",FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+3,Potato,"Boiled, fried, or mashed",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+4,Wheat Flour,"Baked in pastries or used for noodles",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+5,Cabbage,"Fermented or stewed",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+6,Cheese / Dairy,"Eaten raw or melted",FALSE,FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,TRUE
+7,Apple,"Eaten fresh, baked, or juiced",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE
+8,Sugar,"Used as a sweetener for desserts",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE
+9,Fresh Herbs,"Blended into a cold sauce",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE
+10,Almond / Nuts,"Baked in pastries",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE
+11,Egg,"Boiled, fried, or used in cake batter",FALSE,FALSE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE
+12,Curry Spices,"Sprinkled on fast food",FALSE,FALSE,FALSE,TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE,FALSE,TRUE,FALSE

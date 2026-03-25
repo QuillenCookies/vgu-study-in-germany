@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 // Prolly needed for Tailwind/React projects:
 declare module "*.gif" {
     const value: string;

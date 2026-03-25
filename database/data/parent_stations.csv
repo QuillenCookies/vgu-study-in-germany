@@ -1,4 +1,4 @@
-stop_id,city_id,stop_name,stop_lat,stop_lon
+station_id,city_id,stop_name,lat,long
 32242,1,Frankfurt (Main) Achenbachstraße,50.097466,8.676643
 356243,1,Frankfurt (Main) Adalbert-/Schloßstraße,50.119045,8.643569
 370385,1,Frankfurt (Main) Adam-Opel-Straße,50.12381,8.755474

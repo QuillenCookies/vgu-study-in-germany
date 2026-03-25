@@ -1,0 +1,13 @@
+place_id,place_name,description,city_id,category,icon,lat,long,place_url
+1,Kleinmarkthalle,"Famous indoor market with over 60 stalls selling fresh food, regional specialties, and cheap eats.",1,Market,🛒,50.1116,8.6834,https://kleinmarkthalle.de
+2,Universitätsbibliothek J.C. Senckenberg,"The main library of Goethe University, one of the largest academic libraries in Germany.",1,Library,📚,50.1206,8.6521,https://www.ub.uni-frankfurt.de
+3,Römerberg,"The historical heart of Frankfurt, featuring traditional half-timbered houses and the city hall.",1,Historical,🏛️,50.1106,8.6822,https://frankfurt.de
+4,Caligari FilmBühne,"A beautifully restored, historic arthouse cinema offering indie films and student discounts.",2,Cinema,🎬,50.0825,8.2397,https://wiesbaden.de/caligari
+5,Kurpark Wiesbaden,"A large, beautiful English-style park perfect for a relaxing walk or studying outdoors.",2,Park,🌳,50.0847,8.2505,https://wiesbaden.de/kurpark
+6,Grimmwelt Kassel,"An interactive museum dedicated to the works and lives of the Brothers Grimm.",3,Museum,📖,51.3088,9.4883,https://www.grimmwelt.de
+7,Bergpark Wilhelmshöhe,"UNESCO World Heritage site, the largest hillside park in Europe featuring a massive Hercules monument.",3,Park,⛰️,51.3164,9.4025,https://museum-kassel.de
+8,ULB Darmstadt,"The University and State Library of TU Darmstadt, a modern hub for students with excellent facilities.",4,Library,💻,49.8767,8.6566,https://www.ulb.tu-darmstadt.de
+9,Mathildenhöhe,"An iconic artists' colony featuring the Wedding Tower, great for artsy students and photography.",4,Cultural,🎨,49.8770,8.6672,https://mathildenhoehe.eu
+10,Herrngarten,"The largest and oldest park in Darmstadt, right next to the TU campus, extremely popular among students.",4,Park,🌲,49.8753,8.6534,https://darmstadt-tourismus.de
+11,Deutsches Ledermuseum,"A unique museum showcasing the history of leather craftsmanship, a big part of Offenbach's history.",5,Museum,👞,50.1064,8.7561,https://ledermuseum.de
+12,Schloss Philippsruhe,"A beautiful Baroque palace by the river Main, often hosting cultural events and theater.",6,Historical,🏰,50.1265,8.8951,https://hanau.de/museen

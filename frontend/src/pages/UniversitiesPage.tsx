@@ -16,6 +16,26 @@ interface University {
   url: string;
 }
 
+// Helper function to generate consistent random colors based on text string
+const getHighlightColor = (text: string) => {
+  const colorPalettes = [
+    'bg-blue-50 text-blue-700 border-blue-200',
+    'bg-emerald-50 text-emerald-700 border-emerald-200',
+    'bg-purple-50 text-purple-700 border-purple-200',
+    'bg-amber-50 text-amber-700 border-amber-200',
+    'bg-rose-50 text-rose-700 border-rose-200',
+    'bg-cyan-50 text-cyan-700 border-cyan-200',
+    'bg-indigo-50 text-indigo-700 border-indigo-200',
+  ];
+
+  let hash = 0;
+  for (let i = 0; i < text.length; i++) {
+    hash = text.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colorPalettes.length;
+  return colorPalettes[index];
+};
+
 const UniversitiesPage: React.FC = () => {
   const [universities, setUniversities] = useState<University[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,6 +47,7 @@ const UniversitiesPage: React.FC = () => {
   // Local Filter & Sort State
   const [filterCity, setFilterCity] = useState<string>('All');
   const [filterHighlight, setFilterHighlight] = useState<string>('All');
+  const [filterType, setFilterType] = useState<string>('All'); // NEW: Type Filter
   const [sortBy, setSortBy] = useState<'default' | 'global' | 'subject'>('default');
 
   useEffect(() => {
@@ -40,10 +61,10 @@ const UniversitiesPage: React.FC = () => {
           id: String(dbUni.uni_id),
           name: dbUni.uni_name,
           city: dbUni.city_name || `City Region ${dbUni.city_id}`,
-          type: dbUni.type ? (dbUni.type.charAt(0).toUpperCase() + dbUni.type.slice(1)) as 'Public' | 'Private' : 'Public',
+          type: dbUni.institution_type ? (dbUni.institution_type.charAt(0).toUpperCase() + dbUni.institution_type.slice(1)) as 'Public' | 'Private' : 'Public',
           globalRank: dbUni.ranking_global ? `#${dbUni.ranking_global} Global` : 'Unranked',
           subjectRank: dbUni.ranking_by_sub ? `#${dbUni.ranking_by_sub} Subject` : 'N/A',
-          highlights: dbUni.highlights || ['International focus', 'Research driven'], // Ensure this maps correctly if added to DB
+          highlights: dbUni.highlights || [], // Trả về mảng rỗng nếu không có
           image: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80',
           url: dbUni.website_url || '#',
         }));
@@ -84,12 +105,14 @@ const UniversitiesPage: React.FC = () => {
     if (filterHighlight !== 'All') {
       result = result.filter(u => u.highlights.includes(filterHighlight));
     }
+    if (filterType !== 'All') {
+      result = result.filter(u => u.type === filterType);
+    }
 
     // 3. Apply Sorting
-    // Helper function to extract the first number from a ranking string (e.g., "#201 Global" -> 201)
     const parseRank = (rankString: string) => {
       const match = rankString.match(/\d+/);
-      return match ? parseInt(match[0], 10) : 999999; // 999999 pushes "Unranked" to the bottom
+      return match ? parseInt(match[0], 10) : 999999;
     };
 
     if (sortBy === 'global') {
@@ -99,7 +122,7 @@ const UniversitiesPage: React.FC = () => {
     }
 
     return result;
-  }, [universities, selectedLocation, filterCity, filterHighlight, sortBy]);
+  }, [universities, selectedLocation, filterCity, filterHighlight, filterType, sortBy]);
 
 
   if (isLoading) {
@@ -165,8 +188,8 @@ const UniversitiesPage: React.FC = () => {
           {/* FILTER AND SORT BAR */}
           <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
             {/* Filters */}
-            <div className="flex flex-wrap gap-4 items-center w-full md:w-auto">
-              <div className="flex items-center gap-2 text-gray-500">
+            <div className="flex flex-wrap gap-3 items-center w-full md:w-auto">
+              <div className="flex items-center gap-2 text-gray-500 mr-2">
                 <Filter className="w-4 h-4" />
                 <span className="text-sm font-medium">Filter:</span>
               </div>
@@ -180,7 +203,17 @@ const UniversitiesPage: React.FC = () => {
                 {availableCities.map(city => (
                   <option key={city} value={city}>{city}</option>
                 ))}
-              </select>-
+              </select>
+
+              <select
+                value={filterType}
+                onChange={(e) => setFilterType(e.target.value)}
+                className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+              >
+                <option value="All">All Types</option>
+                <option value="Public">Public</option>
+                <option value="Private">Private</option>
+              </select>
 
               <select
                 value={filterHighlight}
@@ -195,7 +228,7 @@ const UniversitiesPage: React.FC = () => {
             </div>
 
             {/* Sorting */}
-            <div className="flex items-center gap-4 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
+            <div className="flex items-center gap-3 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
               <div className="flex items-center gap-2 text-gray-500">
                 <ArrowDownUp className="w-4 h-4" />
                 <span className="text-sm font-medium">Sort by:</span>
@@ -221,6 +254,7 @@ const UniversitiesPage: React.FC = () => {
               <button
                 onClick={() => {
                   setFilterCity('All');
+                  setFilterType('All');
                   setFilterHighlight('All');
                 }}
                 className="px-6 py-2 bg-[#f97316] text-white rounded-lg hover:bg-[#ea6c0a] transition-colors font-medium"
@@ -236,9 +270,13 @@ const UniversitiesPage: React.FC = () => {
                     <img src={uni.image} alt={uni.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a2463]/70 to-transparent" />
                     <div className="absolute bottom-3 left-3 flex gap-2">
-                      <Badge variant={uni.type === 'Public' ? 'default' : 'orange'} className="text-xs">
+                      {/* Dynamic Color for Public vs Private */}
+                      <span className={`px-2.5 py-1 text-xs font-semibold rounded-full border shadow-sm backdrop-blur-md ${uni.type === 'Public'
+                        ? 'bg-blue-600/90 text-white border-blue-400/50'
+                        : 'bg-purple-600/90 text-white border-purple-400/50'
+                        }`}>
                         {uni.type}
-                      </Badge>
+                      </span>
                     </div>
                   </div>
 
@@ -266,13 +304,17 @@ const UniversitiesPage: React.FC = () => {
                       </div>
                     </div>
 
+                    {/* Dynamic Colors for Highlights */}
                     <div className="flex flex-wrap gap-1.5 mt-2">
-                      {uni.highlights.map((h, idx) => (
-                        <span key={idx} className="flex items-center gap-1 text-xs bg-blue-50 text-blue-700 border border-blue-100 rounded-full px-2.5 py-1">
-                          <Star className="w-3 h-3 text-blue-400" />
-                          {h}
-                        </span>
-                      ))}
+                      {uni.highlights.map((h, idx) => {
+                        const colorClass = getHighlightColor(h);
+                        return (
+                          <span key={idx} className={`flex items-center gap-1 text-xs border rounded-full px-2.5 py-1 ${colorClass}`}>
+                            <Star className="w-3 h-3 opacity-70" />
+                            {h}
+                          </span>
+                        );
+                      })}
                     </div>
 
                     <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#0a2463] hover:text-[#f97316] transition-colors pt-4 border-t border-gray-100">

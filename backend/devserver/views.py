@@ -9,20 +9,29 @@ from django.conf import settings
 from django.core.cache import cache
 from .db_api import DBApi
 
-# Create your views here.
 def search_cities(request):
     query = request.GET.get('q', '').strip()
-    if not query:
+    # Require at least 3 characters on the backend too as a safeguard
+    if len(query) < 3:
         return JsonResponse({
             "status": "success",
             "data": {"cities": [], "universities": []}
         })
     
     cities = City.objects.filter(city_name__icontains=query)[:10]
-    universities = University.objects.filter(uni_name__icontains=query)[:10]
+    # select_related to easily grab the city name without extra queries
+    universities = University.objects.select_related('city').filter(uni_name__icontains=query)[:10]
     
-    cities_data = [{"id": city.city_id, "name": city.city_name, "type": "city"} for city in cities]
-    unis_data = [{"id": uni.uni_id, "name": uni.uni_name, "city_id": uni.city_id, "type": "university"} for uni in universities]
+    # Added state to the response
+    cities_data = [{"id": city.city_id, "name": city.city_name, "state": city.state, "type": "city"} for city in cities]
+    
+    # Added city_name to universities so we can show "TU Darmstadt, Darmstadt"
+    unis_data = [{
+        "id": uni.uni_id, 
+        "name": uni.uni_name, 
+        "city_name": uni.city.city_name if uni.city else None,
+        "type": uni.type
+    } for uni in universities]
     
     return JsonResponse({
         "status": "success",
@@ -32,20 +41,30 @@ def search_cities(request):
         }
     })
 
-def get_all_cities(request):
-    """Returns all cities as a flat list for populating dropdowns."""
-    cities = City.objects.all().values('city_id', 'city_name').order_by('city_name')
-    data = [{"id": c['city_id'], "name": c['city_name']} for c in cities]
-    return JsonResponse({"status": "success", "data": data})
-
 def get_universities(request):
-    # This automatically grabs the city name from the linked table!
-    unis = University.objects.all().values(
-        'uni_id', 'uni_name', 'type', 'ranking_global', 
-        'ranking_by_sub', 'website_url', 
-        city_name=F('city__city_name') # Grabs the 'city_name' field from the 'city' foreign key
-    )
-    return JsonResponse(list(unis), safe=False)
+    unis = University.objects.select_related('city').prefetch_related('highlights')
+    
+    data = []
+    for uni in unis:
+        highlight_list = [h.aca_highlight_name for h in uni.highlights.all()]
+
+        best_subject_rank = None
+        first_sub_rank = uni.unisubjectrank_set.first()
+        if first_sub_rank:
+            best_subject_rank = first_sub_rank.rank
+
+        data.append({
+            'uni_id': uni.uni_id,
+            'uni_name': uni.uni_name,
+            'type': uni.type,
+            'ranking_global': uni.ranking_global,
+            'ranking_by_sub': best_subject_rank, 
+            'website_url': uni.uni_url,
+            'city_name': uni.city.city_name if uni.city else None,
+            'highlights': highlight_list
+        })
+        
+    return JsonResponse(data, safe=False)
 
 def get_housing_districts(request):
     districts = Housing.objects.all().values()
@@ -300,40 +319,6 @@ def save_location(request):
             return JsonResponse({"status": "error", "message": str(e)}, status=500)
     return JsonResponse({"status": "error", "message": "Invalid method"}, status=405)
 
-def proxy_journey(request):
-    """Server-side proxy for v6.db.transport.rest/journeys to avoid browser CORS."""
-    from_id = request.GET.get('from', '').strip()
-    to_id   = request.GET.get('to', '').strip()
-    results = request.GET.get('results', '1')
-    tickets = request.GET.get('tickets', 'true')
-
-    if not from_id or not to_id:
-        return JsonResponse({"status": "error", "message": "Missing from/to params"}, status=400)
-
-    try:
-        res = py_requests.get(
-            "https://v6.db.transport.rest/journeys",
-            params={"from": from_id, "to": to_id, "results": results, "tickets": tickets},
-            timeout=30, # Increased timeout
-        )
-        print(f"[proxy_journey] status={res.status_code} from={from_id} to={to_id}")
-        
-        try:
-            return JsonResponse(res.json(), safe=False, status=res.status_code)
-        except Exception:
-            # External API returned non-JSON (HTML error page, etc.)
-            print(f"[proxy_journey] non-JSON body: {res.text[:500]}")
-            return JsonResponse(
-                {"status": "error", "message": f"External API error ({res.status_code})"},
-                status=502,
-            )
-            
-    except py_requests.exceptions.Timeout:
-        print(f"[proxy_journey] Timeout when calling v6.db.transport.rest")
-        return JsonResponse({"status": "error", "message": "The journey search timed out. Please try again later."}, status=504)
-    except py_requests.exceptions.RequestException as e:
-        print(f"[proxy_journey] RequestException: {e}")
-        return JsonResponse({"status": "error", "message": "Failed to connect to the external journey service."}, status=503)
-    except Exception as e:
-        import traceback; traceback.print_exc()
-        return JsonResponse({"status": "error", "message": str(e)}, status=500)
+def health_check(request):
+    data = {"status": "success", "mesage": "Health check good"}
+    return JsonResponse(data)

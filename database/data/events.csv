@@ -1,0 +1,11 @@
+event_id,event_name,description,city_id,tag,time,duration,cycle_years,time_of_year,lat,long,event_url
+1,Museumsuferfest,"One of Europe's largest cultural festivals celebrating art, music, and cuisine along the river Main.",1,festival,2026-08-28 15:00:00,3 days,1,Late August,50.1065,8.6793,https://museumsuferfest.de
+2,Frankfurter Buchmesse,"The world's largest trade fair for books, featuring author talks, cosplay, and global publishers.",1,cultural,2026-10-14 09:00:00,5 days,1,Mid October,50.1115,8.6481,https://www.buchmesse.de
+3,Dippemess,"A traditional folk festival in Frankfurt with thrilling rides, games, and large beer tents.",1,festival,2026-03-27 14:00:00,3 weeks,1,Spring & Autumn,50.1246,8.7185,https://frankfurt-tourismus.de
+4,Wilhelmstraßenfest (Theatrium),"A massive street festival with over 100 food stalls, live music stages, and artistic performances.",2,festival,2026-06-12 12:00:00,2 days,1,Early June,50.0833,8.2458,https://wiesbaden.de/theatrium
+5,Zissel,"Kassel's traditional folk festival on the Fulda river, featuring boat parades and live music.",3,festival,2026-07-31 16:00:00,4 days,1,Early August,51.3117,9.5036,https://zissel.de
+6,documenta,"A globally renowned exhibition of contemporary art that transforms the entire city.",3,cultural,2027-06-12 10:00:00,100 days,5,Summer,51.3134,9.4971,https://www.documenta.de
+7,Schlossgrabenfest,"Hessen's largest inner-city music festival featuring over 100 live bands across multiple stages.",4,concert,2026-05-28 17:00:00,4 days,1,Late May,49.8735,8.6558,https://schlossgrabenfest.de
+8,Heinerfest,"One of Germany's biggest public festivals held right in the city center of Darmstadt.",4,festival,2026-07-02 14:00:00,5 days,1,Early July,49.8728,8.6525,https://heinerfest.de
+9,Offenbacher Lichterfest,"A magical evening at the Büsingpark with thousands of candles, live orchestras, and a light show.",5,cultural,2026-08-08 19:00:00,1 day,1,August,50.1072,8.7599,https://offenbach.de/lichterfest
+10,Brüder Grimm Festspiele,"An open-air theater festival bringing the famous fairytales of the Brothers Grimm to life.",6,cultural,2026-05-15 19:30:00,2 months,1,May to July,50.1265,8.8951,https://festspiele-hanau.de

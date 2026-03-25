@@ -1,0 +1,31 @@
+dish_id,city_id,dish_name,description,about,price
+1,,Currywurst,"Fried pork sausage cut into slices covered with curry ketchup","Iconic German fast food after WWII, usually served with french fries.",4.50
+2,,Bratwurst,"Traditional grilled sausage","Found at every German festival, usually served in a bread roll (Brötchen) with mustard.",3.50
+3,,Schnitzel Wiener Art,"Breaded and fried pork cutlet","German version of Wiener Schnitzel (which uses veal). Very popular in restaurants.",14.00
+4,,Sauerbraten,"Sweet and sour pot roast","Beef marinated for days in vinegar and wine, a traditional family dish.",18.50
+5,,Rinderrouladen,"Beef rolled with mustard, onions, bacon, and pickles","Traditional Sunday dish, served with red cabbage and potato dumplings (Knödel).",19.00
+6,,Schweinshaxe,"Roasted pork knuckle with crispy skin","Southern specialty but popular nationwide, pairs perfectly with beer.",22.00
+7,,Käsespätzle,"German egg noodles covered with baked cheese and fried onions","Known as German 'Mac and Cheese', very rich and savory.",12.50
+8,,Maultaschen,"Giant dumplings filled with minced meat and spinach","Originating from Swabia but famous nationwide, can be served in soup or pan-fried.",11.00
+9,,Kartoffelsalat,"German potato salad","Varies by region: the South uses a light oil and vinegar dressing, while the North uses mayonnaise.",6.50
+10,,Sauerkraut,"Fermented cabbage","Classic German side dish, rich in vitamin C, usually eaten with sausages.",5.00
+11,,Brezel,"Baked pretzel sprinkled with coarse salt","Essential snack at train stations or festivals.",2.00
+12,,Schwarzwälder Kirschtorte,"Black Forest cake with chocolate, cherries, and rich liquor","World-famous dessert, bittersweet with the aroma of Kirschwasser.",4.50
+13,,Apfelstrudel,"Baked apple strudel","Usually served with warm vanilla sauce, perfect for snowy winter days.",6.00
+14,,Erbseneintopf,"Pea stew with bacon","Thick, nutritious stew, often cooked in field kitchens.",8.00
+15,,Königsberger Klopse,"Meatballs in a creamy caper sauce","A historical dish from the former East Prussia.",15.00
+16,,Döner Kebab,"Turkish-German style doner kebab","Created in Berlin by immigrants, the most popular street food in Germany.",7.00
+17,,Leberkäse,"Baked meatloaf","Served in a bread roll, extremely popular at butcher shops (Metzgerei).",3.50
+18,,Kartoffelpuffer,"Crispy fried potato pancakes","Often served at Christmas markets, eaten with applesauce (Apfelmus).",5.50
+19,,Rote Grütze,"Red berry pudding","Refreshing summer dessert, usually served with liquid vanilla sauce.",5.00
+20,,Spargel,"White asparagus (in season)","Germans are crazy about white asparagus from April to June, usually eaten with Hollandaise sauce.",16.00
+21,1,Frankfurter Grüne Soße,"Cold sauce made from 7 fresh herbs","Absolute Frankfurt specialty, served with boiled potatoes and soft-boiled eggs.",9.50
+22,1,Handkäse mit Musik,"Cheese marinated in onions, oil, and vinegar","Has a very strong smell, usually eaten as a snack with Ebbelwoi (apple wine).",6.00
+23,1,Frankfurter Kranz,"Ring-shaped sponge cake covered with nuts","Shaped like a crown, symbolizing Frankfurt's history.",4.80
+24,1,Frankfurter Würstchen,"Smoked boiled sausage","Traditional Frankfurt sausage, never fried or grilled, only heated in water.",4.50
+25,1,Bethmännchen,"Baked marzipan pastry","Traditional Frankfurt Christmas pastry decorated with three almond halves.",3.00
+26,1,Rippchen mit Kraut,"Cured pork ribs served with sauerkraut","The meat is lightly simmered, moderately salty, and falls right off the bone.",14.50
+27,3,Ahle Wurscht,"Naturally air-dried fermented pork sausage","Famous specialty of North Hessen (Kassel), gets better the longer it is kept.",8.00
+28,4,Kochkäse,"Runny cooked cheese","Popular in Darmstadt and the Odenwald, often spread on bread or eaten with Schnitzel.",7.50
+29,3,Nordhessische Bratwurst,"North Hessian grilled sausage","More heavily seasoned with pepper and nutmeg compared to regular Bratwurst.",4.00
+30,1,Apfelwein / Ebbelwoi,"Traditional Hessian apple wine","A drink, but highly culturally significant in cuisine, usually served in a traditional Bembel jug.",3.50
