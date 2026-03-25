@@ -1,0 +1,12 @@
+uni_id,city_id,uni_name,type,institution_type,ranking_global,lat,long,uni_url
+1,1,"Goethe University Frankfurt","University",public,201,50.1272,8.6641,"https://www.uni-frankfurt.de"
+2,1,"Frankfurt University of Applied Sciences","University of Applied Sciences",public,null,50.1303,8.6917,"https://www.frankfurt-university.de"
+3,1,"Frankfurt School of Finance & Management","University",private,null,50.1322,8.6806,"https://www.frankfurt-school.de"
+4,1," Städelschule (Academy of Fine Arts)","Colleges of Art, Film, and Music",public,null,50.1026,8.6739,"https://www.staedelschule.de"
+5,2,"RheinMain University of Applied Sciences","University of Applied Sciences",public,null,50.0811,8.2301,"https://www.hs-rm.de"
+6,2,"EBS University of Business and Law","University",private,null,50.0050,8.0480,"https://www.ebs.edu"
+7,3,"University of Kassel","University",public,601,51.3228,9.5074,"https://www.uni-kassel.de"
+8,4,"TU Darmstadt","University",public,246,49.8753,8.6576,"https://www.tu-darmstadt.de"
+9,4,"Darmstadt University of Applied Sciences","University of Applied Sciences",public,null,49.8665,8.6367,"https://www.h-da.de"
+10,5,"HfG Offenbach (University of Art and Design)","Colleges of Art, Film, and Music",public,null,50.1086,8.7617,"https://www.hfg-offenbach.de"
+11,6,"Brüder Grimm Berufsakademie Hanau","Dual Institution",public,null,50.1315,8.9189,"https://www.bg-ba.de"
