@@ -5,6 +5,7 @@ import {
   Music, Theater, Trees, Star, ArrowLeft, Ticket, Calendar, Clock,
   MapPin, Users, Sparkles, Film, Coffee, Moon, Sun
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -158,6 +159,7 @@ const stats = [
 // ─── Component ─────────────────────────────────────────────────────────────
 
 const EntertainmentPage: React.FC = () => {
+  const { tr } = useLanguage();
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -183,20 +185,20 @@ const EntertainmentPage: React.FC = () => {
             className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium hover:bg-white/30 transition-colors backdrop-blur-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {tr('entertainment', 'backHome')}
           </Link>
 
           <span className="inline-block mb-4 px-4 py-1 rounded-full bg-purple-500/30 text-purple-200 text-sm font-medium tracking-wide backdrop-blur-sm border border-purple-400/30">
-            🎭 Frankfurt Entertainment Guide
+            {tr('entertainment', 'badge')}
           </span>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
-            Experience{' '}
-            <span className="text-purple-400">Frankfurt</span>
+            {tr('entertainment', 'title1')}{' '}
+            <span className="text-purple-400">{tr('entertainment', 'title2')}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-white/85 mb-10 max-w-2xl">
-            Theaters, museums, festivals, and nightlife — discover everything Frankfurt has to offer for international students.
+            {tr('entertainment', 'desc')}
           </p>
 
           {/* Stats */}
@@ -355,7 +357,7 @@ const EntertainmentPage: React.FC = () => {
               Student Tips
             </span>
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
-              Getting the Most Out of Frankfurt
+              {tr('entertainment', 'secTipsTitle')}
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto">
               Practical tips for students to enjoy Frankfurt's culture on a budget.

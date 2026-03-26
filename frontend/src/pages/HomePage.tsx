@@ -6,6 +6,7 @@ import {
   Search, Loader2, GraduationCap, TrainFront, Building2,
   UtensilsCrossed, Ticket, ArrowRight, Users, MapPin, Compass,
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { useUniversity } from '../context/UniversityContext';
 import type { LocationState } from '../context/UniversityContext';
 
@@ -16,24 +17,24 @@ const HERO_BG =
 const WISE_QUACKS = [
   {
     id: 0,
-    tip: 'Did you know your student ID is basically a magic ticket for free regional trains?',
-    tag: 'Transport Hack',
+    trTip: 'tip0' as const,
+    trTag: 'tip0tag' as const,
     color: 'from-green-500/20 to-emerald-500/10',
     border: 'border-green-400/30',
     tagColor: 'text-green-400',
   },
   {
     id: 1,
-    tip: "Sunday is 'Ruhetag' (Quiet Day). No vacuuming, no loud music, no drilling — Germans take this seriously!",
-    tag: 'Cultural Tip',
+    trTip: 'tip1' as const,
+    trTag: 'tip1tag' as const,
     color: 'from-blue-500/20 to-indigo-500/10',
     border: 'border-blue-400/30',
     tagColor: 'text-blue-400',
   },
   {
     id: 2,
-    tip: "Don't forget your 'Pfand' bottles! Return them at any supermarket for up to 25 cents each — that's basically free coffee money.",
-    tag: 'Money Saving',
+    trTip: 'tip2' as const,
+    trTag: 'tip2tag' as const,
     color: 'from-orange-500/20 to-amber-500/10',
     border: 'border-orange-400/30',
     tagColor: 'text-orange-400',
@@ -41,18 +42,18 @@ const WISE_QUACKS = [
 ];
 
 const QUICK_TAGS = [
-  { emoji: '🏫', label: 'Education', href: '/university' },
-  { emoji: '🚲', label: 'Transport', href: '/bahn' },
-  { emoji: '🏠', label: 'Housing', href: '/housing' },
-  { emoji: '🥨', label: 'Food', href: '/food' },
-  { emoji: '🎉', label: 'Entertainment', href: '/entertainment' },
+  { emoji: '🏫', trKey: 'tagEducation' as const, href: '/university' },
+  { emoji: '🚲', trKey: 'tagTransport' as const, href: '/bahn' },
+  { emoji: '🏠', trKey: 'tagHousing' as const, href: '/housing' },
+  { emoji: '🥨', trKey: 'tagFood' as const, href: '/food' },
+  { emoji: '🎉', trKey: 'tagEntertainment' as const, href: '/entertainment' },
 ];
 
 const TOPIC_SECTIONS = [
   {
     icon: <GraduationCap size={22} />,
-    label: 'Education',
-    tagline: 'Cracking the academic code in Germany.',
+    trLabel: 'tagEducation' as const,
+    trTagline: 'topicEduTagline' as const,
     href: '/university',
     accent: '#f97316',
     gradient: 'from-orange-500/10 to-amber-400/5',
@@ -60,8 +61,8 @@ const TOPIC_SECTIONS = [
   },
   {
     icon: <TrainFront size={22} />,
-    label: 'Transportation',
-    tagline: 'Waddle around without getting lost.',
+    trLabel: 'tagTransport' as const,
+    trTagline: 'topicTransTagline' as const,
     href: '/bahn',
     accent: '#22c55e',
     gradient: 'from-green-500/10 to-emerald-400/5',
@@ -69,8 +70,8 @@ const TOPIC_SECTIONS = [
   },
   {
     icon: <Building2 size={22} />,
-    label: 'Housing',
-    tagline: 'Building your nest in a new city.',
+    trLabel: 'tagHousing' as const,
+    trTagline: 'topicHouseTagline' as const,
     href: '/housing',
     accent: '#a855f7',
     gradient: 'from-purple-500/10 to-violet-400/5',
@@ -78,8 +79,8 @@ const TOPIC_SECTIONS = [
   },
   {
     icon: <UtensilsCrossed size={22} />,
-    label: 'Food',
-    tagline: 'Beyond bread and sausages — explore the pond.',
+    trLabel: 'tagFood' as const,
+    trTagline: 'topicFoodTagline' as const,
     href: '/food',
     accent: '#ef4444',
     gradient: 'from-red-500/10 to-rose-400/5',
@@ -87,8 +88,8 @@ const TOPIC_SECTIONS = [
   },
   {
     icon: <Ticket size={22} />,
-    label: 'Entertainment',
-    tagline: 'The coolest splash zones in Germany.',
+    trLabel: 'tagEntertainment' as const,
+    trTagline: 'topicEntTagline' as const,
     href: '/entertainment',
     accent: '#14b8a6',
     gradient: 'from-teal-500/10 to-cyan-400/5',
@@ -101,22 +102,22 @@ const FIRST_PADDLE_ITEMS = [
     icon: <Compass size={20} />,
     color: 'text-orange-500',
     bg: 'bg-orange-50 dark:bg-orange-950/40',
-    title: 'Your All-in-One Compass',
-    desc: '5 sections covering every aspect of student life in Germany.',
+    trTitle: 'item1Title' as const,
+    trDesc: 'item1Desc' as const,
   },
   {
     icon: <MapPin size={20} />,
     color: 'text-blue-500',
     bg: 'bg-blue-50 dark:bg-blue-950/40',
-    title: 'Real-Life Footprints',
-    desc: 'Tips and insights from VGU students who lived the experience.',
+    trTitle: 'item2Title' as const,
+    trDesc: 'item2Desc' as const,
   },
   {
     icon: <Users size={20} />,
     color: 'text-green-500',
     bg: 'bg-green-50 dark:bg-green-950/40',
-    title: 'Community-Driven',
-    desc: 'Contributed by the flock — notes from those who crossed the pond.',
+    trTitle: 'item3Title' as const,
+    trDesc: 'item3Desc' as const,
   },
 ];
 
@@ -137,6 +138,7 @@ interface SearchBarProps {
 }
 
 const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
+  const { tr } = useLanguage();
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<{ cities: any[]; universities: any[] }>({ cities: [], universities: [] });
   const [isLoading, setIsLoading] = useState(false);
@@ -216,7 +218,7 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
             rounded-xl transition-all duration-200 text-[14px] whitespace-nowrap
             hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/30"
         >
-          Start Exploring
+          {tr('home', 'searchBtn')}
         </button>
       </form>
 
@@ -282,6 +284,7 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
 // ── MAIN PAGE ──────────────────────────────────────────────────────────────
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const { tr } = useLanguage();
   const [activeQuack, setActiveQuack] = useState(0);
 
   // Auto-rotate Wise Quacks every 5s
@@ -331,7 +334,7 @@ const HomePage: React.FC = () => {
             className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full
               bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[13px] font-medium"
           >
-            🦆 <span>Notes from a duck who survived the Anmeldung queue</span>
+            🦆 <span>{tr('home', 'badgeText')}</span>
           </motion.span>
 
           {/* Main headline */}
@@ -348,7 +351,7 @@ const HomePage: React.FC = () => {
             variants={fadeUp}
             className="text-lg sm:text-xl text-white/80 mb-4 max-w-xl leading-relaxed"
           >
-            Insights, mishaps, and survival hacks from a duck who made it across the pond.
+            {tr('home', 'subHeadline')}
           </motion.p>
 
           {/* Narrative hook */}
@@ -356,9 +359,7 @@ const HomePage: React.FC = () => {
             variants={fadeUp}
             className="text-sm text-white/65 italic max-w-lg mb-10 leading-relaxed border-l-2 border-orange-400/50 pl-4 text-left"
           >
-            "I remember clutching my German A1 certificate and dreaming of the Rhine.
-            Now, after surviving 'Anmeldung' queues and mastering the 5-minute DB transfer,
-            I've put it all down in writing — so you don't have to paddlealone."
+            {tr('home', 'narrative')}
           </motion.blockquote>
 
           {/* Glassmorphic search bar */}
@@ -377,7 +378,7 @@ const HomePage: React.FC = () => {
                     text-white text-[13px] font-medium transition-all duration-200 hover:scale-105"
                 >
                   <span>{tag.emoji}</span>
-                  <span>{tag.label}</span>
+                  <span>{tr('home', tag.trKey)}</span>
                 </Link>
               </motion.div>
             ))}
@@ -408,13 +409,13 @@ const HomePage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#f97316] text-[12px] font-bold uppercase tracking-widest mb-3">
-              The First Paddle
+              {tr('home', 'sec2Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-              Everything you need to start swimming
+              {tr('home', 'sec2Title')}
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-              Germany can feel like a deep lake at first. Here's your life jacket.
+              {tr('home', 'sec2Desc')}
             </p>
           </motion.div>
 
@@ -432,10 +433,10 @@ const HomePage: React.FC = () => {
                   <span className={item.color}>{item.icon}</span>
                 </span>
                 <h3 className="text-[15px] font-bold text-gray-800 dark:text-gray-100 mb-1.5">
-                  {item.title}
+                  {tr('home', item.trTitle)}
                 </h3>
                 <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
-                  {item.desc}
+                  {tr('home', item.trDesc)}
                 </p>
               </motion.div>
             ))}
@@ -456,10 +457,10 @@ const HomePage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-10">
             <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Wise Quacks 🦆
+              {tr('home', 'sec3Badge')}
             </span>
             <h2 className="text-3xl font-bold text-white">
-              Quick tips from Die Ente
+              {tr('home', 'sec3Title')}
             </h2>
           </motion.div>
 
@@ -484,10 +485,10 @@ const HomePage: React.FC = () => {
                       🦆
                     </motion.div>
                     <p className="text-white text-lg leading-relaxed font-medium mb-4">
-                      "{q.tip}"
+                      "{tr('home', q.trTip)}"
                     </p>
                     <span className={`text-[11px] font-bold uppercase tracking-widest ${q.tagColor}`}>
-                      # {q.tag}
+                      # {tr('home', q.trTag)}
                     </span>
                   </motion.div>
                 ) : null
@@ -525,13 +526,13 @@ const HomePage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-[#0a2463] dark:text-blue-400 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Chart Your Course
+              {tr('home', 'sec4Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-              Every pond, mapped.
+              {tr('home', 'sec4Title')}
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-              Five sections. Hundreds of tips. One goal — making your German adventure smooth.
+              {tr('home', 'sec4Desc')}
             </p>
           </motion.div>
 
@@ -559,16 +560,16 @@ const HomePage: React.FC = () => {
                   {/* Text */}
                   <h3 className="relative z-10 text-[16px] font-bold text-gray-900 dark:text-white mb-1.5
                     group-hover:text-[#0a2463] dark:group-hover:text-white transition-colors">
-                    {section.label}
+                    {tr('home', section.trLabel)}
                   </h3>
                   <p className="relative z-10 text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1">
-                    {section.tagline}
+                    {tr('home', section.trTagline)}
                   </p>
 
                   {/* Explore link */}
                   <div className="relative z-10 flex items-center gap-1.5 mt-5 text-[13px] font-semibold transition-all duration-200 group-hover:gap-2.5"
                     style={{ color: section.accent }}>
-                    Explore
+                    {tr('home', 'explore')}
                     <ArrowRight size={14} />
                   </div>
                 </Link>
@@ -596,14 +597,13 @@ const HomePage: React.FC = () => {
           <motion.div variants={fadeUp} className="text-5xl mb-6">🦆</motion.div>
 
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold text-white mb-3 leading-tight">
-            Fly Together,
+            {tr('home', 'sec5Title1')}
             <br />
-            <span className="text-[#f97316]">Swim Together.</span>
+            <span className="text-[#f97316]">{tr('home', 'sec5Title2')}</span>
           </motion.h2>
 
           <motion.p variants={fadeUp} className="text-white/60 mb-8 text-[15px] leading-relaxed max-w-sm mx-auto">
-            You aren't swimming solo. Join the <strong className="text-white/80">Notes from Die Ente</strong> community
-            and share your own footprints with the next generation of VGU travelers.
+            {tr('home', 'sec5Desc')}
           </motion.p>
 
           <motion.div variants={fadeUp}>
@@ -615,7 +615,7 @@ const HomePage: React.FC = () => {
                 hover:scale-105 active:scale-95"
             >
               <Users size={17} />
-              Join the Flock
+              {tr('home', 'sec5Btn')}
             </Link>
           </motion.div>
         </motion.div>

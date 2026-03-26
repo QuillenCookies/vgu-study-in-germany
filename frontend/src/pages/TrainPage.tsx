@@ -21,6 +21,7 @@ import {
   Info,
   ChevronDown,
 } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { useUniversity } from '../context/UniversityContext';
 
 interface CommuteRow {
@@ -72,6 +73,7 @@ interface CityOption {
 const CACHE_TTL = 15 * 60 * 1000; // 15 minutes
 
 const TrainPage: React.FC = () => {
+  const { tr } = useLanguage();
   const { selectedLocation } = useUniversity();
 
   // ── Derive default city from context (reactive) ─────────────────────────
@@ -426,12 +428,12 @@ const TrainPage: React.FC = () => {
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1920&q=80')" }}
           />
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <Badge variant="orange" className="mb-4 text-sm px-4 py-1">🚆 {stationName} Transport</Badge>
+            <Badge variant="orange" className="mb-4 text-sm px-4 py-1">{tr('transport', 'badge')} - {stationName}</Badge>
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
-              Get Around <span className="text-[#f97316]">{stationName}</span>
+              {tr('transport', 'title1')} <span className="text-[#f97316]">{stationName}</span>
             </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
-              Master the S-Bahn, U-Bahn, RMV, and ICE — your complete guide to public transport for international students.
+              {tr('transport', 'desc')}
             </p>
 
             {/* ── Search with dropdown (matches HomePage) ── */}
@@ -513,10 +515,10 @@ const TrainPage: React.FC = () => {
 
             <div className="flex flex-wrap justify-center gap-6">
               {[
-                { label: 'Train Lines', value: '15+' },
-                { label: 'S-Bahn Lines', value: '9' },
-                { label: 'Airport in', value: '11 min' },
-                { label: 'Semester Ticket', value: '~€200' },
+                { label: tr('transport', 'statLines'), value: '15+' },
+                { label: tr('transport', 'statSBahn'), value: '9' },
+                { label: tr('transport', 'statAirport'), value: '11 min' },
+                { label: tr('transport', 'statSemester'), value: '~€200' },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[120px]">
                   <div className="text-3xl font-extrabold text-[#f97316]">{value}</div>
@@ -533,9 +535,9 @@ const TrainPage: React.FC = () => {
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1 bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 w-full">
                 <div className="flex flex-col gap-2 mb-6">
-                  <Badge className="w-fit">Planner</Badge>
-                  <h2 className="text-2xl font-bold text-[#0a2463]">Journey Planner</h2>
-                  <p className="text-sm text-gray-400">Select a city from the dropdown to find the best route.</p>
+                  <Badge className="w-fit">{tr('transport', 'secPlannerBadge')}</Badge>
+                  <h2 className="text-2xl font-bold text-[#0a2463]">{tr('transport', 'secPlannerTitle')}</h2>
+                  <p className="text-sm text-gray-400">{tr('transport', 'secPlannerDesc')}</p>
                 </div>
                 <form onSubmit={handlePathSearch} className="flex flex-col gap-4">
                   {/* From dropdown */}
@@ -582,7 +584,7 @@ const TrainPage: React.FC = () => {
                     className="w-full mt-2 h-12 rounded-xl bg-[#0a2463] hover:bg-[#0a2463]/90 text-white font-bold text-lg"
                   >
                     {isPathLoading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <MapPin className="w-5 h-5 mr-2" />}
-                    Show Routes
+                    {tr('transport', 'btnShowRoutes')}
                   </Button>
                 </form>
               </div>
@@ -651,9 +653,9 @@ const TrainPage: React.FC = () => {
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="mb-10 flex items-end justify-between">
               <div className="space-y-2">
-                <Badge variant="outline" className="text-[#f97316] border-[#f97316]">Live Departure List</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463]">Fastest Connections</h2>
-                <p className="text-gray-500">Next available departures from {stationName}.</p>
+                <Badge variant="outline" className="text-[#f97316] border-[#f97316]">{tr('transport', 'secLiveBadge')}</Badge>
+                <h2 className="text-3xl font-bold text-[#0a2463]">{tr('transport', 'secLiveTitle')}</h2>
+                <p className="text-gray-500">{tr('transport', 'secLiveDesc')} {stationName}</p>
               </div>
               <div className="hidden md:flex gap-2">
                 <Button size="icon" variant="outline" onClick={() => carouselApi?.scrollPrev()} disabled={!canScrollPrev} className="rounded-xl"><ArrowLeft /></Button>
@@ -704,12 +706,12 @@ const TrainPage: React.FC = () => {
             <div className="max-w-screen-xl mx-auto px-4">
               <div className="mb-10 flex items-end justify-between">
                 <div className="flex flex-col gap-3">
-                  <Badge className="w-fit">Route Discovery</Badge>
+                  <Badge className="w-fit">{tr('transport', 'secRoutesBadge')}</Badge>
                   <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] tracking-tight">
-                    Transport Lines Overview
+                    {tr('transport', 'secRoutesTitle')}
                   </h2>
                   <p className="text-gray-500 max-w-lg text-lg">
-                    Explore every transport line that connects your university, home, and the city.
+                    {tr('transport', 'secRoutesDesc')}
                   </p>
                 </div>
                 <div className="hidden md:flex shrink-0 gap-2">
@@ -787,7 +789,7 @@ const TrainPage: React.FC = () => {
           <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-10">
 
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-[#0a2463] mb-6">Live Departure Board</h2>
+              <h2 className="text-2xl font-bold text-[#0a2463] mb-6">{tr('transport', 'secLiveBoardTitle')}</h2>
               <div className="bg-white rounded-[2rem] shadow-sm overflow-hidden border border-gray-100 h-[400px] overflow-y-auto">
                 <table className="w-full text-left">
                   <thead className="bg-[#0a2463] text-white sticky top-0 z-10">
@@ -825,7 +827,7 @@ const TrainPage: React.FC = () => {
                     })}
                     {commuteData.length === 0 && !isLoading && (
                       <tr>
-                        <td colSpan={4} className="text-center py-10 text-gray-400">No active departures</td>
+                        <td colSpan={4} className="text-center py-10 text-gray-400">{tr('transport', 'secLiveBoardEmpty')}</td>
                       </tr>
                     )}
                   </tbody>
@@ -835,7 +837,7 @@ const TrainPage: React.FC = () => {
 
             <div className="flex-1 lg:max-w-md">
               <h2 className="text-2xl font-bold text-[#0a2463] mb-6 flex items-center gap-2">
-                <Badge variant="orange">Standard Travel Times</Badge>
+                <Badge variant="orange">{tr('transport', 'secTravelTimesBadge')}</Badge>
               </h2>
               <div className="overflow-x-auto rounded-[2rem] border border-gray-100 shadow-sm bg-white">
                 <table className="w-full text-sm text-left">
@@ -859,7 +861,7 @@ const TrainPage: React.FC = () => {
                     ))}
                     {estimations.length === 0 && (
                       <tr>
-                        <td colSpan={3} className="text-center py-6 text-gray-400">No data</td>
+                        <td colSpan={3} className="text-center py-6 text-gray-400">{tr('transport', 'secTravelTimesEmpty')}</td>
                       </tr>
                     )}
                   </tbody>
@@ -874,8 +876,8 @@ const TrainPage: React.FC = () => {
           <section className="py-16 px-4 bg-gray-50">
             <div className="max-w-screen-xl mx-auto">
               <div className="flex flex-col gap-3 mb-10 text-center items-center">
-                <Badge variant="orange" className="w-fit">Ticket Prices &amp; Portals</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463]">Regional Ticket Guide</h2>
+                <Badge variant="orange" className="w-fit">{tr('transport', 'secTicketsBadge')}</Badge>
+                <h2 className="text-3xl font-bold text-[#0a2463]">{tr('transport', 'secTicketsTitle')}</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {tickets.map((t) => (

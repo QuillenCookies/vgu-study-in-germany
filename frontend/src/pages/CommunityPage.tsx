@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -197,6 +198,7 @@ const StarRating: React.FC<{ count: number }> = ({ count }) => (
 
 // ── MAIN PAGE ───────────────────────────────────────────────────────────────
 const CommunityPage: React.FC = () => {
+  const { tr } = useLanguage();
   const [activeNote, setActiveNote] = useState(0);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -242,7 +244,7 @@ const CommunityPage: React.FC = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 text-white/80 text-sm font-medium transition-all border border-white/15 backdrop-blur-sm"
             >
               <ArrowLeft size={15} />
-              Back to Home
+              {tr('community', 'backHome')}
             </Link>
           </motion.div>
 
@@ -254,24 +256,22 @@ const CommunityPage: React.FC = () => {
                 variants={fadeUp}
                 className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-white/85 text-[13px] font-medium"
               >
-                🦆 The Duck Pond — Community &amp; Forum
+                {tr('community', 'heroBadge')}
               </motion.span>
 
               <motion.h1
                 variants={fadeUp}
                 className="text-5xl sm:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4 drop-shadow-xl"
               >
-                From VGU to Germany:{' '}
-                <span className="text-[#f97316]">A Shared Journey.</span>
+                {tr('community', 'heroTitle1')}{' '}
+                <span className="text-[#f97316]">{tr('community', 'heroTitle2')}</span>
               </motion.h1>
 
               <motion.p
                 variants={fadeUp}
                 className="text-lg text-white/70 mb-8 max-w-lg leading-relaxed"
               >
-                Individually, we are just scattered data points. Together, we are a map.
-                Connect with VGU Alumni, share your "Notes," and help us build the
-                ultimate survival guide.
+                {tr('community', 'heroDesc')}
               </motion.p>
 
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
@@ -282,7 +282,7 @@ const CommunityPage: React.FC = () => {
                     transition-all duration-200 hover:scale-105 active:scale-95"
                 >
                   <PenLine size={16} />
-                  Post a Note
+                  {tr('community', 'postNote')}
                 </Link>
                 <Link
                   to="#forum"
@@ -291,16 +291,18 @@ const CommunityPage: React.FC = () => {
                     transition-all duration-200 hover:scale-105 active:scale-95"
                 >
                   <MessageCircle size={16} />
-                  Browse Forum
+                  {tr('community', 'browseForum')}
                 </Link>
               </motion.div>
 
               {/* Quick stats */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-6 mt-10">
-                {SURVIVAL_STATS.map(stat => (
+                {SURVIVAL_STATS.map((stat, i) => (
                   <div key={stat.label} className="text-center">
                     <p className="text-2xl font-extrabold text-white">{stat.emoji} {stat.value}</p>
-                    <p className="text-[12px] text-white/50 mt-0.5">{stat.label}</p>
+                    <p className="text-[12px] text-white/50 mt-0.5">
+                      {i === 0 ? tr('community', 'statDucks') : i === 1 ? tr('community', 'statNotes') : tr('community', 'statBridge')}
+                    </p>
                   </div>
                 ))}
               </motion.div>
@@ -318,7 +320,7 @@ const CommunityPage: React.FC = () => {
                 <div className="relative p-8">
                   <NetworkGraph />
                   <p className="text-center text-white/40 text-[12px] mt-3 font-medium tracking-wide uppercase">
-                    VGU Student Network — Live Connections
+                    {tr('community', 'networkCaption')}
                   </p>
                 </div>
               </div>
@@ -350,14 +352,13 @@ const CommunityPage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#f97316] text-[12px] font-bold uppercase tracking-widest mb-3">
-              Alumni Notes
+              {tr('community', 'sec2Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-              Footprints from the Flock
+              {tr('community', 'sec2Title')}
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-              Deep-dive insights from seniors who have already migrated.
-              Curated, validated, and scored by the community.
+              {tr('community', 'sec2Desc')}
             </p>
           </motion.div>
 
@@ -394,7 +395,7 @@ const CommunityPage: React.FC = () => {
                     </blockquote>
 
                     <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#f97316] hover:text-orange-300 transition-colors">
-                      Read Full Note
+                      {tr('community', 'readFull')}
                       <ChevronRight size={14} />
                     </button>
                   </motion.div>
@@ -425,7 +426,7 @@ const CommunityPage: React.FC = () => {
               text-gray-700 dark:text-white/70 text-[14px] font-medium hover:border-[#f97316] hover:text-[#f97316]
               transition-all duration-200 hover:scale-105">
               <FileText size={15} />
-              Browse All Notes
+              {tr('community', 'browseAll')}
               <ArrowRight size={14} />
             </button>
           </motion.div>
@@ -445,14 +446,13 @@ const CommunityPage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 text-[12px] font-bold uppercase tracking-widest mb-3">
-              Quack-Talk 🦆
+              {tr('community', 'sec3Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
-              The Forum
+              {tr('community', 'sec3Title')}
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
-              High-frequency, categorized discussions for quick questions and
-              community knowledge.
+              {tr('community', 'sec3Desc')}
             </p>
           </motion.div>
 
@@ -481,7 +481,7 @@ const CommunityPage: React.FC = () => {
                       {cat.icon}
                     </span>
                     <span className="text-[11px] font-bold text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-700 px-2.5 py-1 rounded-full">
-                      {cat.posts} posts
+                      {cat.posts} {tr('common', 'posts')}
                     </span>
                   </div>
 
@@ -499,7 +499,7 @@ const CommunityPage: React.FC = () => {
                     className="flex items-center gap-1.5 text-[13px] font-semibold transition-all duration-200 group-hover:gap-2.5"
                     style={{ color: cat.color }}
                   >
-                    Enter Discussion
+                    {tr('community', 'enterDiscussion')}
                     <ArrowRight size={13} />
                   </div>
                 </div>
@@ -526,20 +526,19 @@ const CommunityPage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
             <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] font-bold uppercase tracking-widest mb-3">
-              The Data Science Hub 📊
+              {tr('community', 'sec4Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3">
-              The Survival Dashboard
+              {tr('community', 'sec4Title')}
             </h2>
             <p className="text-white/60 max-w-lg mx-auto">
-              We aggregate tips from over 100+ sources to give you the most accurate Notes.
-              Because surviving Germany deserves real data.
+              {tr('community', 'sec4Desc')}
             </p>
           </motion.div>
 
           {/* Stats + feature row */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
-            {SURVIVAL_STATS.map((stat, _i) => (
+            {SURVIVAL_STATS.map((stat, i) => (
               <motion.div
                 key={stat.label}
                 variants={fadeUp}
@@ -548,7 +547,9 @@ const CommunityPage: React.FC = () => {
               >
                 <span className="text-4xl mb-3">{stat.emoji}</span>
                 <p className="text-4xl font-extrabold text-white mb-1">{stat.value}</p>
-                <p className="text-[13px] text-white/50">{stat.label}</p>
+                <p className="text-[13px] text-white/50">
+                  {i === 0 ? tr('community', 'statDucks') : i === 1 ? tr('community', 'statNotes') : tr('community', 'statBridge')}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -583,16 +584,15 @@ const CommunityPage: React.FC = () => {
             variants={fadeUp}
             className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight"
           >
-            Found a shortcut?{' '}
-            <span className="text-[#f97316]">Share it.</span>
+            {tr('community', 'sec5Title1')}{' '}
+            <span className="text-[#f97316]">{tr('community', 'sec5Title2')}</span>
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             className="text-gray-500 dark:text-gray-400 mb-8 text-[15px] leading-relaxed max-w-sm mx-auto"
           >
-            The best data comes from the field. If you discovered a hidden gem or a way to
-            skip a queue, contribute your note to the community database.
+            {tr('community', 'sec5Desc')}
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -603,7 +603,7 @@ const CommunityPage: React.FC = () => {
                 hover:scale-105 active:scale-95"
             >
               <PenLine size={18} />
-              Post a Note
+              {tr('community', 'postNote')}
             </button>
             <button
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl
@@ -612,7 +612,7 @@ const CommunityPage: React.FC = () => {
                 transition-all duration-200 hover:scale-105 active:scale-95"
             >
               <Users size={16} />
-              Join the Flock
+              {tr('community', 'joinFlock')}
             </button>
           </motion.div>
         </motion.div>
@@ -631,11 +631,10 @@ const CommunityPage: React.FC = () => {
         >
           <Mail size={28} className="mx-auto mb-4 text-[#f97316]" />
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-            Notes from the Flock — Weekly Digest
+            {tr('community', 'sec6Title')}
           </h3>
           <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">
-            Get weekly "Notes from the Flock" delivered to your inbox.
-            No spam, just survival.
+            {tr('community', 'sec6Desc')}
           </p>
 
           <AnimatePresence mode="wait">
@@ -647,7 +646,7 @@ const CommunityPage: React.FC = () => {
                 exit={{ opacity: 0 }}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 font-semibold"
               >
-                🎉 You're in! Welcome to the Flock.
+                {tr('community', 'subscribed')}
               </motion.div>
             ) : (
               <motion.form
@@ -673,7 +672,7 @@ const CommunityPage: React.FC = () => {
                     font-semibold text-sm whitespace-nowrap transition-all duration-200
                     hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/20"
                 >
-                  Subscribe
+                  {tr('community', 'subscribe')}
                 </button>
               </motion.form>
             )}

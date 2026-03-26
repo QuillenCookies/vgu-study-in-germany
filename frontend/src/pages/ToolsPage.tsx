@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
 
@@ -250,6 +251,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => (
 // ─── Component ──────────────────────────────────────────────────────────────
 
 const ToolsPage: React.FC = () => {
+  const { tr } = useLanguage();
   const [activeCategory, setActiveCategory] = useState('All');
   const [query, setQuery] = useState('');
 
@@ -290,7 +292,7 @@ const ToolsPage: React.FC = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium hover:bg-white/20 hover:text-white transition-all backdrop-blur-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Home
+            {tr('tools', 'backHome')}
           </Link>
         </div>
 
@@ -305,11 +307,11 @@ const ToolsPage: React.FC = () => {
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
               <span className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold border border-blue-400/25 backdrop-blur-sm">
-                🛠️ Student Toolkit
+                {tr('tools', 'badge')}
               </span>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.08] mb-6">
-                <span className="text-white">Essential</span>
+                <span className="text-white">{tr('tools', 'title1')}</span>
                 <br />
                 <span
                   style={{
@@ -319,12 +321,12 @@ const ToolsPage: React.FC = () => {
                     backgroundClip: 'text',
                   }}
                 >
-                  Tools
+                  {tr('tools', 'title2')}
                 </span>
               </h1>
 
               <p className="text-lg text-white/70 leading-relaxed max-w-lg mb-8">
-                Apps, platforms, and resources hand-picked to help you navigate student life in Germany — from day one.
+                {tr('tools', 'desc')}
               </p>
 
               <div className="flex flex-wrap gap-3">
@@ -333,14 +335,14 @@ const ToolsPage: React.FC = () => {
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all"
                   style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }}
                 >
-                  Browse Tools
+                  {tr('tools', 'browseBtn')}
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <Link
                   to="/community"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white/80 bg-white/10 border border-white/15 hover:bg-white/20 hover:text-white transition-all backdrop-blur-sm"
                 >
-                  Share a Tool
+                  {tr('tools', 'shareBtn')}
                 </Link>
               </div>
             </motion.div>
@@ -361,7 +363,6 @@ const ToolsPage: React.FC = () => {
                   className="relative overflow-hidden rounded-2xl border border-white/10 p-6 backdrop-blur-md flex flex-col gap-3"
                   style={{ background: 'rgba(255,255,255,0.07)' }}
                 >
-                  {/* Subtle glow orb */}
                   <div
                     className="absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-30 blur-2xl"
                     style={{ background: 'radial-gradient(circle, #60a5fa, transparent)' }}
@@ -369,7 +370,9 @@ const ToolsPage: React.FC = () => {
                   <div className="text-blue-400 relative z-10">{stat.icon}</div>
                   <div>
                     <div className="text-3xl font-black text-white leading-none">{stat.value}</div>
-                    <div className="text-sm text-white/55 mt-1 font-medium">{stat.label}</div>
+                    <div className="text-sm text-white/55 mt-1 font-medium">
+                      {i === 0 ? tr('tools', 'statTools') : i === 1 ? tr('tools', 'statFree') : i === 2 ? tr('tools', 'statDeals') : tr('tools', 'statCats')}
+                    </div>
                   </div>
                 </motion.div>
               ))}
@@ -394,7 +397,7 @@ const ToolsPage: React.FC = () => {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
             <input
               type="text"
-              placeholder="Search tools…"
+              placeholder={tr('tools', 'searchPlaceholder')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
@@ -413,7 +416,7 @@ const ToolsPage: React.FC = () => {
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
                 }`}
               >
-                {cat}
+                {cat === 'All' ? tr('tools', 'filterAll') : cat}
               </button>
             ))}
           </div>
@@ -426,8 +429,8 @@ const ToolsPage: React.FC = () => {
           {filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-500">
               <Search className="w-10 h-10 mx-auto mb-3 text-gray-300" />
-              <p className="text-lg font-medium">No tools found</p>
-              <p className="text-sm mt-1">Try a different search or category.</p>
+              <p className="text-lg font-medium">{tr('tools', 'noResults')}</p>
+              <p className="text-sm mt-1">{tr('tools', 'clearFilter')}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -490,7 +493,7 @@ const ToolsPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className={`inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r ${tool.color} text-white hover:opacity-90 transition-opacity group-hover:shadow-md`}
                     >
-                      Open Tool
+                      {tr('tools', 'openTool')}
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>
@@ -509,10 +512,10 @@ const ToolsPage: React.FC = () => {
               Insider Knowledge
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
-              Pro Tips for Students
+              {tr('tools', 'proTipsTitle')}
             </h2>
             <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Make the most out of the digital tools available to you as an international student.
+              {tr('tools', 'proTipsDesc')}
             </p>
           </div>
 
@@ -542,10 +545,10 @@ const ToolsPage: React.FC = () => {
             Community Driven
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
-            Know a Great Tool?
+            {tr('tools', 'ctaTitle')}
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">
-            This list is always growing. If you've found a tool that helped you as an international student in Germany, share it with the community.
+            {tr('tools', 'ctaDesc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
