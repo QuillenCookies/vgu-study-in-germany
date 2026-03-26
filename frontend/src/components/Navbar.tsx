@@ -81,7 +81,7 @@ const EXPLORE_ITEMS = [
 // ── NAV LINKS (excluding Explore) ─────────────────────────────────────────
 const NAV_LINKS = [
   { label: 'Home',      href: '/',                         gradient: 'radial-gradient(ellipse, rgba(59,130,246,0.14) 0%, transparent 70%)' },
-  { label: 'Tools',     href: '/tools/budget-calculator',  gradient: 'radial-gradient(ellipse, rgba(34,197,94,0.14) 0%, transparent 70%)' },
+  { label: 'Tools',     href: '/tools',                    gradient: 'radial-gradient(ellipse, rgba(34,197,94,0.14) 0%, transparent 70%)' },
   { label: 'Community', href: '/community',               gradient: 'radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 70%)' },
   { label: 'About',     href: '/about',                    gradient: 'radial-gradient(ellipse, rgba(20,184,166,0.14) 0%, transparent 70%)' },
 ];
