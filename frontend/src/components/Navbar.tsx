@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
   GraduationCap, TrainFront, Building2, UtensilsCrossed,
-  Ticket, Menu, X, ChevronDown, Search, Sun, Moon, Globe,
+  Ticket, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle
 } from 'lucide-react';
 import VguIcon from '../assets/navbar_vgu_wide.png';
 
@@ -80,9 +80,9 @@ const EXPLORE_ITEMS = [
 ];
 
 const LANG_OPTIONS = [
-  { code: 'EN' as const, label: 'English',     flag: '🇬🇧' },
-  { code: 'DE' as const, label: 'Deutsch',     flag: '🇩🇪' },
-  { code: 'VN' as const, label: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'EN' as const, label: 'English',    hoverIconClass: 'group-hover:text-orange-400 group-hover:bg-orange-500/10' },
+  { code: 'DE' as const, label: 'Deutsch',    hoverIconClass: 'group-hover:text-amber-500/80 group-hover:bg-amber-500/10' },
+  { code: 'VN' as const, label: 'Tiếng Việt', hoverIconClass: 'group-hover:text-red-500/80 group-hover:bg-red-500/10' },
 ];
 
 // ── NAV LINKS (excluding Explore) ─────────────────────────────────────────
@@ -410,18 +410,18 @@ const Navbar: React.FC = () => {
               {/* Pill trigger */}
               <button
                 onClick={() => setLangOpen(v => !v)}
-                className={`flex items-center gap-1.5 pl-2.5 pr-2 py-1.5 rounded-full text-[12px] font-medium
-                  border transition-all duration-200 leading-none select-none
+                className={`flex items-center gap-2 px-5 py-1.5 rounded-full text-[12px] font-medium
+                  border transition-all duration-200 leading-none select-none backdrop-blur-sm
                   ${langOpen
-                    ? 'bg-white dark:bg-gray-800 border-black/10 dark:border-white/10 shadow-sm text-gray-900 dark:text-gray-100'
-                    : 'bg-white/40 dark:bg-white/5 border-black/5 dark:border-white/8 text-gray-600 dark:text-gray-300 hover:bg-white/70 dark:hover:bg-white/10 hover:border-black/10 dark:hover:border-white/15'
+                    ? 'bg-white/10 dark:bg-white/10 border-black/10 dark:border-white/10 shadow-sm text-gray-900 dark:text-gray-100'
+                    : 'bg-white/10 dark:bg-white/5 border-black/5 dark:border-white/8 text-gray-600 dark:text-gray-300 hover:bg-white/20 dark:hover:bg-white/10 hover:border-black/10 dark:hover:border-white/15'
                   }`}
               >
                 <Globe size={13} className="opacity-50 flex-shrink-0" />
                 <span className="tracking-wide font-semibold">{activeLang.code}</span>
                 <motion.span
                   animate={{ rotate: langOpen ? 180 : 0 }}
-                  transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
                   className="flex-shrink-0 opacity-40"
                 >
                   <ChevronDown size={12} />
@@ -431,75 +431,106 @@ const Navbar: React.FC = () => {
               <AnimatePresence>
                 {langOpen && (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.94, y: -4 }}
+                    initial={{ opacity: 0, scale: 0.95, y: -2 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.94, y: -4 }}
-                    transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
+                    exit={{ opacity: 0, scale: 0.95, y: -2 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
                     style={{ transformOrigin: 'top right' }}
-                    className="absolute top-[calc(100%+6px)] right-0 w-52
-                      bg-white/90 dark:bg-gray-900/90 backdrop-blur-md
-                      border border-black/[0.06] dark:border-white/[0.08]
-                      rounded-2xl shadow-2xl shadow-black/[0.08] dark:shadow-black/40
-                      p-2 z-50"
+                    className="absolute top-[calc(100%+8px)] right-0 w-[240px]
+                      bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl
+                      border border-white/40 dark:border-white/10
+                      rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+                      p-1.5 z-50 overflow-hidden"
                   >
-                    {/* Header label */}
-                    <p className="px-2 pb-1.5 text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-600">
-                      Language
-                    </p>
+                    {/* Die Ente Watermark */}
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[20px] overflow-hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" 
+                           className="absolute bottom-[-15px] right-[-15px] w-28 h-28 text-slate-400 opacity-5 rotate-[-15deg]">
+                        <path d="M12.5 3c-1.38 0-2.5 1.12-2.5 2.5 0 .39.09.76.25 1.08C9.37 7.23 8 8.64 8 10.5c0 1.07.41 2.07 1.12 2.81-.39 1.17-.41 2.45-.63 3.69-.17.98-.94 1.76-1.92 1.95-1.47.28-1.57 2.05-1.57 2.05s1.28.32 2.54.49c1.67.22 3.3.49 5.46.49 4.34 0 7.82-1.96 8.79-4.83.6-1.76.59-4.04-.6-6.19-1.38-2.48-4.22-4.08-6.19-4.73C14.77 5.75 14.86 5.39 14.86 5 14.86 3.62 13.88 3 12.5 3zm0 1.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25c0-.69.56-1.25 1.25-1.25z"/>
+                      </svg>
+                    </div>
 
+                    {/* Header label */}
+                    <div className="px-3 pt-2.5 pb-2 relative z-10">
+                       <p className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-gray-500/80 dark:text-gray-400/80">
+                         LANGUAGE
+                       </p>
+                    </div>
+
+                    <motion.div 
+                      className="flex flex-col gap-0.5 relative z-10"
+                      initial="hidden"
+                      animate="visible"
+                      variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.05 } }
+                      }}
+                    >
                     {LANG_OPTIONS.map(opt => {
                       const isActive = lang === opt.code;
                       return (
-                        <button
+                        <motion.button
+                          variants={{
+                            hidden: { opacity: 0, x: 8 },
+                            visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 350, damping: 25 } }
+                          }}
                           key={opt.code}
                           onClick={() => { setLang(opt.code); setLangOpen(false); }}
-                          className={`w-full flex items-center gap-3 px-2.5 py-2 rounded-xl text-left transition-all duration-150 group ${
+                          className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all duration-300 group overflow-hidden ${
                             isActive
-                              ? 'bg-orange-50/60 dark:bg-orange-950/20'
-                              : 'hover:bg-slate-100/60 dark:hover:bg-white/5'
+                              ? 'bg-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]'
+                              : 'hover:bg-white/40 dark:hover:bg-white/5'
                           }`}
                         >
-                          {/* Flag icon — grayscale → color on hover / active */}
-                          <span className={`flex-shrink-0 flex items-center justify-center w-7 h-7
-                            rounded-full text-[15px] leading-none
-                            ring-1 ring-black/5 dark:ring-white/10
-                            transition-all duration-200
-                            ${isActive
-                              ? 'grayscale-0 shadow-sm'
-                              : 'grayscale group-hover:grayscale-0'
-                            }`}>
-                            {opt.flag}
-                          </span>
+                          {/* Active Background Glow */}
+                          {isActive && (
+                            <motion.div
+                              layoutId="activeLangGlow"
+                              className="absolute inset-x-0 inset-y-0 bg-white/70 dark:bg-orange-950/30 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(253,186,116,0.2),0_4px_16px_rgba(253,186,116,0.3)] dark:shadow-[inset_0_0_20px_rgba(249,115,22,0.1)] border border-orange-200/60 dark:border-orange-500/20"
+                              style={{ borderRadius: '12px' }}
+                            />
+                          )}
 
-                          {/* Text */}
-                          <div className="flex-1 min-w-0">
-                            <p className={`text-sm font-medium leading-tight ${
-                              isActive ? 'text-[#f97316]' : 'text-gray-800 dark:text-gray-200'
+                          <div className="relative z-10 flex items-center gap-2.5">
+                            {/* Globe icon */}
+                            <div className={`flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full transition-all duration-300 ${
+                              isActive 
+                                ? 'text-[#F97316] bg-orange-500/10 dark:text-orange-400 dark:bg-orange-500/15' 
+                                : `text-slate-400 ${opt.hoverIconClass}`
                             }`}>
-                              {opt.label}
-                            </p>
-                            <p className="text-[10px] text-gray-400 dark:text-gray-600 leading-tight mt-0.5">
-                              {opt.code}
-                            </p>
+                              <Globe size={14} strokeWidth={2.5} />
+                            </div>
+
+                            {/* Text: Name and Code */}
+                            <div className="flex items-baseline gap-1.5">
+                              <span className={`text-[13px] tracking-[0.01em] transition-colors ${
+                                isActive ? 'text-[#F97316] font-medium' : 'text-[#0F172A] font-normal dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white'
+                              }`}>
+                                {opt.label}
+                              </span>
+                              <span className={`text-xs transition-colors ${
+                                isActive ? 'text-slate-400 font-medium' : 'text-slate-400/50 font-normal group-hover:text-slate-400/80'
+                              }`}>
+                                {opt.code}
+                              </span>
+                            </div>
                           </div>
 
                           {/* Active checkmark */}
                           {isActive && (
-                            <svg
-                              viewBox="0 0 12 12"
-                              className="w-3 h-3 flex-shrink-0 text-[#f97316]"
-                              fill="none"
-                              stroke="currentColor"
-                              strokeWidth="2.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
+                            <motion.div 
+                              initial={{ scale: 0, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{ duration: 0.2, delay: 0.05 }}
+                              className="relative z-10 flex items-center justify-center ml-auto"
                             >
-                              <polyline points="2,6 5,9 10,3" />
-                            </svg>
+                              <CheckCircle size={16} strokeWidth={2.5} color="#F97316" className="opacity-60" />
+                            </motion.div>
                           )}
-                        </button>
+                        </motion.button>
                       );
                     })}
+                    </motion.div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -628,14 +659,17 @@ const Navbar: React.FC = () => {
                     <button
                       key={opt.code}
                       onClick={() => { setLang(opt.code); setIsMobileOpen(false); }}
-                      className={`flex-1 flex flex-col items-center gap-1 py-2.5 rounded-xl text-[11px] font-bold transition-all duration-200 border ${
+                      className={`flex-1 flex flex-col items-center justify-center gap-2 py-3 rounded-xl transition-all duration-200 border ${
                         lang === opt.code
                           ? 'bg-[#f97316]/10 border-[#f97316]/30 text-[#f97316]'
                           : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 hover:border-[#f97316]/40'
                       }`}
                     >
-                      <span className="text-xl leading-none">{opt.flag}</span>
-                      <span className="tracking-wide">{opt.code}</span>
+                      <Globe size={18} strokeWidth={2} className={`${lang === opt.code ? 'text-[#f97316]' : 'text-gray-400 dark:text-gray-500'}`} />
+                      <div className="flex flex-col items-center gap-0.5">
+                        <span className="font-semibold text-[11px] tracking-wide">{opt.label}</span>
+                        <span className="font-medium text-[9px] text-current opacity-70">({opt.code})</span>
+                      </div>
                     </button>
                   ))}
                 </div>

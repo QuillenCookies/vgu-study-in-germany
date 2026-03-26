@@ -141,8 +141,8 @@ const NetworkGraph: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-sm mx-auto aspect-square">
-      <svg viewBox="0 0 100 100" className="w-full h-full" aria-hidden="true">
+    <div className="relative w-full aspect-square max-w-full sm:max-w-[500px] mx-auto box-border overflow-hidden">
+      <svg viewBox="0 0 100 100" className="w-full h-full max-w-full" aria-hidden="true">
         {/* Edges */}
         {EDGES.map(([a, b], i) => (
           <line
@@ -219,13 +219,13 @@ const CommunityPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 font-sans">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 font-sans max-w-full overflow-x-hidden">
       <Navbar />
 
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO: "Join the Flock"
       ══════════════════════════════════════════ */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#060f2e] min-h-[90vh] flex items-center">
+      <section className="relative w-full max-w-full overflow-hidden box-border bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#060f2e] min-h-[90vh] flex items-center">
         {/* Background glow blobs */}
         <div className="absolute top-0 left-0 w-96 h-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f97316]/10 blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-96 h-96 translate-x-1/2 translate-y-1/2 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none" />
@@ -261,10 +261,10 @@ const CommunityPage: React.FC = () => {
 
               <motion.h1
                 variants={fadeUp}
-                className="text-5xl sm:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4 drop-shadow-xl"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4 drop-shadow-xl break-words whitespace-normal max-w-full box-border"
               >
                 {tr('community', 'heroTitle1')}{' '}
-                <span className="text-[#f97316]">{tr('community', 'heroTitle2')}</span>
+                <span className="text-[#f97316] break-words whitespace-normal box-border">{tr('community', 'heroTitle2')}</span>
               </motion.h1>
 
               <motion.p
@@ -308,18 +308,17 @@ const CommunityPage: React.FC = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right — network graph */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="flex flex-col items-center gap-4"
+              className="flex flex-col items-center gap-4 w-full flex-1 box-border"
             >
-              <div className="relative w-full max-w-md">
+              <div className="relative w-full max-w-[500px] mx-auto box-border overflow-hidden">
                 <div className="absolute inset-0 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm" />
-                <div className="relative p-8">
+                <div className="relative p-5 sm:p-8 box-border">
                   <NetworkGraph />
-                  <p className="text-center text-white/40 text-[12px] mt-3 font-medium tracking-wide uppercase">
+                  <p className="text-center text-white/40 text-[11px] sm:text-[12px] mt-3 font-medium tracking-wide uppercase break-words whitespace-normal max-w-full">
                     {tr('community', 'networkCaption')}
                   </p>
                 </div>
@@ -354,7 +353,7 @@ const CommunityPage: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#f97316] text-[12px] font-bold uppercase tracking-widest mb-3">
               {tr('community', 'sec2Badge')}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white break-words">
               {tr('community', 'sec2Title')}
             </h2>
             <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
