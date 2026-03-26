@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
-  Users, FileText, ArrowRight, Star, MessageCircle,
+  FileText, ArrowRight, Star, MessageCircle,
   BookOpen, ShoppingBag, Network, BarChart2, PenLine,
   ArrowLeft, ChevronRight, Mail,
 } from 'lucide-react';
@@ -29,6 +29,8 @@ const ALUMNI_NOTES = [
     snippet:
       "The most important thing I learned about my first winter in Munich wasn't on a brochure. It was about keeping a 'Pfand' stash and knowing which Mensa closes early on Fridays...",
     author: 'VGU Alumni \'22',
+    authorAvatar: 'https://i.pravatar.cc/150?u=munich',
+    badges: [{ type: 'Golden Feather', icon: '🪶' }, { type: 'Top 10', icon: '🏆' }],
     topic: 'Life Hacks',
     stars: 5,
     color: 'from-blue-600/20 to-indigo-600/10',
@@ -42,6 +44,8 @@ const ALUMNI_NOTES = [
     snippet:
       "Getting registered (Anmeldung) in Berlin felt like a boss battle. I waited 6 weeks for an appointment. Here's the shortcut no one tells you about German bureaucracy...",
     author: 'VGU Alumni \'23',
+    authorAvatar: 'https://i.pravatar.cc/150?u=berlin',
+    badges: [{ type: 'Early Bird', icon: '🐦' }, { type: 'Helpful', icon: '💡' }],
     topic: 'Bureaucracy',
     stars: 5,
     color: 'from-orange-600/20 to-amber-600/10',
@@ -55,6 +59,8 @@ const ALUMNI_NOTES = [
     snippet:
       'Opening a German bank account as a student is tricky without a registered address. I tried 3 banks before finding one that works — no Schufa needed and full English support...',
     author: 'VGU Alumni \'21',
+    authorAvatar: 'https://i.pravatar.cc/150?u=frankfurt',
+    badges: [{ type: 'Golden Feather', icon: '🪶' }, { type: 'Finance Pro', icon: '💰' }],
     topic: 'Finance',
     stars: 4,
     color: 'from-green-600/20 to-emerald-600/10',
@@ -386,17 +392,32 @@ const CommunityPage: React.FC = () => {
                           <StarRating count={note.stars} />
                         </div>
                       </div>
-                      <span className="text-[12px] text-white/40">{note.author}</span>
                     </div>
 
                     <blockquote className="text-white/80 text-[15px] leading-relaxed italic mb-5 border-l-2 border-orange-400/50 pl-4">
                       "{note.snippet}"
                     </blockquote>
 
-                    <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#f97316] hover:text-orange-300 transition-colors">
-                      {tr('community', 'readFull')}
-                      <ChevronRight size={14} />
-                    </button>
+                    {/* Author Box replacing old simple author text */}
+                    <div className="flex items-center justify-between border-t border-white/10 pt-4 mt-2">
+                      <div className="flex items-center gap-3">
+                        <img src={note.authorAvatar} alt={note.author} className="w-10 h-10 rounded-full border border-white/20 object-cover" />
+                        <div>
+                          <p className="text-[14px] font-bold text-white leading-none mb-1.5">{note.author}</p>
+                          <div className="flex flex-wrap items-center gap-1.5">
+                            {note.badges.map(b => (
+                              <span key={b.type} className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-white/10 text-[10px] text-white/80 font-semibold border border-white/5" title={b.type}>
+                                {b.icon} {b.type}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                      <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#f97316] hover:text-orange-300 transition-colors">
+                        {tr('community', 'readFull')}
+                        <ChevronRight size={14} />
+                      </button>
+                    </div>
                   </motion.div>
                 ) : null
               )}
@@ -567,52 +588,49 @@ const CommunityPage: React.FC = () => {
       </section>
 
       {/* ══════════════════════════════════════════
-          SECTION 5 — CTA: "Leave Your Note"
+          SECTION 5 — CTA: "From Resident to Pathfinder"
       ══════════════════════════════════════════ */}
-      <section id="leave-note" className="bg-white dark:bg-gray-950 py-20 px-4">
+      <section id="leave-note" className="bg-gray-50 dark:bg-gray-950 py-24 px-4 relative overflow-hidden">
         <motion.div
           variants={stagger}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: true }}
-          className="max-w-screen-sm mx-auto text-center"
+          viewport={{ once: true, margin: '-80px' }}
+          className="max-w-screen-lg mx-auto"
         >
-          <motion.div variants={fadeUp} className="text-5xl mb-6">✏️</motion.div>
-
-          <motion.h2
+          {/* Bento-style Contributor Card */}
+          <motion.div
             variants={fadeUp}
-            className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white mb-3 leading-tight"
+            className="relative p-10 sm:p-14 rounded-[2rem] border border-orange-500/20 bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-transparent dark:from-orange-500/10 dark:via-orange-500/5 dark:to-transparent bg-white dark:bg-gray-900 shadow-xl dark:shadow-2xl overflow-hidden group flex flex-col md:flex-row items-center md:items-start justify-between gap-10"
           >
-            {tr('community', 'sec5Title1')}{' '}
-            <span className="text-[#f97316]">{tr('community', 'sec5Title2')}</span>
-          </motion.h2>
+            {/* Ghost duck icon in background */}
+            <div className="absolute -bottom-16 -right-10 text-[250px] opacity-[0.03] select-none text-[#f97316] group-hover:scale-105 group-hover:-rotate-6 transition-transform duration-700 pointer-events-none">
+              🦆
+            </div>
 
-          <motion.p
-            variants={fadeUp}
-            className="text-gray-500 dark:text-gray-400 mb-8 text-[15px] leading-relaxed max-w-sm mx-auto"
-          >
-            {tr('community', 'sec5Desc')}
-          </motion.p>
+            <div className="relative z-10 flex-1 text-center md:text-left">
+              <span className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-orange-500/20 text-[#f97316] text-[12px] font-bold uppercase tracking-widest border border-orange-400/20">
+                <PenLine size={13} /> The Pathfinder Initiative
+              </span>
+              
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
+                From Resident to <span className="text-[#f97316]">Pathfinder.</span>
+              </h2>
+              
+              <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-lg mb-8 max-w-xl leading-relaxed">
+                Your struggle yesterday is someone else's guide today. Share your notes and get recognized in the Wall of Pathfinders.
+              </p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-3 justify-center">
-            <button
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl
-                bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold text-[16px]
-                shadow-lg shadow-orange-500/30 transition-all duration-200
-                hover:scale-105 active:scale-95"
-            >
-              <PenLine size={18} />
-              {tr('community', 'postNote')}
-            </button>
-            <button
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl
-                border-2 border-gray-200 dark:border-white/15 text-gray-700 dark:text-white/70
-                font-semibold text-[15px] hover:border-[#f97316] hover:text-[#f97316]
-                transition-all duration-200 hover:scale-105 active:scale-95"
-            >
-              <Users size={16} />
-              {tr('community', 'joinFlock')}
-            </button>
+              <Link
+                to="/community/contributor"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl
+                  bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold text-[16px]
+                  shadow-lg shadow-orange-500/30 transition-all duration-300
+                  hover:scale-105 hover:-translate-y-1 active:scale-95"
+              >
+                Start Contributing <ArrowRight size={18} />
+              </Link>
+            </div>
           </motion.div>
         </motion.div>
       </section>

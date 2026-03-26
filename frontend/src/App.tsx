@@ -1,5 +1,9 @@
-// App.tsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
 import { LanguageProvider } from './contexts/LanguageContext';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
@@ -10,11 +14,15 @@ import FoodPage from './pages/FoodPage';
 import HousingPage from './pages/HousingPage';
 import CommunityPage from './pages/CommunityPage';
 import ToolsPage from './pages/ToolsPage';
+import ContributorsPage from './pages/ContributorsPage';
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <LanguageProvider>
-      <Routes>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
         <Route path="/" element={
           <Layout>
             <HomePage />
@@ -27,7 +35,10 @@ export default function App() {
         <Route path="/housing" element={<HousingPage />} />
         <Route path="/community" element={<CommunityPage />} />
         <Route path="/tools" element={<ToolsPage />} />
-      </Routes>
+        <Route path="/contributors" element={<ContributorsPage />} />
+        <Route path="/community/contributor" element={<ContributorsPage />} />
+        </Routes>
+      </AnimatePresence>
     </LanguageProvider>
   );
 }

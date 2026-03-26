@@ -97,6 +97,53 @@ const TOPIC_SECTIONS = [
   },
 ];
 
+const PATHFINDERS = [
+  {
+    name: "Alex Tran",
+    role: "Visa Pathfinder",
+    avatar: "https://i.pravatar.cc/150?img=11",
+    hacks: 24,
+    badge: "Legendary",
+    gradient: "from-blue-500/20 to-cyan-500/10",
+    border: "border-blue-400/30",
+    icon: "🛂",
+    colSpan: "md:col-span-2 md:row-span-2",
+  },
+  {
+    name: "Sarah N.",
+    role: "Housing Guru",
+    avatar: "https://i.pravatar.cc/150?img=5",
+    hacks: 18,
+    badge: "Expert",
+    gradient: "from-purple-500/20 to-pink-500/10",
+    border: "border-purple-400/30",
+    icon: "🏠",
+    colSpan: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Minh Le",
+    role: "Bargain Hunter",
+    avatar: "https://i.pravatar.cc/150?img=8",
+    hacks: 15,
+    badge: "Pro",
+    gradient: "from-orange-500/20 to-amber-500/10",
+    border: "border-orange-400/30",
+    icon: "💰",
+    colSpan: "md:col-span-1 md:row-span-1",
+  },
+  {
+    name: "Duc Pham",
+    role: "Transport Pro",
+    avatar: "https://i.pravatar.cc/150?img=12",
+    hacks: 12,
+    badge: "Veteran",
+    gradient: "from-green-500/20 to-emerald-500/10",
+    border: "border-green-400/30",
+    icon: "🚆",
+    colSpan: "md:col-span-1 md:row-span-1",
+  }
+];
+
 const FIRST_PADDLE_ITEMS = [
   {
     icon: <Compass size={20} />,
@@ -367,8 +414,17 @@ const HomePage: React.FC = () => {
             <HeroSearchBar onNavigate={navigate} />
           </motion.div>
 
+          {/* CTA: Join the Migration */}
+          <motion.div variants={fadeUp} className="mt-5 mb-1">
+            <Link to="/community/contributor" className="group flex items-center justify-center gap-2 text-[14px] text-white/80 hover:text-white transition-colors cursor-pointer">
+              <span className="font-medium text-white/90">Have a survival hack?</span>
+              <span className="text-[#f97316] font-semibold group-hover:underline decoration-orange-500/50 underline-offset-4">Join the Migration</span>
+              <ArrowRight size={14} className="text-[#f97316] group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
+
           {/* Quick tags */}
-          <motion.div variants={stagger} className="flex flex-wrap gap-2.5 mt-7 justify-center">
+          <motion.div variants={stagger} className="flex flex-wrap gap-2.5 mt-6 justify-center">
             {QUICK_TAGS.map(tag => (
               <motion.div key={tag.href} variants={fadeUp}>
                 <Link
@@ -397,7 +453,94 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* ══════════════════════════════════════════
-          SECTION 2 — THE FIRST PADDLE
+          SECTION 2 — WALL OF PATHFINDERS
+      ══════════════════════════════════════════ */}
+      <section className="bg-gradient-to-b from-[#0a2463] to-[#081b4b] dark:from-[#03091e] dark:to-[#020617] py-20 px-4 relative overflow-hidden">
+        {/* Glow blobs */}
+        <div className="absolute top-10 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-80px' }}
+          className="max-w-screen-lg mx-auto relative z-10"
+        >
+          <motion.div variants={fadeUp} className="text-center mb-12">
+            <span className="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-[12px] font-bold uppercase tracking-widest mb-3 border border-orange-500/30">
+              Community Legends
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+              Wall of Pathfinders
+            </h2>
+            <p className="mt-3 text-white/60 max-w-md mx-auto">
+              Meet the top contributors who mapped the unknown for you. Share your survival hacks and join the ranks.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4">
+            {PATHFINDERS.map((p, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className={`relative group p-6 rounded-3xl border ${p.border} bg-white/5 backdrop-blur-xl
+                  hover:bg-white/10 transition-all duration-300 overflow-hidden flex flex-col justify-between
+                  ${p.colSpan}`}
+              >
+                {/* Gradient background hover effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+                
+                <div className="relative z-10 flex items-start justify-between mb-6">
+                  <div className="flex items-center gap-4">
+                    <img src={p.avatar} alt={p.name} className="w-12 h-12 rounded-full border-2 border-white/20 object-cover" />
+                    <div>
+                      <h3 className="text-lg font-bold text-white leading-tight">{p.name}</h3>
+                      <p className="text-sm text-white/60">{p.role}</p>
+                    </div>
+                  </div>
+                  <div className="text-3xl opacity-80 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                    {p.icon}
+                  </div>
+                </div>
+
+                <div className="relative z-10 flex flex-col items-start mt-auto">
+                  <div className="flex items-end justify-between w-full">
+                    <div>
+                      <div className="text-3xl font-black text-white">{p.hacks}</div>
+                      <div className="text-[12px] font-medium text-white/50 uppercase tracking-wider">Hacks Shared</div>
+                    </div>
+                    <span className="px-3 py-1 bg-white/10 rounded-full text-[11px] font-bold text-white/80 border border-white/10">
+                      {p.badge}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+
+            {/* Join the Wall Card */}
+            <motion.div variants={fadeUp} className="md:col-span-1 md:row-span-1 h-full">
+              <Link
+                to="/community/contributor"
+                className="relative group h-full p-6 text-center flex flex-col items-center justify-center cursor-pointer
+                  rounded-3xl border-2 border-dashed border-white/20 bg-white/5 backdrop-blur-xl
+                  hover:bg-white/10 hover:border-[#f97316]/60 transition-all duration-300"
+              >
+                <div className="w-14 h-14 rounded-full border border-dashed border-white/40 flex items-center justify-center mb-4 
+                  group-hover:scale-110 group-hover:bg-[#f97316] group-hover:border-[#f97316] text-white/50 group-hover:text-white transition-all duration-300">
+                  <span className="text-3xl font-light leading-none">+</span>
+                </div>
+                <p className="text-[13px] font-medium text-white/60 group-hover:text-white/90 leading-relaxed px-1">
+                  Your face here? Share your first note to join the elite flock of Pathfinders.
+                </p>
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          SECTION 3 — THE FIRST PADDLE
       ══════════════════════════════════════════ */}
       <section className="bg-white dark:bg-gray-950 py-20 px-4">
         <motion.div

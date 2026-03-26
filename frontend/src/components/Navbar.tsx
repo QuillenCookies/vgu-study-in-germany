@@ -100,9 +100,10 @@ interface AnimatedNavLinkProps {
   gradient: string;
   active?: boolean;
   onClick?: () => void;
+  transparent?: boolean;
 }
 
-const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, active, onClick }) => (
+const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, active, onClick, transparent }) => (
   <motion.div
     className="relative"
     style={{ perspective: '600px' }}
@@ -126,17 +127,17 @@ const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, 
         to={to}
         onClick={onClick}
         className={`relative block px-4 py-2 text-[13.5px] font-medium rounded-lg transition-colors leading-none ${
-          active
-            ? 'text-[#0a2463] font-semibold'
-            : 'text-gray-600 hover:text-[#0a2463]'
+          transparent
+            ? active ? 'text-white font-semibold' : 'text-white/80 hover:text-white'
+            : active ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 hover:text-[#0a2463] dark:hover:text-blue-400'
         }`}
       >
         {label}
-        {/* Underline indicator — only decoration for active state, no background */}
+        {/* Underline indicator */}
         {active && (
           <motion.span
             layoutId="nav-underline"
-            className="absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-[#0a2463]/60"
+            className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full ${transparent ? 'bg-white/60' : 'bg-[#0a2463]/60 dark:bg-blue-400/60'}`}
           />
         )}
       </Link>
@@ -151,7 +152,7 @@ const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, 
       <Link
         to={to}
         onClick={onClick}
-        className="block px-4 py-2 text-[13.5px] font-semibold rounded-lg text-[#0a2463] leading-none"
+        className={`block px-4 py-2 text-[13.5px] font-semibold rounded-lg leading-none ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}
       >
         {label}
       </Link>
@@ -160,7 +161,11 @@ const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, 
 );
 
 // ── MAIN NAVBAR ─────────────────────────────────────────────────────────────
-const Navbar: React.FC = () => {
+interface NavbarProps {
+  transparent?: boolean;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const { pathname } = useLocation();
   const { lang, setLang, tr } = useLanguage();
   const [isMobileOpen, setIsMobileOpen]   = useState(false);
@@ -192,12 +197,18 @@ const Navbar: React.FC = () => {
   useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full font-sans">
+    <header className={`${transparent ? 'absolute top-0 left-0 hover:bg-black/20 hover:backdrop-blur-md transition-all duration-300' : 'sticky top-0'} z-50 w-full font-sans`}>
 
       {/* Top accent strip */}
-      <div className="h-[3px] w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400" />
+      {!transparent && (
+        <div className="h-[3px] w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400" />
+      )}
 
-      <div className="bg-white/96 dark:bg-gray-950/96 backdrop-blur-lg border-b border-gray-200/70 dark:border-gray-800/70 shadow-sm">
+      <div className={`${
+        transparent 
+          ? 'bg-transparent border-transparent' 
+          : 'bg-white/96 dark:bg-gray-950/96 backdrop-blur-lg border-b border-gray-200/70 dark:border-gray-800/70 shadow-sm'
+      }`}>
         {/*
           3-column balanced layout:
             col-1 (flex-none): Brand — fixed width so nav can be truly centered
@@ -213,12 +224,12 @@ const Navbar: React.FC = () => {
               className="h-7 flex-shrink-0 transition-opacity group-hover:opacity-80"
               alt="VGU"
             />
-            <div className="hidden sm:block h-5 w-px bg-gray-200 dark:bg-gray-700" />
+            <div className={`hidden sm:block h-5 w-px ${transparent ? 'bg-white/20' : 'bg-gray-200 dark:bg-gray-700'}`} />
             <div className="hidden sm:block">
-              <p className="text-[14px] font-bold text-[#0a2463] dark:text-blue-400 leading-tight tracking-tight">
+              <p className={`text-[14px] font-bold leading-tight tracking-tight ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}>
                 Study in Germany
               </p>
-              <p className="text-[10px] text-gray-400 dark:text-gray-500 leading-tight mt-0.5">
+              <p className={`text-[10px] leading-tight mt-0.5 ${transparent ? 'text-white/70' : 'text-gray-400 dark:text-gray-500'}`}>
                 International Student Guide
               </p>
             </div>
@@ -232,6 +243,7 @@ const Navbar: React.FC = () => {
               label={tr('navbar', NAV_LINKS[0].trKey)}
               active={isActive('/')}
               gradient={NAV_LINKS[0].gradient}
+              transparent={transparent}
             />
 
             {/* Explore dropdown */}
@@ -261,9 +273,9 @@ const Navbar: React.FC = () => {
                   style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
                   aria-expanded={isExploreOpen}
                   className={`relative z-10 flex items-center gap-1 px-4 py-2 text-[13.5px] rounded-lg transition-colors ${
-                    isExploreActive
-                      ? 'text-[#0a2463] dark:text-blue-400 font-semibold'
-                      : 'text-gray-600 dark:text-gray-300 font-medium hover:text-[#0a2463] dark:hover:text-blue-400'
+                    transparent
+                      ? isExploreActive ? 'text-white font-semibold' : 'text-white/80 font-medium hover:text-white'
+                      : isExploreActive ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 font-medium hover:text-[#0a2463] dark:hover:text-blue-400'
                   }`}
                 >
                   {tr('navbar', 'explore')}
@@ -357,6 +369,7 @@ const Navbar: React.FC = () => {
                 label={tr('navbar', trKey)}
                 active={isActive(href)}
                 gradient={gradient}
+                transparent={transparent}
               />
             ))}
           </nav>
@@ -396,9 +409,9 @@ const Navbar: React.FC = () => {
                   exit={{ opacity: 0 }}
                   onClick={() => setSearchOpen(true)}
                   title="Search"
-                  className="flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400
-                    hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5
-                    transition-all duration-150"
+                  className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
+                    transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+                  }`}
                 >
                   <Search size={15} />
                 </motion.button>
@@ -412,9 +425,11 @@ const Navbar: React.FC = () => {
                 onClick={() => setLangOpen(v => !v)}
                 className={`flex items-center gap-2 px-5 py-1.5 rounded-full text-[12px] font-medium
                   border transition-all duration-200 leading-none select-none backdrop-blur-sm
-                  ${langOpen
-                    ? 'bg-white/10 dark:bg-white/10 border-black/10 dark:border-white/10 shadow-sm text-gray-900 dark:text-gray-100'
-                    : 'bg-white/10 dark:bg-white/5 border-black/5 dark:border-white/8 text-gray-600 dark:text-gray-300 hover:bg-white/20 dark:hover:bg-white/10 hover:border-black/10 dark:hover:border-white/15'
+                  ${transparent
+                    ? langOpen ? 'bg-white/20 border-white/30 text-white' : 'bg-white/10 border-white/20 text-white/90 hover:bg-white/20'
+                    : langOpen
+                      ? 'bg-white/10 dark:bg-white/10 border-black/10 dark:border-white/10 shadow-sm text-gray-900 dark:text-gray-100'
+                      : 'bg-white/10 dark:bg-white/5 border-black/5 dark:border-white/8 text-gray-600 dark:text-gray-300 hover:bg-white/20 dark:hover:bg-white/10 hover:border-black/10 dark:hover:border-white/15'
                   }`}
               >
                 <Globe size={13} className="opacity-50 flex-shrink-0" />
@@ -540,9 +555,9 @@ const Navbar: React.FC = () => {
             <button
               onClick={() => setIsDark(d => !d)}
               title={isDark ? 'Light mode' : 'Dark mode'}
-              className="flex items-center justify-center w-8 h-8 rounded-lg text-gray-500 dark:text-gray-400
-                hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5
-                transition-all duration-150"
+              className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
+                transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+              }`}
             >
               <AnimatePresence mode="wait">
                 {isDark ? (
