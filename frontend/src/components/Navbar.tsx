@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
   GraduationCap, TrainFront, Building2, UtensilsCrossed,
-  Ticket, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle
+  Ticket, BookOpen, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle, Gavel, HeartPulse, Rocket
 } from 'lucide-react';
 import VguIcon from '../assets/navbar_vgu_wide.png';
 
@@ -76,6 +76,38 @@ const EXPLORE_ITEMS = [
     href: '/entertainment',
     accent: '#14b8a6',
     gradient: 'radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <BookOpen size={16} />,
+    trKey: 'library' as const,
+    trSubKey: 'libSub' as const,
+    href: '/explore/library',
+    accent: '#3b82f6',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Gavel size={16} />,
+    trKey: 'legal' as const,
+    trSubKey: 'legalSub' as const,
+    href: '/explore/legal',
+    accent: '#eab308',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(234,179,8,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <HeartPulse size={16} />,
+    trKey: 'health' as const,
+    trSubKey: 'healthSub' as const,
+    href: '/explore/health',
+    accent: '#10b981',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Rocket size={16} />,
+    trKey: 'careerLaunch' as const,
+    trSubKey: 'careerSub' as const,
+    href: '/explore/career',
+    accent: '#2563eb',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.16) 0%, transparent 70%)',
   },
 ];
 
@@ -297,7 +329,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.975 }}
                     transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
-                    className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[460px]
+                    className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[900px]
                       bg-white dark:bg-gray-900
                       border border-gray-100 dark:border-gray-800
                       rounded-2xl shadow-2xl shadow-black/10 overflow-hidden"
@@ -307,11 +339,17 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                       <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-600">
                         {tr('navbar', 'explore')}
                       </span>
-                      <span className="text-[10px] text-gray-300 dark:text-gray-700">5 {tr('navbar', 'sections')}</span>
+                      <span className="text-[10px] text-gray-300 dark:text-gray-700">{EXPLORE_ITEMS.length} {tr('navbar', 'sections')}</span>
                     </div>
 
-                    {/* 2-column grid */}
-                    <div className="px-3 pb-3 grid grid-cols-2 gap-1">
+                    {/* Horizontal Grid */}
+                    <div 
+                      className="px-5 pb-4 grid gap-x-12 gap-y-2"
+                      style={{
+                        gridTemplateRows: 'repeat(4, minmax(0, 1fr))',
+                        gridAutoFlow: 'column'
+                      }}
+                    >
                       {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href, accent, gradient }) => (
                         <Link
                           key={href}

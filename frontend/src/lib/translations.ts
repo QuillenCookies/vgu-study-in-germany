@@ -29,6 +29,14 @@ export const translations = {
     housingSub:  { EN: 'Dorms · WG · Anmeldung',         DE: 'Wohnheim · WG · Anmeldung',        VN: 'Ký túc xá · WG · Đăng ký' },
     foodSub:     { EN: 'Mensa · Grocery · Cuisine',      DE: 'Mensa · Einkauf · Küche',         VN: 'Mensa · Mua sắm · Ẩm thực' },
     entSub:      { EN: 'Nightlife · Festivals · Sightse…', DE: 'Nachtleben · Feste · Sehenswürdigkeiten …', VN: 'Nightlife · Lễ hội · Du lịch …' },
+    legal:       { EN: 'Legal Compass',  DE: 'Rechtskompass',    VN: 'La Bàn Pháp Lý' },
+    legalSub:    { EN: 'Visas, contracts, and student rights.', DE: 'Visa, Verträge und Studentenrechte.', VN: 'Visa, hợp đồng và quyền lợi sinh viên.' },
+    library:     { EN: 'Library',        DE: 'Bibliothek',       VN: 'Thư Viện' },
+    libSub:      { EN: 'Essays · Resumes · Resources',   DE: 'Essays · Lebensläufe · Ressourcen',VN: 'Bài luận · Hồ sơ · Tài liệu' },
+    health:      { EN: 'Health & Wellness', DE: 'Gesundheit & Wellness', VN: 'Sức Khỏe & Thể Chất' },
+    healthSub:   { EN: 'Insurance · Doctors · Mental Health', DE: 'Versicherung · Ärzte · Mentale Gesundheit', VN: 'Bảo hiểm · Bác sĩ · Sức khỏe Tinh thần' },
+    careerLaunch: { EN: 'Career Launchpad', DE: 'Karrierestart', VN: 'Bệ Phóng Sự Nghiệp' },
+    careerSub:   { EN: 'Werkstudent · Internships · CV · Tips', DE: 'Werkstudent · Praktika · Lebenslauf · Tipps', VN: 'Werkstudent · Thực tập · CV · Mẹo' },
     sections:    { EN: 'sections',       DE: 'Abschnitte',       VN: 'mục' },
     practicalInfo: { EN: 'Practical info for international students in Germany', DE: 'Praktische Infos für internationale Studierende in Deutschland', VN: 'Thông tin thực tế cho sinh viên quốc tế tại Đức' },
   },
@@ -300,6 +308,74 @@ export const translations = {
     secTravelTimesEmpty: { EN: 'Select a destination to see commute estimations.', DE: 'Wähle ein Ziel, um Pendelzeitschätzungen zu sehen.', VN: 'Chọn một điểm đến để xem ước tính thời gian di chuyển.' },
     secTicketsBadge: { EN: 'Ticket Info', DE: 'Ticket-Info', VN: 'Thông Tin Vé' },
     secTicketsTitle: { EN: 'Ticket Info', DE: 'Ticket-Info', VN: 'Thông Tin Vé' },
+  },
+
+  // ── LEGAL COMPASS PAGE ───────────────────────────────────────────────────
+  legalCompass: {
+    badge: { EN: '🛡️ Security & Trust', DE: '🛡️ Sicherheit & Vertrauen', VN: '🛡️ An Ninh & Quyền Lợi' },
+    title1: { EN: 'Legal', DE: 'Rechts', VN: 'La Bàn' },
+    title2: { EN: 'Compass', DE: 'Kompass', VN: 'Pháp Lý' },
+    desc: { EN: 'Your guide to navigating German bureaucracy and protecting your rights.', DE: 'Dein Leitfaden, um die deutsche Bürokratie zu meistern und deine Rechte zu schützen.', VN: 'Hướng dẫn của bạn để vượt qua các thủ tục hành chính tại Đức và bảo vệ quyền lợi cá nhân.' },
+    searchPlaceholder: { EN: 'Search for visas, rental laws, or labor rights...', DE: 'Suche nach Visa, Mietgesetzen oder Arbeitsrechten...', VN: 'Tìm kiếm visa, luật thuê nhà, hoặc quyền lao động...' },
+    card1Title: { EN: 'Tenant Rights', DE: 'Mieterrechte', VN: 'Quyền Khách Thuê' },
+    card1Scope: { EN: 'Rental contracts, deposits (Kaution), and noise regulations.', DE: 'Mietverträge, Kautionen und Lärmschutzbestimmungen.', VN: 'Hợp đồng thuê, tiền cọc (Kaution) và quy định tiếng ồn.' },
+    card2Title: { EN: 'Employment Law', DE: 'Arbeitsrecht', VN: 'Luật Lao Động' },
+    card2Scope: { EN: 'The 120-day work rule, student tax limits, and sick leave rights.', DE: 'Die 120-Tage-Regel, studentische Steuergrenzen und das Recht auf Krankenstand.', VN: 'Quy tắc làm việc 120 ngày, giới hạn thuế và quyền nghỉ ốm.' },
+    card3Title: { EN: 'Insurance 101', DE: 'Versicherungen 101', VN: 'Kiến thức Bảo Hiểm' },
+    card3Scope: { EN: 'Mandatory Health Insurance and the essential Private Liability (Haftpflicht).', DE: 'Krankenversicherungspflicht und die wesentliche Privathaftpflicht.', VN: 'Bảo hiểm Y tế bắt buộc và Bảo hiểm Trách nhiệm cá nhân Thiết yếu (Haftpflicht).' },
+    card4Title: { EN: 'Bureaucracy Hacks', DE: 'Bürokratie-Hacks', VN: 'Mẹo Hành Chính' },
+    card4Scope: { EN: 'Step-by-step guides for Anmeldung, GEZ radio tax, and Visa extensions.', DE: 'Schritt-für-Schritt-Anleitungen für Anmeldung, GEZ-Rundfunkbeitrag und Visa-Verlängerungen.', VN: 'Hướng dẫn từng bước cho Anmeldung, thuế phát thanh GEZ và Gia hạn Visa.' },
+    backHome: { EN: 'Back to Home', DE: 'Zurück zur Startseite', VN: 'Về Trang Chủ' },
+    
+    // Tenant Rights component
+    trTitle1: { EN: 'Common Issues', DE: 'Häufige Probleme', VN: 'Vấn Đề Phổ Biến' },
+    trIssue1: { EN: 'Landlord withholding deposit?', DE: 'Vermieter behält Kaution?', VN: 'Chủ nhà không trả cọc?' },
+    trContext1: { EN: 'Legally, landlords have 3-6 months to return the Kaution. Deductions must be justified.', DE: 'Rechtlich gesehen haben Vermieter 3-6 Monate Zeit, die Kaution zurückzuzahlen. Abzüge müssen begründet sein.', VN: 'Theo luật, chủ nhà có 3-6 tháng để trả lại Kaution. Việc trừ tiền phải được giải thích.' },
+    trAction1: { EN: 'Steps to send a formal request (Mahnung)', DE: 'Schritte für eine formelle Anfrage (Mahnung)', VN: 'Các bước gửi yêu cầu chính thức (Mahnung)' },
+    
+    trIssue2: { EN: 'Unexpected rent increase?', DE: 'Unerwartete Mieterhöhung?', VN: 'Tăng tiền thuê đột ngột?' },
+    trContext2: { EN: 'Rent control (Mietpreisbremse) applies in many cities. Increases have strict caps.', DE: 'Die Mietpreisbremse gilt in vielen Städten. Erhöhungen haben strenge Obergrenzen.', VN: 'Kiểm soát giá thuê (Mietpreisbremse) áp dụng ở nhiều TP. Có giới hạn nghiêm ngặt.' },
+    trAction2: { EN: 'Check local rent index (Mietspiegel)', DE: 'Lokalen Mietspiegel prüfen', VN: 'Kiểm tra biểu giá thuê địa phương (Mietspiegel)' },
+    
+    trIssue3: { EN: 'Noise disputes (Ruhestörung)?', DE: 'Lärmstreitigkeiten (Ruhestörung)?', VN: 'Tranh chấp tiếng ồn (Ruhestörung)?' },
+    trContext3: { EN: 'Quiet hours (Ruhezeit) are strictly from 22:00 to 06:00 and all day Sunday.', DE: 'Ruhezeiten sind streng von 22:00 bis 06:00 Uhr und den ganzen Sonntag.', VN: 'Giờ yên tĩnh (Ruhezeit) nghiêm ngặt từ 22:00 đến 06:00 và cả ngày Chủ Nhật.' },
+    trAction3: { EN: 'Protocol templates for noise logs', DE: 'Protokollvorlagen für Lärmprotokolle', VN: 'Mẫu biên bản ghi nhận tiếng ồn' },
+
+    trRedFlagTitle: { EN: 'Red-Flag Checklist', DE: 'Red-Flag-Checkliste', VN: 'Checklist "Cờ Đỏ"' },
+    trRedFlagDesc: { EN: 'Common pitfalls in German lease agreements', DE: 'Häufige Fallstricke in deutschen Mietverträgen', VN: 'Những cạm bẫy phổ biến trong hợp đồng thuê nhà Đức' },
+    trRf1: { EN: 'Unclear additional costs (Nebenkosten)', DE: 'Unklare Nebenkosten', VN: 'Chi phí phụ (Nebenkosten) không rõ ràng' },
+    trRf2: { EN: 'Illegal renovation clauses (Schönheitsreparaturen)', DE: 'Illegale Renovierungsklauseln', VN: 'Điều khoản sửa chữa (Schönheitsreparaturen) trái luật' },
+    trRf3: { EN: 'Missing exact move-in protocols', DE: 'Fehlende genaue Einzugsprotokolle', VN: 'Thiếu biên bản bàn giao nhà chính xác' },
+
+    startAction: { EN: 'Start Action', DE: 'Aktion starten', VN: 'Bắt Đầu Xử Lý' },
+    
+    // UI Polish Elements
+    btnLearn: { EN: 'Learn Your Rights', DE: 'Lerne deine Rechte kennen', VN: 'Tìm Hiểu Quyền Lợi Của Bạn' },
+    tagHighPriority: { EN: 'High Priority', DE: 'Hohe Priorität', VN: 'Ưu Tiên Cao' },
+    tagEssential: { EN: 'Essential', DE: 'Essenziell', VN: 'Thiết Yếu' },
+    tagMustKnow: { EN: 'Must-Know', DE: 'Wichtiges Wissen', VN: 'Cần Biết' },
+    tagPopular: { EN: 'Popular', DE: 'Beliebt', VN: 'Phổ Biến' },
+  },
+
+  // ── HEALTH & WELLNESS PAGE ───────────────────────────────────────────────
+  healthWellness: {
+    badge: { EN: 'Emergency Info: 112', DE: 'Notfall-Info: 112', VN: 'Thông Tin Khẩn Cấp: 112' },
+    title1: { EN: 'Health &', DE: 'Gesundheit &', VN: 'Sức Khỏe &' },
+    title2: { EN: 'Wellness', DE: 'Wellness', VN: 'Thể Chất' },
+    subtitle: { EN: 'Your survival guide to the German healthcare system—from finding a doctor to mental support.', DE: 'Dein Überlebensführer für das deutsche Gesundheitssystem – von der Arztsuche bis zur mentalen Unterstützung.', VN: 'Hướng dẫn sinh tồn trong hệ thống y tế Đức — từ cách tìm bác sĩ đến hỗ trợ tinh thần.' },
+    bentoTitle1: { EN: 'The Healthcare System', DE: 'Das Gesundheitssystem', VN: 'Hệ Thống Y Tế' },
+    bentoSub1: { EN: 'Hausarzt vs. Facharzt', DE: 'Hausarzt vs. Facharzt', VN: 'Bác Sĩ Gia Đình vs Bác Sĩ Chuyên Khoa' },
+    bentoDesc1: { EN: 'Master the "Gatekeeper" system. Learn how to find a GP (Hausarzt) and when you need a referral (Überweisung) for specialists.', DE: 'Meistere das "Gatekeeper"-System. Erfahre, wie du einen Hausarzt findest und wann du eine Überweisung für Spezialisten benötigst.', VN: 'Làm chủ hệ thống y tế Đức. Tìm hiểu cách tìm Bác sĩ gia đình và khi nào cần giấy chuyển viện (Überweisung) đến bác sĩ chuyên khoa.' },
+    bentoTitle2: { EN: 'Insurance Mastery', DE: 'Versicherungsmeister', VN: 'Làm Chủ Bảo Hiểm' },
+    bentoSub2: { EN: 'TK, AOK, Barmer', DE: 'TK, AOK, Barmer', VN: 'TK, AOK, Barmer' },
+    bentoDesc2: { EN: 'How to use your insurance card, unlock free check-ups, and step-by-step guides for getting your Social Security Number.', DE: 'Wie du deine Versichertenkarte nutzt, kostenlose Vorsorgeuntersuchungen freischaltest und Schritt-für-Schritt-Anleitungen für deine Sozialversicherungsnummer.', VN: 'Cách sử dụng thẻ bảo hiểm, khám sức khỏe miễn phí và hướng dẫn lấy Số An Sinh Xã Hội.' },
+    bentoTitle3: { EN: 'Pharmacy & Medication', DE: 'Apotheke & Medikamente', VN: 'Nhà Thuốc & Thuốc' },
+    bentoSub3: { EN: 'Apotheke Guide', DE: 'Apotheken-Guide', VN: 'Hướng Dẫn Nhà Thuốc' },
+    bentoDesc3: { EN: 'Finding an emergency pharmacy (Notdienst) at 2 AM and understanding "Prescription-only" vs "Over-the-counter" drugs.', DE: 'Finde eine Notfallapotheke (Notdienst) um 2 Uhr morgens und verstehe "verschreibungspflichtige" vs. "freiverkäufliche" Medikamente.', VN: 'Tìm nhà thuốc trực tuyến (Notdienst) lúc 2 giờ sáng và phân biệt thuốc kê đơn với thuốc không kê đơn.' },
+    bentoTitle4: { EN: 'Mental Health & Support', DE: 'Mentale Gesundheit & Unterstützung', VN: 'Sức Khỏe Tinh Thần & Hỗ Trợ' },
+    bentoSub4: { EN: 'You are not alone', DE: 'Du bist nicht allein', VN: 'Bạn không đơn độc' },
+    bentoDesc4: { EN: 'Resources for student stress, university counseling services, and finding English-speaking therapists covered by insurance.', DE: 'Ressourcen bei studentischem Stress, universitäre Beratungsstellen und die Suche nach englischsprachigen Therapeuten, die von der Kasse bezahlt werden.', VN: 'Nguồn lực giải tỏa căng thẳng, dịch vụ tham vấn đại học, và cách tìm bác sĩ trị liệu tiếng Anh được bảo hiểm chi trả.' },
+    quickGuide: { EN: 'Quick Guide', DE: 'Kurzanleitung', VN: 'Hướng Dẫn Nhanh' },
   },
 
   // ── COMMON ────────────────────────────────────────────────────────────────
