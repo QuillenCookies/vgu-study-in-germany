@@ -242,7 +242,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => (
     {[1, 2, 3, 4, 5].map((s) => (
       <Star
         key={s}
-        className={`w-3.5 h-3.5 ${s <= rating ? 'text-amber-400 fill-amber-400' : 'text-gray-300'}`}
+        className={`w-3.5 h-3.5 ${s <= rating ? 'text-amber-400 fill-amber-400' : 'text-gray-300 dark:text-gray-600'}`}
       />
     ))}
   </div>
@@ -262,7 +262,7 @@ const ToolsPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Navbar />
 
       {/* ── Hero Banner ─────────────────────────────────────────────────── */}
@@ -384,23 +384,23 @@ const ToolsPage: React.FC = () => {
         {/* Wave transition */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none" style={{ height: '64px' }}>
           <svg viewBox="0 0 1440 64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-full">
-            <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#f9fafb" />
+            <path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" className="fill-gray-50 dark:fill-gray-950" />
           </svg>
         </div>
       </section>
 
       {/* ── Filter & Search Bar ─────────────────────────────────────────── */}
-      <section id="tools-grid" className="py-8 px-4 bg-white border-b border-gray-100 sticky top-[56px] z-20 shadow-sm">
+      <section id="tools-grid" className="py-8 px-4 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700 sticky top-[56px] z-20 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4">
           {/* Search */}
           <div className="relative w-full sm:w-72">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
             <input
               type="text"
               placeholder={tr('tools', 'searchPlaceholder')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+              className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
             />
           </div>
 
@@ -413,7 +413,7 @@ const ToolsPage: React.FC = () => {
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
                     ? 'bg-blue-600 text-white shadow-md'
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                 }`}
               >
                 {cat === 'All' ? tr('tools', 'filterAll') : cat}
@@ -427,8 +427,8 @@ const ToolsPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           {filtered.length === 0 ? (
-            <div className="text-center py-20 text-gray-500">
-              <Search className="w-10 h-10 mx-auto mb-3 text-gray-300" />
+            <div className="text-center py-20 text-gray-500 dark:text-gray-400">
+              <Search className="w-10 h-10 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
               <p className="text-lg font-medium">{tr('tools', 'noResults')}</p>
               <p className="text-sm mt-1">{tr('tools', 'clearFilter')}</p>
             </div>
@@ -441,7 +441,7 @@ const ToolsPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.07, duration: 0.45 }}
-                  className="bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
+                  className="bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
                 >
                   {/* Card Header */}
                   <div className={`relative h-28 bg-gradient-to-br ${tool.color} flex items-center justify-between px-6`}>
@@ -468,18 +468,18 @@ const ToolsPage: React.FC = () => {
                   {/* Card Body */}
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex items-start justify-between mb-1">
-                      <h3 className="text-xl font-bold text-gray-900">{tool.name}</h3>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{tool.name}</h3>
                       <StarRating rating={tool.rating} />
                     </div>
 
-                    <p className="text-gray-500 text-sm leading-relaxed mb-4">{tool.description}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">{tool.description}</p>
 
                     {/* Features */}
                     <div className="flex flex-wrap gap-1.5 mb-5 flex-1">
                       {tool.features.map((f) => (
                         <span
                           key={f}
-                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${tool.bg} text-gray-700 border border-gray-100`}
+                          className={`px-2.5 py-1 rounded-full text-xs font-medium ${tool.bg} text-gray-700 dark:text-gray-300 border border-gray-100 dark:border-gray-700`}
                         >
                           {f}
                         </span>
@@ -539,15 +539,15 @@ const ToolsPage: React.FC = () => {
       </section>
 
       {/* ── Submit a Tool CTA ────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">
+          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 text-sm font-semibold">
             Community Driven
           </span>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
             {tr('tools', 'ctaTitle')}
           </h2>
-          <p className="text-gray-600 mb-8 max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto">
             {tr('tools', 'ctaDesc')}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -560,7 +560,7 @@ const ToolsPage: React.FC = () => {
             </Link>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
             >
               Back to Home
             </Link>

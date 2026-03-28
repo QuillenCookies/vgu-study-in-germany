@@ -77,7 +77,7 @@ const LegalCompassPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] relative font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-[#F8FAFC] dark:bg-gray-950 relative font-sans selection:bg-emerald-500/30">
       
       {/* Navbar Integration */}
       <Navbar transparent={false} />
@@ -99,7 +99,7 @@ const LegalCompassPage: React.FC = () => {
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex">
             <Link
               to="/"
-              className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] font-bold tracking-wide text-slate-500 hover:text-[#0F172A] bg-white/40 hover:bg-white/90 backdrop-blur-md transition-all shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-slate-200/50"
+              className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-[13px] font-bold tracking-wide text-slate-500 dark:text-slate-400 hover:text-[#0F172A] dark:hover:text-white bg-white/40 dark:bg-gray-800/60 hover:bg-white/90 dark:hover:bg-gray-800/90 backdrop-blur-md transition-all shadow-[0_2px_8px_rgba(0,0,0,0.02)] border border-slate-200/50 dark:border-gray-700/50"
             >
               <ChevronLeft size={14} className="group-hover:-translate-x-0.5 transition-transform opacity-70" />
               {t('legalCompass', 'backHome', lang)}
@@ -112,19 +112,19 @@ const LegalCompassPage: React.FC = () => {
           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col items-center w-full">
             
             {/* Glassy Shield Badge */}
-            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-slate-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] text-[11px] font-extrabold tracking-widest text-[#0F172A] uppercase mb-8">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/60 dark:bg-gray-800/60 backdrop-blur-md border border-slate-200/80 dark:border-gray-700/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)] text-[11px] font-extrabold tracking-widest text-[#0F172A] dark:text-white uppercase mb-8">
               <Shield size={14} className="text-emerald-500 stroke-[2.5px]" />
               {t('legalCompass', 'badge', lang)}
             </span>
             
             {/* Title */}
-            <h1 className="text-5xl md:text-7xl font-extrabold text-[#0F172A] tracking-tighter leading-tight mb-6 w-full">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-[#0F172A] dark:text-white tracking-tighter leading-tight mb-6 w-full">
               {t('legalCompass', 'title1', lang)}{' '}
               <span className="text-[#F97316]">{t('legalCompass', 'title2', lang)}</span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
               {t('legalCompass', 'desc', lang)}
             </p>
           </motion.div>
@@ -136,14 +136,14 @@ const LegalCompassPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="w-full max-w-2xl mx-auto mt-10 z-20"
           >
-            <div className="relative group mx-auto flex items-center bg-white/70 backdrop-blur-xl border border-slate-200/60 rounded-[28px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] hover:bg-white/90 transition-all focus-within:ring-[3px] focus-within:ring-emerald-500/10 focus-within:border-emerald-500/30 px-6">
+            <div className="relative group mx-auto flex items-center bg-white/70 dark:bg-gray-800/70 backdrop-blur-xl border border-slate-200/60 dark:border-gray-700/60 rounded-[28px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] hover:bg-white/90 dark:hover:bg-gray-800/90 transition-all focus-within:ring-[3px] focus-within:ring-emerald-500/10 focus-within:border-emerald-500/30 px-6">
               <Search size={22} className="text-slate-400 group-focus-within:text-[#F97316] transition-colors flex-shrink-0" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('legalCompass', 'searchPlaceholder', lang)}
-                className="block w-full py-5 bg-transparent text-[15px] font-medium text-slate-800 placeholder-slate-400 focus:outline-none text-center"
+                className="block w-full py-5 bg-transparent text-[15px] font-medium text-slate-800 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none text-center"
               />
               {/* Invisible spacer to perfectly center the text mathematically with the icon on the left */}
               <div className="w-[22px] flex-shrink-0 pointer-events-none" />
@@ -163,7 +163,7 @@ const LegalCompassPage: React.FC = () => {
             <motion.div
               key={card.id}
               variants={itemVariants}
-              className={`group flex flex-col items-start justify-between bg-white/80 backdrop-blur-xl rounded-[2.5rem] p-10 border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_60px_rgba(16,185,129,0.1)] hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-2 ${card.colSpan} relative overflow-hidden`}
+              className={`group flex flex-col items-start justify-between bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-[2.5rem] p-10 border border-slate-200 dark:border-gray-700 shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_60px_rgba(16,185,129,0.1)] hover:border-emerald-500/40 transition-all duration-500 transform hover:-translate-y-2 ${card.colSpan} relative overflow-hidden`}
             >
               {/* Soft corner gradient on hover */}
               <div className={`absolute top-0 right-0 w-56 h-56 ${card.hoverBg} rounded-bl-[160px] opacity-0 group-hover:opacity-100 transition-all duration-700 z-0 mix-blend-multiply`} />
@@ -171,7 +171,7 @@ const LegalCompassPage: React.FC = () => {
               <div className="relative z-10 w-full">
                 {/* Icon & Tag */}
                 <div className="flex justify-between items-start mb-10">
-                  <div className="w-16 h-16 rounded-[22px] bg-white shadow-sm border border-slate-100 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-16 h-16 rounded-[22px] bg-white dark:bg-gray-800 shadow-sm border border-slate-100 dark:border-gray-700 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
                     {card.icon}
                   </div>
                   <span className={`px-4 py-1.5 rounded-full text-[11px] font-extrabold uppercase tracking-widest border shadow-[0_2px_8px_rgba(0,0,0,0.03)] ${card.tagClass}`}>
@@ -180,10 +180,10 @@ const LegalCompassPage: React.FC = () => {
                 </div>
                 
                 {/* Title & Desc */}
-                <h3 className="text-[22px] font-extrabold text-[#0F172A] mb-3 tracking-tight group-hover:text-emerald-700 transition-colors">
+                <h3 className="text-[22px] font-extrabold text-[#0F172A] dark:text-white mb-3 tracking-tight group-hover:text-emerald-700 dark:group-hover:text-emerald-400 transition-colors">
                   {card.title}
                 </h3>
-                <p className="text-[15px] text-slate-500 font-medium leading-relaxed mb-10 max-w-sm">
+                <p className="text-[15px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-10 max-w-sm">
                   {card.description}
                 </p>
               </div>

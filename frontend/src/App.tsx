@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import UniversitiesPage from './pages/UniversitiesPage';
@@ -15,6 +16,7 @@ import LibraryPage from './pages/Library';
 import LegalCompassPage from './pages/LegalCompassPage';
 import HealthWellnessPage from './pages/HealthWellnessPage';
 import CareerPage from './pages/CareerPage';
+import SalaryPage from './pages/SalaryPage';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -24,6 +26,7 @@ export default function App() {
   const location = useLocation();
 
   return (
+    <ThemeProvider>
     <LanguageProvider>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -46,8 +49,10 @@ export default function App() {
           <Route path="/explore/legal-compass" element={<LegalCompassPage />} />
           <Route path="/explore/health" element={<HealthWellnessPage />} />
           <Route path="/explore/career" element={<CareerPage />} />
+          <Route path="/explore/salary" element={<SalaryPage />} />
         </Routes>
       </AnimatePresence>
     </LanguageProvider>
+    </ThemeProvider>
   );
 }

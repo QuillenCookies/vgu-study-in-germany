@@ -37,6 +37,8 @@ export const translations = {
     healthSub:   { EN: 'Insurance · Doctors · Mental Health', DE: 'Versicherung · Ärzte · Mentale Gesundheit', VN: 'Bảo hiểm · Bác sĩ · Sức khỏe Tinh thần' },
     careerLaunch: { EN: 'Career Launchpad', DE: 'Karrierestart', VN: 'Bệ Phóng Sự Nghiệp' },
     careerSub:   { EN: 'Werkstudent · Internships · CV · Tips', DE: 'Werkstudent · Praktika · Lebenslauf · Tipps', VN: 'Werkstudent · Thực tập · CV · Mẹo' },
+    salaryFinance: { EN: 'Salary & Finance', DE: 'Gehalt & Finanzen', VN: 'Lương & Tài Chính' },
+    salarySub:   { EN: 'Werkstudent Pay · Taxes · Benefits', DE: 'Werkstudentenlohn · Steuern · Vorteile', VN: 'Lương Werkstudent · Thuế · Phúc lợi' },
     sections:    { EN: 'sections',       DE: 'Abschnitte',       VN: 'mục' },
     practicalInfo: { EN: 'Practical info for international students in Germany', DE: 'Praktische Infos für internationale Studierende in Deutschland', VN: 'Thông tin thực tế cho sinh viên quốc tế tại Đức' },
   },

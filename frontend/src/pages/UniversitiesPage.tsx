@@ -20,13 +20,13 @@ interface University {
 // Helper function to generate consistent random colors based on text string
 const getHighlightColor = (text: string) => {
   const colorPalettes = [
-    'bg-blue-50 text-blue-700 border-blue-200',
-    'bg-emerald-50 text-emerald-700 border-emerald-200',
-    'bg-purple-50 text-purple-700 border-purple-200',
-    'bg-amber-50 text-amber-700 border-amber-200',
-    'bg-rose-50 text-rose-700 border-rose-200',
-    'bg-cyan-50 text-cyan-700 border-cyan-200',
-    'bg-indigo-50 text-indigo-700 border-indigo-200',
+    'bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-800/50',
+    'bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800/50',
+    'bg-purple-50 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300 border-purple-200 dark:border-purple-800/50',
+    'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800/50',
+    'bg-rose-50 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 border-rose-200 dark:border-rose-800/50',
+    'bg-cyan-50 dark:bg-cyan-950/30 text-cyan-700 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800/50',
+    'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800/50',
   ];
 
   let hash = 0;
@@ -132,7 +132,7 @@ const UniversitiesPage: React.FC = () => {
       <Layout>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <Loader2 className="w-10 h-10 animate-spin text-[#f97316] mb-4" />
-          <p className="text-[#0a2463] font-medium">{tr('universities', 'loading')}</p>
+          <p className="text-[#0a2463] dark:text-white font-medium">{tr('universities', 'loading')}</p>
         </div>
       </Layout>
     );
@@ -166,11 +166,11 @@ const UniversitiesPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-gray-50 min-h-screen">
+      <section className="py-12 px-4 bg-gray-50 dark:bg-gray-950 min-h-screen">
         <div className="max-w-screen-xl mx-auto">
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] dark:text-white tracking-tight">
               {selectedLocation?.type === 'city'
                 ? `${tr('universities', 'uniIn')} ${selectedLocation.name}`
                 : tr('universities', 'uniComparison')}
@@ -179,7 +179,7 @@ const UniversitiesPage: React.FC = () => {
             {selectedLocation && (
               <button
                 onClick={() => setSelectedLocation(null)}
-                className="flex items-center gap-2 px-4 py-2 bg-white text-gray-600 border border-gray-200 rounded-full hover:bg-gray-100 hover:text-red-500 transition-colors shadow-sm text-sm font-medium w-fit"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 hover:text-red-500 transition-colors shadow-sm text-sm font-medium w-fit"
               >
                 <span>{tr('universities', 'filteringBy')} <strong>{selectedLocation.name}</strong></span>
                 <X className="w-4 h-4" />
@@ -188,10 +188,10 @@ const UniversitiesPage: React.FC = () => {
           </div>
 
           {/* FILTER AND SORT BAR */}
-          <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 mb-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
+          <div className="bg-white dark:bg-gray-900 p-4 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 mb-8 flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
             {/* Filters */}
             <div className="flex flex-wrap gap-3 items-center w-full md:w-auto">
-              <div className="flex items-center gap-2 text-gray-500 mr-2">
+              <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 mr-2">
                 <Filter className="w-4 h-4" />
                 <span className="text-sm font-medium">{tr('universities', 'filterLabel')}</span>
               </div>
@@ -199,7 +199,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterCity}
                 onChange={(e) => setFilterCity(e.target.value)}
-                className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
                 <option value="All">{tr('universities', 'allCities')}</option>
                 {availableCities.map(city => (
@@ -210,7 +210,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
                 <option value="All">{tr('universities', 'allTypes')}</option>
                 <option value="Public">Public</option>
@@ -220,7 +220,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterHighlight}
                 onChange={(e) => setFilterHighlight(e.target.value)}
-                className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer max-w-[200px]"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer max-w-[200px]"
               >
                 <option value="All">{tr('universities', 'allHighlights')}</option>
                 {availableHighlights.map(highlight => (
@@ -231,14 +231,14 @@ const UniversitiesPage: React.FC = () => {
 
             {/* Sorting */}
             <div className="flex items-center gap-3 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
-              <div className="flex items-center gap-2 text-gray-500">
+              <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400">
                 <ArrowDownUp className="w-4 h-4" />
                 <span className="text-sm font-medium">{tr('universities', 'sortBy')}</span>
               </div>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
                 <option value="default">{tr('universities', 'sortDefault')}</option>
                 <option value="global">{tr('universities', 'sortGlobal')}</option>
@@ -249,10 +249,10 @@ const UniversitiesPage: React.FC = () => {
 
           {/* Fallback state */}
           {processedUniversities.length === 0 ? (
-            <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
+            <div className="text-center py-20 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm">
               <div className="text-4xl mb-4">🕵️‍♂️</div>
-              <h3 className="text-xl font-bold text-[#0a2463] mb-2">{tr('universities', 'noResults')}</h3>
-              <p className="text-gray-500 mb-6">{tr('universities', 'tryAdjust')}</p>
+              <h3 className="text-xl font-bold text-[#0a2463] dark:text-white mb-2">{tr('universities', 'noResults')}</h3>
+              <p className="text-gray-500 dark:text-gray-400 mb-6">{tr('universities', 'tryAdjust')}</p>
               <button
                 onClick={() => {
                   setFilterCity('All');
@@ -267,7 +267,7 @@ const UniversitiesPage: React.FC = () => {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {processedUniversities.map((uni) => (
-                <div key={uni.id} className="group bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col border border-gray-100 hover:-translate-y-1">
+                <div key={uni.id} className="group bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1">
                   <div className="relative h-48 overflow-hidden">
                     <img src={uni.image} alt={uni.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a2463]/70 to-transparent" />
@@ -283,26 +283,26 @@ const UniversitiesPage: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col flex-1 p-5 gap-3">
-                    <h3 className="text-lg font-bold text-[#0a2463] leading-tight group-hover:text-[#f97316] transition-colors">
+                    <h3 className="text-lg font-bold text-[#0a2463] dark:text-white leading-tight group-hover:text-[#f97316] transition-colors">
                       {uni.name}
                     </h3>
-                    <div className="flex items-center gap-1.5 text-sm text-gray-500">
+                    <div className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
                       <MapPin className="w-4 h-4 shrink-0 text-[#f97316]" />
                       {uni.city}
                     </div>
 
-                    <div className="grid grid-cols-1 gap-1.5 bg-gray-50 p-3 rounded-xl mt-2 border border-gray-100">
+                    <div className="grid grid-cols-1 gap-1.5 bg-gray-50 dark:bg-gray-800 p-3 rounded-xl mt-2 border border-gray-100 dark:border-gray-700">
                       <div className="flex items-start justify-between text-sm">
-                        <span className="flex items-center gap-2 text-gray-600">
+                        <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                           <Globe className="w-4 h-4 text-blue-500" /> {tr('universities', 'globalRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463]">{uni.globalRank.includes('Unranked') ? 'Unranked' : uni.globalRank}</span>
+                        <span className="font-semibold text-[#0a2463] dark:text-white">{uni.globalRank.includes('Unranked') ? 'Unranked' : uni.globalRank}</span>
                       </div>
                       <div className="flex items-start justify-between text-sm">
-                        <span className="flex items-center gap-2 text-gray-600">
+                        <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                           <BookOpen className="w-4 h-4 text-purple-500" /> {tr('universities', 'subjectRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463]">{uni.subjectRank.includes('N/A') ? 'N/A' : uni.subjectRank}</span>
+                        <span className="font-semibold text-[#0a2463] dark:text-white">{uni.subjectRank.includes('N/A') ? 'N/A' : uni.subjectRank}</span>
                       </div>
                     </div>
 
@@ -319,7 +319,7 @@ const UniversitiesPage: React.FC = () => {
                       })}
                     </div>
 
-                    <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#0a2463] hover:text-[#f97316] transition-colors pt-4 border-t border-gray-100">
+                    <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#0a2463] dark:text-white hover:text-[#f97316] dark:hover:text-[#f97316] transition-colors pt-4 border-t border-gray-100 dark:border-gray-700">
                       {tr('universities', 'visitWebsite')}
                       <ExternalLink className="w-4 h-4" />
                     </a>

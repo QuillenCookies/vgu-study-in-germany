@@ -440,7 +440,7 @@ const TrainPage: React.FC = () => {
             <div className="relative max-w-lg mx-auto mb-10" ref={searchDropdownRef}>
               <form
                 onSubmit={handleSearch}
-                className="flex w-full bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200"
+                className="flex w-full bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700"
               >
                 <div className="flex items-center pl-4 text-gray-400">
                   <Navigation className="w-5 h-5" />
@@ -454,7 +454,7 @@ const TrainPage: React.FC = () => {
                   }}
                   onFocus={() => { if (searchInput.trim()) setShowDropdown(true); }}
                   placeholder="Search station (e.g. Frankfurt, Darmstadt...)"
-                  className="flex-1 px-4 py-4 text-gray-800 text-base outline-none bg-transparent placeholder-gray-400"
+                  className="flex-1 px-4 py-4 text-gray-800 dark:text-gray-100 text-base outline-none bg-transparent placeholder-gray-400 dark:placeholder-gray-500"
                 />
                 {isSuggestionsLoading && (
                   <div className="flex items-center pr-3 text-gray-400">
@@ -472,18 +472,18 @@ const TrainPage: React.FC = () => {
 
               {/* Dropdown Suggestions */}
               {showDropdown && (suggestions.cities.length > 0 || suggestions.universities.length > 0) && (
-                <div className="absolute top-full mt-2 w-full bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                <div className="absolute top-full mt-2 w-full bg-white dark:bg-gray-800 rounded-xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="max-h-72 overflow-y-auto py-2">
                     {/* Universities */}
                     {suggestions.universities.length > 0 && (
                       <div className="mb-2">
-                        <div className="px-4 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider">Universities</div>
+                        <div className="px-4 py-1 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Universities</div>
                         {suggestions.universities.map((uni, idx) => (
                           <button
                             key={`uni-${uni.id || uni.uni_id || idx}`}
                             type="button"
                             onClick={() => handleSelectSuggestion(uni.name || uni.uni_name)}
-                            className="w-full text-left px-4 py-2 hover:bg-orange-50 text-gray-800 focus:bg-orange-50 focus:outline-none transition-colors flex items-center gap-3"
+                            className="w-full text-left px-4 py-2 hover:bg-orange-50 dark:hover:bg-orange-950/30 text-gray-800 dark:text-gray-200 focus:bg-orange-50 dark:focus:bg-orange-950/30 focus:outline-none transition-colors flex items-center gap-3"
                           >
                             <span className="text-xl">🎓</span>
                             <span>{uni.name || uni.uni_name}</span>
@@ -494,13 +494,13 @@ const TrainPage: React.FC = () => {
                     {/* Cities */}
                     {suggestions.cities.length > 0 && (
                       <div>
-                        <div className="px-4 py-1 text-xs font-bold text-gray-400 uppercase tracking-wider">Cities</div>
+                        <div className="px-4 py-1 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Cities</div>
                         {suggestions.cities.map((city, idx) => (
                           <button
                             key={`city-${city.id || city.city_id || idx}`}
                             type="button"
                             onClick={() => handleSelectSuggestion(city.name || city.city_name)}
-                            className="w-full text-left px-4 py-2 hover:bg-orange-50 text-gray-800 focus:bg-orange-50 focus:outline-none transition-colors flex items-center gap-3"
+                            className="w-full text-left px-4 py-2 hover:bg-orange-50 dark:hover:bg-orange-950/30 text-gray-800 dark:text-gray-200 focus:bg-orange-50 dark:focus:bg-orange-950/30 focus:outline-none transition-colors flex items-center gap-3"
                           >
                             <span className="text-xl">📍</span>
                             <span>{city.name || city.city_name}</span>
@@ -530,25 +530,25 @@ const TrainPage: React.FC = () => {
         </section>
 
         {/* ── Journey Planner ───────────── */}
-        <section className="py-12 bg-gray-50 px-4">
+        <section className="py-12 bg-gray-50 dark:bg-gray-950 px-4">
           <div className="max-w-screen-xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-start">
-              <div className="flex-1 bg-white p-6 rounded-[2rem] shadow-sm border border-gray-100 w-full">
+              <div className="flex-1 bg-white dark:bg-gray-900 p-6 rounded-[2rem] shadow-sm border border-gray-100 dark:border-gray-700 w-full">
                 <div className="flex flex-col gap-2 mb-6">
                   <Badge className="w-fit">{tr('transport', 'secPlannerBadge')}</Badge>
-                  <h2 className="text-2xl font-bold text-[#0a2463]">{tr('transport', 'secPlannerTitle')}</h2>
-                  <p className="text-sm text-gray-400">{tr('transport', 'secPlannerDesc')}</p>
+                  <h2 className="text-2xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secPlannerTitle')}</h2>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">{tr('transport', 'secPlannerDesc')}</p>
                 </div>
                 <form onSubmit={handlePathSearch} className="flex flex-col gap-4">
                   {/* From dropdown */}
                   <div className="relative">
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 ml-1 uppercase tracking-wide">From</label>
+                    <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 ml-1 uppercase tracking-wide">From</label>
                     <div className="relative">
                       <select
                         value={pathFrom}
                         onChange={(e) => setPathFrom(e.target.value)}
                         required
-                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 font-medium cursor-pointer"
+                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
                       >
                         <option value="" disabled>Select departure city…</option>
                         {cities.map((c) => (
@@ -561,13 +561,13 @@ const TrainPage: React.FC = () => {
 
                   {/* To dropdown */}
                   <div className="relative">
-                    <label className="block text-xs font-semibold text-gray-500 mb-1.5 ml-1 uppercase tracking-wide">To</label>
+                    <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 ml-1 uppercase tracking-wide">To</label>
                     <div className="relative">
                       <select
                         value={pathTo}
                         onChange={(e) => setPathTo(e.target.value)}
                         required
-                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 font-medium cursor-pointer"
+                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
                       >
                         <option value="" disabled>Select destination city…</option>
                         {cities.map((c) => (
@@ -591,16 +591,16 @@ const TrainPage: React.FC = () => {
 
               <div className="flex-1 w-full flex flex-col justify-center">
                 {isPathLoading ? (
-                  <div className="flex flex-col items-center justify-center p-12 gap-4 text-gray-400">
+                  <div className="flex flex-col items-center justify-center p-12 gap-4 text-gray-400 dark:text-gray-500">
                     <Loader2 className="w-10 h-10 animate-spin text-[#f97316]" />
                     <p>Finding best routes...</p>
                   </div>
                 ) : suggestedPath ? (
-                  <div className="bg-white p-6 rounded-[2rem] shadow-xl border border-[#f97316]/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    <div className="flex justify-between items-end mb-6 border-b pb-4">
+                  <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] shadow-xl border border-[#f97316]/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                    <div className="flex justify-between items-end mb-6 border-b dark:border-gray-700 pb-4">
                       <div>
-                        <p className="text-sm font-medium text-gray-500">Suggested Route</p>
-                        <h3 className="text-3xl font-black text-[#0a2463]">{suggestedPath.duration}</h3>
+                        <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Suggested Route</p>
+                        <h3 className="text-3xl font-black text-[#0a2463] dark:text-white">{suggestedPath.duration}</h3>
                       </div>
                       <div className="text-right">
                         {suggestedPath.fare ? (
@@ -608,25 +608,25 @@ const TrainPage: React.FC = () => {
                         ) : (
                           <Badge variant="orange" className="mb-1 text-[10px]">Included in Semesterticket</Badge>
                         )}
-                        <p className="text-sm text-gray-500">{suggestedPath.changes} {suggestedPath.changes === 1 ? 'change' : 'changes'}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{suggestedPath.changes} {suggestedPath.changes === 1 ? 'change' : 'changes'}</p>
                       </div>
                     </div>
                     <div className="flex gap-4">
                       <div className="flex flex-col items-center">
                         <div className="w-3 h-3 rounded-full bg-[#f97316]" />
-                        <div className="flex-1 w-0.5 bg-gray-200 my-1" />
-                        <div className="w-3 h-3 rounded-full border-2 border-[#0a2463] bg-white" />
+                        <div className="flex-1 w-0.5 bg-gray-200 dark:bg-gray-700 my-1" />
+                        <div className="w-3 h-3 rounded-full border-2 border-[#0a2463] bg-white dark:bg-gray-900" />
                       </div>
                       <div className="flex flex-col gap-5 flex-1 pb-2">
                         {suggestedPath.segments.map((seg, i) => (
                           <div key={i} className="flex justify-between items-start text-sm">
                             <div>
-                              <p className="font-bold text-gray-800 flex items-center gap-2">
+                              <p className="font-bold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                                 {seg.line && <span className={`px-2 py-0.5 rounded text-xs text-white ${getLineStyles(seg.line)}`}>{seg.line}</span>}
                                 {seg.type === 'walk' ? '🚶 Walk' : seg.type === 'transfer' ? '🔄 Transfer' : seg.detail}
                               </p>
                             </div>
-                            <span className="font-medium text-gray-500">{seg.duration}</span>
+                            <span className="font-medium text-gray-500 dark:text-gray-400">{seg.duration}</span>
                           </div>
                         ))}
                       </div>
@@ -638,9 +638,9 @@ const TrainPage: React.FC = () => {
                     <p className="text-red-400 font-medium">{pathError}</p>
                   </div>
                 ) : (
-                  <div className="text-center p-10 bg-white/50 border border-dashed border-gray-300 rounded-[2rem] h-full flex flex-col items-center justify-center">
-                    <MapPin className="w-10 h-10 text-gray-300 mb-3" />
-                    <p className="text-gray-400 font-medium">Select your start and destination to find the best route</p>
+                  <div className="text-center p-10 bg-white/50 dark:bg-gray-800/50 border border-dashed border-gray-300 dark:border-gray-600 rounded-[2rem] h-full flex flex-col items-center justify-center">
+                    <MapPin className="w-10 h-10 text-gray-300 dark:text-gray-600 mb-3" />
+                    <p className="text-gray-400 dark:text-gray-500 font-medium">Select your start and destination to find the best route</p>
                   </div>
                 )}
               </div>
@@ -649,13 +649,13 @@ const TrainPage: React.FC = () => {
         </section>
 
         {/* ── Fastest Connections (Live DB) ────────────────── */}
-        <section className="py-16 bg-white overflow-hidden">
+        <section className="py-16 bg-white dark:bg-gray-900 overflow-hidden">
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="mb-10 flex items-end justify-between">
               <div className="space-y-2">
                 <Badge variant="outline" className="text-[#f97316] border-[#f97316]">{tr('transport', 'secLiveBadge')}</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463]">{tr('transport', 'secLiveTitle')}</h2>
-                <p className="text-gray-500">{tr('transport', 'secLiveDesc')} {stationName}</p>
+                <h2 className="text-3xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secLiveTitle')}</h2>
+                <p className="text-gray-500 dark:text-gray-400">{tr('transport', 'secLiveDesc')} {stationName}</p>
               </div>
               <div className="hidden md:flex gap-2">
                 <Button size="icon" variant="outline" onClick={() => carouselApi?.scrollPrev()} disabled={!canScrollPrev} className="rounded-xl"><ArrowLeft /></Button>
@@ -668,7 +668,7 @@ const TrainPage: React.FC = () => {
                 <Loader2 className="w-12 h-12 animate-spin text-[#f97316]" />
               </div>
             ) : commuteData.length === 0 && !error ? (
-              <p className="text-center text-gray-500 py-10">No live departures found for this station.</p>
+              <p className="text-center text-gray-500 dark:text-gray-400 py-10">No live departures found for this station.</p>
             ) : error ? (
               <p className="text-center text-red-500 py-10 font-bold">{error}</p>
             ) : (
@@ -679,7 +679,7 @@ const TrainPage: React.FC = () => {
                     const isIce = route.line.startsWith('IC') || route.line.startsWith('ICE');
                     return (
                       <CarouselItem key={idx} className="pl-4 md:basis-1/2 lg:basis-1/4">
-                        <div className="bg-white border border-gray-100 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all h-full border-b-8" style={{ borderBottomColor: isIce ? '#cccccc' : lineStyle.split(' ')[0].replace('bg-[', '').replace(']', '') }}>
+                        <div className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-700 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all h-full border-b-8" style={{ borderBottomColor: isIce ? '#cccccc' : lineStyle.split(' ')[0].replace('bg-[', '').replace(']', '') }}>
                           <div className="flex justify-between items-start mb-6">
                             <span className={`font-black px-4 py-1.5 rounded-lg text-sm ${isIce ? 'bg-gray-100 text-red-600 border border-gray-200' : `${lineStyle} text-white`}`}>
                               {route.line}
@@ -689,7 +689,7 @@ const TrainPage: React.FC = () => {
                               {route.delay && <Badge variant="destructive" className="mt-1 text-[10px] animate-pulse">{route.delay}</Badge>}
                             </div>
                           </div>
-                          <h3 className="text-xl font-bold text-[#0a2463] mb-1 line-clamp-2">{route.to}</h3>
+                          <h3 className="text-xl font-bold text-[#0a2463] dark:text-white mb-1 line-clamp-2">{route.to}</h3>
                         </div>
                       </CarouselItem>
                     )
@@ -702,15 +702,15 @@ const TrainPage: React.FC = () => {
 
         {/* ── Transport Lines Gallery (Static DB) ────────────────── */}
         {frankfurtRoutes.length > 0 && (
-          <section className="py-16 bg-gray-50 overflow-hidden">
+          <section className="py-16 bg-gray-50 dark:bg-gray-950 overflow-hidden">
             <div className="max-w-screen-xl mx-auto px-4">
               <div className="mb-10 flex items-end justify-between">
                 <div className="flex flex-col gap-3">
                   <Badge className="w-fit">{tr('transport', 'secRoutesBadge')}</Badge>
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] dark:text-white tracking-tight">
                     {tr('transport', 'secRoutesTitle')}
                   </h2>
-                  <p className="text-gray-500 max-w-lg text-lg">
+                  <p className="text-gray-500 dark:text-gray-400 max-w-lg text-lg">
                     {tr('transport', 'secRoutesDesc')}
                   </p>
                 </div>
@@ -773,7 +773,7 @@ const TrainPage: React.FC = () => {
                   {frankfurtRoutes.map((_, i) => (
                     <button
                       key={i}
-                      className={`h-2 rounded-full transition-all ${currentRouteSlide === i ? 'w-6 bg-[#0a2463]' : 'w-2 bg-gray-300'}`}
+                      className={`h-2 rounded-full transition-all ${currentRouteSlide === i ? 'w-6 bg-[#0a2463]' : 'w-2 bg-gray-300 dark:bg-gray-600'}`}
                       onClick={() => routesCarouselApi?.scrollTo(i)}
                       aria-label={`Go to slide ${i + 1}`}
                     />
@@ -785,12 +785,12 @@ const TrainPage: React.FC = () => {
         )}
 
         {/* ── Commute Estimations & Full Table ────────────────── */}
-        <section className="py-12 px-4 bg-white">
+        <section className="py-12 px-4 bg-white dark:bg-gray-900">
           <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-10">
 
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-[#0a2463] mb-6">{tr('transport', 'secLiveBoardTitle')}</h2>
-              <div className="bg-white rounded-[2rem] shadow-sm overflow-hidden border border-gray-100 h-[400px] overflow-y-auto">
+              <h2 className="text-2xl font-bold text-[#0a2463] dark:text-white mb-6">{tr('transport', 'secLiveBoardTitle')}</h2>
+              <div className="bg-white dark:bg-gray-900 rounded-[2rem] shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 h-[400px] overflow-y-auto">
                 <table className="w-full text-left">
                   <thead className="bg-[#0a2463] text-white sticky top-0 z-10">
                     <tr>
@@ -800,19 +800,19 @@ const TrainPage: React.FC = () => {
                       <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">Status</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-50">
+                  <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
                     {commuteData.map((row, i) => {
                       const isIce = row.line.startsWith('IC') || row.line.startsWith('ICE');
                       const lineStyle = getLineStyles(row.line);
                       return (
-                        <tr key={i} className="hover:bg-blue-50/50 group">
+                        <tr key={i} className="hover:bg-blue-50/50 dark:hover:bg-blue-950/20 group">
                           <td className="px-6 py-4">
                             <span className={`${isIce ? 'bg-gray-100 text-red-600 border border-gray-200' : `${lineStyle} text-white`} font-bold text-xs px-3 py-1 rounded-md`}>
                               {row.line}
                             </span>
                           </td>
-                          <td className="px-6 py-4 font-bold text-[#0a2463]">{row.to}</td>
-                          <td className="px-6 py-4 font-mono font-bold text-gray-600">{row.time}</td>
+                          <td className="px-6 py-4 font-bold text-[#0a2463] dark:text-white">{row.to}</td>
+                          <td className="px-6 py-4 font-mono font-bold text-gray-600 dark:text-gray-300">{row.time}</td>
                           <td className="px-6 py-4">
                             {row.delay ? (
                               <span className="text-red-600 font-black text-[11px] flex items-center gap-1">
@@ -827,7 +827,7 @@ const TrainPage: React.FC = () => {
                     })}
                     {commuteData.length === 0 && !isLoading && (
                       <tr>
-                        <td colSpan={4} className="text-center py-10 text-gray-400">{tr('transport', 'secLiveBoardEmpty')}</td>
+                        <td colSpan={4} className="text-center py-10 text-gray-400 dark:text-gray-500">{tr('transport', 'secLiveBoardEmpty')}</td>
                       </tr>
                     )}
                   </tbody>
@@ -839,29 +839,29 @@ const TrainPage: React.FC = () => {
               <h2 className="text-2xl font-bold text-[#0a2463] mb-6 flex items-center gap-2">
                 <Badge variant="orange">{tr('transport', 'secTravelTimesBadge')}</Badge>
               </h2>
-              <div className="overflow-x-auto rounded-[2rem] border border-gray-100 shadow-sm bg-white">
+              <div className="overflow-x-auto rounded-[2rem] border border-gray-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900">
                 <table className="w-full text-sm text-left">
-                  <thead className="bg-gray-50 text-gray-500 border-b border-gray-100">
+                  <thead className="bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-700">
                     <tr>
                       <th className="px-5 py-4 font-semibold">From</th>
                       <th className="px-5 py-4 font-semibold">To</th>
                       <th className="px-5 py-4 font-semibold text-right">Time</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-gray-50">
+                  <tbody className="divide-y divide-gray-50 dark:divide-gray-800">
                     {estimations.map((row, i) => (
-                      <tr key={i} className="hover:bg-gray-50/50">
-                        <td className="px-5 py-4 text-gray-600">{row.from}</td>
-                        <td className="px-5 py-4 font-medium text-[#0a2463]">{row.to}</td>
-                        <td className="px-5 py-4 flex items-center justify-end gap-1.5 text-gray-600 font-bold">
-                          <Clock className="w-3.5 h-3.5 text-gray-400" />
+                      <tr key={i} className="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
+                        <td className="px-5 py-4 text-gray-600 dark:text-gray-400">{row.from}</td>
+                        <td className="px-5 py-4 font-medium text-[#0a2463] dark:text-white">{row.to}</td>
+                        <td className="px-5 py-4 flex items-center justify-end gap-1.5 text-gray-600 dark:text-gray-300 font-bold">
+                          <Clock className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
                           {row.time}
                         </td>
                       </tr>
                     ))}
                     {estimations.length === 0 && (
                       <tr>
-                        <td colSpan={3} className="text-center py-6 text-gray-400">{tr('transport', 'secTravelTimesEmpty')}</td>
+                        <td colSpan={3} className="text-center py-6 text-gray-400 dark:text-gray-500">{tr('transport', 'secTravelTimesEmpty')}</td>
                       </tr>
                     )}
                   </tbody>
@@ -873,28 +873,28 @@ const TrainPage: React.FC = () => {
 
         {/* ── Ticket Prices ───────────────────────────────────── */}
         {tickets.length > 0 && (
-          <section className="py-16 px-4 bg-gray-50">
+          <section className="py-16 px-4 bg-gray-50 dark:bg-gray-950">
             <div className="max-w-screen-xl mx-auto">
               <div className="flex flex-col gap-3 mb-10 text-center items-center">
                 <Badge variant="orange" className="w-fit">{tr('transport', 'secTicketsBadge')}</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463]">{tr('transport', 'secTicketsTitle')}</h2>
+                <h2 className="text-3xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secTicketsTitle')}</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {tickets.map((t) => (
-                  <div key={t.name} className="bg-white rounded-3xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4 hover:shadow-md transition-shadow relative overflow-hidden group">
+                  <div key={t.name} className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm p-6 flex flex-col gap-4 hover:shadow-md transition-shadow relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-16 h-16 bg-[#0a2463]/5 rounded-bl-[100%] transition-transform group-hover:scale-110" />
 
                     <div className="flex flex-col gap-1">
-                      <h3 className="font-bold text-[#0a2463] text-lg leading-tight">{t.name}</h3>
+                      <h3 className="font-bold text-[#0a2463] dark:text-white text-lg leading-tight">{t.name}</h3>
                       <span className="text-2xl font-black text-[#f97316]">{t.price}</span>
                     </div>
 
-                    <div className="flex items-center gap-2 text-sm font-medium text-gray-500 bg-gray-50 px-3 py-1.5 rounded-lg w-fit">
+                    <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg w-fit">
                       <Clock className="w-4 h-4 text-[#f97316]" />
                       {t.validity}
                     </div>
 
-                    <div className="flex items-start gap-2 text-sm text-[#0a2463]/80 bg-blue-50/50 border border-blue-100/50 rounded-xl p-3 mt-auto">
+                    <div className="flex items-start gap-2 text-sm text-[#0a2463]/80 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-950/30 border border-blue-100/50 dark:border-blue-800/50 rounded-xl p-3 mt-auto">
                       <Info className="w-4 h-4 text-[#0a2463] shrink-0 mt-0.5" />
                       {t.note}
                     </div>
