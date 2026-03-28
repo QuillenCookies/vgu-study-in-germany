@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import UniversitiesPage from './pages/UniversitiesPage';
@@ -25,6 +26,7 @@ export default function App() {
   const location = useLocation();
 
   return (
+    <ThemeProvider>
     <LanguageProvider>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -51,5 +53,6 @@ export default function App() {
         </Routes>
       </AnimatePresence>
     </LanguageProvider>
+    </ThemeProvider>
   );
 }

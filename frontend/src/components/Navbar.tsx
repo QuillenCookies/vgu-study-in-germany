@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
+import { useTheme } from '../contexts/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
@@ -210,7 +211,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const { lang, setLang, tr } = useLanguage();
   const [isMobileOpen, setIsMobileOpen]   = useState(false);
   const [isExploreOpen, setIsExploreOpen] = useState(false);
-  const [isDark, setIsDark]               = useState(false);
+  const { isDark, toggleTheme }            = useTheme();
   const [searchOpen, setSearchOpen]       = useState(false);
   const [searchQuery, setSearchQuery]     = useState('');
   const [langOpen, setLangOpen]           = useState(false);
@@ -222,7 +223,6 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const isExploreActive = EXPLORE_ITEMS.some(item => pathname === item.href);
   const activeLang      = LANG_OPTIONS.find(l => l.code === lang)!;
 
-  useEffect(() => { document.documentElement.classList.toggle('dark', isDark); }, [isDark]);
 
   // Close lang dropdown on outside click
   useEffect(() => {
@@ -599,7 +599,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
 
             {/* Theme Toggle */}
             <button
-              onClick={() => setIsDark(d => !d)}
+              onClick={toggleTheme}
               title={isDark ? 'Light mode' : 'Dark mode'}
               className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
                 transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
@@ -735,7 +735,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   ))}
                 </div>
                 <button
-                  onClick={() => setIsDark(d => !d)}
+                  onClick={toggleTheme}
                   className="flex items-center justify-center gap-2 py-2.5 w-full text-[13px] font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#f97316]/50 transition-colors"
                 >
                   {isDark ? <><Sun size={15} className="text-amber-500" /> Light Mode</> : <><Moon size={15} className="text-indigo-500" /> Dark Mode</>}

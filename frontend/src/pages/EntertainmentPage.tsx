@@ -161,7 +161,7 @@ const stats = [
 const EntertainmentPage: React.FC = () => {
   const { tr } = useLanguage();
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Navbar />
 
       {/* Hero Banner */}
@@ -218,13 +218,13 @@ const EntertainmentPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-purple-100 text-purple-700 text-sm font-semibold">
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-950/30 text-purple-700 dark:text-purple-300 text-sm font-semibold">
               Fixed Venues
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
               Frankfurt's Best Venues
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               From world-class concert halls to lively nightlife districts — here are the top spots every student should explore.
             </p>
           </div>
@@ -237,7 +237,7 @@ const EntertainmentPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
@@ -259,16 +259,16 @@ const EntertainmentPage: React.FC = () => {
 
                 {/* Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{venue.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">{venue.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{venue.name}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">{venue.description}</p>
 
                   <div className="space-y-2 mb-4">
-                    <div className="flex items-start gap-2 text-sm text-gray-500">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400" />
+                    <div className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-400 dark:text-gray-500" />
                       <span>{venue.address}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                      <Clock className="w-4 h-4 flex-shrink-0 text-gray-400" />
+                    <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                      <Clock className="w-4 h-4 flex-shrink-0 text-gray-400 dark:text-gray-500" />
                       <span>{venue.hours}</span>
                     </div>
                     <div className="flex items-center gap-2 text-sm font-medium text-purple-700">
@@ -281,7 +281,7 @@ const EntertainmentPage: React.FC = () => {
                     {venue.highlights.map((h) => (
                       <span
                         key={h}
-                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${venue.bg} text-gray-700`}
+                        className={`px-2.5 py-1 rounded-full text-xs font-medium ${venue.bg} text-gray-700 dark:text-gray-300`}
                       >
                         {h}
                       </span>
@@ -350,16 +350,16 @@ const EntertainmentPage: React.FC = () => {
       </section>
 
       {/* Nightlife Tips */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 text-sm font-semibold">
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-rose-100 dark:bg-rose-950/30 text-rose-700 dark:text-rose-300 text-sm font-semibold">
               Student Tips
             </span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white mb-3">
               {tr('entertainment', 'secTipsTitle')}
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">
               Practical tips for students to enjoy Frankfurt's culture on a budget.
             </p>
           </div>
@@ -387,11 +387,11 @@ const EntertainmentPage: React.FC = () => {
                 desc: 'Frankfurt\'s pub quarter is famous for Apfelwein (apple wine) bars. Budget-friendly and uniquely German.',
               },
             ].map((item) => (
-              <div key={item.tip} className="flex gap-4 p-5 rounded-2xl bg-gray-50 border border-gray-100">
+              <div key={item.tip} className="flex gap-4 p-5 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-100 dark:border-gray-700">
                 <div className="text-3xl flex-shrink-0">{item.icon}</div>
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-1">{item.tip}</h4>
-                  <p className="text-sm text-gray-600 leading-relaxed">{item.desc}</p>
+                  <h4 className="font-bold text-gray-900 dark:text-white mb-1">{item.tip}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
