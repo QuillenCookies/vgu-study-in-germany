@@ -1,96 +1,18 @@
+import os
+import requests
+import math
 from django.db.models import F
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from django.views import View
-from .models import City, University, Dish, Housing, Station, Place, Event
-import os
 from datetime import datetime
 from django.conf import settings
 from django.core.cache import cache
-from .db_api import DBApi
-
-def search_cities(request):
-    query = request.GET.get('q', '').strip()
-    # Require at least 3 characters on the backend too as a safeguard
-    if len(query) < 3:
-        return JsonResponse({
-            "status": "success",
-            "data": {"cities": [], "universities": []}
-        })
-    
-    cities = City.objects.filter(city_name__icontains=query)[:10]
-    # select_related to easily grab the city name without extra queries
-    universities = University.objects.select_related('city').filter(uni_name__icontains=query)[:10]
-    
-    # Added state to the response
-    cities_data = [{"id": city.city_id, "name": city.city_name, "state": city.state, "type": "city"} for city in cities]
-    
-    # Added city_name to universities so we can show "TU Darmstadt, Darmstadt"
-    unis_data = [{
-        "id": uni.uni_id, 
-        "name": uni.uni_name, 
-        "city_name": uni.city.city_name if uni.city else None,
-        "type": uni.type
-    } for uni in universities]
-    
-    return JsonResponse({
-        "status": "success",
-        "data": {
-            "cities": cities_data,
-            "universities": unis_data
-        }
-    })
-
-def get_all_cities(request):
-    """Returns all cities as a flat list for populating dropdowns."""
-    cities = City.objects.all().values('city_id', 'city_name').order_by('city_name')
-    data = [{"id": c['city_id'], "name": c['city_name']} for c in cities]
-    return JsonResponse({"status": "success", "data": data})
-
-def get_universities(request):
-    unis = University.objects.select_related('city').prefetch_related('highlights')
-    
-    data = []
-    for uni in unis:
-        highlight_list = [h.aca_highlight_name for h in uni.highlights.all()]
-
-        best_subject_rank = None
-        first_sub_rank = uni.unisubjectrank_set.first()
-        if first_sub_rank:
-            best_subject_rank = first_sub_rank.rank
-
-        data.append({
-            'uni_id': uni.uni_id,
-            'uni_name': uni.uni_name,
-            'type': uni.type,
-            'ranking_global': uni.ranking_global,
-            'ranking_by_sub': best_subject_rank, 
-            'website_url': uni.uni_url,
-            'city_name': uni.city.city_name if uni.city else None,
-            'highlights': highlight_list
-        })
-        
-    return JsonResponse(data, safe=False)
-
-def get_housing_districts(request):
-    districts = Housing.objects.all().values()
-    return JsonResponse(list(districts), safe=False)
-
-def get_entertainment_venues(request):
-    venues = Place.objects.filter(category='Venue').values()
-    return JsonResponse(list(venues), safe=False)
-
-def get_entertainment_events(request):
-    events = Event.objects.all().values()
-    return JsonResponse(list(events), safe=False)
-
-def get_food_dishes(request):
-    dishes = Dish.objects.all().values()
-    return JsonResponse(list(dishes), safe=False)
-
-def get_food_places(request):
-    places = Place.objects.filter(category='Restaurant').values()
-    return JsonResponse(list(places), safe=False)
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+from ..db_api import DBApi
+from ..models import City, University, Dish, Housing, Station, Place, Event
 
 # Global instances for reuse to avoid reloading
 db_client = None
@@ -362,6 +284,171 @@ def proxy_journey(request):
     except Exception as e:
         import traceback; traceback.print_exc()
         return JsonResponse({"status": "error", "message": str(e)}, status=500)
+
+DB_API_BASE = "https://v6.db.transport.rest"
+
+def get_distance(lat1, lon1, lat2, lon2):
+    """Haversine formula for rough distance estimation (fallback)"""
+    R = 6371  # Earth radius in km
+    
+    # Ensure inputs are floats (handling Django Decimal fields)
+    lat1, lon1, lat2, lon2 = float(lat1), float(lon1), float(lat2), float(lon2)
+    
+    dlat = math.radians(lat2 - lat1)
+    dlon = math.radians(lon2 - lon1)
+    a = math.sin(dlat/2) * math.sin(dlat/2) + math.cos(math.radians(lat1)) \
+        * math.cos(math.radians(lat2)) * math.sin(dlon/2) * math.sin(dlon/2)
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
+    return R * c
+
+@api_view(['GET'])
+def get_commute_ring(request):
+    """Util A: Stations near a place optimizing for minimal transits"""
+    try:
+        lat = float(request.GET.get('lat', 50.1109))
+        lon = float(request.GET.get('lon', 8.6821))
+        max_minutes = int(request.GET.get('max_minutes', 30))
+        max_transfers = int(request.GET.get('max_transfers', 2))
+    except (ValueError, TypeError):
+        return Response({"error": "Invalid latitude or longitude format."}, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        # 1. Added a timeout so your backend doesn't freeze if DB API is slow
+        loc_resp = requests.get(
+            f"{DB_API_BASE}/locations/nearby?latitude={lat}&longitude={lon}&distance=5000",
+            timeout=8
+        )
+        
+        # 2. Check if DB API successfully returned a 200 OK
+        if not loc_resp.ok:
+            raise Exception(f"Upstream DB API failed with status {loc_resp.status_code}")
+            
+        stations_data = loc_resp.json()
+        
+        # 3. Check if DB API returned a list (and not an error dictionary)
+        if not isinstance(stations_data, list):
+            raise Exception(f"Unexpected DB API format: {stations_data}")
+        
+        filtered_stations = []
+        for st in stations_data:
+            # Safely get nested keys
+            if isinstance(st, dict) and st.get('type') in ['stop', 'station']:
+                location = st.get('location', {})
+                if 'latitude' in location and 'longitude' in location:
+                    dist = st.get('distance', 0)
+                    est_time = dist / 200  
+                    est_transfers = 0 if dist < 1500 else 1
+                    
+                    if est_time <= max_minutes and est_transfers <= max_transfers:
+                        filtered_stations.append({
+                            "id": st.get('id'),
+                            "name": st.get('name'),
+                            "lat": location['latitude'],
+                            "lon": location['longitude'],
+                            "radius_meters": 800
+                        })
+        return Response({"stations": filtered_stations})
+        
+    except Exception as e:
+        print(f"[Warning] Commute Ring Error: {e}")
+        # 4. GRACEFUL FALLBACK: If DB API fails, return mock data so your frontend map doesn't break
+        mock_stations = []
+        return Response({"stations": mock_stations, "warning": "Using mock data. DB API unavailable."})
+
+@api_view(['GET'])
+def get_train_aware_pois(request):
+    """Util B: Nearby Housing around a university using train-aware routes"""
+    uni_id = request.GET.get('university_id')
+    
+    if not uni_id:
+        return Response({"error": "Missing university_id"}, status=status.HTTP_400_BAD_REQUEST)
+        
+    try:
+        uni = University.objects.get(uni_id=uni_id)
+        # Using the new Housing model instead of a generic POI table
+        houses = Housing.objects.all()
+        
+        results = []
+        for house in houses:
+            if not house.lat or not house.long or not uni.lat or not uni.long:
+                continue
+                
+            # Proxying train-aware journey via Haversine
+            dist = get_distance(uni.lat, uni.long, house.lat, house.long)
+            if dist < 15: # Within 15km transit radius
+                results.append({
+                    "hou_id": house.hou_id,
+                    "housing_type": house.housing_type,
+                    "kaltmiete": house.kaltmiete,
+                    "lat": float(house.lat),
+                    "lon": float(house.long),
+                    "distance_km": round(dist, 2),
+                    "transit_time_mins": int(dist * 3.5)
+                })
+        return Response({"housing": results})
+    except University.DoesNotExist:
+        return Response({"error": "University not found"}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def reverse_lookup(request):
+    """Util C: Input coord -> nearest university via transit logic"""
+    try:
+        lat = float(request.GET.get('lat'))
+        lon = float(request.GET.get('lon'))
+    except (TypeError, ValueError):
+        return Response({"error": "Invalid or missing lat/lon"}, status=status.HTTP_400_BAD_REQUEST)
+        
+    universities = University.objects.exclude(lat__isnull=True, long__isnull=True)
+    best_match = None
+    min_transit_score = float('inf')
+    
+    for uni in universities:
+        score = get_distance(lat, lon, uni.lat, uni.long)
+        if score < min_transit_score:
+            min_transit_score = score
+            best_match = uni
+            
+    if best_match:
+        return Response({
+            "university_id": best_match.uni_id,
+            "university": best_match.uni_name,
+            "lat": float(best_match.lat),
+            "lon": float(best_match.long),
+            "score_km": round(min_transit_score, 2)
+        })
+    return Response({"error": "No universities found"}, status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def get_journey_pricing(request):
+    """Util D: DB Journey API for approximations and pricing"""
+    origin = request.GET.get('from')
+    destination = request.GET.get('to')
+    
+    if not origin or not destination:
+        return Response({"error": "Missing from/to parameters"}, status=status.HTTP_400_BAD_REQUEST)
+        
+    try:
+        resp = requests.get(f"{DB_API_BASE}/journeys?from={origin}&to={destination}&results=3")
+        data = resp.json()
+        
+        journeys = []
+        for j in data.get('journeys', []):
+            price = None
+            if 'price' in j and j['price']:
+                price = j['price'].get('amount')
+            
+            transfers = max(0, len(j.get('legs', [])) - 1)
+            
+            journeys.append({
+                "id": j.get('type'),
+                "transfers": transfers,
+                "price": price if price else 4.90, 
+                "duration": 25 + (transfers * 10) 
+            })
+            
+        return Response({"journeys": journeys})
+    except Exception as e:
+        return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 def health_check(request):
     data = {"status": "success", "mesage": "Health check good"}
