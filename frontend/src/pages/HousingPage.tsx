@@ -2,8 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Home, MapPin, FileText, Shield, Phone, AlertCircle } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import SiteFooter from '../components/SiteFooter';
+import Footer from '../components/Footer';
 
 const districts = [
   {
@@ -71,6 +72,7 @@ const resources = [
 ];
 
 const HousingPage: React.FC = () => {
+  const { tr } = useLanguage();
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
@@ -81,21 +83,21 @@ const HousingPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a2463]/70 to-[#0a2463]/50" />
         <div className="relative z-10 flex flex-col items-center text-center px-4 py-20 w-full max-w-4xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium hover:bg-white/30 transition-colors backdrop-blur-sm">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+            <ArrowLeft className="w-4 h-4" /> {tr('housing', 'backHome')}
           </Link>
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/30 text-blue-200 text-sm font-medium border border-blue-400/30">🏠 Frankfurt Housing Guide</span>
+          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-blue-500/30 text-blue-200 text-sm font-medium border border-blue-400/30">{tr('housing', 'badge')}</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
-            Housing in <span className="text-blue-400">Frankfurt</span>
+            {tr('housing', 'title1')} <span className="text-blue-400">{tr('housing', 'title2')}</span>
           </h1>
           <p className="text-lg text-white/85 mb-10 max-w-2xl">
-            Districts, rental prices, legal info, and GDPR-compliant housing data — everything you need for student accommodation in Frankfurt.
+            {tr('housing', 'desc')}
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
             {[
-              { label: 'Avg Studio Rent', value: '€750/mo', icon: '🏠' },
-              { label: 'Avg Room (WG)', value: '€550/mo', icon: '🛏️' },
-              { label: 'Ortsbezirke', value: '16 Districts', icon: '🗺️' },
-              { label: 'Registration', value: '14 Days', icon: '📋' },
+              { label: tr('housing', 'statStudio'), value: '€750/mo', icon: '🏠' },
+              { label: tr('housing', 'statWG'), value: '€550/mo', icon: '🛏️' },
+              { label: tr('housing', 'statDist'), value: '16 Districts', icon: '🗺️' },
+              { label: tr('housing', 'statReg'), value: '14 Days', icon: '📋' },
             ].map((s) => (
               <div key={s.label} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 text-center">
                 <div className="text-2xl mb-1">{s.icon}</div>
@@ -112,7 +114,7 @@ const HousingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto flex items-center gap-3">
           <AlertCircle className="w-5 h-5 text-amber-600 flex-shrink-0" />
           <p className="text-sm text-amber-800">
-            <strong>GDPR Compliance Notice:</strong> This page displays aggregated district-level data only. No individual rental listings are shown in compliance with EU data protection regulations.
+            <strong>GDPR Compliance Notice:</strong> {tr('housing', 'gdprNotice')}
           </p>
         </div>
       </div>
@@ -121,9 +123,9 @@ const HousingPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Ortsbezirke (Districts)</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Where to Live in Frankfurt</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Compare Frankfurt's neighbourhoods across rent, amenities, and commute time to find the best fit for your student budget.</p>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">{tr('housing', 'secDistBadge')}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">{tr('housing', 'secDistTitle')}</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">{tr('housing', 'secDistDesc')}</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -180,8 +182,8 @@ const HousingPage: React.FC = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold">Price Overview</span>
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">Housing Prices (Avg & Median)</h2>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-green-100 text-green-700 text-sm font-semibold">{tr('housing', 'secPriceBadge')}</span>
+            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-3">{tr('housing', 'secPriceTitle')}</h2>
           </div>
           <div className="overflow-x-auto rounded-2xl shadow border border-gray-100">
             <table className="w-full text-sm">
@@ -220,9 +222,9 @@ const HousingPage: React.FC = () => {
       <section className="py-20 px-4 bg-gradient-to-br from-[#0a1628] to-[#0a2463]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-semibold">Legal Framework</span>
-            <h2 className="text-3xl font-extrabold text-white mb-3">German Rental Law Essentials</h2>
-            <p className="text-white/70 max-w-xl mx-auto">Key legal knowledge every international student needs before signing a rental contract in Frankfurt.</p>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-semibold">{tr('housing', 'secLegalBadge')}</span>
+            <h2 className="text-3xl font-extrabold text-white mb-3">{tr('housing', 'secLegalTitle')}</h2>
+            <p className="text-white/70 max-w-xl mx-auto">{tr('housing', 'secLegalDesc')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {legalTips.map((tip) => (
@@ -243,8 +245,8 @@ const HousingPage: React.FC = () => {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">Resource Navigator</span>
-            <h2 className="text-2xl font-extrabold text-gray-900 mb-3">Helpful Housing Resources</h2>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold">{tr('housing', 'secResourcesBadge')}</span>
+            <h2 className="text-2xl font-extrabold text-gray-900 mb-3">{tr('housing', 'secResourcesTitle')}</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {resources.map((r) => (
@@ -269,7 +271,7 @@ const HousingPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <SiteFooter accentColor="#3b82f6" />
+      <Footer />
     </div>
   );
 };

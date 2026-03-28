@@ -1,168 +1,738 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useLanguage } from '../contexts/LanguageContext';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import {
   GraduationCap, TrainFront, Building2, UtensilsCrossed,
-  Ticket, Menu, X, ChevronDown
+  Ticket, BookOpen, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle, Gavel, HeartPulse, Rocket
 } from 'lucide-react';
 import VguIcon from '../assets/navbar_vgu_wide.png';
 
-// DATA CONFIGURATION
+// ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
+const itemVariants: Variants = {
+  initial: { rotateX: 0, opacity: 1 },
+  hover: { rotateX: -90, opacity: 0 },
+};
+const backVariants: Variants = {
+  initial: { rotateX: 90, opacity: 0 },
+  hover: { rotateX: 0, opacity: 1 },
+};
+const glowVariants: Variants = {
+  initial: { opacity: 0, scale: 0.85 },
+  hover: {
+    opacity: 1,
+    scale: 1.4,
+    transition: {
+      opacity: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
+      scale: { duration: 0.35, type: 'spring', stiffness: 260, damping: 22 },
+    },
+  },
+};
+const sharedTransition = {
+  type: 'spring' as const,
+  stiffness: 110,
+  damping: 22,
+};
+
+// ── EXPLORE ITEMS ──────────────────────────────────────────────────────────
 const EXPLORE_ITEMS = [
-  { icon: <GraduationCap size={16} />, label: 'University', href: '/university', color: 'text-orange-500' },
-  { icon: <TrainFront size={16} />, label: 'Bahn', href: '/bahn', color: 'text-green-500' },
-  { icon: <Building2 size={16} />, label: 'Housing', href: '/housing', color: 'text-purple-500' },
-  { icon: <UtensilsCrossed size={16} />, label: 'Food', href: '/food', color: 'text-red-500' },
-  { icon: <Ticket size={16} />, label: 'Entertainment', href: '/entertainment', color: 'text-teal-500' },
+  {
+    icon: <GraduationCap size={16} />,
+    trKey: 'education' as const,
+    trSubKey: 'eduSub' as const,
+    href: '/university',
+    accent: '#f97316',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <TrainFront size={16} />,
+    trKey: 'transport' as const,
+    trSubKey: 'transSub' as const,
+    href: '/bahn',
+    accent: '#22c55e',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(34,197,94,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Building2 size={16} />,
+    trKey: 'housing' as const,
+    trSubKey: 'housingSub' as const,
+    href: '/housing',
+    accent: '#a855f7',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <UtensilsCrossed size={16} />,
+    trKey: 'food' as const,
+    trSubKey: 'foodSub' as const,
+    href: '/food',
+    accent: '#ef4444',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(239,68,68,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Ticket size={16} />,
+    trKey: 'entertainment' as const,
+    trSubKey: 'entSub' as const,
+    href: '/entertainment',
+    accent: '#14b8a6',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <BookOpen size={16} />,
+    trKey: 'library' as const,
+    trSubKey: 'libSub' as const,
+    href: '/explore/library',
+    accent: '#3b82f6',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Gavel size={16} />,
+    trKey: 'legal' as const,
+    trSubKey: 'legalSub' as const,
+    href: '/explore/legal',
+    accent: '#eab308',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(234,179,8,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <HeartPulse size={16} />,
+    trKey: 'health' as const,
+    trSubKey: 'healthSub' as const,
+    href: '/explore/health',
+    accent: '#10b981',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Rocket size={16} />,
+    trKey: 'careerLaunch' as const,
+    trSubKey: 'careerSub' as const,
+    href: '/explore/career',
+    accent: '#2563eb',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.16) 0%, transparent 70%)',
+  },
 ];
 
-const MAIN_NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Tool', href: '/tool' },
-  { label: 'Community', href: '/community' },
-  { label: 'About', href: '/about' },
+const LANG_OPTIONS = [
+  { code: 'EN' as const, label: 'English',    hoverIconClass: 'group-hover:text-orange-400 group-hover:bg-orange-500/10' },
+  { code: 'DE' as const, label: 'Deutsch',    hoverIconClass: 'group-hover:text-amber-500/80 group-hover:bg-amber-500/10' },
+  { code: 'VN' as const, label: 'Tiếng Việt', hoverIconClass: 'group-hover:text-red-500/80 group-hover:bg-red-500/10' },
 ];
 
-// ── SUB-COMPONENTS ──────────────────────────────────────────────────
-const DesktopNavLink: React.FC<{ to: string; active: boolean; children: React.ReactNode }> = ({ to, active, children }) => (
-  <Link
-    to={to}
-    className={`px-4 py-2 text-sm font-semibold transition-all rounded-md ${active
-      ? 'text-[#0a2463] bg-blue-50/50 ring-1 ring-[#0a2463]/10'
-      : 'text-gray-600 hover:text-[#0a2463] hover:bg-gray-50'
-      }`}
+// ── NAV LINKS (excluding Explore) ─────────────────────────────────────────
+const NAV_LINKS = [
+  { trKey: 'home' as const,      href: '/',          gradient: 'radial-gradient(ellipse, rgba(59,130,246,0.14) 0%, transparent 70%)' },
+  { trKey: 'tools' as const,     href: '/tools',     gradient: 'radial-gradient(ellipse, rgba(34,197,94,0.14) 0%, transparent 70%)' },
+  { trKey: 'community' as const, href: '/community', gradient: 'radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 70%)' },
+  { trKey: 'about' as const,     href: '/about',     gradient: 'radial-gradient(ellipse, rgba(20,184,166,0.14) 0%, transparent 70%)' },
+];
+
+// ── ANIMATED FLIP NAV LINK ─────────────────────────────────────────────────
+interface AnimatedNavLinkProps {
+  to: string;
+  label: string;
+  gradient: string;
+  active?: boolean;
+  onClick?: () => void;
+  transparent?: boolean;
+}
+
+const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, active, onClick, transparent }) => (
+  <motion.div
+    className="relative"
+    style={{ perspective: '600px' }}
+    whileHover="hover"
+    initial="initial"
   >
-    {children}
-  </Link>
+    {/* Contained glow */}
+    <motion.div
+      className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden"
+      variants={glowVariants}
+      style={{ background: gradient, opacity: 0 }}
+    />
+    {/* Front */}
+    <motion.div
+      variants={itemVariants}
+      transition={sharedTransition}
+      style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
+      className="relative z-10"
+    >
+      <Link
+        to={to}
+        onClick={onClick}
+        className={`relative block px-4 py-2 text-[13.5px] font-medium rounded-lg transition-colors leading-none ${
+          transparent
+            ? active ? 'text-white font-semibold' : 'text-white/80 hover:text-white'
+            : active ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 hover:text-[#0a2463] dark:hover:text-blue-400'
+        }`}
+      >
+        {label}
+        {/* Underline indicator */}
+        {active && (
+          <motion.span
+            layoutId="nav-underline"
+            className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full ${transparent ? 'bg-white/60' : 'bg-[#0a2463]/60 dark:bg-blue-400/60'}`}
+          />
+        )}
+      </Link>
+    </motion.div>
+    {/* Back */}
+    <motion.div
+      variants={backVariants}
+      transition={sharedTransition}
+      style={{ transformStyle: 'preserve-3d', transformOrigin: 'center top', transform: 'rotateX(90deg)' }}
+      className="absolute inset-0 z-10"
+    >
+      <Link
+        to={to}
+        onClick={onClick}
+        className={`block px-4 py-2 text-[13.5px] font-semibold rounded-lg leading-none ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}
+      >
+        {label}
+      </Link>
+    </motion.div>
+  </motion.div>
 );
 
-const MobileNavLink: React.FC<{ to: string; onClick: () => void; children: React.ReactNode }> = ({ to, onClick, children }) => (
-  <Link
-    to={to}
-    onClick={onClick}
-    className="block px-3 py-2 text-base font-semibold text-gray-700 hover:bg-gray-50 rounded-md transition-colors"
-  >
-    {children}
-  </Link>
-);
+// ── MAIN NAVBAR ─────────────────────────────────────────────────────────────
+interface NavbarProps {
+  transparent?: boolean;
+}
 
-// MAIN COMPONENT
-const Navbar: React.FC = () => {
+const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const { pathname } = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isExploreDropdownOpen, setIsExploreDropdownOpen] = useState(false);
+  const { lang, setLang, tr } = useLanguage();
+  const [isMobileOpen, setIsMobileOpen]   = useState(false);
+  const [isExploreOpen, setIsExploreOpen] = useState(false);
+  const [isDark, setIsDark]               = useState(false);
+  const [searchOpen, setSearchOpen]       = useState(false);
+  const [searchQuery, setSearchQuery]     = useState('');
+  const [langOpen, setLangOpen]           = useState(false);
+  const exploreRef = useRef<HTMLDivElement>(null);
+  const langRef    = useRef<HTMLDivElement>(null);
+  const searchRef  = useRef<HTMLInputElement>(null);
 
-  // Helper logic
-  const isActive = (path: string) => pathname === path;
+  const isActive        = (path: string) => pathname === path;
   const isExploreActive = EXPLORE_ITEMS.some(item => pathname === item.href);
+  const activeLang      = LANG_OPTIONS.find(l => l.code === lang)!;
+
+  useEffect(() => { document.documentElement.classList.toggle('dark', isDark); }, [isDark]);
+
+  // Close lang dropdown on outside click
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(e.target as Node)) setLangOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  // Focus search input when it opens
+  useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 w-full font-sans">
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 py-3">
+    <header className={`${transparent ? 'absolute top-0 left-0 hover:bg-black/20 hover:backdrop-blur-md transition-all duration-300' : 'sticky top-0'} z-50 w-full font-sans`}>
 
-        {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-3">
-          <img src={VguIcon} className="h-8" alt="VGU Logo" />
-          <div className="hidden sm:block h-6 w-[1px] bg-gray-300 mx-1" />
-          <span className="text-lg font-bold text-[#0a2463] tracking-tight">Study in Germany</span>
-        </Link>
+      {/* Top accent strip */}
+      {!transparent && (
+        <div className="h-[3px] w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400" />
+      )}
 
-        {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-2">
-          {/* Main Links (Trước Explore) */}
-          <DesktopNavLink to="/" active={isActive('/')}>Home</DesktopNavLink>
+      <div className={`${
+        transparent 
+          ? 'bg-transparent border-transparent' 
+          : 'bg-white/96 dark:bg-gray-950/96 backdrop-blur-lg border-b border-gray-200/70 dark:border-gray-800/70 shadow-sm'
+      }`}>
+        {/*
+          3-column balanced layout:
+            col-1 (flex-none): Brand — fixed width so nav can be truly centered
+            col-2 (flex-1):    Nav links — centered in remaining space
+            col-3 (flex-none): Utilities — same visual weight as brand
+        */}
+        <div className="max-w-screen-xl mx-auto relative flex items-center justify-between px-6 h-14">
 
-          {/* Explore Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setIsExploreDropdownOpen(true)}
-            onMouseLeave={() => setIsExploreDropdownOpen(false)}
-          >
-            <button
-              aria-expanded={isExploreDropdownOpen}
-              className={`flex items-center gap-1.5 px-4 py-2 text-sm font-semibold transition-all rounded-md ${isExploreActive ? 'text-[#0a2463] bg-gray-50' : 'text-gray-600 hover:text-[#0a2463] hover:bg-gray-50'
-                }`}
+          {/* ── Brand (left) ── */}
+          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
+            <img
+              src={VguIcon}
+              className="h-7 flex-shrink-0 transition-opacity group-hover:opacity-80"
+              alt="VGU"
+            />
+            <div className={`hidden sm:block h-5 w-px ${transparent ? 'bg-white/20' : 'bg-gray-200 dark:bg-gray-700'}`} />
+            <div className="hidden sm:block">
+              <p className={`text-[14px] font-bold leading-tight tracking-tight ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}>
+                Study in Germany
+              </p>
+              <p className={`text-[10px] leading-tight mt-0.5 ${transparent ? 'text-white/70' : 'text-gray-400 dark:text-gray-500'}`}>
+                International Student Guide
+              </p>
+            </div>
+          </Link>
+
+          {/* ── Nav Links — absolute center ── */}
+          <nav className="hidden md:flex items-center gap-0.5 absolute left-1/2 -translate-x-1/2">
+            {/* Home */}
+            <AnimatedNavLink
+              to="/"
+              label={tr('navbar', NAV_LINKS[0].trKey)}
+              active={isActive('/')}
+              gradient={NAV_LINKS[0].gradient}
+              transparent={transparent}
+            />
+
+            {/* Explore dropdown */}
+            <div
+              ref={exploreRef}
+              className="relative"
+              onMouseEnter={() => setIsExploreOpen(true)}
+              onMouseLeave={() => setIsExploreOpen(false)}
             >
-              Explore
-              <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isExploreDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            <AnimatePresence>
-              {isExploreDropdownOpen && (
+              <motion.div
+                className="relative"
+                style={{ perspective: '600px' }}
+                whileHover="hover"
+                initial="initial"
+              >
                 <motion.div
-                  initial={{ opacity: 0, y: 5 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 5 }}
-                  className="absolute top-full left-0 w-52 bg-white border border-gray-200 shadow-lg rounded-md py-1.5 mt-1 overflow-hidden"
+                  className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden"
+                  variants={glowVariants}
+                  style={{
+                    background: 'radial-gradient(ellipse, rgba(99,102,241,0.14) 0%, transparent 70%)',
+                    opacity: 0,
+                  }}
+                />
+                <motion.button
+                  variants={itemVariants}
+                  transition={sharedTransition}
+                  style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
+                  aria-expanded={isExploreOpen}
+                  className={`relative z-10 flex items-center gap-1 px-4 py-2 text-[13.5px] rounded-lg transition-colors ${
+                    transparent
+                      ? isExploreActive ? 'text-white font-semibold' : 'text-white/80 font-medium hover:text-white'
+                      : isExploreActive ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 font-medium hover:text-[#0a2463] dark:hover:text-blue-400'
+                  }`}
                 >
-                  {EXPLORE_ITEMS.map(({ icon, label, href, color }) => (
-                    <Link
-                      key={href}
-                      to={href}
-                      className="flex items-center gap-3 px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-[#0a2463] transition-colors"
+                  {tr('navbar', 'explore')}
+                  <motion.span
+                    animate={{ rotate: isExploreOpen ? 180 : 0 }}
+                    transition={{ duration: 0.22 }}
+                    className="inline-flex mt-px"
+                  >
+                    <ChevronDown size={13} className="opacity-60" />
+                  </motion.span>
+                </motion.button>
+              </motion.div>
+
+              {/* Dropdown */}
+              <AnimatePresence>
+                {isExploreOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8, scale: 0.975 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.975 }}
+                    transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
+                    className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[900px]
+                      bg-white dark:bg-gray-900
+                      border border-gray-100 dark:border-gray-800
+                      rounded-2xl shadow-2xl shadow-black/10 overflow-hidden"
+                  >
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-5 pt-4 pb-2.5">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-600">
+                        {tr('navbar', 'explore')}
+                      </span>
+                      <span className="text-[10px] text-gray-300 dark:text-gray-700">{EXPLORE_ITEMS.length} {tr('navbar', 'sections')}</span>
+                    </div>
+
+                    {/* Horizontal Grid */}
+                    <div 
+                      className="px-5 pb-4 grid gap-x-12 gap-y-2"
+                      style={{
+                        gridTemplateRows: 'repeat(4, minmax(0, 1fr))',
+                        gridAutoFlow: 'column'
+                      }}
                     >
-                      <span className={color}>{icon}</span>
-                      {label}
-                    </Link>
-                  ))}
+                      {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href, accent, gradient }) => (
+                        <Link
+                          key={href}
+                          to={href}
+                          onClick={() => setIsExploreOpen(false)}
+                          className="group relative flex items-center gap-3 px-3 py-2.5 rounded-xl
+                            hover:bg-gray-50 dark:hover:bg-gray-800/60
+                            transition-colors duration-100"
+                        >
+                          {/* Left accent bar */}
+                          <span
+                            className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                            style={{ backgroundColor: accent }}
+                          />
+                          {/* Icon chip */}
+                          <span
+                            className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg
+                              transition-transform duration-150 group-hover:scale-110"
+                            style={{ background: gradient, color: accent }}
+                          >
+                            {icon}
+                          </span>
+                          {/* Text */}
+                          <div className="min-w-0">
+                            <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-100
+                              group-hover:text-[#0a2463] dark:group-hover:text-blue-300
+                              transition-colors leading-tight">
+                              {tr('navbar', trKey)}
+                            </p>
+                            <p className="text-[11px] text-gray-400 dark:text-gray-500 leading-tight mt-0.5 truncate">
+                              {tr('navbar', trSubKey)}
+                            </p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+
+                    {/* Footer */}
+                    <div className="px-5 py-2.5 border-t border-gray-100 dark:border-gray-800">
+                      <span className="text-[11px] text-gray-400 dark:text-gray-600">
+                        {tr('navbar', 'practicalInfo')}
+                      </span>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Tools / Community / About */}
+            {NAV_LINKS.slice(1).map(({ trKey, href, gradient }) => (
+              <AnimatedNavLink
+                key={href}
+                to={href}
+                label={tr('navbar', trKey)}
+                active={isActive(href)}
+                gradient={gradient}
+                transparent={transparent}
+              />
+            ))}
+          </nav>
+
+          {/* ── Utility Cluster (right) ── */}
+          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+
+            {/* Search — spring expand */}
+            <AnimatePresence mode="wait">
+              {searchOpen ? (
+                <motion.div
+                  key="search-input"
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: 160, opacity: 1 }}
+                  exit={{ width: 0, opacity: 0 }}
+                  transition={{ type: 'spring', stiffness: 280, damping: 28 }}
+                  className="overflow-hidden"
+                >
+                  <input
+                    ref={searchRef}
+                    type="text"
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    onBlur={() => { setSearchOpen(false); setSearchQuery(''); }}
+                    onKeyDown={e => e.key === 'Escape' && setSearchOpen(false)}
+                    placeholder="Search…"
+                    className="w-full text-[12px] px-3 py-1.5 rounded-full bg-white dark:bg-gray-800
+                      border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100
+                      outline-none focus:ring-2 focus:ring-[#f97316]/40 focus:border-[#f97316]/50 transition"
+                  />
                 </motion.div>
+              ) : (
+                <motion.button
+                  key="search-btn"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSearchOpen(true)}
+                  title="Search"
+                  className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
+                    transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+                  }`}
+                >
+                  <Search size={15} />
+                </motion.button>
               )}
             </AnimatePresence>
+
+            {/* Language Dropdown */}
+            <div ref={langRef} className="relative">
+              {/* Pill trigger */}
+              <button
+                onClick={() => setLangOpen(v => !v)}
+                className={`flex items-center gap-2 px-5 py-1.5 rounded-full text-[12px] font-medium
+                  border transition-all duration-200 leading-none select-none backdrop-blur-sm
+                  ${transparent
+                    ? langOpen ? 'bg-white/20 border-white/30 text-white' : 'bg-white/10 border-white/20 text-white/90 hover:bg-white/20'
+                    : langOpen
+                      ? 'bg-white/10 dark:bg-white/10 border-black/10 dark:border-white/10 shadow-sm text-gray-900 dark:text-gray-100'
+                      : 'bg-white/10 dark:bg-white/5 border-black/5 dark:border-white/8 text-gray-600 dark:text-gray-300 hover:bg-white/20 dark:hover:bg-white/10 hover:border-black/10 dark:hover:border-white/15'
+                  }`}
+              >
+                <Globe size={13} className="opacity-50 flex-shrink-0" />
+                <span className="tracking-wide font-semibold">{activeLang.code}</span>
+                <motion.span
+                  animate={{ rotate: langOpen ? 180 : 0 }}
+                  transition={{ duration: 0.15, ease: 'easeOut' }}
+                  className="flex-shrink-0 opacity-40"
+                >
+                  <ChevronDown size={12} />
+                </motion.span>
+              </button>
+
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: -2 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -2 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    style={{ transformOrigin: 'top right' }}
+                    className="absolute top-[calc(100%+8px)] right-0 w-[240px]
+                      bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl
+                      border border-white/40 dark:border-white/10
+                      rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
+                      p-1.5 z-50 overflow-hidden"
+                  >
+                    {/* Die Ente Watermark */}
+                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[20px] overflow-hidden">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" 
+                           className="absolute bottom-[-15px] right-[-15px] w-28 h-28 text-slate-400 opacity-5 rotate-[-15deg]">
+                        <path d="M12.5 3c-1.38 0-2.5 1.12-2.5 2.5 0 .39.09.76.25 1.08C9.37 7.23 8 8.64 8 10.5c0 1.07.41 2.07 1.12 2.81-.39 1.17-.41 2.45-.63 3.69-.17.98-.94 1.76-1.92 1.95-1.47.28-1.57 2.05-1.57 2.05s1.28.32 2.54.49c1.67.22 3.3.49 5.46.49 4.34 0 7.82-1.96 8.79-4.83.6-1.76.59-4.04-.6-6.19-1.38-2.48-4.22-4.08-6.19-4.73C14.77 5.75 14.86 5.39 14.86 5 14.86 3.62 13.88 3 12.5 3zm0 1.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25c0-.69.56-1.25 1.25-1.25z"/>
+                      </svg>
+                    </div>
+
+                    {/* Header label */}
+                    <div className="px-3 pt-2.5 pb-2 relative z-10">
+                       <p className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-gray-500/80 dark:text-gray-400/80">
+                         LANGUAGE
+                       </p>
+                    </div>
+
+                    <motion.div 
+                      className="flex flex-col gap-0.5 relative z-10"
+                      initial="hidden"
+                      animate="visible"
+                      variants={{
+                        hidden: {},
+                        visible: { transition: { staggerChildren: 0.05 } }
+                      }}
+                    >
+                    {LANG_OPTIONS.map(opt => {
+                      const isActive = lang === opt.code;
+                      return (
+                        <motion.button
+                          variants={{
+                            hidden: { opacity: 0, x: 8 },
+                            visible: { opacity: 1, x: 0, transition: { type: 'spring', stiffness: 350, damping: 25 } }
+                          }}
+                          key={opt.code}
+                          onClick={() => { setLang(opt.code); setLangOpen(false); }}
+                          className={`relative w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all duration-300 group overflow-hidden ${
+                            isActive
+                              ? 'bg-transparent shadow-[inset_0_1px_0_rgba(255,255,255,0.2)]'
+                              : 'hover:bg-white/40 dark:hover:bg-white/5'
+                          }`}
+                        >
+                          {/* Active Background Glow */}
+                          {isActive && (
+                            <motion.div
+                              layoutId="activeLangGlow"
+                              className="absolute inset-x-0 inset-y-0 bg-white/70 dark:bg-orange-950/30 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(253,186,116,0.2),0_4px_16px_rgba(253,186,116,0.3)] dark:shadow-[inset_0_0_20px_rgba(249,115,22,0.1)] border border-orange-200/60 dark:border-orange-500/20"
+                              style={{ borderRadius: '12px' }}
+                            />
+                          )}
+
+                          <div className="relative z-10 flex items-center gap-2.5">
+                            {/* Globe icon */}
+                            <div className={`flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full transition-all duration-300 ${
+                              isActive 
+                                ? 'text-[#F97316] bg-orange-500/10 dark:text-orange-400 dark:bg-orange-500/15' 
+                                : `text-slate-400 ${opt.hoverIconClass}`
+                            }`}>
+                              <Globe size={14} strokeWidth={2.5} />
+                            </div>
+
+                            {/* Text: Name and Code */}
+                            <div className="flex items-baseline gap-1.5">
+                              <span className={`text-[13px] tracking-[0.01em] transition-colors ${
+                                isActive ? 'text-[#F97316] font-medium' : 'text-[#0F172A] font-normal dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white'
+                              }`}>
+                                {opt.label}
+                              </span>
+                              <span className={`text-xs transition-colors ${
+                                isActive ? 'text-slate-400 font-medium' : 'text-slate-400/50 font-normal group-hover:text-slate-400/80'
+                              }`}>
+                                {opt.code}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Active checkmark */}
+                          {isActive && (
+                            <motion.div 
+                              initial={{ scale: 0, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={{ duration: 0.2, delay: 0.05 }}
+                              className="relative z-10 flex items-center justify-center ml-auto"
+                            >
+                              <CheckCircle size={16} strokeWidth={2.5} color="#F97316" className="opacity-60" />
+                            </motion.div>
+                          )}
+                        </motion.button>
+                      );
+                    })}
+                    </motion.div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setIsDark(d => !d)}
+              title={isDark ? 'Light mode' : 'Dark mode'}
+              className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
+                transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+              }`}
+            >
+              <AnimatePresence mode="wait">
+                {isDark ? (
+                  <motion.span key="sun"
+                    initial={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.2 }}>
+                    <Sun size={15} />
+                  </motion.span>
+                ) : (
+                  <motion.span key="moon"
+                    initial={{ rotate: 90, opacity: 0, scale: 0.5 }}
+                    animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                    exit={{ rotate: -90, opacity: 0, scale: 0.5 }}
+                    transition={{ duration: 0.2 }}>
+                    <Moon size={15} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
           </div>
 
-          {/* Các link còn lại map từ config */}
-          {MAIN_NAV_LINKS.filter(link => link.label !== 'Home').map(({ label, href }) => (
-            <DesktopNavLink key={href} to={href} active={isActive(href)}>
-              {label}
-            </DesktopNavLink>
-          ))}
-        </nav>
-
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+          {/* ── Mobile toggle ── */}
+          <div className="flex md:hidden">
+            <button
+              className="flex items-center justify-center w-8 h-8 text-gray-500 dark:text-gray-400
+                hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              onClick={() => setIsMobileOpen(v => !v)}
+              aria-label="Toggle menu"
+            >
+              <AnimatePresence mode="wait">
+                {isMobileOpen ? (
+                  <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.14 }}>
+                    <X size={20} />
+                  </motion.span>
+                ) : (
+                  <motion.span key="menu" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.14 }}>
+                    <Menu size={20} />
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Mobile Menu Panel */}
+      {/* ── Mobile Panel ── */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="md:hidden border-t border-gray-100 bg-white overflow-hidden"
+            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="md:hidden bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 overflow-hidden"
           >
-            <div className="p-4 space-y-1">
-              {MAIN_NAV_LINKS.map(({ label, href }) => (
-                <React.Fragment key={href}>
-                  <MobileNavLink to={href} onClick={() => setIsMobileMenuOpen(false)}>
-                    {label}
-                  </MobileNavLink>
-                  {/* Chèn Explore vào giữa Home và các link khác trên mobile */}
-                  {label === 'Home' && (
-                    <div className="py-2 px-3">
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Explore</span>
-                      <div className="mt-2 grid grid-cols-1 gap-1 border-l border-gray-100 ml-1">
-                        {EXPLORE_ITEMS.map(item => (
-                          <Link
-                            key={item.href}
-                            to={item.href}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="flex items-center gap-3 py-2 px-4 text-sm text-gray-600 hover:text-[#0a2463] hover:bg-gray-50 rounded-md"
-                          >
-                            <span className={item.color}>{item.icon}</span> {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </React.Fragment>
+            <div className="px-4 py-3 space-y-0.5">
+              <Link
+                to="/"
+                onClick={() => setIsMobileOpen(false)}
+                className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
+                  isActive('/') ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                }`}
+              >
+                Home
+              </Link>
+
+              {/* Explore */}
+              <div className="py-1">
+                <p className="px-3 text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest mb-1.5">
+                  {tr('navbar', 'explore')}
+                </p>
+                <div className="space-y-0.5 pl-2 border-l-2 border-gray-100 dark:border-gray-800 ml-2">
+                  {EXPLORE_ITEMS.map(item => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      onClick={() => setIsMobileOpen(false)}
+                      className={`flex items-center gap-3 px-3 py-2 text-[13px] rounded-lg transition-colors ${
+                        isActive(item.href)
+                          ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
+                          : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      }`}
+                    >
+                      <span style={{ color: item.accent }}>{item.icon}</span>
+                      <span className="font-medium">{tr('navbar', item.trKey)}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {NAV_LINKS.slice(1).map(({ trKey, href }) => (
+                <Link
+                  key={href}
+                  to={href}
+                  onClick={() => setIsMobileOpen(false)}
+                  className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
+                    isActive(href)
+                      ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  {tr('navbar', trKey)}
+                </Link>
               ))}
+
+              {/* Mobile Utilities */}
+              <div className="flex flex-col gap-3 pt-4 mt-2 border-t border-gray-100 dark:border-gray-800">
+                {/* Language picker */}
+                <div className="flex gap-1.5">
+                  {LANG_OPTIONS.map(opt => (
+                    <button
+                      key={opt.code}
+                      onClick={() => { setLang(opt.code); setIsMobileOpen(false); }}
+                      className={`flex-1 flex flex-col items-center justify-center gap-2 py-3 rounded-xl transition-all duration-200 border ${
+                        lang === opt.code
+                          ? 'bg-[#f97316]/10 border-[#f97316]/30 text-[#f97316]'
+                          : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 hover:border-[#f97316]/40'
+                      }`}
+                    >
+                      <Globe size={18} strokeWidth={2} className={`${lang === opt.code ? 'text-[#f97316]' : 'text-gray-400 dark:text-gray-500'}`} />
+                      <div className="flex flex-col items-center gap-0.5">
+                        <span className="font-semibold text-[11px] tracking-wide">{opt.label}</span>
+                        <span className="font-medium text-[9px] text-current opacity-70">({opt.code})</span>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setIsDark(d => !d)}
+                  className="flex items-center justify-center gap-2 py-2.5 w-full text-[13px] font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#f97316]/50 transition-colors"
+                >
+                  {isDark ? <><Sun size={15} className="text-amber-500" /> Light Mode</> : <><Moon size={15} className="text-indigo-500" /> Dark Mode</>}
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

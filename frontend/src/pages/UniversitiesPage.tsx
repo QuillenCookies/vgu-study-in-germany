@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '../components/Layout';
 import { Badge } from '../components/ui/badge';
 import { MapPin, Globe, BookOpen, Star, ExternalLink, Loader2, X, Filter, ArrowDownUp } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import { useUniversity } from '../context/UniversityContext';
 
 interface University {
@@ -37,6 +38,7 @@ const getHighlightColor = (text: string) => {
 };
 
 const UniversitiesPage: React.FC = () => {
+  const { tr } = useLanguage();
   const [universities, setUniversities] = useState<University[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -130,7 +132,7 @@ const UniversitiesPage: React.FC = () => {
       <Layout>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
           <Loader2 className="w-10 h-10 animate-spin text-[#f97316] mb-4" />
-          <p className="text-[#0a2463] font-medium">Loading universities...</p>
+          <p className="text-[#0a2463] font-medium">{tr('universities', 'loading')}</p>
         </div>
       </Layout>
     );
@@ -140,7 +142,7 @@ const UniversitiesPage: React.FC = () => {
     return (
       <Layout>
         <div className="flex items-center justify-center min-h-[60vh] text-red-500">
-          Error loading universities: {error}
+          {tr('universities', 'loading')} error: {error}
         </div>
       </Layout>
     );
@@ -154,12 +156,12 @@ const UniversitiesPage: React.FC = () => {
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80')" }}
         />
         <div className="relative z-10 max-w-4xl mx-auto text-center">
-          <Badge variant="orange" className="mb-4 text-sm px-4 py-1">🏛 Universities</Badge>
+          <Badge variant="orange" className="mb-4 text-sm px-4 py-1">{tr('universities', 'badge')}</Badge>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
-            Study in <span className="text-[#f97316]">Germany</span>
+            {tr('universities', 'title1')} <span className="text-[#f97316]">{tr('universities', 'title2')}</span>
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
-            Compare top universities — from global research powerhouses to career-focused applied sciences schools.
+            {tr('universities', 'desc')}
           </p>
         </div>
       </section>
@@ -170,8 +172,8 @@ const UniversitiesPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] tracking-tight">
               {selectedLocation?.type === 'city'
-                ? `Universities in ${selectedLocation.name}`
-                : 'University Comparison'}
+                ? `${tr('universities', 'uniIn')} ${selectedLocation.name}`
+                : tr('universities', 'uniComparison')}
             </h2>
 
             {selectedLocation && (
@@ -179,7 +181,7 @@ const UniversitiesPage: React.FC = () => {
                 onClick={() => setSelectedLocation(null)}
                 className="flex items-center gap-2 px-4 py-2 bg-white text-gray-600 border border-gray-200 rounded-full hover:bg-gray-100 hover:text-red-500 transition-colors shadow-sm text-sm font-medium w-fit"
               >
-                <span>Filtering by: <strong>{selectedLocation.name}</strong></span>
+                <span>{tr('universities', 'filteringBy')} <strong>{selectedLocation.name}</strong></span>
                 <X className="w-4 h-4" />
               </button>
             )}
@@ -191,7 +193,7 @@ const UniversitiesPage: React.FC = () => {
             <div className="flex flex-wrap gap-3 items-center w-full md:w-auto">
               <div className="flex items-center gap-2 text-gray-500 mr-2">
                 <Filter className="w-4 h-4" />
-                <span className="text-sm font-medium">Filter:</span>
+                <span className="text-sm font-medium">{tr('universities', 'filterLabel')}</span>
               </div>
 
               <select
@@ -199,7 +201,7 @@ const UniversitiesPage: React.FC = () => {
                 onChange={(e) => setFilterCity(e.target.value)}
                 className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
-                <option value="All">All Cities</option>
+                <option value="All">{tr('universities', 'allCities')}</option>
                 {availableCities.map(city => (
                   <option key={city} value={city}>{city}</option>
                 ))}
@@ -210,7 +212,7 @@ const UniversitiesPage: React.FC = () => {
                 onChange={(e) => setFilterType(e.target.value)}
                 className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
-                <option value="All">All Types</option>
+                <option value="All">{tr('universities', 'allTypes')}</option>
                 <option value="Public">Public</option>
                 <option value="Private">Private</option>
               </select>
@@ -220,7 +222,7 @@ const UniversitiesPage: React.FC = () => {
                 onChange={(e) => setFilterHighlight(e.target.value)}
                 className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer max-w-[200px]"
               >
-                <option value="All">All Highlights</option>
+                <option value="All">{tr('universities', 'allHighlights')}</option>
                 {availableHighlights.map(highlight => (
                   <option key={highlight} value={highlight}>{highlight}</option>
                 ))}
@@ -231,16 +233,16 @@ const UniversitiesPage: React.FC = () => {
             <div className="flex items-center gap-3 w-full md:w-auto pt-4 md:pt-0 border-t md:border-t-0 border-gray-100">
               <div className="flex items-center gap-2 text-gray-500">
                 <ArrowDownUp className="w-4 h-4" />
-                <span className="text-sm font-medium">Sort by:</span>
+                <span className="text-sm font-medium">{tr('universities', 'sortBy')}</span>
               </div>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 className="bg-gray-50 border border-gray-200 text-gray-700 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
               >
-                <option value="default">Default</option>
-                <option value="global">Global Rank (Best First)</option>
-                <option value="subject">Subject Rank (Best First)</option>
+                <option value="default">{tr('universities', 'sortDefault')}</option>
+                <option value="global">{tr('universities', 'sortGlobal')}</option>
+                <option value="subject">{tr('universities', 'sortSubject')}</option>
               </select>
             </div>
           </div>
@@ -249,8 +251,8 @@ const UniversitiesPage: React.FC = () => {
           {processedUniversities.length === 0 ? (
             <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
               <div className="text-4xl mb-4">🕵️‍♂️</div>
-              <h3 className="text-xl font-bold text-[#0a2463] mb-2">No matching universities</h3>
-              <p className="text-gray-500 mb-6">Try adjusting your filters to see more results.</p>
+              <h3 className="text-xl font-bold text-[#0a2463] mb-2">{tr('universities', 'noResults')}</h3>
+              <p className="text-gray-500 mb-6">{tr('universities', 'tryAdjust')}</p>
               <button
                 onClick={() => {
                   setFilterCity('All');
@@ -259,7 +261,7 @@ const UniversitiesPage: React.FC = () => {
                 }}
                 className="px-6 py-2 bg-[#f97316] text-white rounded-lg hover:bg-[#ea6c0a] transition-colors font-medium"
               >
-                Clear Local Filters
+                {tr('universities', 'clearFilters')}
               </button>
             </div>
           ) : (
@@ -275,7 +277,7 @@ const UniversitiesPage: React.FC = () => {
                         ? 'bg-blue-600/90 text-white border-blue-400/50'
                         : 'bg-purple-600/90 text-white border-purple-400/50'
                         }`}>
-                        {uni.type}
+                        {uni.type === 'Public' ? 'Public' : 'Private'}
                       </span>
                     </div>
                   </div>
@@ -292,15 +294,15 @@ const UniversitiesPage: React.FC = () => {
                     <div className="grid grid-cols-1 gap-1.5 bg-gray-50 p-3 rounded-xl mt-2 border border-gray-100">
                       <div className="flex items-start justify-between text-sm">
                         <span className="flex items-center gap-2 text-gray-600">
-                          <Globe className="w-4 h-4 text-blue-500" /> Global Rank
+                          <Globe className="w-4 h-4 text-blue-500" /> {tr('universities', 'globalRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463]">{uni.globalRank}</span>
+                        <span className="font-semibold text-[#0a2463]">{uni.globalRank.includes('Unranked') ? 'Unranked' : uni.globalRank}</span>
                       </div>
                       <div className="flex items-start justify-between text-sm">
                         <span className="flex items-center gap-2 text-gray-600">
-                          <BookOpen className="w-4 h-4 text-purple-500" /> Subject Rank
+                          <BookOpen className="w-4 h-4 text-purple-500" /> {tr('universities', 'subjectRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463]">{uni.subjectRank}</span>
+                        <span className="font-semibold text-[#0a2463]">{uni.subjectRank.includes('N/A') ? 'N/A' : uni.subjectRank}</span>
                       </div>
                     </div>
 
@@ -318,7 +320,7 @@ const UniversitiesPage: React.FC = () => {
                     </div>
 
                     <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#0a2463] hover:text-[#f97316] transition-colors pt-4 border-t border-gray-100">
-                      Visit Website
+                      {tr('universities', 'visitWebsite')}
                       <ExternalLink className="w-4 h-4" />
                     </a>
                   </div>

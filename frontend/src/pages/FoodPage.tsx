@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Euro, Search, Leaf, Globe, Star, Filter, ChefHat, MapPin, UtensilsCrossed } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import SiteFooter from '../components/SiteFooter';
+import Footer from '../components/Footer';
 
 type DietTag = 'Vegetarian' | 'Beef-free' | 'Pork-free' | 'Vegan' | 'All';
 
@@ -74,6 +75,7 @@ const dietColors: Record<DietTag, string> = {
 };
 
 const FoodPage: React.FC = () => {
+  const { tr } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<DietTag>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -93,15 +95,20 @@ const FoodPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-[#5c1a0a]/80 via-[#3d1209]/70 to-[#1a0804]/50" aria-hidden="true" />
         <div className="relative z-10 flex flex-col items-center text-center px-4 py-20 w-full max-w-4xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium hover:bg-white/30 transition-colors backdrop-blur-sm">
-            <ArrowLeft className="w-4 h-4" /> Back to Home
+            <ArrowLeft className="w-4 h-4" /> {tr('food', 'backHome')}
           </Link>
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-orange-500/30 text-orange-200 text-sm font-medium border border-orange-400/30">🍽️ Frankfurt Culinary Guide</span>
+          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-orange-500/30 text-orange-200 text-sm font-medium border border-orange-400/30">{tr('food', 'badge')}</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
-            Eat in <span className="text-orange-400">Frankfurt</span>
+            {tr('food', 'title1')} <span className="text-orange-400">{tr('food', 'title2')}</span>
           </h1>
-          <p className="text-lg text-white/85 mb-10 max-w-2xl">From traditional Hessian classics to international cuisine — your complete food guide for student life in Frankfurt.</p>
+          <p className="text-lg text-white/85 mb-10 max-w-2xl">{tr('food', 'desc')}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
-            {[{ label: 'Local Dishes', value: '50+', icon: '🥘' }, { label: 'Dietary Options', value: '4 Types', icon: '🥗' }, { label: 'Restaurants', value: '1,500+', icon: '🍴' }, { label: 'Avg Meal Cost', value: '€8–15', icon: '💶' }].map((s) => (
+            {[
+              { label: tr('food', 'statDishes'), value: '50+', icon: '🥘' },
+              { label: tr('food', 'statDiet'), value: '4 Types', icon: '🥗' },
+              { label: tr('food', 'statRest'), value: '1,500+', icon: '🍴' },
+              { label: tr('food', 'statCost'), value: '€8–15', icon: '💶' }
+            ].map((s) => (
               <div key={s.label} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 text-center">
                 <div className="text-2xl mb-1">{s.icon}</div>
                 <div className="text-xl font-bold text-white">{s.value}</div>
@@ -116,9 +123,9 @@ const FoodPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold">Culinary Directory</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">Dishes You'll Love</h2>
-            <p className="text-gray-600 max-w-xl mx-auto">Browse authentic dishes available in Frankfurt — filter by dietary preference.</p>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold">{tr('food', 'secDishBadge')}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">{tr('food', 'secDishTitle')}</h2>
+            <p className="text-gray-600 max-w-xl mx-auto">{tr('food', 'secDishDesc')}</p>
           </div>
 
           {/* Filters */}
@@ -128,13 +135,13 @@ const FoodPage: React.FC = () => {
               {dietFilters.map((f) => (
                 <button key={f} onClick={() => setActiveFilter(f)}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${activeFilter === f ? 'bg-orange-500 text-white shadow-md' : `${dietColors[f]} hover:opacity-80`}`}>
-                  {f === 'Vegetarian' && <Leaf className="w-3 h-3 inline mr-1" />}{f}
+                  {f === 'Vegetarian' && <Leaf className="w-3 h-3 inline mr-1" />}{f === 'All' ? tr('food', 'filterAll') : f}
                 </button>
               ))}
             </div>
             <div className="relative w-full sm:w-64">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder="Search dishes..."
+              <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder={tr('food', 'searchDish')}
                 className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white" />
             </div>
           </div>
@@ -170,8 +177,8 @@ const FoodPage: React.FC = () => {
           {filteredDishes.length === 0 && (
             <div className="text-center py-20 text-gray-500">
               <UtensilsCrossed className="w-12 h-12 mx-auto mb-3 opacity-30" />
-              <p>No dishes found for your filter.</p>
-              <button onClick={() => { setActiveFilter('All'); setSearchQuery(''); }} className="mt-3 text-orange-600 text-sm hover:underline">Clear filters</button>
+              <p>{tr('food', 'noDishes')}</p>
+              <button onClick={() => { setActiveFilter('All'); setSearchQuery(''); }} className="mt-3 text-orange-600 text-sm hover:underline">{tr('food', 'clearFilter')}</button>
             </div>
           )}
         </div>
@@ -181,9 +188,9 @@ const FoodPage: React.FC = () => {
       <section className="py-20 px-4 bg-gradient-to-br from-[#3d1209] to-[#7c2c0f]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-semibold">Restaurant Discovery</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">Recommended Restaurants</h2>
-            <p className="text-white/70 max-w-xl mx-auto">Student-tested restaurants across Frankfurt's diverse neighborhoods.</p>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-semibold">{tr('food', 'secRestBadge')}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">{tr('food', 'secRestTitle')}</h2>
+            <p className="text-white/70 max-w-xl mx-auto">{tr('food', 'secRestDesc')}</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {restaurants.map((r, idx) => (
@@ -215,7 +222,7 @@ const FoodPage: React.FC = () => {
       </section>
 
       {/* Footer */}
-      <SiteFooter accentColor="#f97316" />
+      <Footer />
     </div>
   );
 };
