@@ -22,7 +22,7 @@ import {
   ChevronDown,
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useUniversity } from '../context/UniversityContext';
+import { useUniversity } from '../contexts/UniversityContext';
 
 interface CommuteRow {
   from: string;

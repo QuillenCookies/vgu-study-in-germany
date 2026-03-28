@@ -7,8 +7,8 @@ import {
   UtensilsCrossed, Ticket, ArrowRight, Users, MapPin, Compass,
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useUniversity } from '../context/UniversityContext';
-import type { LocationState } from '../context/UniversityContext';
+import { useUniversity } from '../contexts/UniversityContext';
+import type { LocationState } from '../types';
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────
 const HERO_BG =

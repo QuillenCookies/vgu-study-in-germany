@@ -1,13 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 import type { ReactNode } from 'react';
+import type { LocationType, LocationState } from '../types/university';
 
-export type LocationType = 'city' | 'university';
-
-export interface LocationState {
-  id: number;
-  name: string;
-  type: LocationType;
-}
+export type { LocationType, LocationState };
 
 interface UniversityContextType {
   selectedLocation: LocationState | null;
