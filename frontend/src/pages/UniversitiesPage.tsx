@@ -3,7 +3,7 @@ import Layout from '../components/Layout';
 import { Badge } from '../components/ui/badge';
 import { MapPin, Globe, BookOpen, Star, ExternalLink, Loader2, X, Filter, ArrowDownUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useUniversity } from '../context/UniversityContext';
+import { useUniversity } from '../contexts/UniversityContext';
 
 interface University {
   id: string;
