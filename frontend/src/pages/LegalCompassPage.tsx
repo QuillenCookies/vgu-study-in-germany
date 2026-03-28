@@ -77,10 +77,12 @@ const LegalCompassPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] relative font-sans selection:bg-emerald-500/30">
+    <div className="flex flex-col min-h-screen bg-[#F8FAFC] relative font-sans selection:bg-emerald-500/30">
       
       {/* Navbar Integration */}
       <Navbar transparent={false} />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* High-End Background & Atmosphere */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -92,7 +94,7 @@ const LegalCompassPage: React.FC = () => {
       </div>
 
       {/* Main Structural Layout */}
-      <main className="relative z-10 w-full min-h-screen flex flex-col pt-24 pb-32 px-6">
+      <main className="relative z-10 w-full min-h-screen flex flex-col pb-32 px-6">
         
         {/* Minimalist Breadcrumb Back Button */}
         <div className="w-full max-w-6xl mx-auto mb-10">

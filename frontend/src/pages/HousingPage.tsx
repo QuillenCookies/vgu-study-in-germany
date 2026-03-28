@@ -74,8 +74,10 @@ const resources = [
 const HousingPage: React.FC = () => {
   const { tr } = useLanguage();
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* Hero */}
       <section className="relative w-full flex items-center justify-center" style={{ minHeight: '60vh' }}>

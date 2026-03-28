@@ -225,8 +225,10 @@ const CommunityPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 font-sans max-w-full overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 font-sans max-w-full overflow-x-hidden">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO: "Join the Flock"

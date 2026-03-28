@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative z-50 bg-[#0a2463] text-white">
+    <footer className="mt-auto relative z-50 bg-[#0a2463] text-white">
       <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 

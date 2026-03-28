@@ -72,7 +72,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#f97316' }) => {
   const isLoading = status === 'loading';
 
   return (
-    <footer className="bg-[#0a1628] text-white">
+    <footer className="mt-auto bg-[#0a1628] text-white">
       {/* Main grid */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">

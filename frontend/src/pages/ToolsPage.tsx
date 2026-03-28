@@ -262,8 +262,10 @@ const ToolsPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="flex flex-col min-h-screen bg-gray-50">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* ── Hero Banner ─────────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '72vh' }}>
@@ -390,7 +392,7 @@ const ToolsPage: React.FC = () => {
       </section>
 
       {/* ── Filter & Search Bar ─────────────────────────────────────────── */}
-      <section id="tools-grid" className="py-8 px-4 bg-white border-b border-gray-100 sticky top-[56px] z-20 shadow-sm">
+      <section id="tools-grid" className="py-8 px-4 bg-white border-b border-gray-100 sticky top-[59px] z-20 shadow-sm">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4">
           {/* Search */}
           <div className="relative w-full sm:w-72">

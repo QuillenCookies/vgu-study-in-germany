@@ -15,6 +15,7 @@ import LibraryPage from './pages/Library';
 import LegalCompassPage from './pages/LegalCompassPage';
 import HealthWellnessPage from './pages/HealthWellnessPage';
 import CareerPage from './pages/CareerPage';
+import AboutUsPage from './pages/AboutUsPage';
 
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/explore/legal-compass" element={<LegalCompassPage />} />
           <Route path="/explore/health" element={<HealthWellnessPage />} />
           <Route path="/explore/career" element={<CareerPage />} />
+          <Route path="/about" element={<AboutUsPage />} />
         </Routes>
       </AnimatePresence>
     </LanguageProvider>

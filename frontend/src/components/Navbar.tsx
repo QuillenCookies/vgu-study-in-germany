@@ -229,7 +229,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
 
   return (
-    <header className={`${transparent ? 'absolute top-0 left-0 hover:bg-black/20 hover:backdrop-blur-md transition-all duration-300' : 'sticky top-0'} z-50 w-full font-sans`}>
+    <header className={`${transparent ? 'absolute top-0 left-0 hover:bg-black/20 hover:backdrop-blur-md transition-all duration-300' : 'fixed top-0 left-0 right-0'} z-50 w-full font-sans`}>
 
       {/* Top accent strip */}
       {!transparent && (
