@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
   GraduationCap, TrainFront, Building2, UtensilsCrossed,
-  Ticket, BookOpen, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle, Gavel, HeartPulse, Rocket
+  Ticket, BookOpen, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle, Gavel, HeartPulse, Rocket, Coins
 } from 'lucide-react';
 import VguIcon from '../assets/navbar_vgu_wide.png';
 
@@ -108,6 +108,14 @@ const EXPLORE_ITEMS = [
     href: '/explore/career',
     accent: '#2563eb',
     gradient: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.16) 0%, transparent 70%)',
+  },
+  {
+    icon: <Coins size={16} />,
+    trKey: 'salaryFinance' as const,
+    trSubKey: 'salarySub' as const,
+    href: '/explore/salary',
+    accent: '#f59e0b',
+    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.16) 0%, transparent 70%)',
   },
 ];
 
