@@ -4,7 +4,7 @@ import type { Variants } from 'framer-motion';
 import { ArrowLeft, Heart, Users, Globe, BookOpen, Lightbulb, Github, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 // ── ANIMATION VARIANTS ──────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -391,7 +391,7 @@ const AboutUsPage: React.FC = () => {
             </div>
           </section>
 
-          <Footer />
+          {/* Footer removed */}
         </div>
       </motion.div>
     </div>

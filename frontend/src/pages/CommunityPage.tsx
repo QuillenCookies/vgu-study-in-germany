@@ -8,7 +8,7 @@ import {
   ArrowLeft, ChevronRight, Mail,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
@@ -699,8 +699,7 @@ const CommunityPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

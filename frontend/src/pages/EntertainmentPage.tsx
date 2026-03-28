@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -401,8 +401,7 @@ const EntertainmentPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

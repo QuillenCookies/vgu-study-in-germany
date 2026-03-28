@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Home, MapPin, FileText, Shield, Phone, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 const districts = [
   {
@@ -272,8 +272,7 @@ const HousingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

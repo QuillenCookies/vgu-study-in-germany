@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Euro, Search, Leaf, Globe, Star, Filter, ChefHat, MapPin, UtensilsCrossed } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 type DietTag = 'Vegetarian' | 'Beef-free' | 'Pork-free' | 'Vegan' | 'All';
 
@@ -223,8 +223,7 @@ const FoodPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };
