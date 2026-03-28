@@ -1,89 +1,119 @@
-import React from 'react';
-import { Info, TrainFront, Compass, AlertCircle } from 'lucide-react';
-import { Badge } from '../../ui/badge';
+// frontend/src/components/train/TransitKnowledgeBase.tsx
+import React, { useState, useMemo } from 'react';
+import { knowledgeData } from './knowledge/data';
+import type { KnowledgeCategory, KnowledgeItem } from './knowledge/data';
+import { ShortFormCard } from './knowledge/ShortFormCard';
+import { LongFormModal } from './knowledge/LongFormModal';
+import { NumberedPagination } from '../../ui/numbered-pagination';
+import { Train, Ticket, BookOpen } from 'lucide-react';
 
-const trainTypes = [
-    {
-        category: "Long-Distance (Fernverkehr)",
-        icon: <TrainFront className="w-6 h-6 text-red-600" />,
-        badgeColor: "bg-red-100 text-red-800",
-        trains: ["ICE (Intercity Express)", "IC (Intercity)", "EC (Eurocity)"],
-        description: "High-speed trains connecting major cities and countries. White trains with a red stripe.",
-        warning: "Strictly requires specific tickets. Your student Semesterticket or Deutschlandticket is NOT valid here. You will be fined!"
-    },
-    {
-        category: "Regional Rail (Nahverkehr)",
-        icon: <Compass className="w-6 h-6 text-orange-600" />,
-        badgeColor: "bg-orange-100 text-orange-800",
-        trains: ["RE (Regional-Express)", "RB (Regionalbahn)", "IRE"],
-        description: "Connects cities with surrounding towns. Usually red trains (though private operators vary).",
-        warning: "Generally covered by the Deutschlandticket. Great for weekend trips across states."
-    },
-    {
-        category: "Local Transit",
-        icon: <TrainFront className="w-6 h-6 text-blue-600" />,
-        badgeColor: "bg-blue-100 text-blue-800",
-        trains: ["S-Bahn", "U-Bahn", "Tram", "Bus"],
-        description: "Inner-city transit. Runs very frequently. Operated by local networks (like RMV in Frankfurt).",
-        warning: "Fully covered by your university Semesterticket within the specific tariff zone."
-    }
-];
+const ITEMS_PER_PAGE = 5;
 
 const TransitKnowledgeBase: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<KnowledgeCategory>('Types');
+    const [selectedItem, setSelectedItem] = useState<KnowledgeItem | null>(null);
+
+    // State dictionary to remember the page number for each tab!
+    const [pageState, setPageState] = useState<Record<KnowledgeCategory, number>>({
+        Types: 1,
+        Ticket: 1,
+        Culture: 1
+    });
+
+    const tabs: { id: KnowledgeCategory; label: string; icon: React.ReactNode }[] = [
+        { id: 'Types', label: 'Train Types', icon: <Train className="w-4 h-4" /> },
+        { id: 'Ticket', label: 'Tickets & Fares', icon: <Ticket className="w-4 h-4" /> },
+        { id: 'Culture', label: 'Unwritten Culture', icon: <BookOpen className="w-4 h-4" /> },
+    ];
+
+    // Filter data based on active tab
+    const currentData = useMemo(() => {
+        return knowledgeData.filter(item => item.category === activeTab);
+    }, [activeTab]);
+
+    // Pagination Logic
+    const totalPages = Math.ceil(currentData.length / ITEMS_PER_PAGE);
+    const currentPage = pageState[activeTab];
+
+    const paginatedData = useMemo(() => {
+        const start = (currentPage - 1) * ITEMS_PER_PAGE;
+        return currentData.slice(start, start + ITEMS_PER_PAGE);
+    }, [currentData, currentPage]);
+
+    const handlePageChange = (page: number) => {
+        setPageState(prev => ({ ...prev, [activeTab]: page }));
+    };
+
     return (
-        <section className="py-20 bg-gray-50 px-4">
-            <div className="max-w-screen-xl mx-auto">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] mb-4">The DB Cheat Sheet</h2>
-                    <p className="text-gray-500 max-w-2xl mx-auto text-lg">Understanding the German transit alphabet is a survival skill. Here is what you need to know before you board.</p>
-                </div>
+        <>
+            <section className="py-16 bg-white px-4">
+                <div className="max-w-screen-lg mx-auto">
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    {trainTypes.map((type, i) => (
-                        <div key={i} className="bg-white rounded-[2rem] p-8 shadow-sm border border-gray-100 hover:shadow-xl transition-shadow relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -z-10" />
-                            <div className="mb-6 flex items-center justify-between">
-                                <div className={`p-4 rounded-2xl ${type.badgeColor} bg-opacity-50`}>
-                                    {type.icon}
-                                </div>
-                                <Badge variant="outline" className="border-gray-200 text-gray-500">Category</Badge>
-                            </div>
+                    <div className="text-center mb-10">
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] mb-4">Transit Knowledge Base</h2>
+                        <p className="text-gray-500 max-w-2xl mx-auto text-lg">Your survival guide to the German railway network. Select a topic to learn more.</p>
+                    </div>
 
-                            <h3 className="text-2xl font-bold text-gray-800 mb-4">{type.category}</h3>
+                    {/* MAIN CONTAINER: Fixed size, shadow, border */}
+                    <div className="w-full h-[650px] bg-gray-50 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col overflow-hidden">
 
-                            <div className="flex flex-wrap gap-2 mb-4">
-                                {type.trains.map(t => (
-                                    <span key={t} className="px-3 py-1 bg-gray-100 text-gray-700 font-bold text-sm rounded-lg">{t}</span>
+                        {/* Header / Tabs */}
+                        <div className="bg-white border-b border-gray-200 p-4 flex justify-center gap-2 md:gap-4 shrink-0 overflow-x-auto">
+                            {tabs.map(tab => {
+                                const isActive = activeTab === tab.id;
+                                return (
+                                    <button
+                                        key={tab.id}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all whitespace-nowrap
+                      ${isActive
+                                                ? 'bg-[#0a2463] text-white shadow-md'
+                                                : 'bg-white text-[#0a2463] border border-gray-200 hover:bg-blue-50'
+                                            }`}
+                                    >
+                                        {tab.icon} {tab.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {/* Scrollable Content Area */}
+                        <div className="flex-1 overflow-y-auto p-4 md:p-8">
+                            <div className="flex flex-col gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                                {paginatedData.map(item => (
+                                    <ShortFormCard
+                                        key={item.id}
+                                        item={item}
+                                        onOpen={setSelectedItem}
+                                    />
                                 ))}
                             </div>
-
-                            <p className="text-gray-600 mb-6">{type.description}</p>
-
-                            <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 p-4 rounded-xl text-sm flex gap-3 mt-auto">
-                                <AlertCircle className="w-5 h-5 shrink-0" />
-                                <p className="font-medium">{type.warning}</p>
-                            </div>
                         </div>
-                    ))}
-                </div>
 
-                {/* DB Info Banner */}
-                <div className="bg-[#0a2463] rounded-[2rem] p-8 md:p-12 text-white flex flex-col md:flex-row items-center gap-8 shadow-lg">
-                    <div className="flex-1">
-                        <Badge className="bg-[#f97316] text-white hover:bg-[#ea580c] mb-4">Pro Tip</Badge>
-                        <h3 className="text-3xl font-bold mb-4">What is the "Deutschlandticket"?</h3>
-                        <p className="text-white/80 text-lg">
-                            For €49/month, you can ride almost every regional and local train, tram, and bus in Germany. If your university doesn't offer a full Semesterticket, this is the first thing you should buy when arriving in Germany.
-                        </p>
-                    </div>
-                    <div className="shrink-0 w-full md:w-auto">
-                        <a href="https://www.bahn.de/angebot/regio/deutschland-ticket" target="_blank" rel="noopener noreferrer" className="block text-center bg-white text-[#0a2463] px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
-                            Learn more at Bahn.de
-                        </a>
+                        {/* Pagination fixed at the bottom of the container */}
+                        <div className="bg-white border-t border-gray-200 p-4 shrink-0">
+                            {totalPages > 1 && (
+                                <NumberedPagination
+                                    currentPage={currentPage}
+                                    totalPages={totalPages}
+                                    paginationItemsToDisplay={5}
+                                    onPageChange={handlePageChange}
+                                />
+                            )}
+                        </div>
+
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            {/* Renders the Fullscreen Modal if an item is selected */}
+            {selectedItem && (
+                <LongFormModal
+                    item={selectedItem}
+                    onClose={() => setSelectedItem(null)}
+                />
+            )}
+        </>
     );
 };
 
