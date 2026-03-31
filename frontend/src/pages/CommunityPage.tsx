@@ -480,7 +480,7 @@ const CommunityPage: React.FC = () => {
 
           {/* Bento grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {FORUM_CATEGORIES.map((cat, _idx) => (
+            {FORUM_CATEGORIES.map((cat) => (
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
