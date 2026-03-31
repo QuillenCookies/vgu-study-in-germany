@@ -54,7 +54,7 @@ const CareerPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen relative font-sans selection:bg-orange-500/30 overflow-hidden bg-white">
+      <div className="min-h-screen relative font-sans selection:bg-orange-500/30 overflow-hidden bg-white dark:bg-gray-950">
         
         {/* High-End Corporate Mesh Gradient Background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden h-full">
@@ -67,11 +67,11 @@ const CareerPage: React.FC = () => {
         <main className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center pt-32 pb-32 px-6">
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col items-center w-full">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-[#0F172A] tracking-tighter leading-tight mb-6 w-full">
+            <h1 className="text-5xl md:text-7xl font-extrabold text-[#0F172A] dark:text-white tracking-tighter leading-tight mb-6 w-full">
               Career <span className="text-[#F97316]">Launchpad</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-slate-500 leading-relaxed font-medium max-w-2xl mx-auto mb-20">
+            <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto mb-20">
               From Campus to Corporate — Your ultimate guide to starting a professional career in Germany.
             </p>
           </motion.div>
@@ -86,24 +86,24 @@ const CareerPage: React.FC = () => {
               <motion.div
                 key={pillar.id}
                 variants={itemVariants}
-                className="group flex flex-col justify-between bg-white/80 backdrop-blur-xl rounded-3xl p-10 border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(249,115,22,0.08)] hover:border-orange-500/30 transition-all duration-500 h-full text-left relative overflow-hidden"
+                className="group flex flex-col justify-between bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl rounded-3xl p-10 border border-slate-200/60 dark:border-gray-700/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(249,115,22,0.08)] hover:border-orange-500/30 transition-all duration-500 h-full text-left relative overflow-hidden"
               >
                 {/* Subtle hover gradient */}
                 <div className="absolute top-0 right-0 w-48 h-48 bg-orange-50/60 rounded-bl-[120px] opacity-0 group-hover:opacity-100 transition-all duration-500 z-0 mix-blend-multiply" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-16 h-16 rounded-2xl bg-white dark:bg-gray-800 shadow-sm border border-slate-100 dark:border-gray-700 flex items-center justify-center mb-10 group-hover:scale-110 transition-transform duration-500">
                     {pillar.icon}
                   </div>
                   
-                  <h3 className="text-[22px] font-extrabold text-[#0F172A] mb-4 tracking-tight group-hover:text-[#F97316] transition-colors">
+                  <h3 className="text-[22px] font-extrabold text-[#0F172A] dark:text-white mb-4 tracking-tight group-hover:text-[#F97316] transition-colors">
                     {pillar.title}
                   </h3>
                   
                   <ul className="space-y-3 mb-12">
                     {pillar.items.map((item, idx) => (
-                      <li key={idx} className="flex items-center text-[15px] font-medium text-slate-500">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 mr-3 group-hover:bg-orange-300 transition-colors" />
+                      <li key={idx} className="flex items-center text-[15px] font-medium text-slate-500 dark:text-slate-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600 mr-3 group-hover:bg-orange-300 transition-colors" />
                         {item}
                       </li>
                     ))}

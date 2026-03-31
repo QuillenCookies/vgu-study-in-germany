@@ -86,7 +86,7 @@ const FoodPage: React.FC = () => {
   });
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       <Navbar />
       {/* Navbar spacer — compensates for fixed positioning */}
       <div className="h-[59px]" />
@@ -125,15 +125,15 @@ const FoodPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-orange-100 text-orange-700 text-sm font-semibold">{tr('food', 'secDishBadge')}</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-3">{tr('food', 'secDishTitle')}</h2>
-            <p className="text-gray-600 max-w-xl mx-auto">{tr('food', 'secDishDesc')}</p>
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-orange-100 dark:bg-orange-950/30 text-orange-700 dark:text-orange-300 text-sm font-semibold">{tr('food', 'secDishBadge')}</span>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-3">{tr('food', 'secDishTitle')}</h2>
+            <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto">{tr('food', 'secDishDesc')}</p>
           </div>
 
           {/* Filters */}
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-8">
             <div className="flex flex-wrap gap-2 items-center">
-              <Filter className="w-4 h-4 text-gray-500" />
+              <Filter className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               {dietFilters.map((f) => (
                 <button key={f} onClick={() => setActiveFilter(f)}
                   className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${activeFilter === f ? 'bg-orange-500 text-white shadow-md' : `${dietColors[f]} hover:opacity-80`}`}>
@@ -142,9 +142,9 @@ const FoodPage: React.FC = () => {
               ))}
             </div>
             <div className="relative w-full sm:w-64">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
               <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} placeholder={tr('food', 'searchDish')}
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white" />
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 bg-white dark:bg-gray-800 dark:text-gray-100 dark:placeholder-gray-500" />
             </div>
           </div>
 
@@ -152,7 +152,7 @@ const FoodPage: React.FC = () => {
             {filteredDishes.map((dish, idx) => (
               <motion.div key={dish.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: idx * 0.08, duration: 0.5 }}
-                className="bg-white rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                className="bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group">
                 <div className="relative h-44 overflow-hidden">
                   <img src={dish.image} alt={dish.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 right-3 flex gap-1.5">
@@ -163,21 +163,21 @@ const FoodPage: React.FC = () => {
                 </div>
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="text-lg font-bold text-gray-900">{dish.name}</h3>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white">{dish.name}</h3>
                     <span className="flex items-center gap-1 text-orange-600 font-semibold text-sm"><Euro className="w-3.5 h-3.5" />{dish.avgCost}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs text-gray-500 mb-3"><Globe className="w-3 h-3" /><span>{dish.origin}</span></div>
-                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">{dish.description}</p>
+                  <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mb-3"><Globe className="w-3 h-3" /><span>{dish.origin}</span></div>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed">{dish.description}</p>
                   <div className="flex flex-wrap gap-1.5 mb-3">
-                    {dish.flavors.map((f) => (<span key={f} className="px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 text-xs font-medium border border-amber-200">{f}</span>))}
+                    {dish.flavors.map((f) => (<span key={f} className="px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-300 text-xs font-medium border border-amber-200 dark:border-amber-800/50">{f}</span>))}
                   </div>
-                  {dish.etiquette && (<div className="bg-orange-50 rounded-xl p-3 mt-3 border border-orange-100"><p className="text-xs text-orange-700 italic">💡 {dish.etiquette}</p></div>)}
+                  {dish.etiquette && (<div className="bg-orange-50 dark:bg-orange-950/30 rounded-xl p-3 mt-3 border border-orange-100 dark:border-orange-800/50"><p className="text-xs text-orange-700 dark:text-orange-300 italic">💡 {dish.etiquette}</p></div>)}
                 </div>
               </motion.div>
             ))}
           </div>
           {filteredDishes.length === 0 && (
-            <div className="text-center py-20 text-gray-500">
+            <div className="text-center py-20 text-gray-500 dark:text-gray-400">
               <UtensilsCrossed className="w-12 h-12 mx-auto mb-3 opacity-30" />
               <p>{tr('food', 'noDishes')}</p>
               <button onClick={() => { setActiveFilter('All'); setSearchQuery(''); }} className="mt-3 text-orange-600 text-sm hover:underline">{tr('food', 'clearFilter')}</button>
@@ -198,7 +198,7 @@ const FoodPage: React.FC = () => {
             {restaurants.map((r, idx) => (
               <motion.div key={r.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: idx * 0.07, duration: 0.4 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <div className="relative h-36 overflow-hidden">
                   <img src={r.image} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 left-3 text-xl bg-white/20 backdrop-blur-sm px-2 py-1 rounded-lg">{r.origin}</div>
@@ -207,14 +207,14 @@ const FoodPage: React.FC = () => {
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-2">
                     <div>
-                      <h3 className="font-bold text-gray-900">{r.name}</h3>
-                      <p className="text-xs text-gray-500 flex items-center gap-1 mt-0.5"><ChefHat className="w-3 h-3" />{r.cuisine}</p>
+                      <h3 className="font-bold text-gray-900 dark:text-white">{r.name}</h3>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 flex items-center gap-1 mt-0.5"><ChefHat className="w-3 h-3" />{r.cuisine}</p>
                     </div>
                     <div className="flex items-center gap-1 text-amber-500 text-sm font-bold"><Star className="w-3.5 h-3.5 fill-current" />{r.rating}</div>
                   </div>
-                  <div className="flex items-center gap-1 text-xs text-gray-500 mb-3"><MapPin className="w-3 h-3" />{r.location}</div>
+                  <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mb-3"><MapPin className="w-3 h-3" />{r.location}</div>
                   <div className="flex flex-wrap gap-1">
-                    {r.suitable.map((s) => (<span key={s} className="text-xs px-2 py-0.5 rounded-full bg-green-50 text-green-700 border border-green-200">✓ {s}</span>))}
+                    {r.suitable.map((s) => (<span key={s} className="text-xs px-2 py-0.5 rounded-full bg-green-50 dark:bg-green-950/30 text-green-700 dark:text-green-300 border border-green-200 dark:border-green-800/50">✓ {s}</span>))}
                   </div>
                 </div>
               </motion.div>
