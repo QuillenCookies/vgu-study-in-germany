@@ -14,13 +14,10 @@ const TrainPage: React.FC = () => {
       {/* Hero Section */}
       <TrainHeroSection />
 
-      {/* Feature D: Housing & Commute Explorer */}
-      <CommuteExplorer />
-
-      {/* Feature C: Budgeting & Journey Pricing */}
+      {/* Feature A: Budgeting & Journey Pricing */}
       <JourneyCalculator />
 
-      {/* Feature A & B: The Crash Course */}
+      {/* Feature B: The Crash Course */}
       <TransitKnowledgeBase />
 
     </Layout>

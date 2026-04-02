@@ -16,6 +16,11 @@ export default defineConfig({
       '/api': {
         target: 'http://127.0.0.1:8000',
         changeOrigin: true,
+      },
+      '/db-api': {
+        target: 'https://v6.db.transport.rest',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/db-api/, '') // Removes '/db-api' from the URL before forwarding
       }
     }
   }
