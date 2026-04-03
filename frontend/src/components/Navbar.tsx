@@ -8,7 +8,7 @@ import {
   GraduationCap, TrainFront, Building2, UtensilsCrossed,
   Ticket, BookOpen, Menu, X, ChevronDown, Search, Sun, Moon, Globe, CheckCircle, Gavel, HeartPulse, Rocket, Coins
 } from 'lucide-react';
-import VguIcon from '../assets/navbar_vgu_wide.png';
+import Logo from '../assets/logo.png';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
 const itemVariants: Variants = {
@@ -259,11 +259,9 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
 
           {/* ── Brand (left) ── */}
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-            <img
-              src={VguIcon}
-              className="h-7 flex-shrink-0 transition-opacity group-hover:opacity-80"
-              alt="VGU"
-            />
+            <div className="flex items-center gap-1.5 transition-transform group-hover:scale-105">
+              <img src={Logo} alt="Logo" className="h-8 w-auto object-contain drop-shadow-sm" />
+            </div>
             <div className={`hidden sm:block h-5 w-px ${transparent ? 'bg-white/20' : 'bg-gray-200 dark:bg-gray-700'}`} />
             <div className="hidden sm:block">
               <p className={`text-[14px] font-bold leading-tight tracking-tight ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}>
