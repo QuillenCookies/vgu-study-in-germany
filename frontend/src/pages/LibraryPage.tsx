@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Eye, ShieldCheck, ChevronRight, 
@@ -14,7 +14,7 @@ import Layout from '../components/Layout';
 
 const Sparkline = () => (
   <svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-    <path d="M2 14C3 12 5 8 7 8C9 8 10 12 12 12C14 12 16 6 18 6C20 6 22 10 24 10C26 10 28 4 30 4C32 4 34 8 36 8C38 8 40 4 42 2C44 0 45 4 46 6" stroke="#F97316" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 14C3 12 5 8 7 8C9 8 10 12 12 12C14 12 16 6 18 6C20 6 22 10 24 10C26 10 28 4 30 4C32 4 34 8 36 8C38 8 40 4 42 2C44 0 45 4 46 6" stroke="#FFCC00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
@@ -36,7 +36,7 @@ const BENTO_CATEGORIES = [
     id: 'admission',
     title: 'Admission',
     desc: 'TUM, RWTH & TU Berlin successful profiles.',
-    icon: <Key size={20} className="text-orange-500" />,
+    icon: <Key size={20} className="text-amber-400" />,
     colSpan: 'md:col-span-1',
     isLarge: false,
     color: 'bg-orange-50 border-orange-100',
@@ -159,9 +159,9 @@ const LibraryPage = () => {
             
             <motion.h1 
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-              className="text-5xl md:text-[4rem] font-bold text-[#0F172A] dark:text-white tracking-tighter leading-tight mb-6"
+              className="text-5xl md:text-[4rem] font-bold text-[#1A2B4C] dark:text-white tracking-tighter leading-tight mb-6"
             >
-              The Duck’s <span className="text-[#F97316]">Archive</span>
+              The Duck’s <span className="text-[#FFCC00]">Archive</span>
             </motion.h1>
             
             <motion.p 
@@ -177,14 +177,14 @@ const LibraryPage = () => {
               className="w-full max-w-2xl relative group"
             >
               <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-2xl border border-slate-200/80 dark:border-slate-800 rounded-3xl shadow-[inset_0_2px_10px_rgba(255,255,255,0.8)] dark:shadow-none pointer-events-none" />
-              <div className="relative flex items-center px-5 py-4 border border-slate-200/80 dark:border-slate-700 rounded-3xl bg-white/60 dark:bg-slate-900/60 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] focus-within:ring-4 focus-within:ring-[#0F172A]/5 focus-within:border-[#0F172A]/20 transition-all">
+              <div className="relative flex items-center px-5 py-4 border border-slate-200/80 dark:border-slate-700 rounded-3xl bg-white/60 dark:bg-slate-900/60 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] focus-within:ring-4 focus-within:ring-[#1A2B4C]/5 focus-within:border-[#1A2B4C]/20 transition-all">
                 <Search size={22} className="text-slate-400 shrink-0" />
                 <input
                   type="text"
                   placeholder="Search architecture templates, TUM essays..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="flex-1 bg-transparent border-none outline-none px-4 text-[#0F172A] dark:text-slate-100 text-[16px] placeholder-slate-400 font-medium"
+                  className="flex-1 bg-transparent border-none outline-none px-4 text-[#1A2B4C] dark:text-slate-100 text-[16px] placeholder-slate-400 font-medium"
                 />
                 <div className="hidden sm:flex items-center gap-1.5 shrink-0 px-2.5 py-1.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-bold text-slate-400 shadow-sm">
                   <Command size={14} /> K
@@ -197,16 +197,16 @@ const LibraryPage = () => {
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
               className="flex items-center justify-center gap-5 mt-8 text-[14px] font-semibold text-slate-400"
             >
-              <button onClick={() => setSearchQuery('TUM')} className="hover:text-[#F97316] transition-colors tracking-tight">#TUM</button>
-              <button onClick={() => setSearchQuery('Motivation')} className="hover:text-[#F97316] transition-colors tracking-tight">#MotivationLetter</button>
-              <button onClick={() => setSearchQuery('RWTH')} className="hover:text-[#F97316] transition-colors tracking-tight">#RWTH</button>
+              <button onClick={() => setSearchQuery('TUM')} className="hover:text-[#FFCC00] transition-colors tracking-tight">#TUM</button>
+              <button onClick={() => setSearchQuery('Motivation')} className="hover:text-[#FFCC00] transition-colors tracking-tight">#MotivationLetter</button>
+              <button onClick={() => setSearchQuery('RWTH')} className="hover:text-[#FFCC00] transition-colors tracking-tight">#RWTH</button>
             </motion.div>
           </div>
 
           {/* === BENTO GRID (TOP PATHWAYS) === */}
           <div className="mb-32">
-            <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white tracking-tighter mb-8 flex items-center gap-3">
-              <span className="w-2 h-2 rounded-full bg-[#F97316]" /> Resource Pathways
+            <h2 className="text-2xl font-bold text-[#1A2B4C] dark:text-white tracking-tighter mb-8 flex items-center gap-3">
+              <span className="w-2 h-2 rounded-full bg-[#FFCC00]" /> Resource Pathways
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-[180px]">
               {BENTO_CATEGORIES.map((cat) => (
@@ -225,7 +225,7 @@ const LibraryPage = () => {
                   )}
                   
                   <div className="relative z-10 flex items-start justify-between">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border border-transparent shadow-sm ${cat.isLarge ? 'bg-[#0F172A] text-white dark:bg-white dark:text-[#0F172A]' : cat.color}`}>
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border border-transparent shadow-sm ${cat.isLarge ? 'bg-[#1A2B4C] text-white dark:bg-white dark:text-[#1A2B4C]' : cat.color}`}>
                       {cat.icon}
                     </div>
                     {cat.isLarge && (
@@ -236,7 +236,7 @@ const LibraryPage = () => {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <h3 className={`font-bold text-[#0F172A] dark:text-white tracking-tighter ${cat.isLarge ? 'text-3xl mb-3' : 'text-xl mb-2'}`}>
+                    <h3 className={`font-bold text-[#1A2B4C] dark:text-white tracking-tighter ${cat.isLarge ? 'text-3xl mb-3' : 'text-xl mb-2'}`}>
                       {cat.title}
                     </h3>
                     <p className={`font-medium ${cat.isLarge ? 'text-slate-500 max-w-sm text-base leading-relaxed' : 'text-slate-400 text-sm line-clamp-2 leading-relaxed'}`}>
@@ -251,7 +251,7 @@ const LibraryPage = () => {
           {/* === RESOURCE GRID === */}
           <div>
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
-              <h2 className="text-2xl font-bold text-[#0F172A] dark:text-white tracking-tighter flex items-center gap-3">
+              <h2 className="text-2xl font-bold text-[#1A2B4C] dark:text-white tracking-tighter flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-blue-500" /> Documents Library
               </h2>
               
@@ -272,7 +272,7 @@ const LibraryPage = () => {
                       {isActive && (
                         <motion.div
                           layoutId="pillIndicator"
-                          className="absolute inset-0 bg-[#0F172A] dark:bg-slate-800 rounded-full -z-10 shadow-md shadow-black/10"
+                          className="absolute inset-0 bg-[#1A2B4C] dark:bg-slate-800 rounded-full -z-10 shadow-md shadow-black/10"
                           transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
                         />
                       )}
@@ -307,12 +307,12 @@ const LibraryPage = () => {
                         <div className="relative z-10">
                           {/* Metadata Top Row */}
                           <div className="flex items-start justify-between mb-6">
-                            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0F172A] dark:text-slate-300">
-                              {doc.category === 'Admission' ? <Key size={16} className="text-orange-500" /> : doc.category === 'Career' ? <Route size={16} className="text-blue-500" /> : <Shield size={16} className="text-emerald-500" />}
+                            <span className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#1A2B4C] dark:text-slate-300">
+                              {doc.category === 'Admission' ? <Key size={16} className="text-amber-400" /> : doc.category === 'Career' ? <Route size={16} className="text-blue-500" /> : <Shield size={16} className="text-emerald-500" />}
                               {doc.category}
                             </span>
                             {doc.verified && (
-                              <div className="flex items-center gap-1.5 text-[#F97316] bg-orange-50/80 dark:bg-orange-900/30 px-3 py-1.5 rounded-full border border-orange-100/80 dark:border-orange-800/50 shadow-sm">
+                              <div className="flex items-center gap-1.5 text-[#FFCC00] bg-orange-50/80 dark:bg-orange-900/30 px-3 py-1.5 rounded-full border border-orange-100/80 dark:border-orange-800/50 shadow-sm">
                                 <ShieldCheck size={14} strokeWidth={2.5} />
                                 <span className="text-[10px] font-extrabold uppercase tracking-widest">Verified Target</span>
                               </div>
@@ -320,7 +320,7 @@ const LibraryPage = () => {
                           </div>
 
                           {/* Title */}
-                          <h3 className="text-xl font-bold text-[#0F172A] dark:text-white tracking-tighter leading-snug mb-4 pr-4 group-hover:text-[#F97316] transition-colors duration-300">
+                          <h3 className="text-xl font-bold text-[#1A2B4C] dark:text-white tracking-tighter leading-snug mb-4 pr-4 group-hover:text-[#FFCC00] transition-colors duration-300">
                             {doc.title}
                           </h3>
                         </div>
@@ -343,7 +343,7 @@ const LibraryPage = () => {
                           <motion.button
                             initial={{ opacity: 0, scale: 0.9, y: 10 }}
                             whileHover={{ scale: 1.05 }}
-                            className="absolute right-0 bottom-1 opacity-0 group-hover:opacity-100 group-hover:y-0 flex items-center gap-2 bg-[#0F172A] dark:bg-white text-white dark:text-[#0F172A] px-4 py-2.5 rounded-xl text-xs font-bold shadow-xl shadow-black/10 transition-all duration-300"
+                            className="absolute right-0 bottom-1 opacity-0 group-hover:opacity-100 group-hover:y-0 flex items-center gap-2 bg-[#1A2B4C] dark:bg-white text-white dark:text-[#1A2B4C] px-4 py-2.5 rounded-xl text-xs font-bold shadow-xl shadow-black/10 transition-all duration-300"
                           >
                             <Eye size={14} strokeWidth={2.5} /> Preview
                           </motion.button>
@@ -361,7 +361,7 @@ const LibraryPage = () => {
                     <div className="w-20 h-20 bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600 rounded-[2rem] flex items-center justify-center mb-8 border border-slate-100 dark:border-slate-800 shadow-sm">
                       <Search size={32} strokeWidth={1.5} />
                     </div>
-                    <h3 className="text-2xl font-bold text-[#0F172A] dark:text-white mb-3 tracking-tighter">
+                    <h3 className="text-2xl font-bold text-[#1A2B4C] dark:text-white mb-3 tracking-tighter">
                       No exact matches found
                     </h3>
                     <p className="text-base font-medium text-slate-500 max-w-sm mb-8 leading-relaxed">
@@ -369,7 +369,7 @@ const LibraryPage = () => {
                     </p>
                     <button 
                       onClick={() => { setSearchQuery(''); setActiveFilter('All'); }}
-                      className="px-6 py-3 bg-[#0F172A] dark:bg-white text-white dark:text-[#0F172A] text-sm font-bold tracking-tight rounded-xl hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-lg shadow-black/10"
+                      className="px-6 py-3 bg-[#1A2B4C] dark:bg-white text-white dark:text-[#1A2B4C] text-sm font-bold tracking-tight rounded-xl hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-lg shadow-black/10"
                     >
                       Clear all filters
                     </button>

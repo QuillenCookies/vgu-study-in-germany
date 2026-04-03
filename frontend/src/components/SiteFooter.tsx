@@ -52,7 +52,7 @@ async function mockSubscribe(email: string): Promise<{ ok: boolean }> {
 
 // ─── Component ─────────────────────────────────────────────────────────────
 
-const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#f97316' }) => {
+const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#FFCC00' }) => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<SubscribeStatus>('idle');
 
@@ -72,7 +72,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#f97316' }) => {
   const isLoading = status === 'loading';
 
   return (
-    <footer className="bg-[#0a1628] text-white">
+    <footer style={{ backgroundColor: '#1A2B4C' }} className="text-white">
       {/* Main grid */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -80,12 +80,10 @@ const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#f97316' }) => {
           {/* Col 1 — Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <img
-                src="https://images.unsplash.com/photo-1567446537708-ac4aa75c9c28?auto=format&fit=crop&w=80&h=80&q=80"
-                alt="Study in Germany logo"
-                className="w-12 h-12 rounded-full object-cover border-2 border-white/20 shadow"
-              />
-              <span className="text-lg font-bold tracking-tight">Study in Germany</span>
+              <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ background: 'rgba(255,204,0,0.15)', border: '1px solid rgba(255,204,0,0.2)' }}>
+                <span className="text-2xl">🎓</span>
+              </div>
+              <span className="text-lg font-semibold tracking-tight">Study in Germany</span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed">
               Empowering international students with everything they need to thrive in Germany — from universities and housing to food and nightlife.
@@ -162,7 +160,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#f97316' }) => {
                 <button
                   type="submit"
                   disabled={isLoading || status === 'success'}
-                  style={{ backgroundColor: isLoading || status === 'success' ? undefined : accentColor }}
+                style={{ backgroundColor: isLoading || status === 'success' ? undefined : accentColor, color: (isLoading || status === 'success') ? undefined : '#1A2B4C' }}
                   className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed
                     ${isLoading || status === 'success' ? 'bg-white/20' : 'hover:opacity-90 active:scale-95'}`}
                 >

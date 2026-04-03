@@ -10,192 +10,175 @@ import {
 } from 'lucide-react';
 import Logo from '../assets/logo.png';
 
-// ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
-const itemVariants: Variants = {
-  initial: { rotateX: 0, opacity: 1 },
-  hover: { rotateX: -90, opacity: 0 },
-};
-const backVariants: Variants = {
-  initial: { rotateX: 90, opacity: 0 },
-  hover: { rotateX: 0, opacity: 1 },
-};
-const glowVariants: Variants = {
-  initial: { opacity: 0, scale: 0.85 },
-  hover: {
-    opacity: 1,
-    scale: 1.4,
-    transition: {
-      opacity: { duration: 0.3, ease: [0.4, 0, 0.2, 1] },
-      scale: { duration: 0.35, type: 'spring', stiffness: 260, damping: 22 },
-    },
-  },
-};
-const sharedTransition = {
+// ── DESIGN TOKENS ──────────────────────────────────────────────────────────
+const MIDNIGHT = '#1A2B4C';
+const AMBER    = '#FFCC00';
+
+// ── ANIMATION VARIANTS (Minimalist European) ──────────────────────────────
+// Snappy spring — feels responsive but buttery
+const springTransition = {
   type: 'spring' as const,
-  stiffness: 110,
-  damping: 22,
+  stiffness: 300,
+  damping: 30,
+};
+
+// Nav link container: subtle lift on hover
+const navLinkVariants: Variants = {
+  initial: { y: 0 },
+  hover:   { y: -2, transition: springTransition },
+};
+
+// Amber underline: expands from center
+const underlineVariants: Variants = {
+  initial: { scaleX: 0, opacity: 0 },
+  hover:   { scaleX: 1, opacity: 1, transition: springTransition },
+};
+
+// Mega menu: clean slide-down
+const megaMenuVariants: Variants = {
+  initial: { opacity: 0, y: 6 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.18, ease: [0.4, 0, 0.2, 1] } },
+  exit:    { opacity: 0, y: 6, transition: { duration: 0.13, ease: [0.4, 0, 1, 1]   } },
 };
 
 // ── EXPLORE ITEMS ──────────────────────────────────────────────────────────
 const EXPLORE_ITEMS = [
   {
-    icon: <GraduationCap size={16} />,
+    icon: <GraduationCap size={16} strokeWidth={1.75} />,
     trKey: 'education' as const,
     trSubKey: 'eduSub' as const,
     href: '/university',
-    accent: '#f97316',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(249,115,22,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <TrainFront size={16} />,
+    icon: <TrainFront size={16} strokeWidth={1.75} />,
     trKey: 'transport' as const,
     trSubKey: 'transSub' as const,
     href: '/bahn',
-    accent: '#22c55e',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(34,197,94,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <Building2 size={16} />,
+    icon: <Building2 size={16} strokeWidth={1.75} />,
     trKey: 'housing' as const,
     trSubKey: 'housingSub' as const,
     href: '/housing',
-    accent: '#a855f7',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(168,85,247,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <UtensilsCrossed size={16} />,
+    icon: <UtensilsCrossed size={16} strokeWidth={1.75} />,
     trKey: 'food' as const,
     trSubKey: 'foodSub' as const,
     href: '/food',
-    accent: '#ef4444',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(239,68,68,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <Ticket size={16} />,
+    icon: <Ticket size={16} strokeWidth={1.75} />,
     trKey: 'entertainment' as const,
     trSubKey: 'entSub' as const,
     href: '/entertainment',
-    accent: '#14b8a6',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(20,184,166,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <BookOpen size={16} />,
+    icon: <BookOpen size={16} strokeWidth={1.75} />,
     trKey: 'library' as const,
     trSubKey: 'libSub' as const,
     href: '/explore/library',
-    accent: '#3b82f6',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <Gavel size={16} />,
+    icon: <Gavel size={16} strokeWidth={1.75} />,
     trKey: 'legal' as const,
     trSubKey: 'legalSub' as const,
     href: '/explore/legal',
-    accent: '#eab308',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(234,179,8,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <HeartPulse size={16} />,
+    icon: <HeartPulse size={16} strokeWidth={1.75} />,
     trKey: 'health' as const,
     trSubKey: 'healthSub' as const,
     href: '/explore/health',
-    accent: '#10b981',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(16,185,129,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <Rocket size={16} />,
+    icon: <Rocket size={16} strokeWidth={1.75} />,
     trKey: 'careerLaunch' as const,
     trSubKey: 'careerSub' as const,
     href: '/explore/career',
-    accent: '#2563eb',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(37,99,235,0.16) 0%, transparent 70%)',
   },
   {
-    icon: <Coins size={16} />,
+    icon: <Coins size={16} strokeWidth={1.75} />,
     trKey: 'salaryFinance' as const,
     trSubKey: 'salarySub' as const,
     href: '/explore/salary',
-    accent: '#f59e0b',
-    gradient: 'radial-gradient(ellipse at 50% 50%, rgba(245,158,11,0.16) 0%, transparent 70%)',
   },
 ];
 
 const LANG_OPTIONS = [
-  { code: 'EN' as const, label: 'English',    hoverIconClass: 'group-hover:text-orange-400 group-hover:bg-orange-500/10' },
-  { code: 'DE' as const, label: 'Deutsch',    hoverIconClass: 'group-hover:text-amber-500/80 group-hover:bg-amber-500/10' },
-  { code: 'VN' as const, label: 'Tiếng Việt', hoverIconClass: 'group-hover:text-red-500/80 group-hover:bg-red-500/10' },
+  { code: 'EN' as const, label: 'English',    hoverIconClass: 'group-hover:text-amber-500 group-hover:bg-amber-500/10' },
+  { code: 'DE' as const, label: 'Deutsch',    hoverIconClass: 'group-hover:text-amber-500 group-hover:bg-amber-500/10' },
+  { code: 'VN' as const, label: 'Tiếng Việt', hoverIconClass: 'group-hover:text-amber-500 group-hover:bg-amber-500/10' },
 ];
 
 // ── NAV LINKS (excluding Explore) ─────────────────────────────────────────
 const NAV_LINKS = [
-  { trKey: 'home' as const,      href: '/',          gradient: 'radial-gradient(ellipse, rgba(59,130,246,0.14) 0%, transparent 70%)' },
-  { trKey: 'tools' as const,     href: '/tools',     gradient: 'radial-gradient(ellipse, rgba(34,197,94,0.14) 0%, transparent 70%)' },
-  { trKey: 'community' as const, href: '/community', gradient: 'radial-gradient(ellipse, rgba(249,115,22,0.14) 0%, transparent 70%)' },
-  { trKey: 'about' as const,     href: '/about',     gradient: 'radial-gradient(ellipse, rgba(20,184,166,0.14) 0%, transparent 70%)' },
+  { trKey: 'home' as const,      href: '/',          gradient: `radial-gradient(ellipse, rgba(26,43,76,0.12) 0%, transparent 70%)` },
+  { trKey: 'tools' as const,     href: '/tools',     gradient: `radial-gradient(ellipse, rgba(26,43,76,0.12) 0%, transparent 70%)` },
+  { trKey: 'community' as const, href: '/community', gradient: `radial-gradient(ellipse, rgba(26,43,76,0.12) 0%, transparent 70%)` },
+  { trKey: 'about' as const,     href: '/about',     gradient: `radial-gradient(ellipse, rgba(26,43,76,0.12) 0%, transparent 70%)` },
 ];
 
-// ── ANIMATED FLIP NAV LINK ─────────────────────────────────────────────────
+// ── ANIMATED NAV LINK (Minimalist European) ──────────────────────────────
 interface AnimatedNavLinkProps {
   to: string;
   label: string;
-  gradient: string;
+  gradient?: string;
   active?: boolean;
   onClick?: () => void;
   transparent?: boolean;
 }
 
-const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, gradient, active, onClick, transparent }) => (
+const AnimatedNavLink: React.FC<AnimatedNavLinkProps> = ({ to, label, active, onClick, transparent }) => (
   <motion.div
     className="relative"
-    style={{ perspective: '600px' }}
     whileHover="hover"
     initial="initial"
   >
-    {/* Contained glow */}
-    <motion.div
-      className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden"
-      variants={glowVariants}
-      style={{ background: gradient, opacity: 0 }}
-    />
-    {/* Front */}
-    <motion.div
-      variants={itemVariants}
-      transition={sharedTransition}
-      style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
-      className="relative z-10"
-    >
+    <motion.div variants={navLinkVariants}>
       <Link
         to={to}
         onClick={onClick}
-        className={`relative block px-4 py-2 text-[13.5px] font-medium rounded-lg transition-colors leading-none ${
+        className={`relative block px-4 py-2 text-[13.5px] rounded-lg leading-none transition-colors duration-200 ${
           transparent
-            ? active ? 'text-white font-semibold' : 'text-white/80 hover:text-white'
-            : active ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 hover:text-[#0a2463] dark:hover:text-blue-400'
+            ? active
+              ? 'text-white font-semibold'
+              : 'text-white/80 font-medium hover:text-white'
+            : active
+              ? 'font-semibold'
+              : 'text-gray-500 dark:text-gray-300 font-medium'
         }`}
+        style={!transparent && active ? { color: MIDNIGHT } : undefined}
       >
-        {label}
-        {/* Underline indicator */}
+        {/* Label — darkens to Midnight on hover */}
+        <motion.span
+          className="relative"
+          variants={{
+            initial: {},
+            hover: { color: transparent ? '#FFCC00' : MIDNIGHT },
+          }}
+          style={active && !transparent ? { color: MIDNIGHT } : undefined}
+        >
+          {label}
+        </motion.span>
+
+        {/* Active underline — layoutId shared across all links */}
         {active && (
           <motion.span
-            layoutId="nav-underline"
-            className={`absolute bottom-0.5 left-3 right-3 h-0.5 rounded-full ${transparent ? 'bg-white/60' : 'bg-[#0a2463]/60 dark:bg-blue-400/60'}`}
+            layoutId="nav-active-line"
+            className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
+            style={{ backgroundColor: transparent ? 'rgba(255,204,0,0.75)' : AMBER }}
           />
         )}
-      </Link>
-    </motion.div>
-    {/* Back */}
-    <motion.div
-      variants={backVariants}
-      transition={sharedTransition}
-      style={{ transformStyle: 'preserve-3d', transformOrigin: 'center top', transform: 'rotateX(90deg)' }}
-      className="absolute inset-0 z-10"
-    >
-      <Link
-        to={to}
-        onClick={onClick}
-        className={`block px-4 py-2 text-[13.5px] font-semibold rounded-lg leading-none ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}
-      >
-        {label}
+
+        {/* Hover underline — expands from centre, hidden on active */}
+        {!active && (
+          <motion.span
+            variants={underlineVariants}
+            className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full origin-center"
+            style={{ backgroundColor: transparent ? 'rgba(255,204,0,0.7)' : AMBER }}
+          />
+        )}
       </Link>
     </motion.div>
   </motion.div>
@@ -223,7 +206,6 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const isExploreActive = EXPLORE_ITEMS.some(item => pathname === item.href);
   const activeLang      = LANG_OPTIONS.find(l => l.code === lang)!;
 
-
   // Close lang dropdown on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -239,35 +221,41 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   return (
     <header className={`${transparent ? 'absolute top-0 left-0 hover:bg-black/20 hover:backdrop-blur-md transition-all duration-300' : 'sticky top-0'} z-50 w-full font-sans`}>
 
-      {/* Top accent strip */}
+      {/* Top accent strip — Amber Gold */}
       {!transparent && (
-        <div className="h-[3px] w-full bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400" />
+        <div className="h-[3px] w-full" style={{ background: `linear-gradient(to right, ${MIDNIGHT}, ${AMBER}, ${MIDNIGHT})` }} />
       )}
 
       <div className={`${
-        transparent 
-          ? 'bg-transparent border-transparent' 
-          : 'bg-white/96 dark:bg-gray-950/96 backdrop-blur-lg border-b border-gray-200/70 dark:border-gray-800/70 shadow-sm'
+        transparent
+          ? 'bg-transparent border-transparent'
+          : 'bg-white/96 dark:bg-[#0B1220]/96 backdrop-blur-lg border-b border-gray-200/70 dark:border-gray-800/70 shadow-sm'
       }`}>
         {/*
           3-column balanced layout:
-            col-1 (flex-none): Brand — fixed width so nav can be truly centered
-            col-2 (flex-1):    Nav links — centered in remaining space
-            col-3 (flex-none): Utilities — same visual weight as brand
+            col-1 (flex-none): Brand
+            col-2 (flex-1):    Nav links — centered
+            col-3 (flex-none): Utilities
         */}
         <div className="max-w-screen-xl mx-auto relative flex items-center justify-between px-6 h-14">
 
           {/* ── Brand (left) ── */}
-          <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-            <div className="flex items-center gap-1.5 transition-transform group-hover:scale-105">
-              <img src={Logo} alt="Logo" className="h-8 w-auto object-contain drop-shadow-sm" />
+          <Link to="/" className="flex items-center gap-4 group flex-shrink-0">
+            <div className="flex items-center transition-transform duration-300 group-hover:scale-105">
+              <img src={Logo} alt="Study in Germany Logo" className="h-9 w-auto object-contain drop-shadow-sm" />
             </div>
-            <div className={`hidden sm:block h-5 w-px ${transparent ? 'bg-white/20' : 'bg-gray-200 dark:bg-gray-700'}`} />
-            <div className="hidden sm:block">
-              <p className={`text-[14px] font-bold leading-tight tracking-tight ${transparent ? 'text-white' : 'text-[#0a2463] dark:text-blue-400'}`}>
+            <div className="hidden sm:flex flex-col">
+              <p
+                className={`text-[14px] font-semibold leading-tight tracking-tight ${
+                  transparent ? 'text-white' : 'dark:text-white'
+                }`}
+                style={!transparent ? { color: MIDNIGHT } : undefined}
+              >
                 Study in Germany
               </p>
-              <p className={`text-[10px] leading-tight mt-0.5 ${transparent ? 'text-white/70' : 'text-gray-400 dark:text-gray-500'}`}>
+              <p className={`text-[10px] leading-tight mt-0.5 ${
+                transparent ? 'text-white/55' : 'text-gray-400 dark:text-gray-500'
+              }`}>
                 International Student Guide
               </p>
             </div>
@@ -293,97 +281,127 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
             >
               <motion.div
                 className="relative"
-                style={{ perspective: '600px' }}
                 whileHover="hover"
                 initial="initial"
               >
-                <motion.div
-                  className="absolute inset-0 rounded-lg pointer-events-none overflow-hidden"
-                  variants={glowVariants}
-                  style={{
-                    background: 'radial-gradient(ellipse, rgba(99,102,241,0.14) 0%, transparent 70%)',
-                    opacity: 0,
-                  }}
-                />
-                <motion.button
-                  variants={itemVariants}
-                  transition={sharedTransition}
-                  style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
-                  aria-expanded={isExploreOpen}
-                  className={`relative z-10 flex items-center gap-1 px-4 py-2 text-[13.5px] rounded-lg transition-colors ${
-                    transparent
-                      ? isExploreActive ? 'text-white font-semibold' : 'text-white/80 font-medium hover:text-white'
-                      : isExploreActive ? 'text-[#0a2463] dark:text-blue-400 font-semibold' : 'text-gray-600 dark:text-gray-300 font-medium hover:text-[#0a2463] dark:hover:text-blue-400'
-                  }`}
-                >
-                  {tr('navbar', 'explore')}
-                  <motion.span
-                    animate={{ rotate: isExploreOpen ? 180 : 0 }}
-                    transition={{ duration: 0.22 }}
-                    className="inline-flex mt-px"
+                <motion.div variants={navLinkVariants}>
+                  <button
+                    aria-expanded={isExploreOpen}
+                    className={`relative flex items-center gap-1 px-4 py-2 text-[13.5px] rounded-lg transition-colors duration-200 ${
+                      transparent
+                        ? isExploreActive ? 'text-[#FFCC00] font-semibold' : 'text-white/80 font-medium'
+                        : isExploreActive
+                          ? 'font-semibold'
+                          : 'text-gray-500 dark:text-gray-300 font-medium'
+                    }`}
+                    style={!transparent && isExploreActive ? { color: MIDNIGHT } : undefined}
                   >
-                    <ChevronDown size={13} className="opacity-60" />
-                  </motion.span>
-                </motion.button>
+                    <motion.span
+                      variants={{
+                        initial: {},
+                        hover: { color: transparent ? '#FFCC00' : MIDNIGHT },
+                      }}
+                      style={isExploreActive && !transparent ? { color: MIDNIGHT } : undefined}
+                    >
+                      {tr('navbar', 'explore')}
+                    </motion.span>
+                    <motion.span
+                      animate={{ rotate: isExploreOpen ? 180 : 0 }}
+                      transition={{ duration: 0.2, ease: 'easeInOut' }}
+                      className="inline-flex mt-px"
+                    >
+                      <ChevronDown size={13} className="opacity-50" />
+                    </motion.span>
+
+                    {/* Hover underline for Explore */}
+                    {!isExploreActive && (
+                      <motion.span
+                        variants={underlineVariants}
+                        className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full origin-center"
+                        style={{ backgroundColor: transparent ? 'rgba(255,204,0,0.7)' : AMBER }}
+                      />
+                    )}
+                    {isExploreActive && (
+                      <motion.span
+                        layoutId="nav-active-line"
+                        className="absolute bottom-0 left-3 right-3 h-[2px] rounded-full"
+                        style={{ backgroundColor: transparent ? 'rgba(255,204,0,0.75)' : AMBER }}
+                      />
+                    )}
+                  </button>
+                </motion.div>
               </motion.div>
 
               {/* Dropdown */}
               <AnimatePresence>
                 {isExploreOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.975 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.975 }}
-                    transition={{ duration: 0.16, ease: [0.4, 0, 0.2, 1] }}
+                    variants={megaMenuVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
                     className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 w-[900px]
-                      bg-white dark:bg-gray-900
+                      bg-white dark:bg-[#0D1F38]
                       border border-gray-100 dark:border-gray-800
-                      rounded-2xl shadow-2xl shadow-black/10 overflow-hidden"
+                      rounded-xl shadow-lg shadow-black/8 overflow-hidden"
                   >
                     {/* Header */}
-                    <div className="flex items-center justify-between px-5 pt-4 pb-2.5">
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-600">
+                    <div className="flex items-center justify-between px-5 pt-4 pb-3">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
                         {tr('navbar', 'explore')}
                       </span>
-                      <span className="text-[10px] text-gray-300 dark:text-gray-700">{EXPLORE_ITEMS.length} {tr('navbar', 'sections')}</span>
+                      {/* Sections pill badge */}
+                      <span
+                        className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold"
+                        style={{ backgroundColor: '#F3F4F6', color: MIDNIGHT }}
+                      >
+                        {EXPLORE_ITEMS.length} {tr('navbar', 'sections')}
+                      </span>
                     </div>
 
                     {/* Horizontal Grid */}
-                    <div 
+                    <div
                       className="px-5 pb-4 grid gap-x-12 gap-y-2"
                       style={{
                         gridTemplateRows: 'repeat(4, minmax(0, 1fr))',
                         gridAutoFlow: 'column'
                       }}
                     >
-                      {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href, accent, gradient }) => (
+                      {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href }) => (
                         <Link
                           key={href}
                           to={href}
                           onClick={() => setIsExploreOpen(false)}
-                          className="group relative flex items-center gap-3 px-3 py-2.5 rounded-xl
-                            hover:bg-gray-50 dark:hover:bg-gray-800/60
-                            transition-colors duration-100"
+                          className="group relative flex items-center gap-3 px-3 py-2.5 rounded-lg
+                            hover:bg-gray-50 dark:hover:bg-white/5
+                            transition-all duration-300"
                         >
-                          {/* Left accent bar */}
+                          {/* Left accent bar — Amber on hover */}
                           <span
                             className="absolute left-0 top-2 bottom-2 w-[3px] rounded-full
-                              opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                            style={{ backgroundColor: accent }}
+                              opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                            style={{ backgroundColor: AMBER }}
                           />
                           {/* Icon chip */}
                           <span
-                            className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg
-                              transition-transform duration-150 group-hover:scale-110"
-                            style={{ background: gradient, color: accent }}
+                            className="flex-shrink-0 flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300 group-hover:scale-110"
+                            style={{
+                              background: `rgba(26,43,76,0.05)`,
+                              color: MIDNIGHT,
+                            }}
                           >
-                            {icon}
+                            <span
+                              className="transition-colors duration-300"
+                              style={{ color: 'inherit' }}
+                            >
+                              {icon}
+                            </span>
                           </span>
                           {/* Text */}
                           <div className="min-w-0">
                             <p className="text-[13px] font-semibold text-gray-800 dark:text-gray-100
-                              group-hover:text-[#0a2463] dark:group-hover:text-blue-300
-                              transition-colors leading-tight">
+                              group-hover:text-[#1A2B4C] dark:group-hover:text-amber-300
+                              transition-colors duration-300 leading-tight">
                               {tr('navbar', trKey)}
                             </p>
                             <p className="text-[11px] text-gray-400 dark:text-gray-500 leading-tight mt-0.5 truncate">
@@ -419,7 +437,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           </nav>
 
           {/* ── Utility Cluster (right) ── */}
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
 
             {/* Search — spring expand */}
             <AnimatePresence mode="wait">
@@ -440,9 +458,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                     onBlur={() => { setSearchOpen(false); setSearchQuery(''); }}
                     onKeyDown={e => e.key === 'Escape' && setSearchOpen(false)}
                     placeholder="Search…"
-                    className="w-full text-[12px] px-3 py-1.5 rounded-full bg-white dark:bg-gray-800
+                    className="w-full text-[12px] px-3 py-1.5 rounded-lg bg-white dark:bg-gray-800
                       border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-gray-100
-                      outline-none focus:ring-2 focus:ring-[#f97316]/40 focus:border-[#f97316]/50 transition"
+                      outline-none transition-all duration-300"
+                    style={{ '--tw-ring-color': AMBER } as React.CSSProperties}
                   />
                 </motion.div>
               ) : (
@@ -453,9 +472,12 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   exit={{ opacity: 0 }}
                   onClick={() => setSearchOpen(true)}
                   title="Search"
-                  className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
-                    transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+                  className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300 ${
+                    transparent
+                      ? 'text-white/80 hover:text-white hover:bg-white/10'
+                      : 'text-gray-500 dark:text-gray-400 hover:dark:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
                   }`}
+                  style={!transparent ? { ['--hover-color' as string]: MIDNIGHT } : undefined}
                 >
                   <Search size={15} />
                 </motion.button>
@@ -468,7 +490,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               <button
                 onClick={() => setLangOpen(v => !v)}
                 className={`flex items-center gap-2 px-5 py-1.5 rounded-full text-[12px] font-medium
-                  border transition-all duration-200 leading-none select-none backdrop-blur-sm
+                  border transition-all duration-300 leading-none select-none backdrop-blur-sm
                   ${transparent
                     ? langOpen ? 'bg-white/20 border-white/30 text-white' : 'bg-white/10 border-white/20 text-white/90 hover:bg-white/20'
                     : langOpen
@@ -496,19 +518,11 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                     transition={{ duration: 0.2, ease: 'easeOut' }}
                     style={{ transformOrigin: 'top right' }}
                     className="absolute top-[calc(100%+8px)] right-0 w-[240px]
-                      bg-white/60 dark:bg-[#0a0a0a]/60 backdrop-blur-2xl
+                      bg-white/60 dark:bg-[#0D1F38]/80 backdrop-blur-2xl
                       border border-white/40 dark:border-white/10
                       rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4)]
                       p-1.5 z-50 overflow-hidden"
                   >
-                    {/* Die Ente Watermark */}
-                    <div className="absolute inset-0 z-0 pointer-events-none rounded-[20px] overflow-hidden">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="none" 
-                           className="absolute bottom-[-15px] right-[-15px] w-28 h-28 text-slate-400 opacity-5 rotate-[-15deg]">
-                        <path d="M12.5 3c-1.38 0-2.5 1.12-2.5 2.5 0 .39.09.76.25 1.08C9.37 7.23 8 8.64 8 10.5c0 1.07.41 2.07 1.12 2.81-.39 1.17-.41 2.45-.63 3.69-.17.98-.94 1.76-1.92 1.95-1.47.28-1.57 2.05-1.57 2.05s1.28.32 2.54.49c1.67.22 3.3.49 5.46.49 4.34 0 7.82-1.96 8.79-4.83.6-1.76.59-4.04-.6-6.19-1.38-2.48-4.22-4.08-6.19-4.73C14.77 5.75 14.86 5.39 14.86 5 14.86 3.62 13.88 3 12.5 3zm0 1.25c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25c0-.69.56-1.25 1.25-1.25z"/>
-                      </svg>
-                    </div>
-
                     {/* Header label */}
                     <div className="px-3 pt-2.5 pb-2 relative z-10">
                        <p className="text-[9.5px] font-extrabold uppercase tracking-[0.2em] text-gray-500/80 dark:text-gray-400/80">
@@ -516,7 +530,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                        </p>
                     </div>
 
-                    <motion.div 
+                    <motion.div
                       className="flex flex-col gap-0.5 relative z-10"
                       initial="hidden"
                       animate="visible"
@@ -541,30 +555,37 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                               : 'hover:bg-white/40 dark:hover:bg-white/5'
                           }`}
                         >
-                          {/* Active Background Glow */}
+                          {/* Active Background Glow — Amber Gold */}
                           {isActive && (
                             <motion.div
                               layoutId="activeLangGlow"
-                              className="absolute inset-x-0 inset-y-0 bg-white/70 dark:bg-orange-950/30 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(253,186,116,0.2),0_4px_16px_rgba(253,186,116,0.3)] dark:shadow-[inset_0_0_20px_rgba(249,115,22,0.1)] border border-orange-200/60 dark:border-orange-500/20"
-                              style={{ borderRadius: '12px' }}
+                              className="absolute inset-x-0 inset-y-0 backdrop-blur-sm"
+                              style={{
+                                borderRadius: '12px',
+                                background: 'rgba(255,204,0,0.12)',
+                                boxShadow: 'inset 0 0 20px rgba(255,204,0,0.15), 0 4px 16px rgba(255,204,0,0.2)',
+                                border: '1px solid rgba(255,204,0,0.3)',
+                              }}
                             />
                           )}
 
                           <div className="relative z-10 flex items-center gap-2.5">
                             {/* Globe icon */}
                             <div className={`flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full transition-all duration-300 ${
-                              isActive 
-                                ? 'text-[#F97316] bg-orange-500/10 dark:text-orange-400 dark:bg-orange-500/15' 
+                              isActive
+                                ? 'bg-amber-500/10'
                                 : `text-slate-400 ${opt.hoverIconClass}`
-                            }`}>
+                            }`}
+                            style={isActive ? { color: AMBER } : undefined}>
                               <Globe size={14} strokeWidth={2.5} />
                             </div>
 
-                            {/* Text: Name and Code */}
+                            {/* Text */}
                             <div className="flex items-baseline gap-1.5">
                               <span className={`text-[13px] tracking-[0.01em] transition-colors ${
-                                isActive ? 'text-[#F97316] font-medium' : 'text-[#0F172A] font-normal dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white'
-                              }`}>
+                                isActive ? 'font-medium' : 'text-[#0F172A] font-normal dark:text-gray-200'
+                              }`}
+                              style={isActive ? { color: MIDNIGHT } : undefined}>
                                 {opt.label}
                               </span>
                               <span className={`text-xs transition-colors ${
@@ -575,15 +596,15 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                             </div>
                           </div>
 
-                          {/* Active checkmark */}
+                          {/* Active checkmark — Amber Gold */}
                           {isActive && (
-                            <motion.div 
+                            <motion.div
                               initial={{ scale: 0, opacity: 0 }}
                               animate={{ scale: 1, opacity: 1 }}
                               transition={{ duration: 0.2, delay: 0.05 }}
                               className="relative z-10 flex items-center justify-center ml-auto"
                             >
-                              <CheckCircle size={16} strokeWidth={2.5} color="#F97316" className="opacity-60" />
+                              <CheckCircle size={16} strokeWidth={2.5} style={{ color: AMBER, opacity: 0.8 }} />
                             </motion.div>
                           )}
                         </motion.button>
@@ -599,8 +620,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
             <button
               onClick={toggleTheme}
               title={isDark ? 'Light mode' : 'Dark mode'}
-              className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-150 ${
-                transparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
+              className={`flex items-center justify-center w-8 h-8 rounded-lg transition-all duration-300 ${
+                transparent
+                  ? 'text-white/80 hover:text-white hover:bg-white/10'
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-white/5'
               }`}
             >
               <AnimatePresence mode="wait">
@@ -657,16 +680,16 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="md:hidden bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 overflow-hidden"
+            className="md:hidden bg-white dark:bg-[#0B1220] border-b border-gray-100 dark:border-gray-800 overflow-hidden"
           >
             <div className="px-4 py-3 space-y-0.5">
               <Link
                 to="/"
                 onClick={() => setIsMobileOpen(false)}
-                className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
-                  isActive('/') ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
+                className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-all duration-300 ${
+                  isActive('/') ? 'font-semibold bg-amber-50 dark:bg-amber-950/30' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                 }`}
+                style={isActive('/') ? { color: MIDNIGHT } : undefined}
               >
                 Home
               </Link>
@@ -676,19 +699,20 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 <p className="px-3 text-[10px] font-bold text-gray-400 dark:text-gray-600 uppercase tracking-widest mb-1.5">
                   {tr('navbar', 'explore')}
                 </p>
-                <div className="space-y-0.5 pl-2 border-l-2 border-gray-100 dark:border-gray-800 ml-2">
+                <div className="space-y-0.5 pl-2 border-l-2 border-amber-200 dark:border-amber-900/40 ml-2">
                   {EXPLORE_ITEMS.map(item => (
                     <Link
                       key={item.href}
                       to={item.href}
                       onClick={() => setIsMobileOpen(false)}
-                      className={`flex items-center gap-3 px-3 py-2 text-[13px] rounded-lg transition-colors ${
+                      className={`flex items-center gap-3 px-3 py-2 text-[13px] rounded-lg transition-all duration-300 ${
                         isActive(item.href)
-                          ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
+                          ? 'font-semibold bg-amber-50 dark:bg-amber-950/20'
                           : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
                       }`}
+                      style={isActive(item.href) ? { color: MIDNIGHT } : undefined}
                     >
-                      <span style={{ color: item.accent }}>{item.icon}</span>
+                      <span style={{ color: isActive(item.href) ? AMBER : MIDNIGHT }}>{item.icon}</span>
                       <span className="font-medium">{tr('navbar', item.trKey)}</span>
                     </Link>
                   ))}
@@ -700,11 +724,12 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   key={href}
                   to={href}
                   onClick={() => setIsMobileOpen(false)}
-                  className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-colors ${
+                  className={`block px-3 py-2 text-[13px] font-medium rounded-lg transition-all duration-300 ${
                     isActive(href)
-                      ? 'text-[#0a2463] dark:text-blue-400 font-semibold bg-blue-50/60 dark:bg-blue-950/30'
+                      ? 'font-semibold bg-amber-50 dark:bg-amber-950/30'
                       : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800'
                   }`}
+                  style={isActive(href) ? { color: MIDNIGHT } : undefined}
                 >
                   {tr('navbar', trKey)}
                 </Link>
@@ -718,13 +743,14 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                     <button
                       key={opt.code}
                       onClick={() => { setLang(opt.code); setIsMobileOpen(false); }}
-                      className={`flex-1 flex flex-col items-center justify-center gap-2 py-3 rounded-xl transition-all duration-200 border ${
+                      className={`flex-1 flex flex-col items-center justify-center gap-2 py-3 rounded-xl transition-all duration-300 border ${
                         lang === opt.code
-                          ? 'bg-[#f97316]/10 border-[#f97316]/30 text-[#f97316]'
-                          : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 hover:border-[#f97316]/40'
+                          ? 'border-amber-400/50'
+                          : 'bg-gray-50 dark:bg-gray-900 border-gray-200 dark:border-gray-700 text-gray-500 hover:border-amber-400/40'
                       }`}
+                      style={lang === opt.code ? { background: 'rgba(255,204,0,0.1)', color: MIDNIGHT } : undefined}
                     >
-                      <Globe size={18} strokeWidth={2} className={`${lang === opt.code ? 'text-[#f97316]' : 'text-gray-400 dark:text-gray-500'}`} />
+                      <Globe size={18} strokeWidth={2} style={{ color: lang === opt.code ? AMBER : undefined }} className={lang === opt.code ? '' : 'text-gray-400 dark:text-gray-500'} />
                       <div className="flex flex-col items-center gap-0.5">
                         <span className="font-semibold text-[11px] tracking-wide">{opt.label}</span>
                         <span className="font-medium text-[9px] text-current opacity-70">({opt.code})</span>
@@ -734,9 +760,9 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 </div>
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center justify-center gap-2 py-2.5 w-full text-[13px] font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-[#f97316]/50 transition-colors"
+                  className="flex items-center justify-center gap-2 py-2.5 w-full text-[13px] font-semibold text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl hover:border-amber-400/50 transition-all duration-300"
                 >
-                  {isDark ? <><Sun size={15} className="text-amber-500" /> Light Mode</> : <><Moon size={15} className="text-indigo-500" /> Dark Mode</>}
+                  {isDark ? <><Sun size={15} className="text-amber-400" /> Light Mode</> : <><Moon size={15} style={{ color: MIDNIGHT }} /> Dark Mode</>}
                 </button>
               </div>
             </div>

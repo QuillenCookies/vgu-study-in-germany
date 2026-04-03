@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+﻿import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '../components/Layout';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
@@ -402,8 +402,8 @@ const TrainPage: React.FC = () => {
     <>
       {/* External Station Confirmation Banner */}
       {pendingExternalStation && (
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#0a2463] text-white rounded-2xl shadow-2xl border border-white/20 px-6 py-4 flex items-center gap-4 max-w-md w-full">
-          <Info className="w-6 h-6 text-[#f97316] shrink-0" />
+        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[#1A2B4C] text-white rounded-2xl shadow-2xl border border-white/20 px-6 py-4 flex items-center gap-4 max-w-md w-full">
+          <Info className="w-6 h-6 text-[#FFCC00] shrink-0" />
           <div className="flex-1">
             <p className="font-semibold text-sm">Station from external API</p>
             <p className="text-white/70 text-xs mt-0.5"><span className="font-bold text-white">{pendingExternalStation.name}</span> was not in local DB. Save it for faster lookups?</p>
@@ -411,7 +411,7 @@ const TrainPage: React.FC = () => {
           <div className="flex gap-2">
             <button
               onClick={() => saveExternalStation(pendingExternalStation)}
-              className="bg-[#f97316] hover:bg-[#ea580c] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
+              className="bg-[#FFCC00] hover:bg-[#ea580c] text-white text-xs font-bold px-3 py-1.5 rounded-lg transition-colors"
             >Save</button>
             <button
               onClick={() => setPendingExternalStation(null)}
@@ -422,7 +422,7 @@ const TrainPage: React.FC = () => {
       )}
       <Layout>
         {/* ── Hero Banner ───────────────────────────────── */}
-        <section className="relative bg-[#0a2463] text-white py-20 px-4 overflow-hidden">
+        <section className="relative bg-[#1A2B4C] text-white py-20 px-4 overflow-hidden">
           <div
             className="absolute inset-0 opacity-20 bg-cover bg-center"
             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1920&q=80')" }}
@@ -430,7 +430,7 @@ const TrainPage: React.FC = () => {
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <Badge variant="orange" className="mb-4 text-sm px-4 py-1">{tr('transport', 'badge')} - {stationName}</Badge>
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
-              {tr('transport', 'title1')} <span className="text-[#f97316]">{stationName}</span>
+              {tr('transport', 'title1')} <span className="text-[#FFCC00]">{stationName}</span>
             </h1>
             <p className="text-lg text-white/80 max-w-2xl mx-auto mb-8">
               {tr('transport', 'desc')}
@@ -458,13 +458,13 @@ const TrainPage: React.FC = () => {
                 />
                 {isSuggestionsLoading && (
                   <div className="flex items-center pr-3 text-gray-400">
-                    <Loader2 className="w-5 h-5 animate-spin text-[#f97316]" />
+                    <Loader2 className="w-5 h-5 animate-spin text-[#FFCC00]" />
                   </div>
                 )}
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="m-2 px-7 bg-[#f97316] hover:bg-[#ea580c] rounded-xl font-bold transition-transform active:scale-95 disabled:opacity-60 whitespace-nowrap"
+                  className="m-2 px-7 bg-[#FFCC00] hover:bg-[#ea580c] rounded-xl font-bold transition-transform active:scale-95 disabled:opacity-60 whitespace-nowrap"
                 >
                   {isLoading ? <Loader2 className="w-5 h-5 mr-2 animate-spin" /> : <Search className="w-5 h-5 mr-2" />} Find
                 </Button>
@@ -521,7 +521,7 @@ const TrainPage: React.FC = () => {
                 { label: tr('transport', 'statSemester'), value: '~€200' },
               ].map(({ label, value }) => (
                 <div key={label} className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 min-w-[120px]">
-                  <div className="text-3xl font-extrabold text-[#f97316]">{value}</div>
+                  <div className="text-3xl font-extrabold text-[#FFCC00]">{value}</div>
                   <div className="text-sm text-white/70 mt-1">{label}</div>
                 </div>
               ))}
@@ -530,13 +530,13 @@ const TrainPage: React.FC = () => {
         </section>
 
         {/* ── Journey Planner ───────────── */}
-        <section className="py-12 bg-gray-50 dark:bg-gray-950 px-4">
+        <section className="py-12 bg-gray-50 dark:bg-[#0B1220] px-4">
           <div className="max-w-screen-xl mx-auto">
             <div className="flex flex-col md:flex-row gap-8 items-start">
               <div className="flex-1 bg-white dark:bg-gray-900 p-6 rounded-[2rem] shadow-sm border border-gray-100 dark:border-gray-700 w-full">
                 <div className="flex flex-col gap-2 mb-6">
                   <Badge className="w-fit">{tr('transport', 'secPlannerBadge')}</Badge>
-                  <h2 className="text-2xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secPlannerTitle')}</h2>
+                  <h2 className="text-2xl font-bold text-[#1A2B4C] dark:text-white">{tr('transport', 'secPlannerTitle')}</h2>
                   <p className="text-sm text-gray-400 dark:text-gray-500">{tr('transport', 'secPlannerDesc')}</p>
                 </div>
                 <form onSubmit={handlePathSearch} className="flex flex-col gap-4">
@@ -548,7 +548,7 @@ const TrainPage: React.FC = () => {
                         value={pathFrom}
                         onChange={(e) => setPathFrom(e.target.value)}
                         required
-                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
+                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC00] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
                       >
                         <option value="" disabled>Select departure city…</option>
                         {cities.map((c) => (
@@ -567,7 +567,7 @@ const TrainPage: React.FC = () => {
                         value={pathTo}
                         onChange={(e) => setPathTo(e.target.value)}
                         required
-                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#f97316] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
+                        className="w-full appearance-none pl-4 pr-10 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FFCC00] transition-all text-gray-800 dark:text-gray-100 font-medium cursor-pointer"
                       >
                         <option value="" disabled>Select destination city…</option>
                         {cities.map((c) => (
@@ -581,7 +581,7 @@ const TrainPage: React.FC = () => {
                   <Button
                     type="submit"
                     disabled={isPathLoading || !pathFrom || !pathTo}
-                    className="w-full mt-2 h-12 rounded-xl bg-[#0a2463] hover:bg-[#0a2463]/90 text-white font-bold text-lg"
+                    className="w-full mt-2 h-12 rounded-xl bg-[#1A2B4C] hover:bg-[#1A2B4C]/90 text-white font-bold text-lg"
                   >
                     {isPathLoading ? <Loader2 className="w-5 h-5 animate-spin mr-2" /> : <MapPin className="w-5 h-5 mr-2" />}
                     {tr('transport', 'btnShowRoutes')}
@@ -592,19 +592,19 @@ const TrainPage: React.FC = () => {
               <div className="flex-1 w-full flex flex-col justify-center">
                 {isPathLoading ? (
                   <div className="flex flex-col items-center justify-center p-12 gap-4 text-gray-400 dark:text-gray-500">
-                    <Loader2 className="w-10 h-10 animate-spin text-[#f97316]" />
+                    <Loader2 className="w-10 h-10 animate-spin text-[#FFCC00]" />
                     <p>Finding best routes...</p>
                   </div>
                 ) : suggestedPath ? (
-                  <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] shadow-xl border border-[#f97316]/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <div className="bg-white dark:bg-gray-900 p-6 rounded-[2rem] shadow-xl border border-[#FFCC00]/20 animate-in fade-in slide-in-from-bottom-4 duration-500">
                     <div className="flex justify-between items-end mb-6 border-b dark:border-gray-700 pb-4">
                       <div>
                         <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Suggested Route</p>
-                        <h3 className="text-3xl font-black text-[#0a2463] dark:text-white">{suggestedPath.duration}</h3>
+                        <h3 className="text-3xl font-black text-[#1A2B4C] dark:text-white">{suggestedPath.duration}</h3>
                       </div>
                       <div className="text-right">
                         {suggestedPath.fare ? (
-                          <p className="font-bold text-[#f97316]">{suggestedPath.fare}</p>
+                          <p className="font-bold text-[#FFCC00]">{suggestedPath.fare}</p>
                         ) : (
                           <Badge variant="orange" className="mb-1 text-[10px]">Included in Semesterticket</Badge>
                         )}
@@ -613,9 +613,9 @@ const TrainPage: React.FC = () => {
                     </div>
                     <div className="flex gap-4">
                       <div className="flex flex-col items-center">
-                        <div className="w-3 h-3 rounded-full bg-[#f97316]" />
+                        <div className="w-3 h-3 rounded-full bg-[#FFCC00]" />
                         <div className="flex-1 w-0.5 bg-gray-200 dark:bg-gray-700 my-1" />
-                        <div className="w-3 h-3 rounded-full border-2 border-[#0a2463] bg-white dark:bg-gray-900" />
+                        <div className="w-3 h-3 rounded-full border-2 border-[#1A2B4C] bg-white dark:bg-gray-900" />
                       </div>
                       <div className="flex flex-col gap-5 flex-1 pb-2">
                         {suggestedPath.segments.map((seg, i) => (
@@ -653,8 +653,8 @@ const TrainPage: React.FC = () => {
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="mb-10 flex items-end justify-between">
               <div className="space-y-2">
-                <Badge variant="outline" className="text-[#f97316] border-[#f97316]">{tr('transport', 'secLiveBadge')}</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secLiveTitle')}</h2>
+                <Badge variant="outline" className="text-[#FFCC00] border-[#FFCC00]">{tr('transport', 'secLiveBadge')}</Badge>
+                <h2 className="text-3xl font-bold text-[#1A2B4C] dark:text-white">{tr('transport', 'secLiveTitle')}</h2>
                 <p className="text-gray-500 dark:text-gray-400">{tr('transport', 'secLiveDesc')} {stationName}</p>
               </div>
               <div className="hidden md:flex gap-2">
@@ -665,7 +665,7 @@ const TrainPage: React.FC = () => {
 
             {isLoading ? (
               <div className="flex flex-col items-center py-20 gap-4">
-                <Loader2 className="w-12 h-12 animate-spin text-[#f97316]" />
+                <Loader2 className="w-12 h-12 animate-spin text-[#FFCC00]" />
               </div>
             ) : commuteData.length === 0 && !error ? (
               <p className="text-center text-gray-500 dark:text-gray-400 py-10">No live departures found for this station.</p>
@@ -685,11 +685,11 @@ const TrainPage: React.FC = () => {
                               {route.line}
                             </span>
                             <div className="text-right">
-                              <p className={`text-2xl font-black ${route.delay ? 'text-red-500' : 'text-[#0a2463]'}`}>{route.time}</p>
+                              <p className={`text-2xl font-black ${route.delay ? 'text-red-500' : 'text-[#1A2B4C]'}`}>{route.time}</p>
                               {route.delay && <Badge variant="destructive" className="mt-1 text-[10px] animate-pulse">{route.delay}</Badge>}
                             </div>
                           </div>
-                          <h3 className="text-xl font-bold text-[#0a2463] dark:text-white mb-1 line-clamp-2">{route.to}</h3>
+                          <h3 className="text-xl font-bold text-[#1A2B4C] dark:text-white mb-1 line-clamp-2">{route.to}</h3>
                         </div>
                       </CarouselItem>
                     )
@@ -702,12 +702,12 @@ const TrainPage: React.FC = () => {
 
         {/* ── Transport Lines Gallery (Static DB) ────────────────── */}
         {frankfurtRoutes.length > 0 && (
-          <section className="py-16 bg-gray-50 dark:bg-gray-950 overflow-hidden">
+          <section className="py-16 bg-gray-50 dark:bg-[#0B1220] overflow-hidden">
             <div className="max-w-screen-xl mx-auto px-4">
               <div className="mb-10 flex items-end justify-between">
                 <div className="flex flex-col gap-3">
                   <Badge className="w-fit">{tr('transport', 'secRoutesBadge')}</Badge>
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] dark:text-white tracking-tight">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B4C] dark:text-white tracking-tight">
                     {tr('transport', 'secRoutesTitle')}
                   </h2>
                   <p className="text-gray-500 dark:text-gray-400 max-w-lg text-lg">
@@ -720,7 +720,7 @@ const TrainPage: React.FC = () => {
                     variant="outline"
                     onClick={() => routesCarouselApi?.scrollPrev()}
                     disabled={!canRoutesScrollPrev}
-                    className="rounded-xl border-[#0a2463]/30 hover:bg-[#0a2463] hover:text-white transition-colors"
+                    className="rounded-xl border-[#1A2B4C]/30 hover:bg-[#1A2B4C] hover:text-white transition-colors"
                   >
                     <ArrowLeft className="w-5 h-5" />
                   </Button>
@@ -729,7 +729,7 @@ const TrainPage: React.FC = () => {
                     variant="outline"
                     onClick={() => routesCarouselApi?.scrollNext()}
                     disabled={!canRoutesScrollNext}
-                    className="rounded-xl border-[#0a2463]/30 hover:bg-[#0a2463] hover:text-white transition-colors"
+                    className="rounded-xl border-[#1A2B4C]/30 hover:bg-[#1A2B4C] hover:text-white transition-colors"
                   >
                     <ArrowRight className="w-5 h-5" />
                   </Button>
@@ -747,18 +747,18 @@ const TrainPage: React.FC = () => {
                             alt={route.title}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[#0a2463]/90 via-[#0a2463]/30 to-transparent" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B4C]/90 via-[#1A2B4C]/30 to-transparent" />
                           <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                             <div className="flex flex-wrap gap-1.5 mb-3">
                               {route.lines.map((l) => (
-                                <span key={l} className="text-xs font-bold px-2 py-0.5 rounded-full bg-[#f97316] text-white">
+                                <span key={l} className="text-xs font-bold px-2 py-0.5 rounded-full bg-[#FFCC00] text-white">
                                   {l}
                                 </span>
                               ))}
                             </div>
                             <h3 className="text-xl font-semibold mb-2">{route.title}</h3>
                             <p className="text-sm text-white/75 line-clamp-3 mb-3">{route.description}</p>
-                            <div className="flex items-center gap-1.5 text-sm text-[#f97316] font-medium">
+                            <div className="flex items-center gap-1.5 text-sm text-[#FFCC00] font-medium">
                               <Clock className="w-4 h-4" />
                               {route.duration}
                               <ArrowRight className="ml-auto w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -773,7 +773,7 @@ const TrainPage: React.FC = () => {
                   {frankfurtRoutes.map((_, i) => (
                     <button
                       key={i}
-                      className={`h-2 rounded-full transition-all ${currentRouteSlide === i ? 'w-6 bg-[#0a2463]' : 'w-2 bg-gray-300 dark:bg-gray-600'}`}
+                      className={`h-2 rounded-full transition-all ${currentRouteSlide === i ? 'w-6 bg-[#1A2B4C]' : 'w-2 bg-gray-300 dark:bg-gray-600'}`}
                       onClick={() => routesCarouselApi?.scrollTo(i)}
                       aria-label={`Go to slide ${i + 1}`}
                     />
@@ -789,10 +789,10 @@ const TrainPage: React.FC = () => {
           <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row gap-10">
 
             <div className="flex-1">
-              <h2 className="text-2xl font-bold text-[#0a2463] dark:text-white mb-6">{tr('transport', 'secLiveBoardTitle')}</h2>
+              <h2 className="text-2xl font-bold text-[#1A2B4C] dark:text-white mb-6">{tr('transport', 'secLiveBoardTitle')}</h2>
               <div className="bg-white dark:bg-gray-900 rounded-[2rem] shadow-sm overflow-hidden border border-gray-100 dark:border-gray-700 h-[400px] overflow-y-auto">
                 <table className="w-full text-left">
-                  <thead className="bg-[#0a2463] text-white sticky top-0 z-10">
+                  <thead className="bg-[#1A2B4C] text-white sticky top-0 z-10">
                     <tr>
                       <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">Line</th>
                       <th className="px-6 py-4 text-xs font-bold uppercase tracking-widest">Destination</th>
@@ -811,7 +811,7 @@ const TrainPage: React.FC = () => {
                               {row.line}
                             </span>
                           </td>
-                          <td className="px-6 py-4 font-bold text-[#0a2463] dark:text-white">{row.to}</td>
+                          <td className="px-6 py-4 font-bold text-[#1A2B4C] dark:text-white">{row.to}</td>
                           <td className="px-6 py-4 font-mono font-bold text-gray-600 dark:text-gray-300">{row.time}</td>
                           <td className="px-6 py-4">
                             {row.delay ? (
@@ -836,7 +836,7 @@ const TrainPage: React.FC = () => {
             </div>
 
             <div className="flex-1 lg:max-w-md">
-              <h2 className="text-2xl font-bold text-[#0a2463] mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold text-[#1A2B4C] mb-6 flex items-center gap-2">
                 <Badge variant="orange">{tr('transport', 'secTravelTimesBadge')}</Badge>
               </h2>
               <div className="overflow-x-auto rounded-[2rem] border border-gray-100 dark:border-gray-700 shadow-sm bg-white dark:bg-gray-900">
@@ -852,7 +852,7 @@ const TrainPage: React.FC = () => {
                     {estimations.map((row, i) => (
                       <tr key={i} className="hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
                         <td className="px-5 py-4 text-gray-600 dark:text-gray-400">{row.from}</td>
-                        <td className="px-5 py-4 font-medium text-[#0a2463] dark:text-white">{row.to}</td>
+                        <td className="px-5 py-4 font-medium text-[#1A2B4C] dark:text-white">{row.to}</td>
                         <td className="px-5 py-4 flex items-center justify-end gap-1.5 text-gray-600 dark:text-gray-300 font-bold">
                           <Clock className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500" />
                           {row.time}
@@ -873,29 +873,29 @@ const TrainPage: React.FC = () => {
 
         {/* ── Ticket Prices ───────────────────────────────────── */}
         {tickets.length > 0 && (
-          <section className="py-16 px-4 bg-gray-50 dark:bg-gray-950">
+          <section className="py-16 px-4 bg-gray-50 dark:bg-[#0B1220]">
             <div className="max-w-screen-xl mx-auto">
               <div className="flex flex-col gap-3 mb-10 text-center items-center">
                 <Badge variant="orange" className="w-fit">{tr('transport', 'secTicketsBadge')}</Badge>
-                <h2 className="text-3xl font-bold text-[#0a2463] dark:text-white">{tr('transport', 'secTicketsTitle')}</h2>
+                <h2 className="text-3xl font-bold text-[#1A2B4C] dark:text-white">{tr('transport', 'secTicketsTitle')}</h2>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
                 {tickets.map((t) => (
                   <div key={t.name} className="bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm p-6 flex flex-col gap-4 hover:shadow-md transition-shadow relative overflow-hidden group">
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-[#0a2463]/5 rounded-bl-[100%] transition-transform group-hover:scale-110" />
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-[#1A2B4C]/5 rounded-bl-[100%] transition-transform group-hover:scale-110" />
 
                     <div className="flex flex-col gap-1">
-                      <h3 className="font-bold text-[#0a2463] dark:text-white text-lg leading-tight">{t.name}</h3>
-                      <span className="text-2xl font-black text-[#f97316]">{t.price}</span>
+                      <h3 className="font-bold text-[#1A2B4C] dark:text-white text-lg leading-tight">{t.name}</h3>
+                      <span className="text-2xl font-black text-[#FFCC00]">{t.price}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-lg w-fit">
-                      <Clock className="w-4 h-4 text-[#f97316]" />
+                      <Clock className="w-4 h-4 text-[#FFCC00]" />
                       {t.validity}
                     </div>
 
-                    <div className="flex items-start gap-2 text-sm text-[#0a2463]/80 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-950/30 border border-blue-100/50 dark:border-blue-800/50 rounded-xl p-3 mt-auto">
-                      <Info className="w-4 h-4 text-[#0a2463] shrink-0 mt-0.5" />
+                    <div className="flex items-start gap-2 text-sm text-[#1A2B4C]/80 dark:text-blue-300 bg-blue-50/50 dark:bg-blue-950/30 border border-blue-100/50 dark:border-blue-800/50 rounded-xl p-3 mt-auto">
+                      <Info className="w-4 h-4 text-[#1A2B4C] shrink-0 mt-0.5" />
                       {t.note}
                     </div>
                   </div>
@@ -903,7 +903,7 @@ const TrainPage: React.FC = () => {
               </div>
 
               <div className="mt-10 flex flex-wrap justify-center gap-4">
-                <a href="https://www.rmv.de/en/homepage/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#0a2463] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#0a2463]/90 transition-all hover:scale-105 active:scale-95 shadow-md">
+                <a href="https://www.rmv.de/en/homepage/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#1A2B4C] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#1A2B4C]/90 transition-all hover:scale-105 active:scale-95 shadow-md">
                   <MapPin className="w-5 h-5" /> RMV Journey Planner
                 </a>
                 <a href="https://www.bahn.de/en" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-[#be0000] text-white px-6 py-3 rounded-xl font-bold hover:bg-[#a00000] transition-all hover:scale-105 active:scale-95 shadow-md">
