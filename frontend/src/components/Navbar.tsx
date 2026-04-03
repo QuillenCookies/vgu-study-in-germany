@@ -65,15 +65,15 @@ const NavLink: React.FC<NavLinkProps> = ({ to, label, active, transparent, onCli
     to={to}
     onClick={onClick}
     className={`
-      flex items-center px-3.5 py-1.5 rounded-full text-[13.5px] select-none whitespace-nowrap
+      flex items-center px-3 py-1 rounded-full text-[13px] select-none whitespace-nowrap
       transition-all duration-150
       ${transparent
         ? active
           ? 'bg-white/15 text-white font-semibold'
           : 'text-white/75 font-medium hover:text-white hover:bg-white/10'
         : active
-          ? 'bg-white dark:bg-white/[0.1] text-[#1A2B4C] dark:text-white font-semibold shadow-sm'
-          : 'text-gray-500 dark:text-slate-400 font-medium hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/[0.07]'
+          ? 'bg-[#FFCC00]/10 text-[#FFCC00] font-semibold'
+          : 'text-gray-500 dark:text-slate-400 font-medium hover:bg-[#FFCC00]/[0.08] dark:hover:bg-[#FFCC00]/[0.08] hover:text-[#FFCC00] dark:hover:text-[#FFCC00]'
       }
     `}
   >
@@ -95,6 +95,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
   const [searchOpen, setSearch]   = useState(false);
   const [searchQuery, setQ]       = useState('');
   const [langOpen, setLangOpen]   = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
 
   const exploreRef    = useRef<HTMLDivElement>(null);
   const langRef       = useRef<HTMLDivElement>(null);
@@ -115,6 +116,15 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
 
   useEffect(() => { if (searchOpen) searchRef.current?.focus(); }, [searchOpen]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // True when the navbar should appear transparent (hero overlay, not yet scrolled)
+  const isTransparentTop = transparent && !scrolled;
+
   const handleExploreEnter = () => {
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     setExplore(true);
@@ -123,58 +133,59 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
     closeTimerRef.current = setTimeout(() => setExplore(false), 150);
   };
 
-  // Shared pill container style
-  const pillCls = transparent
+  // Shared pill container style — adjusts when transparent hero is scrolled
+  const pillCls = isTransparentTop
     ? 'bg-white/10 border-white/20 backdrop-blur-sm'
     : 'bg-gray-50/80 dark:bg-white/[0.04] border-gray-200/70 dark:border-white/[0.08] backdrop-blur-sm';
 
   return (
-    <header
-      className={`
-        ${transparent ? 'absolute top-0 left-0' : 'sticky top-0'}
-        z-50 w-full font-sans
-      `}
-    >
-      {/* ── Navbar bar ── */}
+    <header className="fixed top-0 left-0 right-0 z-50 w-full font-sans">
+
+      {/* ── Glassmorphism background ── */}
       <div
         className={`
-          border-b transition-all duration-300
-          ${transparent
+          absolute inset-0 border-b pointer-events-none
+          transition-all duration-500 ease-in-out
+          ${isTransparentTop
             ? 'bg-transparent border-transparent'
-            : 'bg-white/95 dark:bg-[#0B1220]/90 backdrop-blur-md border-gray-100/60 dark:border-white/[0.05] shadow-sm'
+            : scrolled
+              ? 'bg-white/70 dark:bg-[#0B1220]/75 backdrop-blur-lg border-gray-200/30 dark:border-white/[0.04] shadow-sm'
+              : 'bg-white/95 dark:bg-[#0B1220]/90 backdrop-blur-md border-gray-100/40 dark:border-white/[0.04]'
           }
         `}
-      >
-        <div className="max-w-screen-xl mx-auto flex items-center justify-between px-6 h-16 relative">
+      />
+
+      {/* ── Content ── */}
+      <div className={`max-w-screen-xl mx-auto flex items-center justify-between px-6 relative transition-all duration-500 ease-in-out ${scrolled ? 'h-14' : 'h-[68px]'}`}>
 
           {/* ── Brand ── */}
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0 select-none">
-            <motion.img
-              src={Logo}
-              alt="Study in Germany"
-              className="h-8 w-auto object-contain"
-              whileHover={{ scale: 1.05 }}
-              transition={spring}
-            />
+            <motion.div whileHover={{ scale: 1.05 }} transition={spring}>
+              <img
+                src={Logo}
+                alt="Study in Germany"
+                className={`w-auto object-contain transition-all duration-500 ease-in-out ${scrolled ? 'h-6' : 'h-8'}`}
+              />
+            </motion.div>
             <div className="hidden sm:flex flex-col leading-tight">
-              <span className={`text-[13.5px] font-bold tracking-tight ${transparent ? 'text-white' : 'text-[#1A2B4C] dark:text-white'}`}>
+              <span className={`text-[13.5px] font-bold tracking-tight transition-colors duration-500 ${isTransparentTop ? 'text-white' : 'text-[#1A2B4C] dark:text-white'}`}>
                 Study in Germany
               </span>
-              <span className={`text-[10.5px] mt-0.5 ${transparent ? 'text-white/50' : 'text-gray-400 dark:text-slate-500'}`}>
+              <span className={`text-[9px] mt-0.5 tracking-wider transition-colors duration-500 ${isTransparentTop ? 'text-white/50' : 'text-gray-400 dark:text-slate-500'}`}>
                 International Student Guide
               </span>
             </div>
           </Link>
 
           {/* ── Central Nav — Pill Capsule ── */}
-          <nav className={`hidden md:flex items-center gap-0.5 rounded-full border px-1.5 py-1.5 absolute left-1/2 -translate-x-1/2 ${pillCls}`}>
+          <nav className={`hidden md:flex items-center rounded-full border absolute left-1/2 -translate-x-1/2 transition-all duration-500 ease-in-out ${scrolled ? 'gap-0 px-1 py-0.5' : 'gap-0.5 px-1.5 py-1'} ${pillCls}`}>
 
             {/* Home */}
             <NavLink
               to="/"
               label={tr('navbar', 'home')}
               active={isActive('/')}
-              transparent={transparent}
+              transparent={isTransparentTop}
             />
 
             {/* Explore — mega menu trigger */}
@@ -186,15 +197,15 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               <button
                 aria-expanded={exploreOpen}
                 className={`
-                  flex items-center gap-1 px-3.5 py-1.5 rounded-full text-[13.5px]
+                  flex items-center gap-1 px-3 py-1 rounded-full text-[13px]
                   select-none whitespace-nowrap transition-all duration-150
-                  ${transparent
+                  ${isTransparentTop
                     ? (isExploreActive || exploreOpen)
                       ? 'bg-white/15 text-white font-semibold'
                       : 'text-white/75 font-medium hover:text-white hover:bg-white/10'
                     : (isExploreActive || exploreOpen)
-                      ? 'bg-white dark:bg-white/[0.1] text-[#1A2B4C] dark:text-white font-semibold shadow-sm'
-                      : 'text-gray-500 dark:text-slate-400 font-medium hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/[0.07]'
+                      ? 'bg-[#FFCC00]/10 text-[#FFCC00] font-semibold'
+                      : 'text-gray-500 dark:text-slate-400 font-medium hover:bg-[#FFCC00]/[0.08] dark:hover:bg-[#FFCC00]/[0.08] hover:text-[#FFCC00] dark:hover:text-[#FFCC00]'
                   }
                 `}
               >
@@ -216,7 +227,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 to={href}
                 label={tr('navbar', trKey)}
                 active={isActive(href)}
-                transparent={transparent}
+                transparent={isTransparentTop}
               />
             ))}
           </nav>
@@ -305,7 +316,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           </AnimatePresence>
 
           {/* ── Utility Capsule ── */}
-          <div className={`hidden md:flex items-center gap-0.5 rounded-full border px-1.5 py-1.5 flex-shrink-0 ${pillCls}`}>
+          <div className={`hidden md:flex items-center rounded-full border flex-shrink-0 transition-all duration-500 ease-in-out ${scrolled ? 'gap-0 px-1 py-0.5' : 'gap-0.5 px-1.5 py-1'} ${pillCls}`}>
 
             {/* Search — icon stays fixed, input expands in-place to its left */}
             <div className="flex items-center">
@@ -331,7 +342,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                         block w-[190px] text-[12.5px] px-3 py-1.5 rounded-full outline-none
                         bg-gray-100 dark:bg-white/[0.05]
                         border border-transparent focus:border-[#FFCC00]/50
-                        ${transparent ? 'text-white placeholder-white/40' : 'text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-slate-600'}
+                        ${isTransparentTop ? 'text-white placeholder-white/40' : 'text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-slate-600'}
                         transition-colors duration-150
                       `}
                     />
@@ -345,10 +356,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   flex items-center justify-center w-7 h-7 rounded-full flex-shrink-0
                   transition-all duration-150
                   ${searchOpen
-                    ? transparent
+                    ? isTransparentTop
                       ? 'bg-white/15 text-white'
                       : 'bg-white dark:bg-white/[0.1] text-[#1A2B4C] dark:text-white shadow-sm'
-                    : transparent
+                    : isTransparentTop
                       ? 'text-white/70 hover:text-white hover:bg-white/10'
                       : 'text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white hover:bg-white dark:hover:bg-white/[0.07]'
                   }
@@ -359,7 +370,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
             </div>
 
             {/* Divider */}
-            <span className={`w-px h-4 mx-0.5 flex-shrink-0 ${transparent ? 'bg-white/20' : 'bg-gray-200 dark:bg-white/[0.08]'}`} />
+            <span className={`w-px h-4 mx-0.5 flex-shrink-0 ${isTransparentTop ? 'bg-white/20' : 'bg-gray-200 dark:bg-white/[0.08]'}`} />
 
             {/* Language selector */}
             <div ref={langRef} className="relative">
@@ -368,7 +379,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   className={`
                     flex items-center gap-1 px-2.5 py-1.5 rounded-full text-[12px] font-semibold
                     transition-all duration-150 select-none whitespace-nowrap
-                    ${transparent
+                    ${isTransparentTop
                       ? langOpen
                         ? 'bg-white/15 text-white'
                         : 'text-white/70 hover:text-white hover:bg-white/10'
@@ -467,7 +478,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                 className={`
                   flex items-center justify-center w-7 h-7 rounded-full
                   transition-all duration-150
-                  ${transparent
+                  ${isTransparentTop
                     ? 'text-white/60 hover:text-white hover:bg-white/10'
                     : 'text-slate-400 hover:text-gray-700 dark:hover:text-white hover:bg-white dark:hover:bg-white/[0.07]'
                   }
@@ -500,7 +511,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           {/* ── Mobile toggle ── */}
           <button
             className={`flex md:hidden items-center justify-center w-8 h-8 rounded-lg transition-colors ${
-              transparent ? 'text-white/60 hover:text-white' : 'text-slate-400 hover:text-gray-700 dark:hover:text-white'
+              isTransparentTop ? 'text-white/60 hover:text-white' : 'text-slate-400 hover:text-gray-700 dark:hover:text-white'
             }`}
             onClick={() => setMobile(v => !v)}
             aria-label="Toggle menu"
@@ -525,7 +536,6 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           </button>
 
         </div>
-      </div>
 
       {/* ── Mobile Panel ── */}
       <AnimatePresence>
