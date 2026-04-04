@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import TrainHeroSection from '../components/pages/train/TrainHeroSection';
-import JourneyCalculator from '../components/pages/train/JourneyCalculator';
-import TransitKnowledgeBase from '../components/pages/train/TransitKnowledgeBase';
+import TrainHeroSection from '../components/pages/train/sections/TrainHeroSection';
+import TransitOverview from '../components/pages/train/sections/TransitOverview';
+import JourneyCalculator from '../components/pages/train/sections/JourneyCalculator';
+import TransitKnowledgeBase from '../components/pages/train/sections/TransitKnowledgeBase';
 import TypeOfTrain from '../components/pages/train/sections/TypeOfTrain';
 import TicketPrice from '../components/pages/train/sections/TicketPrice';
 import DelayCheck from '../components/pages/train/sections/DelayCheck';
@@ -13,20 +14,23 @@ const TrainPage: React.FC = () => {
       {/* Hero Section */}
       <TrainHeroSection />
 
-      {/* Feature A: Budgeting & Journey Pricing */}
-      <JourneyCalculator />
+      {/* Transit Overview */}
+      <TransitOverview />
 
-      {/* Feature B: German Transit Types */}
+      {/* German Transit Types */}
       <TypeOfTrain />
 
-      {/* Feature C: Ticket Guide & Semesterticket */}
+      {/* Ticket Guide & Semesterticket */}
       <TicketPrice />
 
-      {/* Feature D: Real-Time Delay & Station Board */}
-      <DelayCheck />
-
-      {/* Feature E: The Crash Course (knowledge base) */}
+      {/* The Crash Course (knowledge base) */}
       <TransitKnowledgeBase />
+
+      {/* Budgeting & Journey Pricing */}
+      <JourneyCalculator />
+
+      {/* Real-Time Delay & Station Board */}
+      <DelayCheck />
     </Layout>
   );
 };

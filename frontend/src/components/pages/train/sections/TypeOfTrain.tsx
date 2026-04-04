@@ -110,7 +110,7 @@ const TypeOfTrain: React.FC = () => {
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge className="mb-3">German Transit Network</Badge>
+          <Badge variant="orange" className="mb-3">German Transit Network</Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B4C] dark:text-white mb-3">
             Know Your Trains 🇩🇪
           </h2>
