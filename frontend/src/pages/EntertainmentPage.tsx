@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 // ─── Data ──────────────────────────────────────────────────────────────────
 
@@ -163,6 +163,8 @@ const EntertainmentPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* Hero Banner */}
       <section
@@ -399,8 +401,7 @@ const EntertainmentPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

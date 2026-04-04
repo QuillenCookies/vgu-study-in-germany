@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { useLanguage } from '../contexts/LanguageContext';
 
 const MIDNIGHT = '#1A2B4C';
@@ -66,8 +66,10 @@ const ContributorsPage: React.FC = () => {
       >
         <div className="relative z-10 w-full">
           <Navbar />
+          {/* Navbar spacer — compensates for fixed positioning */}
+          <div className="h-[59px]" />
 
-      {/* ══════════════════════════════════════════
+          {/* ══════════════════════════════════════════
           SECTION 1 — HERO
       ══════════════════════════════════════════ */}
       <section className="relative w-full max-w-full overflow-hidden box-border pt-16 pb-28 px-4 flex flex-col items-center"
@@ -78,22 +80,22 @@ const ContributorsPage: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-96 h-96 translate-y-1/2 -translate-x-1/2 rounded-full blur-[100px] pointer-events-none"
           style={{ backgroundColor: `${MIDNIGHT}60` }} />
 
-        <div className="relative z-10 max-w-screen-lg mx-auto w-full">
-          {/* Back link */}
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4 }}
-            className="mb-4"
-          >
-            <Link
-              to="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/90 text-[13px] font-medium transition-all border border-white/15 backdrop-blur-sm"
-            >
-              <ArrowLeft size={14} />
-              {tr('community', 'backHome')}
-            </Link>
-          </motion.div>
+            <div className="relative z-10 max-w-screen-lg mx-auto w-full">
+              {/* Back link */}
+              <motion.div
+                initial={{ opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mb-4"
+              >
+                <Link
+                  to="/"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white/90 text-[13px] font-medium transition-all border border-white/15 backdrop-blur-sm"
+                >
+                  <ArrowLeft size={14} />
+                  {tr('community', 'backHome')}
+                </Link>
+              </motion.div>
 
           <motion.div variants={stagger} initial="hidden" animate="show" className="text-center">
             {/* Badge */}
@@ -112,12 +114,12 @@ const ContributorsPage: React.FC = () => {
               Wall of <span style={{ color: AMBER }}>Pathfinders</span>
             </motion.h1>
 
-            <motion.p
-              variants={fadeUp}
-              className="text-white/70 text-[15px] sm:text-[16px] mb-6 max-w-lg mx-auto leading-relaxed"
-            >
-              Meet the elite flock who mapped the unknown. Have a survival hack of your own? Leave your footprint.
-            </motion.p>
+                <motion.p
+                  variants={fadeUp}
+                  className="text-white/70 text-[15px] sm:text-[16px] mb-6 max-w-lg mx-auto leading-relaxed"
+                >
+                  Meet the elite flock who mapped the unknown. Have a survival hack of your own? Leave your footprint.
+                </motion.p>
 
             <motion.div variants={fadeUp}>
               <button
@@ -133,7 +135,7 @@ const ContributorsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* ══════════════════════════════════════════
+          {/* ══════════════════════════════════════════
           SECTION 2 — PATHFINDERS DIRECTORY (Overlap)
       ══════════════════════════════════════════ */}
       <section className="relative z-20 px-4 -mt-16 pb-20">
@@ -273,7 +275,6 @@ const ContributorsPage: React.FC = () => {
                           <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/></svg>
                         </div>
                       </div>
-                    </div>
 
                     <div>
                       <label className="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-1.5">
@@ -307,6 +308,8 @@ const ContributorsPage: React.FC = () => {
                   </form>
                 )}
               </div>
+            </div>
+          </section>
 
               {/* Footer */}
               {!submitted && (

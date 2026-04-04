@@ -18,8 +18,8 @@ const containerVariants: Variants = {
 
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { type: 'spring', stiffness: 260, damping: 24 }
   }
@@ -78,6 +78,8 @@ const LegalCompassPage: React.FC = () => {
       
       {/* Navbar Integration */}
       <Navbar transparent={false} />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* High-End Background & Atmosphere */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
@@ -89,8 +91,8 @@ const LegalCompassPage: React.FC = () => {
       </div>
 
       {/* Main Structural Layout */}
-      <main className="relative z-10 w-full min-h-screen flex flex-col pt-24 pb-32 px-6">
-        
+      <main className="relative z-10 w-full min-h-screen flex flex-col pb-32 px-6">
+
         {/* Minimalist Breadcrumb Back Button */}
         <div className="w-full max-w-6xl mx-auto mb-10">
           <motion.div initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} className="flex">
@@ -120,7 +122,7 @@ const LegalCompassPage: React.FC = () => {
               {t('legalCompass', 'title1', lang)}{' '}
               <span style={{ color: AMBER }}>{t('legalCompass', 'title2', lang)}</span>
             </h1>
-            
+
             {/* Subtitle */}
             <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto">
               {t('legalCompass', 'desc', lang)}
@@ -151,7 +153,7 @@ const LegalCompassPage: React.FC = () => {
 
         {/* Professional Bento Grid (The Guardian Look) */}
         <div className="w-full max-w-6xl mx-auto flex-1 flex flex-col">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -201,10 +203,10 @@ const LegalCompassPage: React.FC = () => {
           ))}
         </motion.div>
 
-        {/* Tenant Rights Detail Component */}
-        <div className="mt-12 w-full">
-          <TenantRights />
-        </div>
+          {/* Tenant Rights Detail Component */}
+          <div className="mt-12 w-full">
+            <TenantRights />
+          </div>
 
         </div>
       </main>

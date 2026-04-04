@@ -8,7 +8,7 @@ import {
   ArrowLeft, ChevronRight, Mail,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
@@ -227,6 +227,8 @@ const CommunityPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220] font-sans max-w-full overflow-x-hidden">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO: "Join the Flock"
@@ -478,7 +480,7 @@ const CommunityPage: React.FC = () => {
 
           {/* Bento grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {FORUM_CATEGORIES.map((cat, _idx) => (
+            {FORUM_CATEGORIES.map((cat) => (
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
@@ -697,8 +699,7 @@ const CommunityPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

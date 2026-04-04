@@ -1,7 +1,11 @@
 /* Tailwind CSS import */
 @import "tailwindcss";
 
-@variant dark (&:is(.dark, .dark *));
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* ── DESIGN TOKENS (Bauhaus / Modern Federal) ───────────────────────────── */
 :root {
