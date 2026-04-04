@@ -380,6 +380,32 @@ export const translations = {
     quickGuide: { EN: 'Quick Guide', DE: 'Kurzanleitung', VN: 'Hướng Dẫn Nhanh' },
   },
 
+  // ── LEGAL COMPASS PAGE ──────────────────────────────────────────────────────
+  legalCompass: {
+    badge:             { EN: '⚖️ Legal Compass — Study in Germany', DE: '⚖️ Rechtskompass — Studium in Deutschland', VN: '⚖️ Cẩm Nang Pháp Lý Du Học Đức' },
+    titleMain:         { EN: 'Legal', DE: 'Rechts', VN: 'La Bàn' },
+    titleHighlight:    { EN: 'Compass', DE: 'kompass', VN: 'Pháp Lý' },
+    subtitle:          { EN: 'Germany takes paperwork seriously. Master these procedures to avoid unnecessary complications.', DE: 'Deutschland nimmt Papierkram ernst. Beherrsche diese Verfahren, um unnötige Komplikationen zu vermeiden.', VN: 'Đức là một nơi quan trọng đối với giấy tờ. Nắm vững các quy trình này để tránh những rắc rối không đáng có.' },
+    searchPlaceholder: { EN: 'Search: Anmeldung, visa, insurance…', DE: 'Suche: Anmeldung, Visa, Versicherung…', VN: 'Tìm kiếm: Anmeldung, visa, bảo hiểm…' },
+    backHome:          { EN: 'Back to Home', DE: 'Zur Startseite', VN: 'Về trang chủ' },
+    checklistHeader:   { EN: 'Documents / Steps', DE: 'Unterlagen / Schritte', VN: 'Hồ sơ / Các bước' },
+    articlesCount:     { EN: 'articles', DE: 'Artikel', VN: 'mục' },
+    noResults:         { EN: 'No results found.', DE: 'Keine Ergebnisse gefunden.', VN: 'Không tìm thấy kết quả phù hợp.' },
+    clearFilters:      { EN: 'Clear filters', DE: 'Filter löschen', VN: 'Xóa bộ lọc' },
+    disclaimerLabel:   { EN: '⚠️ Legal Disclaimer:', DE: '⚠️ Rechtlicher Hinweis:', VN: '⚠️ Lưu ý pháp lý:' },
+    disclaimerText:    { EN: 'Information is for reference only, updated to Q1 2026. German law may change — always verify with official authorities before acting.', DE: 'Die Informationen dienen nur zur Orientierung, Stand Q1 2026. Das deutsche Recht kann sich ändern — immer vor der Umsetzung bei offiziellen Behörden überprüfen.', VN: 'Thông tin trên mang tính tham khảo, cập nhật đến Q1 2026. Luật Đức có thể thay đổi — hãy kiểm tra lại với cơ quan chính thức trước khi thực hiện.' },
+    tagAll:            { EN: 'All Topics', DE: 'Alle Themen', VN: 'Tất cả' },
+    tagNew:            { EN: 'Newcomers', DE: 'Neuankömmlinge', VN: 'Mới sang Đức' },
+    tagResidency:      { EN: 'Residency', DE: 'Aufenthaltstitel', VN: 'Giấy tờ cư trú' },
+    tagTax:            { EN: 'Tax & Insurance', DE: 'Steuer & Versicherung', VN: 'Thuế & Bảo hiểm' },
+    catNewDesc:        { EN: 'Essential tasks for your first 30 days', DE: 'Aufgaben für die ersten 30 Tage', VN: 'Việc cần làm trong 30 ngày đầu' },
+    catResidencyDesc:  { EN: 'Legal status & long-term compliance', DE: 'Rechtsstatus & langfristige Compliance', VN: 'Pháp lý lâu dài & quyền lưu trú' },
+    catTaxDesc:        { EN: 'Financial obligations & safety nets', DE: 'Finanzpflichten & Absicherung', VN: 'Tài chính & bảo vệ bản thân' },
+    requiresLabel:     { EN: 'Complete first:', DE: 'Zuerst erledigen:', VN: 'Cần làm trước:' },
+    allInCategory:     { EN: 'All', DE: 'Alle', VN: 'Tất cả' },
+    viewAll:           { EN: 'View all topics', DE: 'Alle Themen anzeigen', VN: 'Xem tất cả chủ đề' },
+  },
+
   // ── COMMON ────────────────────────────────────────────────────────────────
   common: {
     backHome:    { EN: 'Back to Home', DE: 'Zurück zur Startseite', VN: 'Về Trang Chủ' },

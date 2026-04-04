@@ -280,7 +280,7 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               </div>
 
               {/* Grid */}
-              <div className="px-8 py-5 grid grid-cols-3 gap-x-6 gap-y-0.5">
+              <div className="px-8 py-5 grid grid-rows-4 grid-flow-col gap-x-6 gap-y-0.5">
                 {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href }) => (
                   <Link
                     key={href}
