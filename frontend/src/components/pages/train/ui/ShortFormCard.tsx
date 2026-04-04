@@ -1,7 +1,7 @@
 // frontend/src/components/train/knowledge/ShortFormCard.tsx
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import type { KnowledgeItem } from './data';
+import type { KnowledgeItem } from '../knowledge/data';
 import { Button } from '../../../ui/button';
 
 interface Props {

@@ -13,7 +13,7 @@ import {
 // @ts-ignore
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import L from 'leaflet';
-import type { LatLngExpression, LatLngTuple, PathOptions } from 'leaflet';
+import type { LatLngExpression, PathOptions } from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for default markers

@@ -1,7 +1,7 @@
 // frontend/src/components/train/knowledge/LongFormModal.tsx
 import React, { useEffect } from 'react';
 import { X } from 'lucide-react';
-import type { KnowledgeItem } from './data';
+import type { KnowledgeItem } from '../knowledge/data';
 import { Badge } from '../../../ui/badge';
 
 interface Props {

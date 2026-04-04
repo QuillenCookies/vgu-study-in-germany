@@ -2,62 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { getJourneys, searchStations } from '../../../lib/transport-api';
 import type { Location } from '../../../lib/transport-api';
-import { StationAutocomplete } from '../../ui/station-autocomplete';
-import { AdvancedMap } from '../../ui/interactive-map';
-import type { MapMarker } from '../../ui/interactive-map';
-import { Loader2, Clock, AlertTriangle, Info, Bike, MoveHorizontal, Globe2, MapPin } from 'lucide-react';
-import 'leaflet/dist/leaflet.css';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
-
-// --- HELPERS ---
-const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number) => {
-    const R = 6371; const dLat = (lat2 - lat1) * (Math.PI / 180); const dLon = (lon2 - lon1) * (Math.PI / 180);
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-    return R * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
-};
-
-const estimateCost = (journey: any) => {
-    if (journey.price?.amount > 0) return { amount: journey.price.amount, type: 'Official Price' };
-    let total = 0; let isNat = false;
-    journey.legs.forEach((leg: any) => {
-        if (!leg.origin?.location || !leg.destination?.location) return;
-        const nat = leg.line?.product === 'nationalExpress' || leg.line?.product === 'national';
-        if (nat) { isNat = true; total += 15 + (calculateDistance(leg.origin.location.latitude, leg.origin.location.longitude, leg.destination.location.latitude, leg.destination.location.longitude) * 0.15); }
-    });
-    if (!isNat) return { amount: 0, type: 'Covered by Semesterticket' };
-    return { amount: Math.round(total * 100) / 100, type: 'Est. IC/ICE Cost' };
-};
-
-const renderWalkLeg = (lat1: number, lon1: number, lat2: number, lon2: number, label: string) => {
-    const distKm = calculateDistance(lat1, lon1, lat2, lon2);
-    if (distKm < 0.1) return null; // Skip if less than 100 meters
-
-    const walkMins = Math.ceil((distKm / 5) * 60); // 5km/h formula
-    return (
-        <div className="relative pl-8 border-l-2 border-dotted border-orange-300 ml-2 pb-4">
-            <div className="absolute w-3 h-3 bg-white border-2 border-[#f97316] rounded-full -left-[7px] top-1"></div>
-            <div className="bg-orange-50 border border-orange-200 rounded-xl p-3 shadow-sm text-xs font-medium text-orange-800 flex justify-between items-center mb-2">
-                <span className="flex items-center gap-1.5"><MoveHorizontal className="w-3 h-3" /> Walk to {label} ({distKm.toFixed(2)} km)</span>
-                <span className="font-bold">{walkMins} min</span>
-            </div>
-        </div>
-    );
-};
-
-const getDuration = (start: string, end: string) => Math.round((new Date(end).getTime() - new Date(start).getTime()) / 60000);
-
-// Create a custom Leaflet icon for the midpoint data square
-// Create a custom Leaflet icon for the midpoint data square
-const createDataLabelIcon = (distance: number, minutes: number) => {
-    return L.divIcon({
-        className: 'custom-map-label',
-        html: `<div style="background-color: white; border: 2px solid #f97316; color: #0a2463; font-weight: bold; padding: 6px 12px; border-radius: 8px; font-size: 12px; white-space: nowrap; width: max-content; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.2); transform: translate(-50%, -50%);">
-            ${Math.round(distance)} km<br/>${minutes} min
-        </div>`,
-        iconSize: [0, 0] // Centered via CSS transform
-    });
-};
+import { StationAutocomplete } from './ui/station-autocomplete';
+import { AdvancedMap } from './ui/interactive-map';
+import type { MapMarker } from './ui/interactive-map';
+import { calculateDistance, estimateCost, renderWalkLeg, getDuration, createDataLabelIcon } from "./utils/journey-helpers";
+import { Loader2, Clock, AlertTriangle, Bike, Globe2, MapPin } from 'lucide-react';
 
 const JourneyCalculator: React.FC = () => {
     const [from, setFrom] = useState(''); const [fromStation, setFromStation] = useState<Location | null>(null);
@@ -231,7 +180,11 @@ const JourneyCalculator: React.FC = () => {
                                     <div className="flex flex-col gap-3 justify-center pl-4 border-l border-gray-100">
                                         <div className="flex items-center justify-between"><label className="text-xs font-bold text-gray-500 uppercase">Transfers</label>
                                             <select value={maxTransfers} onChange={e => setMaxTransfers(e.target.value)} className="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1 text-sm font-medium text-[#0a2463] outline-none">
-                                                <option value="any">Any</option><option value="0">Direct</option><option value="1">Max 1</option><option value="2">Max 2</option>
+                                                <option value="any">Any</option>
+                                                <option value="0">Direct</option>
+                                                <option value="1">Max 1</option>
+                                                <option value="2">Max 2</option>
+                                                <option value="3">Max 3</option>
                                             </select>
                                         </div>
                                         <div className="flex items-center justify-between"><label className="text-xs font-bold text-gray-500 uppercase">Bike</label>

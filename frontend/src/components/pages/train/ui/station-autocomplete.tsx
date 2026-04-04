@@ -1,8 +1,8 @@
 // frontend/src/components/ui/station-autocomplete.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { MapPin, Loader2 } from 'lucide-react';
-import { searchStations } from '../../lib/transport-api';
-import type { Location } from '../../lib/transport-api';
+import { searchStations } from '../../../../lib/transport-api';
+import type { Location } from '../../../../lib/transport-api';
 
 interface StationAutocompleteProps {
     placeholder: string;

@@ -2,8 +2,8 @@
 import React, { useState, useMemo } from 'react';
 import { knowledgeData } from './knowledge/data';
 import type { KnowledgeCategory, KnowledgeItem } from './knowledge/data';
-import { ShortFormCard } from './knowledge/ShortFormCard';
-import { LongFormModal } from './knowledge/LongFormModal';
+import { ShortFormCard } from './ui/ShortFormCard';
+import { LongFormModal } from './ui/LongFormModal';
 import { NumberedPagination } from '../../ui/numbered-pagination';
 import { Train, Ticket, BookOpen } from 'lucide-react';
 
