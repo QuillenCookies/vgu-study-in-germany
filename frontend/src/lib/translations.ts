@@ -314,11 +314,34 @@ export const translations = {
 
   // ── LEGAL COMPASS PAGE ───────────────────────────────────────────────────
   legalCompass: {
-    badge: { EN: '🛡️ Security & Trust', DE: '🛡️ Sicherheit & Vertrauen', VN: '🛡️ An Ninh & Quyền Lợi' },
+    // Page header (LegalCompassPage)
+    badge:             { EN: '⚖️ Legal Compass — Study in Germany', DE: '⚖️ Rechtskompass — Studium in Deutschland', VN: '⚖️ Cẩm Nang Pháp Lý Du Học Đức' },
+    titleMain:         { EN: 'Legal', DE: 'Rechts', VN: 'La Bàn' },
+    titleHighlight:    { EN: 'Compass', DE: 'kompass', VN: 'Pháp Lý' },
+    subtitle:          { EN: 'Germany takes paperwork seriously. Master these procedures to avoid unnecessary complications.', DE: 'Deutschland nimmt Papierkram ernst. Beherrsche diese Verfahren, um unnötige Komplikationen zu vermeiden.', VN: 'Đức là một nơi quan trọng đối với giấy tờ. Nắm vững các quy trình này để tránh những rắc rối không đáng có.' },
+    searchPlaceholder: { EN: 'Search: Anmeldung, visa, insurance…', DE: 'Suche: Anmeldung, Visa, Versicherung…', VN: 'Tìm kiếm: Anmeldung, visa, bảo hiểm…' },
+    backHome:          { EN: 'Back to Home', DE: 'Zurück zur Startseite', VN: 'Về Trang Chủ' },
+    checklistHeader:   { EN: 'Documents / Steps', DE: 'Unterlagen / Schritte', VN: 'Hồ sơ / Các bước' },
+    articlesCount:     { EN: 'articles', DE: 'Artikel', VN: 'mục' },
+    noResults:         { EN: 'No results found.', DE: 'Keine Ergebnisse gefunden.', VN: 'Không tìm thấy kết quả phù hợp.' },
+    clearFilters:      { EN: 'Clear filters', DE: 'Filter löschen', VN: 'Xóa bộ lọc' },
+    disclaimerLabel:   { EN: '⚠️ Legal Disclaimer:', DE: '⚠️ Rechtlicher Hinweis:', VN: '⚠️ Lưu ý pháp lý:' },
+    disclaimerText:    { EN: 'Information is for reference only, updated to Q1 2026. German law may change — always verify with official authorities before acting.', DE: 'Die Informationen dienen nur zur Orientierung, Stand Q1 2026. Das deutsche Recht kann sich ändern — immer vor der Umsetzung bei offiziellen Behörden überprüfen.', VN: 'Thông tin trên mang tính tham khảo, cập nhật đến Q1 2026. Luật Đức có thể thay đổi — hãy kiểm tra lại với cơ quan chính thức trước khi thực hiện.' },
+    tagAll:            { EN: 'All Topics', DE: 'Alle Themen', VN: 'Tất cả' },
+    tagNew:            { EN: 'Newcomers', DE: 'Neuankömmlinge', VN: 'Mới sang Đức' },
+    tagResidency:      { EN: 'Residency', DE: 'Aufenthaltstitel', VN: 'Giấy tờ cư trú' },
+    tagTax:            { EN: 'Tax & Insurance', DE: 'Steuer & Versicherung', VN: 'Thuế & Bảo hiểm' },
+    catNewDesc:        { EN: 'Essential tasks for your first 30 days', DE: 'Aufgaben für die ersten 30 Tage', VN: 'Việc cần làm trong 30 ngày đầu' },
+    catResidencyDesc:  { EN: 'Legal status & long-term compliance', DE: 'Rechtsstatus & langfristige Compliance', VN: 'Pháp lý lâu dài & quyền lưu trú' },
+    catTaxDesc:        { EN: 'Financial obligations & safety nets', DE: 'Finanzpflichten & Absicherung', VN: 'Tài chính & bảo vệ bản thân' },
+    requiresLabel:     { EN: 'Complete first:', DE: 'Zuerst erledigen:', VN: 'Cần làm trước:' },
+    allInCategory:     { EN: 'All', DE: 'Alle', VN: 'Tất cả' },
+    viewAll:           { EN: 'View all topics', DE: 'Alle Themen anzeigen', VN: 'Xem tất cả chủ đề' },
+
+    // Legacy card keys (used by other pages/components)
     title1: { EN: 'Legal', DE: 'Rechts', VN: 'La Bàn' },
     title2: { EN: 'Compass', DE: 'Kompass', VN: 'Pháp Lý' },
     desc: { EN: 'Your guide to navigating German bureaucracy and protecting your rights.', DE: 'Dein Leitfaden, um die deutsche Bürokratie zu meistern und deine Rechte zu schützen.', VN: 'Hướng dẫn của bạn để vượt qua các thủ tục hành chính tại Đức và bảo vệ quyền lợi cá nhân.' },
-    searchPlaceholder: { EN: 'Search for visas, rental laws, or labor rights...', DE: 'Suche nach Visa, Mietgesetzen oder Arbeitsrechten...', VN: 'Tìm kiếm visa, luật thuê nhà, hoặc quyền lao động...' },
     card1Title: { EN: 'Tenant Rights', DE: 'Mieterrechte', VN: 'Quyền Khách Thuê' },
     card1Scope: { EN: 'Rental contracts, deposits (Kaution), and noise regulations.', DE: 'Mietverträge, Kautionen und Lärmschutzbestimmungen.', VN: 'Hợp đồng thuê, tiền cọc (Kaution) và quy định tiếng ồn.' },
     card2Title: { EN: 'Employment Law', DE: 'Arbeitsrecht', VN: 'Luật Lao Động' },
@@ -327,31 +350,24 @@ export const translations = {
     card3Scope: { EN: 'Mandatory Health Insurance and the essential Private Liability (Haftpflicht).', DE: 'Krankenversicherungspflicht und die wesentliche Privathaftpflicht.', VN: 'Bảo hiểm Y tế bắt buộc và Bảo hiểm Trách nhiệm cá nhân Thiết yếu (Haftpflicht).' },
     card4Title: { EN: 'Bureaucracy Hacks', DE: 'Bürokratie-Hacks', VN: 'Mẹo Hành Chính' },
     card4Scope: { EN: 'Step-by-step guides for Anmeldung, GEZ radio tax, and Visa extensions.', DE: 'Schritt-für-Schritt-Anleitungen für Anmeldung, GEZ-Rundfunkbeitrag und Visa-Verlängerungen.', VN: 'Hướng dẫn từng bước cho Anmeldung, thuế phát thanh GEZ và Gia hạn Visa.' },
-    backHome: { EN: 'Back to Home', DE: 'Zurück zur Startseite', VN: 'Về Trang Chủ' },
-    
-    // Tenant Rights component
+
+    // TenantRights component
     trTitle1: { EN: 'Common Issues', DE: 'Häufige Probleme', VN: 'Vấn Đề Phổ Biến' },
     trIssue1: { EN: 'Landlord withholding deposit?', DE: 'Vermieter behält Kaution?', VN: 'Chủ nhà không trả cọc?' },
     trContext1: { EN: 'Legally, landlords have 3-6 months to return the Kaution. Deductions must be justified.', DE: 'Rechtlich gesehen haben Vermieter 3-6 Monate Zeit, die Kaution zurückzuzahlen. Abzüge müssen begründet sein.', VN: 'Theo luật, chủ nhà có 3-6 tháng để trả lại Kaution. Việc trừ tiền phải được giải thích.' },
     trAction1: { EN: 'Steps to send a formal request (Mahnung)', DE: 'Schritte für eine formelle Anfrage (Mahnung)', VN: 'Các bước gửi yêu cầu chính thức (Mahnung)' },
-    
     trIssue2: { EN: 'Unexpected rent increase?', DE: 'Unerwartete Mieterhöhung?', VN: 'Tăng tiền thuê đột ngột?' },
     trContext2: { EN: 'Rent control (Mietpreisbremse) applies in many cities. Increases have strict caps.', DE: 'Die Mietpreisbremse gilt in vielen Städten. Erhöhungen haben strenge Obergrenzen.', VN: 'Kiểm soát giá thuê (Mietpreisbremse) áp dụng ở nhiều TP. Có giới hạn nghiêm ngặt.' },
     trAction2: { EN: 'Check local rent index (Mietspiegel)', DE: 'Lokalen Mietspiegel prüfen', VN: 'Kiểm tra biểu giá thuê địa phương (Mietspiegel)' },
-    
     trIssue3: { EN: 'Noise disputes (Ruhestörung)?', DE: 'Lärmstreitigkeiten (Ruhestörung)?', VN: 'Tranh chấp tiếng ồn (Ruhestörung)?' },
     trContext3: { EN: 'Quiet hours (Ruhezeit) are strictly from 22:00 to 06:00 and all day Sunday.', DE: 'Ruhezeiten sind streng von 22:00 bis 06:00 Uhr und den ganzen Sonntag.', VN: 'Giờ yên tĩnh (Ruhezeit) nghiêm ngặt từ 22:00 đến 06:00 và cả ngày Chủ Nhật.' },
     trAction3: { EN: 'Protocol templates for noise logs', DE: 'Protokollvorlagen für Lärmprotokolle', VN: 'Mẫu biên bản ghi nhận tiếng ồn' },
-
     trRedFlagTitle: { EN: 'Red-Flag Checklist', DE: 'Red-Flag-Checkliste', VN: 'Checklist "Cờ Đỏ"' },
     trRedFlagDesc: { EN: 'Common pitfalls in German lease agreements', DE: 'Häufige Fallstricke in deutschen Mietverträgen', VN: 'Những cạm bẫy phổ biến trong hợp đồng thuê nhà Đức' },
     trRf1: { EN: 'Unclear additional costs (Nebenkosten)', DE: 'Unklare Nebenkosten', VN: 'Chi phí phụ (Nebenkosten) không rõ ràng' },
     trRf2: { EN: 'Illegal renovation clauses (Schönheitsreparaturen)', DE: 'Illegale Renovierungsklauseln', VN: 'Điều khoản sửa chữa (Schönheitsreparaturen) trái luật' },
     trRf3: { EN: 'Missing exact move-in protocols', DE: 'Fehlende genaue Einzugsprotokolle', VN: 'Thiếu biên bản bàn giao nhà chính xác' },
-
     startAction: { EN: 'Start Action', DE: 'Aktion starten', VN: 'Bắt Đầu Xử Lý' },
-    
-    // UI Polish Elements
     btnLearn: { EN: 'Learn Your Rights', DE: 'Lerne deine Rechte kennen', VN: 'Tìm Hiểu Quyền Lợi Của Bạn' },
     tagHighPriority: { EN: 'High Priority', DE: 'Hohe Priorität', VN: 'Ưu Tiên Cao' },
     tagEssential: { EN: 'Essential', DE: 'Essenziell', VN: 'Thiết Yếu' },

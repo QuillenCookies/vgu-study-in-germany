@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
     MapContainer,
     TileLayer,
     Marker,
     Popup,
-    Circle,
-    Polygon,
     Polyline,
-    useMap,
     useMapEvents
 } from 'react-leaflet';
 // @ts-ignore

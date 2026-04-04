@@ -344,7 +344,7 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO
       ══════════════════════════════════════════ */}
-      <section className="relative w-full flex items-center justify-center min-h-[92vh] overflow-hidden">
+      <section className="relative w-full flex items-center justify-center min-h-screen overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
