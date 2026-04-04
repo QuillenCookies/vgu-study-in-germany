@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Euro, Search, Leaf, Globe, Star, Filter, ChefHat, MapPin, UtensilsCrossed } from 'lucide-react';
@@ -86,7 +86,7 @@ const FoodPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
 
       {/* Hero */}
@@ -97,9 +97,9 @@ const FoodPage: React.FC = () => {
           <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium hover:bg-white/30 transition-colors backdrop-blur-sm">
             <ArrowLeft className="w-4 h-4" /> {tr('food', 'backHome')}
           </Link>
-          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-orange-500/30 text-orange-200 text-sm font-medium border border-orange-400/30">{tr('food', 'badge')}</span>
+          <span className="inline-block mb-4 px-4 py-1 rounded-full bg-[#FFCC00]/30 text-orange-200 text-sm font-medium border border-amber-400/30">{tr('food', 'badge')}</span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4 drop-shadow-lg">
-            {tr('food', 'title1')} <span className="text-orange-400">{tr('food', 'title2')}</span>
+            {tr('food', 'title1')} <span className="text-amber-400">{tr('food', 'title2')}</span>
           </h1>
           <p className="text-lg text-white/85 mb-10 max-w-2xl">{tr('food', 'desc')}</p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
@@ -134,7 +134,7 @@ const FoodPage: React.FC = () => {
               <Filter className="w-4 h-4 text-gray-500 dark:text-gray-400" />
               {dietFilters.map((f) => (
                 <button key={f} onClick={() => setActiveFilter(f)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${activeFilter === f ? 'bg-orange-500 text-white shadow-md' : `${dietColors[f]} hover:opacity-80`}`}>
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${activeFilter === f ? 'bg-[#FFCC00] text-white shadow-md' : `${dietColors[f]} hover:opacity-80`}`}>
                   {f === 'Vegetarian' && <Leaf className="w-3 h-3 inline mr-1" />}{f === 'All' ? tr('food', 'filterAll') : f}
                 </button>
               ))}
@@ -162,7 +162,7 @@ const FoodPage: React.FC = () => {
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-2">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white">{dish.name}</h3>
-                    <span className="flex items-center gap-1 text-orange-600 font-semibold text-sm"><Euro className="w-3.5 h-3.5" />{dish.avgCost}</span>
+                    <span className="flex items-center gap-1 text-amber-400 font-semibold text-sm"><Euro className="w-3.5 h-3.5" />{dish.avgCost}</span>
                   </div>
                   <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400 mb-3"><Globe className="w-3 h-3" /><span>{dish.origin}</span></div>
                   <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 leading-relaxed">{dish.description}</p>
@@ -178,7 +178,7 @@ const FoodPage: React.FC = () => {
             <div className="text-center py-20 text-gray-500 dark:text-gray-400">
               <UtensilsCrossed className="w-12 h-12 mx-auto mb-3 opacity-30" />
               <p>{tr('food', 'noDishes')}</p>
-              <button onClick={() => { setActiveFilter('All'); setSearchQuery(''); }} className="mt-3 text-orange-600 text-sm hover:underline">{tr('food', 'clearFilter')}</button>
+              <button onClick={() => { setActiveFilter('All'); setSearchQuery(''); }} className="mt-3 text-amber-400 text-sm hover:underline">{tr('food', 'clearFilter')}</button>
             </div>
           )}
         </div>
@@ -200,7 +200,7 @@ const FoodPage: React.FC = () => {
                 <div className="relative h-36 overflow-hidden">
                   <img src={r.image} alt={r.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-3 left-3 text-xl bg-white/20 backdrop-blur-sm px-2 py-1 rounded-lg">{r.origin}</div>
-                  <div className="absolute top-3 right-3 bg-orange-500 text-white text-sm font-bold px-2 py-0.5 rounded-lg">{r.price}</div>
+                  <div className="absolute top-3 right-3 bg-[#FFCC00] text-white text-sm font-bold px-2 py-0.5 rounded-lg">{r.price}</div>
                 </div>
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-2">
