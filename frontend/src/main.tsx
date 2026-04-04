@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
-import { UniversityProvider } from './context/UniversityContext.tsx'
+import { UniversityProvider } from './contexts/UniversityContext'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,25 +1,28 @@
-# AI Context: Commute & Transport Backend (Django)
+# Feature:
 
-## 1. Core Models & Data Shape
-This module relies heavily on external API caching rather than pure database storage.
+- User choose a random place, and a university.
+- They get: shortest route from the place to the university, including the walking / bus transition.
 
-**A. `Station` (Public Transit Nodes)**
-- `station_id` (PK, string-based to match external GTFS ID)
-- `city_id` (FK)
-- `station_name` (String)
-- `transport_type` (Choices: S-Bahn, U-Bahn, Bus, Tram)
-- `lat`, `long` (Decimal)
 
-## 2. API Routes (Prefix: `/api/v1/commute/`)
-JWT authentication required.
+# Method: (you think up more please)
+- Download the GTFS data to get the route and trips (https://gtfs.de/en/feeds/de_full/); Real time in Hessen (Check this out: https://www.nvbw.de/open-data/fahrplandaten) - no need I guess.
+- Plan it whatever way you think is good... It would be decent if you allow multiple ways of getting the random place: insert a lat / long; insert a place name.
 
-**Endpoints:**
-1. `GET /stations/`: List stations in a specific `city_id`. Filter by `transport_type`.
-2. `GET /route/`: **Core Feature.** Accepts `start_lat`, `start_long`, `end_lat`, `end_long`. Backend queries OpenRouteService (Home -> Station -> Uni) and returns the compiled route graph.
-3. `GET /live-status/?station_id=XYZ`: **Core Feature.** Queries GTFS-RT (Real-Time) or DB hafas-client to return current delays for the specified station.
-4. `GET /compare/?city_ids=1,2`: Aggregation route. Compares average commute times to major universities and average monthly transit ticket prices between cities.
 
-## 3. Strict Development Rules
-- **Caching is Mandatory:** External API calls to OpenRouteService and DB GTFS must be cached using Redis or Django's cache framework to prevent rate-limiting and improve latency.
-- **Graph Data Format:** Route calculations must be returned in a standardized graph/node format that the frontend can easily plot on a map component.
-- Standardize all responses: `{"status": "success|error", "data": {...}}`. Catch all external API timeout errors gracefully.
+# Predefined Database Table:
+
+- Path: `backend\devserver\models\train.py`
+- parent_station: station_id,city_id,stop_name,lat,long
+- route_types: route_type_id,route_type_name,description
+- station_route_types: station_id,route_type_id
+- stop_to_stations: stop_id,station_id,lat,long
+
+# The frequently GTFS updated table (which are in text files):
+
+- routes.txt: route_long_name,route_short_name,agency_id,route_type,route_id,route_color,route_text_color
+- stop_times.txt: trip_id,arrival_time,departure_time,stop_id,stop_sequence,pickup_type,drop_off_type
+- trips.txt: route_id,service_id,trip_id
+
+# Your task:
+
+Carefully plan out this task for an AI to work on it. Plan the steps carefully and comprehensively, follow the API documents **VERY CLOSELY**

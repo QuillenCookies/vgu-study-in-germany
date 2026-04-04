@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import Layout from '../components/Layout';
 import { Badge } from '../components/ui/badge';
 import { MapPin, Globe, BookOpen, Star, ExternalLink, Loader2, X, Filter, ArrowDownUp } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useUniversity } from '../context/UniversityContext';
+import { useUniversity } from '../contexts/UniversityContext';
 
 interface University {
   id: string;
@@ -131,8 +131,8 @@ const UniversitiesPage: React.FC = () => {
     return (
       <Layout>
         <div className="flex flex-col items-center justify-center min-h-[60vh]">
-          <Loader2 className="w-10 h-10 animate-spin text-[#f97316] mb-4" />
-          <p className="text-[#0a2463] dark:text-white font-medium">{tr('universities', 'loading')}</p>
+          <Loader2 className="w-10 h-10 animate-spin text-[#FFCC00] mb-4" />
+          <p className="text-[#1A2B4C] dark:text-white font-medium">{tr('universities', 'loading')}</p>
         </div>
       </Layout>
     );
@@ -150,7 +150,7 @@ const UniversitiesPage: React.FC = () => {
 
   return (
     <Layout>
-      <section className="relative bg-[#0a2463] text-white py-20 px-4 overflow-hidden">
+      <section className="relative bg-[#1A2B4C] text-white py-20 px-4 overflow-hidden">
         <div
           className="absolute inset-0 opacity-20 bg-cover bg-center"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80')" }}
@@ -158,7 +158,7 @@ const UniversitiesPage: React.FC = () => {
         <div className="relative z-10 max-w-4xl mx-auto text-center">
           <Badge variant="orange" className="mb-4 text-sm px-4 py-1">{tr('universities', 'badge')}</Badge>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4 drop-shadow-lg">
-            {tr('universities', 'title1')} <span className="text-[#f97316]">{tr('universities', 'title2')}</span>
+            {tr('universities', 'title1')} <span className="text-[#FFCC00]">{tr('universities', 'title2')}</span>
           </h1>
           <p className="text-lg text-white/80 max-w-2xl mx-auto">
             {tr('universities', 'desc')}
@@ -166,11 +166,11 @@ const UniversitiesPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-12 px-4 bg-gray-50 dark:bg-gray-950 min-h-screen">
+      <section className="py-12 px-4 bg-gray-50 dark:bg-[#0B1220] min-h-screen">
         <div className="max-w-screen-xl mx-auto">
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1A2B4C] dark:text-white tracking-tight">
               {selectedLocation?.type === 'city'
                 ? `${tr('universities', 'uniIn')} ${selectedLocation.name}`
                 : tr('universities', 'uniComparison')}
@@ -199,7 +199,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterCity}
                 onChange={(e) => setFilterCity(e.target.value)}
-                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#FFCC00] focus:border-[#FFCC00] p-2.5 outline-none cursor-pointer"
               >
                 <option value="All">{tr('universities', 'allCities')}</option>
                 {availableCities.map(city => (
@@ -210,7 +210,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterType}
                 onChange={(e) => setFilterType(e.target.value)}
-                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#FFCC00] focus:border-[#FFCC00] p-2.5 outline-none cursor-pointer"
               >
                 <option value="All">{tr('universities', 'allTypes')}</option>
                 <option value="Public">Public</option>
@@ -220,7 +220,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={filterHighlight}
                 onChange={(e) => setFilterHighlight(e.target.value)}
-                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer max-w-[200px]"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#FFCC00] focus:border-[#FFCC00] p-2.5 outline-none cursor-pointer max-w-[200px]"
               >
                 <option value="All">{tr('universities', 'allHighlights')}</option>
                 {availableHighlights.map(highlight => (
@@ -238,7 +238,7 @@ const UniversitiesPage: React.FC = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
-                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#f97316] focus:border-[#f97316] p-2.5 outline-none cursor-pointer"
+                className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-100 text-sm rounded-lg focus:ring-[#FFCC00] focus:border-[#FFCC00] p-2.5 outline-none cursor-pointer"
               >
                 <option value="default">{tr('universities', 'sortDefault')}</option>
                 <option value="global">{tr('universities', 'sortGlobal')}</option>
@@ -251,7 +251,7 @@ const UniversitiesPage: React.FC = () => {
           {processedUniversities.length === 0 ? (
             <div className="text-center py-20 bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-700 shadow-sm">
               <div className="text-4xl mb-4">🕵️‍♂️</div>
-              <h3 className="text-xl font-bold text-[#0a2463] dark:text-white mb-2">{tr('universities', 'noResults')}</h3>
+              <h3 className="text-xl font-bold text-[#1A2B4C] dark:text-white mb-2">{tr('universities', 'noResults')}</h3>
               <p className="text-gray-500 dark:text-gray-400 mb-6">{tr('universities', 'tryAdjust')}</p>
               <button
                 onClick={() => {
@@ -259,7 +259,7 @@ const UniversitiesPage: React.FC = () => {
                   setFilterType('All');
                   setFilterHighlight('All');
                 }}
-                className="px-6 py-2 bg-[#f97316] text-white rounded-lg hover:bg-[#ea6c0a] transition-colors font-medium"
+                className="px-6 py-2 bg-[#FFCC00] text-white rounded-lg hover:bg-[#e6b800] transition-colors font-medium"
               >
                 {tr('universities', 'clearFilters')}
               </button>
@@ -270,7 +270,7 @@ const UniversitiesPage: React.FC = () => {
                 <div key={uni.id} className="group bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-1">
                   <div className="relative h-48 overflow-hidden">
                     <img src={uni.image} alt={uni.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a2463]/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A2B4C]/70 to-transparent" />
                     <div className="absolute bottom-3 left-3 flex gap-2">
                       {/* Dynamic Color for Public vs Private */}
                       <span className={`px-2.5 py-1 text-xs font-semibold rounded-full border shadow-sm backdrop-blur-md ${uni.type === 'Public'
@@ -283,11 +283,11 @@ const UniversitiesPage: React.FC = () => {
                   </div>
 
                   <div className="flex flex-col flex-1 p-5 gap-3">
-                    <h3 className="text-lg font-bold text-[#0a2463] dark:text-white leading-tight group-hover:text-[#f97316] transition-colors">
+                    <h3 className="text-lg font-bold text-[#1A2B4C] dark:text-white leading-tight group-hover:text-[#FFCC00] transition-colors">
                       {uni.name}
                     </h3>
                     <div className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
-                      <MapPin className="w-4 h-4 shrink-0 text-[#f97316]" />
+                      <MapPin className="w-4 h-4 shrink-0 text-[#FFCC00]" />
                       {uni.city}
                     </div>
 
@@ -296,13 +296,13 @@ const UniversitiesPage: React.FC = () => {
                         <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                           <Globe className="w-4 h-4 text-blue-500" /> {tr('universities', 'globalRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463] dark:text-white">{uni.globalRank.includes('Unranked') ? 'Unranked' : uni.globalRank}</span>
+                        <span className="font-semibold text-[#1A2B4C] dark:text-white">{uni.globalRank.includes('Unranked') ? 'Unranked' : uni.globalRank}</span>
                       </div>
                       <div className="flex items-start justify-between text-sm">
                         <span className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
                           <BookOpen className="w-4 h-4 text-purple-500" /> {tr('universities', 'subjectRank')}
                         </span>
-                        <span className="font-semibold text-[#0a2463] dark:text-white">{uni.subjectRank.includes('N/A') ? 'N/A' : uni.subjectRank}</span>
+                        <span className="font-semibold text-[#1A2B4C] dark:text-white">{uni.subjectRank.includes('N/A') ? 'N/A' : uni.subjectRank}</span>
                       </div>
                     </div>
 
@@ -319,7 +319,7 @@ const UniversitiesPage: React.FC = () => {
                       })}
                     </div>
 
-                    <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#0a2463] dark:text-white hover:text-[#f97316] dark:hover:text-[#f97316] transition-colors pt-4 border-t border-gray-100 dark:border-gray-700">
+                    <a href={uni.url} target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center justify-between text-sm font-semibold text-[#1A2B4C] dark:text-white hover:text-[#FFCC00] dark:hover:text-[#FFCC00] transition-colors pt-4 border-t border-gray-100 dark:border-gray-700">
                       {tr('universities', 'visitWebsite')}
                       <ExternalLink className="w-4 h-4" />
                     </a>

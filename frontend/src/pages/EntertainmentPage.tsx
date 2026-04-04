@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
@@ -127,7 +127,7 @@ const events = [
     name: 'Mainfest',
     month: 'August',
     icon: <Sun className="w-5 h-5" />,
-    color: 'text-orange-600',
+    color: 'text-amber-400',
     bg: 'bg-orange-100',
     description: 'A beloved folk festival along the Main riverbank with traditional foods, rides, and live entertainment.',
   },
@@ -161,7 +161,7 @@ const stats = [
 const EntertainmentPage: React.FC = () => {
   const { tr } = useLanguage();
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
 
       {/* Hero Banner */}
@@ -306,7 +306,7 @@ const EntertainmentPage: React.FC = () => {
       </section>
 
       {/* Events Section */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#1a0533] to-[#0a2463]">
+      <section className="py-20 px-4 bg-gradient-to-br from-[#1a0533] to-[#1A2B4C]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-purple-500/30 text-purple-300 text-sm font-semibold border border-purple-400/30">

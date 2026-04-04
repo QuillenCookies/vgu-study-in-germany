@@ -12,7 +12,7 @@ import HousingPage from './pages/HousingPage';
 import CommunityPage from './pages/CommunityPage';
 import ToolsPage from './pages/ToolsPage';
 import ContributorsPage from './pages/ContributorsPage';
-import LibraryPage from './pages/Library';
+import LibraryPage from './pages/LibraryPage';
 import LegalCompassPage from './pages/LegalCompassPage';
 import HealthWellnessPage from './pages/HealthWellnessPage';
 import CareerPage from './pages/CareerPage';

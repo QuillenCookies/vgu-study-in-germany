@@ -1,7 +1,7 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { 
+import {
   X, PenLine, ArrowLeft, Users, Send,
   Globe, Home, ShoppingBag, Train, BookOpen, PartyPopper
 } from 'lucide-react';
@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
+
+const MIDNIGHT = '#1A2B4C';
+const AMBER    = '#FFCC00';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
 const fadeUp: Variants = {
@@ -22,66 +25,12 @@ const stagger: Variants = {
 
 // ── PATHFINDERS DATA ───────────────────────────────────────────────────────
 const PATHFINDERS = [
-  {
-    name: "Alex Tran",
-    role: "Visa Pathfinder",
-    avatar: "https://i.pravatar.cc/150?img=11",
-    hacks: 24,
-    badge: "Legendary",
-    Icon: Globe,
-    iconColor: "text-blue-500",
-    iconBg: "bg-blue-50",
-  },
-  {
-    name: "Sarah N.",
-    role: "Housing Guru",
-    avatar: "https://i.pravatar.cc/150?img=5",
-    hacks: 18,
-    badge: "Expert",
-    Icon: Home,
-    iconColor: "text-purple-500",
-    iconBg: "bg-purple-50",
-  },
-  {
-    name: "Minh Le",
-    role: "Bargain Hunter",
-    avatar: "https://i.pravatar.cc/150?img=8",
-    hacks: 15,
-    badge: "Pro",
-    Icon: ShoppingBag,
-    iconColor: "text-orange-500",
-    iconBg: "bg-orange-50",
-  },
-  {
-    name: "Duc Pham",
-    role: "Transport Pro",
-    avatar: "https://i.pravatar.cc/150?img=12",
-    hacks: 12,
-    badge: "Veteran",
-    Icon: Train,
-    iconColor: "text-emerald-500",
-    iconBg: "bg-emerald-50",
-  },
-  {
-    name: "Linh Vu",
-    role: "Study Expert",
-    avatar: "https://i.pravatar.cc/150?img=9",
-    hacks: 9,
-    badge: "Explorer",
-    Icon: BookOpen,
-    iconColor: "text-indigo-500",
-    iconBg: "bg-indigo-50",
-  },
-  {
-    name: "Khoa Nguyen",
-    role: "Social Butterfly",
-    avatar: "https://i.pravatar.cc/150?img=14",
-    hacks: 8,
-    badge: "Newbie",
-    Icon: PartyPopper,
-    iconColor: "text-rose-500",
-    iconBg: "bg-rose-50",
-  }
+  { name: "Alex Tran",    role: "Visa Pathfinder",   avatar: "https://i.pravatar.cc/150?img=11", hacks: 24, badge: "Legendary", Icon: Globe,         iconBg: 'rgba(26,43,76,0.08)' },
+  { name: "Sarah N.",    role: "Housing Guru",       avatar: "https://i.pravatar.cc/150?img=5",  hacks: 18, badge: "Expert",    Icon: Home,          iconBg: 'rgba(26,43,76,0.08)' },
+  { name: "Minh Le",     role: "Bargain Hunter",     avatar: "https://i.pravatar.cc/150?img=8",  hacks: 15, badge: "Pro",       Icon: ShoppingBag,   iconBg: 'rgba(26,43,76,0.08)' },
+  { name: "Duc Pham",    role: "Transport Pro",      avatar: "https://i.pravatar.cc/150?img=12", hacks: 12, badge: "Veteran",  Icon: Train,         iconBg: 'rgba(26,43,76,0.08)' },
+  { name: "Linh Vu",     role: "Study Expert",       avatar: "https://i.pravatar.cc/150?img=9",  hacks:  9, badge: "Explorer", Icon: BookOpen,      iconBg: 'rgba(26,43,76,0.08)' },
+  { name: "Khoa Nguyen", role: "Social Butterfly",   avatar: "https://i.pravatar.cc/150?img=14", hacks:  8, badge: "Newbie",   Icon: PartyPopper,   iconBg: 'rgba(26,43,76,0.08)' },
 ];
 
 // ── MAIN PAGE ───────────────────────────────────────────────────────────────
@@ -121,10 +70,13 @@ const ContributorsPage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO
       ══════════════════════════════════════════ */}
-      <section className="relative w-full max-w-full overflow-hidden box-border bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#060f2e] pt-16 pb-28 px-4 flex flex-col items-center">
-        {/* Background glow blobs */}
-        <div className="absolute top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-500/15 blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 translate-y-1/2 -translate-x-1/2 rounded-full bg-blue-500/15 blur-[100px] pointer-events-none" />
+      <section className="relative w-full max-w-full overflow-hidden box-border pt-16 pb-28 px-4 flex flex-col items-center"
+        style={{ background: `linear-gradient(135deg, ${MIDNIGHT} 0%, #0D1F38 60%, #080f1e 100%)` }}>
+        {/* Subtle blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2 rounded-full blur-[100px] pointer-events-none"
+          style={{ backgroundColor: `${AMBER}15` }} />
+        <div className="absolute bottom-0 left-0 w-96 h-96 translate-y-1/2 -translate-x-1/2 rounded-full blur-[100px] pointer-events-none"
+          style={{ backgroundColor: `${MIDNIGHT}60` }} />
 
         <div className="relative z-10 max-w-screen-lg mx-auto w-full">
           {/* Back link */}
@@ -147,16 +99,17 @@ const ContributorsPage: React.FC = () => {
             {/* Badge */}
             <motion.span
               variants={fadeUp}
-              className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-orange-500/20 backdrop-blur-md border border-orange-500/30 text-orange-400 text-[11px] font-bold uppercase tracking-widest"
+              className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full backdrop-blur-md border text-[11px] font-bold uppercase tracking-widest"
+              style={{ background: `${AMBER}20`, borderColor: `${AMBER}30`, color: AMBER }}
             >
               <Users size={12} /> Join the Migration
             </motion.span>
 
             <motion.h1
               variants={fadeUp}
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight mb-2 drop-shadow-xl"
+              className="text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-tight tracking-tight mb-2 drop-shadow-xl"
             >
-              Wall of <span className="text-[#f97316]">Pathfinders</span>
+              Wall of <span style={{ color: AMBER }}>Pathfinders</span>
             </motion.h1>
 
             <motion.p
@@ -169,11 +122,10 @@ const ContributorsPage: React.FC = () => {
             <motion.div variants={fadeUp}>
               <button
                 onClick={() => setIsModalOpen(true)}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#f97316] hover:bg-[#ea6c0a]
-                  text-white font-bold text-[15px] shadow-lg shadow-orange-500/30
-                  transition-all duration-200 hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-[15px] transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"
+                style={{ backgroundColor: AMBER, color: MIDNIGHT, boxShadow: `0 4px 20px ${AMBER}35` }}
               >
-                <PenLine size={16} />
+                <PenLine size={16} strokeWidth={1.75} />
                 Become a Contributor
               </button>
             </motion.div>
@@ -196,30 +148,29 @@ const ContributorsPage: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group relative p-8 rounded-2xl border border-slate-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-2xl shadow-black/5 hover:shadow-black/10 transition-all duration-300 flex flex-col"
+                  className="group relative p-8 rounded-lg border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
                 >
                   <div className="flex items-start justify-between mb-8">
                     <div className="flex items-center gap-4">
                       <img src={p.avatar} alt={p.name} className="w-16 h-16 rounded-full object-cover shadow-sm bg-gray-100" />
                       <div>
-                        <h3 className="text-xl font-extrabold text-[#0a2463] dark:text-gray-100 leading-tight mb-1">{p.name}</h3>
-                        <p className="text-xs font-medium text-slate-500 dark:text-gray-400">
-                          {p.role}
-                        </p>
+                        <h3 className="text-xl font-semibold dark:text-gray-100 leading-tight mb-1" style={{ color: MIDNIGHT }}>{p.name}</h3>
+                        <p className="text-xs font-medium text-slate-500 dark:text-gray-400">{p.role}</p>
                       </div>
                     </div>
-                    {/* Circle Icon Background */}
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center ${p.iconBg} dark:bg-gray-800 transition-transform group-hover:scale-110 duration-300`}>
-                      <IconData size={22} className={`${p.iconColor} dark:text-white`} />
+                    <div className="w-12 h-12 rounded-lg flex items-center justify-center transition-transform group-hover:scale-110 duration-300"
+                      style={{ backgroundColor: p.iconBg }}>
+                      <IconData size={22} strokeWidth={1.75} style={{ color: MIDNIGHT }} />
                     </div>
                   </div>
 
-                  <div className="mt-auto pt-6 border-t border-slate-100 dark:border-gray-800 flex items-end justify-between">
+                  <div className="mt-auto pt-6 border-t border-gray-100 dark:border-gray-800 flex items-end justify-between">
                     <div>
-                      <div className="text-3xl font-black text-[#0a2463] dark:text-white">{p.hacks}</div>
+                      <div className="text-3xl font-bold dark:text-white" style={{ color: MIDNIGHT }}>{p.hacks}</div>
                       <div className="text-[11px] font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest">Hacks Shared</div>
                     </div>
-                    <span className="px-3 py-1 bg-orange-50 dark:bg-orange-900/20 rounded-full text-[12px] font-bold text-[#f97316]">
+                    <span className="px-3 py-1 rounded-full text-[12px] font-bold border"
+                      style={{ background: `${AMBER}15`, color: MIDNIGHT, borderColor: `${AMBER}40` }}>
                       {p.badge}
                     </span>
                   </div>
@@ -256,9 +207,9 @@ const ContributorsPage: React.FC = () => {
               className="relative w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-100 dark:border-gray-800 flex flex-col max-h-[90vh]"
             >
               {/* Header */}
-              <div className="px-6 py-4 flex items-center justify-between border-b border-slate-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/50">
-                <h3 className="text-[15px] font-bold text-[#0a2463] dark:text-white flex items-center gap-2">
-                  <PenLine size={16} className="text-[#f97316]" /> Share Your Hack
+              <div className="px-6 py-4 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/50">
+                <h3 className="text-[15px] font-semibold dark:text-white flex items-center gap-2" style={{ color: MIDNIGHT }}>
+                  <PenLine size={16} style={{ color: AMBER }} /> Share Your Hack
                 </h3>
                 <button
                   onClick={() => setIsModalOpen(false)}
@@ -296,7 +247,8 @@ const ContributorsPage: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Wise VGU Duck"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 focus:ring-[#f97316]/20 focus:border-[#f97316] transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all"
+                        style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
                       />
                     </div>
 
@@ -308,7 +260,8 @@ const ContributorsPage: React.FC = () => {
                         <select
                           value={formData.category}
                           onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                          className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 focus:ring-[#f97316]/20 focus:border-[#f97316] transition-all appearance-none"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all appearance-none"
+                          style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
                         >
                           <option value="Visa">Visa & Bureaucracy</option>
                           <option value="Housing">Housing & WG</option>
@@ -332,7 +285,8 @@ const ContributorsPage: React.FC = () => {
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                         placeholder="e.g. The fastest way to get Anmeldung"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 focus:ring-[#f97316]/20 focus:border-[#f97316] transition-all"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all"
+                        style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
                       />
                     </div>
 
@@ -346,7 +300,8 @@ const ContributorsPage: React.FC = () => {
                         value={formData.content}
                         onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                         placeholder="Share your experience, tips, and step-by-step hacks here..."
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 focus:ring-[#f97316]/20 focus:border-[#f97316] transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all resize-none"
+                        style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
                       />
                     </div>
                   </form>
@@ -365,9 +320,10 @@ const ContributorsPage: React.FC = () => {
                   </button>
                   <button
                     onClick={handleSubmit}
-                    className="px-6 py-2.5 rounded-xl bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold text-[13px] shadow-lg shadow-orange-500/20 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5"
+                    className="px-6 py-2.5 rounded-lg font-semibold text-[13px] shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5"
+                    style={{ backgroundColor: AMBER, color: MIDNIGHT, boxShadow: `0 4px 14px ${AMBER}30` }}
                   >
-                    Submit <Send size={14} />
+                    Submit <Send size={14} strokeWidth={1.75} />
                   </button>
                 </div>
               )}
