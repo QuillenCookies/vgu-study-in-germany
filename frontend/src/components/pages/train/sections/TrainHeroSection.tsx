@@ -5,8 +5,8 @@ import { Train, Ticket, Calculator, Clock, Book } from 'lucide-react';
 const stats = [
     { label: '8+ Types', value: 'Transit', icon: <Train size={24} /> },
     { label: 'Rules', value: 'Ticket', icon: <Ticket size={24} /> },
+    { label: 'Budgeting', value: 'Calculator', icon: <Calculator size={24} /> },
     { label: 'Knowledge Base', value: 'Guide', icon: <Book size={24} /> },
-    { label: 'Budget & Route', value: 'Journey', icon: <Calculator size={24} /> },
     { label: 'Live Updates', value: 'Delays', icon: <Clock size={24} /> },
 ];
 
