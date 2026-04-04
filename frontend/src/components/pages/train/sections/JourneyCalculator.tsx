@@ -13,7 +13,7 @@ const JourneyCalculator: React.FC = () => {
     const [to, setTo] = useState(''); const [toStation, setToStation] = useState<Location | null>(null);
     const [journeys, setJourneys] = useState<any[]>([]);
     const [loading, setLoading] = useState(false);
-    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const [, setErrorMsg] = useState<string | null>(null);
     const [expandedJourney, setExpandedJourney] = useState<number | null>(null);
 
     const [inNextHours, setInNextHours] = useState('0');
