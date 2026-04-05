@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowLeft, Heart, Users, Globe, BookOpen, Lightbulb, Github, Mail } from 'lucide-react';
+import { ArrowLeft, Heart, Users, Globe, BookOpen, Lightbulb, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
@@ -17,29 +17,6 @@ const stagger: Variants = {
 };
 
 // ── DATA ────────────────────────────────────────────────────────────────────
-const TEAM = [
-  {
-    name: 'Die Ente',
-    role: 'Founder & Lead Developer',
-    avatar: 'https://i.pravatar.cc/150?img=3',
-    bio: 'VGU student who survived the German bureaucracy and lived to tell the tale (and build a website about it).',
-    github: 'https://github.com',
-  },
-  {
-    name: 'Minh Tri Nguyen',
-    role: 'Content & Research',
-    avatar: 'https://i.pravatar.cc/150?img=7',
-    bio: 'Passionate about making information accessible for every international student arriving in Germany.',
-    github: 'https://github.com',
-  },
-  {
-    name: 'Linh Tran',
-    role: 'UI / UX Designer',
-    avatar: 'https://i.pravatar.cc/150?img=9',
-    bio: 'Turns complicated bureaucratic processes into clean, beautiful interfaces that actually make sense.',
-    github: 'https://github.com',
-  },
-];
 
 const VALUES = [
   {
@@ -281,72 +258,6 @@ const AboutUsPage: React.FC = () => {
             </div>
           </section>
 
-          {/* ══════════════════════════════════════════
-              SECTION 5 — TEAM
-          ══════════════════════════════════════════ */}
-          <section className="px-4 py-20">
-            <div className="max-w-5xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-12"
-              >
-                <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#0a2463]/10 dark:bg-blue-900/30 text-[#0a2463] dark:text-blue-300 text-[11px] font-bold uppercase tracking-widest">
-                  The Flock
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a2463] dark:text-white mb-3">
-                  Meet the Team
-                </h2>
-                <p className="text-slate-500 dark:text-gray-400 text-[15px] max-w-xl mx-auto">
-                  A small but mighty group of VGU students waddling through Germany, one guide at a time.
-                </p>
-              </motion.div>
-
-              <motion.div
-                variants={stagger}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true }}
-                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
-              >
-                {TEAM.map((member) => (
-                  <motion.div
-                    key={member.name}
-                    variants={fadeUp}
-                    className="group bg-white dark:bg-gray-900 rounded-2xl border border-slate-100 dark:border-gray-800 shadow-xl shadow-black/5 hover:shadow-black/10 transition-all duration-300 overflow-hidden"
-                  >
-                    {/* Top color band */}
-                    <div className="h-20 bg-gradient-to-br from-[#0a2463] to-[#1a3a7a] relative">
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
-                        <img
-                          src={member.avatar}
-                          alt={member.name}
-                          className="w-16 h-16 rounded-full border-4 border-white dark:border-gray-900 object-cover shadow-md bg-gray-100"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="pt-12 pb-6 px-6 text-center">
-                      <h3 className="text-[17px] font-extrabold text-[#0a2463] dark:text-gray-100 mb-0.5">{member.name}</h3>
-                      <p className="text-[12px] font-bold text-[#f97316] uppercase tracking-wider mb-3">{member.role}</p>
-                      <p className="text-slate-500 dark:text-gray-400 text-[13px] leading-relaxed mb-5">{member.bio}</p>
-
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 dark:border-gray-700 text-slate-500 dark:text-gray-400 text-[12px] font-semibold hover:border-[#0a2463] dark:hover:border-gray-500 hover:text-[#0a2463] dark:hover:text-white transition-all duration-200"
-                      >
-                        <Github size={13} /> GitHub
-                      </a>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
-          </section>
 
           {/* ══════════════════════════════════════════
               SECTION 6 — CTA
