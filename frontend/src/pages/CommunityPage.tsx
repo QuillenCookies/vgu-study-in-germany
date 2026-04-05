@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+﻿import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
@@ -49,9 +49,9 @@ const ALUMNI_NOTES = [
     topic: 'Bureaucracy',
     stars: 5,
     color: 'from-orange-600/20 to-amber-600/10',
-    border: 'border-orange-400/30',
-    tagColor: 'text-orange-400',
-    badge: 'bg-orange-500/20 text-orange-300',
+    border: 'border-amber-400/30',
+    tagColor: 'text-amber-400',
+    badge: 'bg-[#FFCC00]/20 text-orange-300',
   },
   {
     city: 'Frankfurt',
@@ -77,9 +77,9 @@ const FORUM_CATEGORIES = [
     title: 'The Bureaucracy Maze',
     subtitle: 'Visa · Anmeldung · Health Insurance',
     desc: 'Deciphering the paperwork — one form at a time.',
-    color: '#f97316',
-    gradient: 'from-orange-500/20 to-amber-500/5',
-    border: 'border-orange-400/30',
+    color: '#FFCC00',
+    gradient: 'from-amber-400/30 to-amber-500/5',
+    border: 'border-amber-400/30',
     posts: 248,
   },
   {
@@ -168,7 +168,7 @@ const NetworkGraph: React.FC = () => {
               cx={pos.cx}
               cy={pos.cy}
               r={i === activeNode ? 5 : 3.5}
-              fill={i === activeNode ? '#f97316' : 'rgba(249,115,22,0.5)'}
+              fill={i === activeNode ? '#FFCC00' : 'rgba(249,115,22,0.5)'}
               style={{ transition: 'all 0.4s ease' }}
             />
             {/* Duck emoji as text — tiny */}
@@ -225,7 +225,7 @@ const CommunityPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-950 font-sans max-w-full overflow-x-hidden">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220] font-sans max-w-full overflow-x-hidden">
       <Navbar />
       {/* Navbar spacer — compensates for fixed positioning */}
       <div className="h-[59px]" />
@@ -233,9 +233,9 @@ const CommunityPage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO: "Join the Flock"
       ══════════════════════════════════════════ */}
-      <section className="relative w-full max-w-full overflow-hidden box-border bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#060f2e] min-h-[90vh] flex items-center">
+      <section className="relative w-full max-w-full overflow-hidden box-border bg-gradient-to-br from-[#1A2B4C] via-[#0D1F38] to-[#080f1e] min-h-[90vh] flex items-center">
         {/* Background glow blobs */}
-        <div className="absolute top-0 left-0 w-96 h-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f97316]/10 blur-[80px] pointer-events-none" />
+        <div className="absolute top-0 left-0 w-96 h-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFCC00]/10 blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-96 h-96 translate-x-1/2 translate-y-1/2 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-blue-900/20 blur-[120px] pointer-events-none" />
 
@@ -272,7 +272,7 @@ const CommunityPage: React.FC = () => {
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4 drop-shadow-xl break-words whitespace-normal max-w-full box-border"
               >
                 {tr('community', 'heroTitle1')}{' '}
-                <span className="text-[#f97316] break-words whitespace-normal box-border">{tr('community', 'heroTitle2')}</span>
+                <span className="text-[#FFCC00] break-words whitespace-normal box-border">{tr('community', 'heroTitle2')}</span>
               </motion.h1>
 
               <motion.p
@@ -285,8 +285,8 @@ const CommunityPage: React.FC = () => {
               <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
                 <Link
                   to="#leave-note"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#f97316] hover:bg-[#ea6c0a]
-                    text-white font-semibold text-[15px] shadow-lg shadow-orange-500/30
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#FFCC00] hover:bg-[#e6b800]
+                    text-white font-semibold text-[15px] shadow-lg shadow-amber-400/30
                     transition-all duration-200 hover:scale-105 active:scale-95"
                 >
                   <PenLine size={16} />
@@ -349,7 +349,7 @@ const CommunityPage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 2 — "Footprints from the Flock"
       ══════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-gray-950 py-20 px-4">
+      <section className="bg-white dark:bg-[#0B1220] py-20 px-4">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -358,7 +358,7 @@ const CommunityPage: React.FC = () => {
           className="max-w-screen-lg mx-auto"
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#f97316] text-[12px] font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#FFCC00] text-[12px] font-bold uppercase tracking-widest mb-3">
               {tr('community', 'sec2Badge')}
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white break-words">
@@ -396,7 +396,7 @@ const CommunityPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <blockquote className="text-white/80 text-[15px] leading-relaxed italic mb-5 border-l-2 border-orange-400/50 pl-4">
+                    <blockquote className="text-white/80 text-[15px] leading-relaxed italic mb-5 border-l-2 border-amber-400/50 pl-4">
                       "{note.snippet}"
                     </blockquote>
 
@@ -415,7 +415,7 @@ const CommunityPage: React.FC = () => {
                           </div>
                         </div>
                       </div>
-                      <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#f97316] hover:text-orange-300 transition-colors">
+                      <button className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-[#FFCC00] hover:text-orange-300 transition-colors">
                         {tr('community', 'readFull')}
                         <ChevronRight size={14} />
                       </button>
@@ -431,11 +431,10 @@ const CommunityPage: React.FC = () => {
                 <button
                   key={i}
                   onClick={() => setActiveNote(i)}
-                  className={`rounded-full transition-all duration-300 ${
-                    i === activeNote
-                      ? 'w-6 h-2 bg-[#f97316]'
-                      : 'w-2 h-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400'
-                  }`}
+                  className={`rounded-full transition-all duration-300 ${i === activeNote
+                    ? 'w-6 h-2 bg-[#FFCC00]'
+                    : 'w-2 h-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400'
+                    }`}
                   aria-label={`Note ${i + 1}`}
                 />
               ))}
@@ -445,7 +444,7 @@ const CommunityPage: React.FC = () => {
           {/* All notes CTA */}
           <motion.div variants={fadeUp} className="text-center">
             <button className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-gray-200 dark:border-white/15
-              text-gray-700 dark:text-white/70 text-[14px] font-medium hover:border-[#f97316] hover:text-[#f97316]
+              text-gray-700 dark:text-white/70 text-[14px] font-medium hover:border-[#FFCC00] hover:text-[#FFCC00]
               transition-all duration-200 hover:scale-105">
               <FileText size={15} />
               {tr('community', 'browseAll')}
@@ -534,7 +533,7 @@ const CommunityPage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 4 — "Aggregated Wisdom" Dashboard
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0a2463] dark:bg-[#060f2e] py-20 px-4 overflow-hidden">
+      <section className="bg-[#1A2B4C] dark:bg-[#060f2e] py-20 px-4 overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute left-0 w-72 h-72 -translate-x-1/2 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
         <div className="absolute right-0 w-72 h-72 translate-x-1/2 rounded-full bg-purple-400/10 blur-3xl pointer-events-none" />
@@ -579,10 +578,10 @@ const CommunityPage: React.FC = () => {
           {/* Quality tagline */}
           <motion.div variants={fadeUp} className="text-center">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm">
-              <BarChart2 size={18} className="text-[#f97316]" />
+              <BarChart2 size={18} className="text-[#FFCC00]" />
               <span className="text-white/70 text-[13px]">
                 Notes are community-scored and validated by Alumni with&nbsp;
-                <span className="text-[#f97316] font-semibold">Insight Score ⭐</span>
+                <span className="text-[#FFCC00] font-semibold">Insight Score ⭐</span>
               </span>
             </div>
           </motion.div>
@@ -592,7 +591,7 @@ const CommunityPage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 5 — CTA: "From Resident to Pathfinder"
       ══════════════════════════════════════════ */}
-      <section id="leave-note" className="bg-gray-50 dark:bg-gray-950 py-24 px-4 relative overflow-hidden">
+      <section id="leave-note" className="bg-gray-50 dark:bg-[#0B1220] py-24 px-4 relative overflow-hidden">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -603,22 +602,22 @@ const CommunityPage: React.FC = () => {
           {/* Bento-style Contributor Card */}
           <motion.div
             variants={fadeUp}
-            className="relative p-10 sm:p-14 rounded-[2rem] border border-orange-500/20 bg-gradient-to-br from-orange-500/10 via-orange-500/5 to-transparent dark:from-orange-500/10 dark:via-orange-500/5 dark:to-transparent bg-white dark:bg-gray-900 shadow-xl dark:shadow-2xl overflow-hidden group flex flex-col md:flex-row items-center md:items-start justify-between gap-10"
+            className="relative p-10 sm:p-14 rounded-[2rem] border border-amber-400/30 bg-gradient-to-br from-amber-400/30 via-amber-400/30 to-transparent dark:from-amber-400/30 dark:via-amber-400/30 dark:to-transparent bg-white dark:bg-gray-900 shadow-xl dark:shadow-2xl overflow-hidden group flex flex-col md:flex-row items-center md:items-start justify-between gap-10"
           >
             {/* Ghost duck icon in background */}
-            <div className="absolute -bottom-16 -right-10 text-[250px] opacity-[0.03] select-none text-[#f97316] group-hover:scale-105 group-hover:-rotate-6 transition-transform duration-700 pointer-events-none">
+            <div className="absolute -bottom-16 -right-10 text-[250px] opacity-[0.03] select-none text-[#FFCC00] group-hover:scale-105 group-hover:-rotate-6 transition-transform duration-700 pointer-events-none">
               🦆
             </div>
 
             <div className="relative z-10 flex-1 text-center md:text-left">
-              <span className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-orange-500/20 text-[#f97316] text-[12px] font-bold uppercase tracking-widest border border-orange-400/20">
+              <span className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#FFCC00]/20 text-[#FFCC00] text-[12px] font-bold uppercase tracking-widest border border-amber-400/20">
                 <PenLine size={13} /> The Pathfinder Initiative
               </span>
-              
+
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
-                From Resident to <span className="text-[#f97316]">Pathfinder.</span>
+                From Resident to <span className="text-[#FFCC00]">Pathfinder.</span>
               </h2>
-              
+
               <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-lg mb-8 max-w-xl leading-relaxed">
                 Your struggle yesterday is someone else's guide today. Share your notes and get recognized in the Wall of Pathfinders.
               </p>
@@ -626,8 +625,8 @@ const CommunityPage: React.FC = () => {
               <Link
                 to="/community/contributor"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl
-                  bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold text-[16px]
-                  shadow-lg shadow-orange-500/30 transition-all duration-300
+                  bg-[#FFCC00] hover:bg-[#e6b800] text-white font-bold text-[16px]
+                  shadow-lg shadow-amber-400/30 transition-all duration-300
                   hover:scale-105 hover:-translate-y-1 active:scale-95"
               >
                 Start Contributing <ArrowRight size={18} />
@@ -648,7 +647,7 @@ const CommunityPage: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="max-w-screen-sm mx-auto text-center"
         >
-          <Mail size={28} className="mx-auto mb-4 text-[#f97316]" />
+          <Mail size={28} className="mx-auto mb-4 text-[#FFCC00]" />
           <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
             {tr('community', 'sec6Title')}
           </h3>
@@ -683,13 +682,13 @@ const CommunityPage: React.FC = () => {
                   className="flex-1 px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700
                     bg-white dark:bg-gray-800 text-gray-800 dark:text-white
                     placeholder-gray-400 dark:placeholder-gray-500 text-sm
-                    focus:outline-none focus:ring-2 focus:ring-[#f97316]/40 transition"
+                    focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/40 transition"
                 />
                 <button
                   type="submit"
-                  className="px-6 py-3 rounded-xl bg-[#f97316] hover:bg-[#ea6c0a] text-white
+                  className="px-6 py-3 rounded-xl bg-[#FFCC00] hover:bg-[#e6b800] text-white
                     font-semibold text-sm whitespace-nowrap transition-all duration-200
-                    hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/20"
+                    hover:scale-105 active:scale-95 shadow-lg shadow-amber-400/30"
                 >
                   {tr('community', 'subscribe')}
                 </button>

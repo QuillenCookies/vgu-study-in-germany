@@ -10,6 +10,11 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useUniversity } from '../contexts/UniversityContext';
 import type { LocationState } from '../types';
 
+// ── DESIGN TOKENS ──────────────────────────────────────────────────────────
+const MIDNIGHT = '#1A2B4C';
+const AMBER    = '#FFCC00';
+const AMBER_DIM = '#e6b800';
+
 // ── CONSTANTS ──────────────────────────────────────────────────────────────
 const HERO_BG =
   'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1920&q=80';
@@ -19,25 +24,25 @@ const WISE_QUACKS = [
     id: 0,
     trTip: 'tip0' as const,
     trTag: 'tip0tag' as const,
-    color: 'from-green-500/20 to-emerald-500/10',
-    border: 'border-green-400/30',
-    tagColor: 'text-green-400',
+    color: 'from-[#1A2B4C]/30 to-[#1A2B4C]/10',
+    border: 'border-[#FFCC00]/20',
+    tagColor: 'text-[#FFCC00]',
   },
   {
     id: 1,
     trTip: 'tip1' as const,
     trTag: 'tip1tag' as const,
-    color: 'from-blue-500/20 to-indigo-500/10',
-    border: 'border-blue-400/30',
-    tagColor: 'text-blue-400',
+    color: 'from-[#1A2B4C]/25 to-[#0D1F38]/15',
+    border: 'border-[#FFCC00]/15',
+    tagColor: 'text-[#FFCC00]',
   },
   {
     id: 2,
     trTip: 'tip2' as const,
     trTag: 'tip2tag' as const,
-    color: 'from-orange-500/20 to-amber-500/10',
-    border: 'border-orange-400/30',
-    tagColor: 'text-orange-400',
+    color: 'from-[#1A2B4C]/20 to-[#132038]/10',
+    border: 'border-[#FFCC00]/25',
+    tagColor: 'text-[#FFCC00]',
   },
 ];
 
@@ -49,51 +54,37 @@ const QUICK_TAGS = [
   { emoji: '🎉', trKey: 'tagEntertainment' as const, href: '/entertainment' },
 ];
 
+// All Topic Sections standardized to Midnight Blue + Amber Gold
 const TOPIC_SECTIONS = [
   {
-    icon: <GraduationCap size={22} />,
+    icon: <GraduationCap size={22} strokeWidth={1.75} />,
     trLabel: 'tagEducation' as const,
     trTagline: 'topicEduTagline' as const,
     href: '/university',
-    accent: '#f97316',
-    gradient: 'from-orange-500/10 to-amber-400/5',
-    border: 'border-orange-200 dark:border-orange-900/40',
   },
   {
-    icon: <TrainFront size={22} />,
+    icon: <TrainFront size={22} strokeWidth={1.75} />,
     trLabel: 'tagTransport' as const,
     trTagline: 'topicTransTagline' as const,
     href: '/bahn',
-    accent: '#22c55e',
-    gradient: 'from-green-500/10 to-emerald-400/5',
-    border: 'border-green-200 dark:border-green-900/40',
   },
   {
-    icon: <Building2 size={22} />,
+    icon: <Building2 size={22} strokeWidth={1.75} />,
     trLabel: 'tagHousing' as const,
     trTagline: 'topicHouseTagline' as const,
     href: '/housing',
-    accent: '#a855f7',
-    gradient: 'from-purple-500/10 to-violet-400/5',
-    border: 'border-purple-200 dark:border-purple-900/40',
   },
   {
-    icon: <UtensilsCrossed size={22} />,
+    icon: <UtensilsCrossed size={22} strokeWidth={1.75} />,
     trLabel: 'tagFood' as const,
     trTagline: 'topicFoodTagline' as const,
     href: '/food',
-    accent: '#ef4444',
-    gradient: 'from-red-500/10 to-rose-400/5',
-    border: 'border-red-200 dark:border-red-900/40',
   },
   {
-    icon: <Ticket size={22} />,
+    icon: <Ticket size={22} strokeWidth={1.75} />,
     trLabel: 'tagEntertainment' as const,
     trTagline: 'topicEntTagline' as const,
     href: '/entertainment',
-    accent: '#14b8a6',
-    gradient: 'from-teal-500/10 to-cyan-400/5',
-    border: 'border-teal-200 dark:border-teal-900/40',
   },
 ];
 
@@ -104,8 +95,8 @@ const PATHFINDERS = [
     avatar: "https://i.pravatar.cc/150?img=11",
     hacks: 24,
     badge: "Legendary",
-    gradient: "from-blue-500/20 to-cyan-500/10",
-    border: "border-blue-400/30",
+    gradient: "from-[#1A2B4C]/30 to-[#1A2B4C]/10",
+    border: "border-[#FFCC00]/20",
     icon: "🛂",
     colSpan: "md:col-span-2 md:row-span-2",
   },
@@ -115,8 +106,8 @@ const PATHFINDERS = [
     avatar: "https://i.pravatar.cc/150?img=5",
     hacks: 18,
     badge: "Expert",
-    gradient: "from-purple-500/20 to-pink-500/10",
-    border: "border-purple-400/30",
+    gradient: "from-[#1A2B4C]/25 to-[#0D1F38]/15",
+    border: "border-[#FFCC00]/15",
     icon: "🏠",
     colSpan: "md:col-span-1 md:row-span-1",
   },
@@ -126,8 +117,8 @@ const PATHFINDERS = [
     avatar: "https://i.pravatar.cc/150?img=8",
     hacks: 15,
     badge: "Pro",
-    gradient: "from-orange-500/20 to-amber-500/10",
-    border: "border-orange-400/30",
+    gradient: "from-[#1A2B4C]/20 to-[#132038]/10",
+    border: "border-[#FFCC00]/25",
     icon: "💰",
     colSpan: "md:col-span-1 md:row-span-1",
   },
@@ -137,8 +128,8 @@ const PATHFINDERS = [
     avatar: "https://i.pravatar.cc/150?img=12",
     hacks: 12,
     badge: "Veteran",
-    gradient: "from-green-500/20 to-emerald-500/10",
-    border: "border-green-400/30",
+    gradient: "from-[#1A2B4C]/30 to-[#0D1F38]/20",
+    border: "border-[#FFCC00]/20",
     icon: "🚆",
     colSpan: "md:col-span-1 md:row-span-1",
   }
@@ -146,23 +137,26 @@ const PATHFINDERS = [
 
 const FIRST_PADDLE_ITEMS = [
   {
-    icon: <Compass size={20} />,
-    color: 'text-orange-500',
-    bg: 'bg-orange-50 dark:bg-orange-950/40',
+    icon: <Compass size={20} strokeWidth={1.75} />,
+    color: MIDNIGHT,
+    bg: 'rgba(26,43,76,0.08)',
+    bgHover: 'rgba(255,204,0,0.12)',
     trTitle: 'item1Title' as const,
     trDesc: 'item1Desc' as const,
   },
   {
-    icon: <MapPin size={20} />,
-    color: 'text-blue-500',
-    bg: 'bg-blue-50 dark:bg-blue-950/40',
+    icon: <MapPin size={20} strokeWidth={1.75} />,
+    color: MIDNIGHT,
+    bg: 'rgba(26,43,76,0.08)',
+    bgHover: 'rgba(255,204,0,0.12)',
     trTitle: 'item2Title' as const,
     trDesc: 'item2Desc' as const,
   },
   {
-    icon: <Users size={20} />,
-    color: 'text-green-500',
-    bg: 'bg-green-50 dark:bg-green-950/40',
+    icon: <Users size={20} strokeWidth={1.75} />,
+    color: MIDNIGHT,
+    bg: 'rgba(26,43,76,0.08)',
+    bgHover: 'rgba(255,204,0,0.12)',
     trTitle: 'item3Title' as const,
     trDesc: 'item3Desc' as const,
   },
@@ -239,9 +233,9 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
         onSubmit={e => { e.preventDefault(); setShowDropdown(false); onNavigate('/university'); }}
         className="flex w-full items-center
           bg-white/12 dark:bg-white/8 backdrop-blur-xl
-          border border-white/25 rounded-2xl overflow-hidden
+          border border-white/25 rounded-lg overflow-hidden
           shadow-[0_8px_32px_rgba(0,0,0,0.24)]
-          focus-within:border-white/50 transition-all duration-200"
+          focus-within:border-white/50 transition-all duration-300"
       >
         <div className="flex items-center pl-4 text-white/60">
           <Search size={18} />
@@ -259,11 +253,17 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
             <Loader2 size={17} className="animate-spin" />
           </div>
         )}
+        {/* CTA button — Amber Gold + Midnight Blue text */}
         <button
           type="submit"
-          className="m-2 px-6 py-2.5 bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold
-            rounded-xl transition-all duration-200 text-[14px] whitespace-nowrap
-            hover:scale-105 active:scale-95 shadow-lg shadow-orange-500/30"
+          className="m-2 px-6 py-2.5 font-semibold rounded-lg transition-all duration-300 text-[14px] whitespace-nowrap hover:scale-105 active:scale-95 shadow-lg"
+          style={{
+            backgroundColor: AMBER,
+            color: MIDNIGHT,
+            boxShadow: '0 4px 14px rgba(255,204,0,0.35)',
+          }}
+          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER_DIM; }}
+          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER; }}
         >
           {tr('home', 'searchBtn')}
         </button>
@@ -277,7 +277,7 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full mt-2 w-full bg-white dark:bg-gray-900 rounded-xl
+            className="absolute top-full mt-2 w-full bg-white dark:bg-[#0D1F38] rounded-lg
               shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden z-50 text-left"
           >
             <div className="max-h-72 overflow-y-auto py-2">
@@ -289,8 +289,7 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
                       key={`uni-${uni.id || i}`}
                       type="button"
                       onClick={() => handleSelect(uni, 'university')}
-                      className="w-full text-left px-4 py-2.5 hover:bg-orange-50 dark:hover:bg-orange-950/30
-                        text-gray-800 dark:text-gray-100 transition-colors flex items-center gap-3"
+                      className="w-full text-left px-4 py-2.5 text-gray-800 dark:text-gray-100 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50 dark:hover:bg-amber-950/20"
                     >
                       <span className="text-lg">🎓</span>
                       <div>
@@ -309,8 +308,7 @@ const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
                       key={`city-${city.id || i}`}
                       type="button"
                       onClick={() => handleSelect(city, 'city')}
-                      className="w-full text-left px-4 py-2.5 hover:bg-orange-50 dark:hover:bg-orange-950/30
-                        text-gray-800 dark:text-gray-100 transition-colors flex items-center gap-3"
+                      className="w-full text-left px-4 py-2.5 text-gray-800 dark:text-gray-100 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50 dark:hover:bg-amber-950/20"
                     >
                       <span className="text-lg">📍</span>
                       <p className="text-[13px] font-medium">
@@ -346,18 +344,20 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO
       ══════════════════════════════════════════ */}
-      <section className="relative w-full flex items-center justify-center min-h-[92vh] overflow-hidden">
+      <section className="relative w-full flex items-center justify-center min-h-screen overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{ backgroundImage: `url(${HERO_BG})` }}
           aria-hidden="true"
         />
-        {/* Layered overlays for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a2463]/75 via-[#0a2463]/60 to-[#0a2463]/80" aria-hidden="true" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" aria-hidden="true" />
+        {/* Midnight Blue overlays */}
+        <div className="absolute inset-0" style={{
+          background: `linear-gradient(to bottom, ${MIDNIGHT}CC, ${MIDNIGHT}99, ${MIDNIGHT}CC)`
+        }} aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" aria-hidden="true" />
 
-        {/* Duck Easter Egg — bottom-right corner */}
+        {/* Duck Easter Egg */}
         <motion.div
           className="absolute bottom-8 right-8 text-4xl select-none cursor-pointer z-10"
           title="Quack!"
@@ -387,10 +387,10 @@ const HomePage: React.FC = () => {
           {/* Main headline */}
           <motion.h1
             variants={fadeUp}
-            className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight tracking-tight mb-3 drop-shadow-xl"
+            className="text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-tight tracking-tight mb-3 drop-shadow-xl"
           >
             Notes from{' '}
-            <span className="text-[#f97316]">Die Ente</span>
+            <span style={{ color: AMBER }}>Die Ente</span>
           </motion.h1>
 
           {/* Sub-headline */}
@@ -404,7 +404,8 @@ const HomePage: React.FC = () => {
           {/* Narrative hook */}
           <motion.blockquote
             variants={fadeUp}
-            className="text-sm text-white/65 italic max-w-lg mb-10 leading-relaxed border-l-2 border-orange-400/50 pl-4 text-left"
+            className="text-sm text-white/65 italic max-w-lg mb-10 leading-relaxed pl-4 text-left"
+            style={{ borderLeft: `2px solid ${AMBER}80` }}
           >
             {tr('home', 'narrative')}
           </motion.blockquote>
@@ -418,8 +419,8 @@ const HomePage: React.FC = () => {
           <motion.div variants={fadeUp} className="mt-5 mb-1">
             <Link to="/community/contributor" className="group flex items-center justify-center gap-2 text-[14px] text-white/80 hover:text-white transition-colors cursor-pointer">
               <span className="font-medium text-white/90">Have a survival hack?</span>
-              <span className="text-[#f97316] font-semibold group-hover:underline decoration-orange-500/50 underline-offset-4">Join the Migration</span>
-              <ArrowRight size={14} className="text-[#f97316] group-hover:translate-x-1 transition-transform" />
+              <span className="font-semibold group-hover:underline underline-offset-4" style={{ color: AMBER, textDecorationColor: `${AMBER}80` }}>Join the Migration</span>
+              <ArrowRight size={14} style={{ color: AMBER }} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
 
@@ -429,9 +430,10 @@ const HomePage: React.FC = () => {
               <motion.div key={tag.href} variants={fadeUp}>
                 <Link
                   to={tag.href}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-full
+                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg
                     bg-white/12 hover:bg-white/22 backdrop-blur-sm border border-white/15
-                    text-white text-[13px] font-medium transition-all duration-200 hover:scale-105"
+                    text-white text-[13px] font-medium transition-all duration-300 hover:scale-105
+                    hover:border-white/30"
                 >
                   <span>{tag.emoji}</span>
                   <span>{tr('home', tag.trKey)}</span>
@@ -448,17 +450,17 @@ const HomePage: React.FC = () => {
           transition={{ duration: 2, repeat: Infinity }}
         >
           <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
-          <div className="w-1.5 h-1.5 rounded-full bg-white/40" />
+          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: `${AMBER}80` }} />
         </motion.div>
       </section>
 
       {/* ══════════════════════════════════════════
           SECTION 2 — WALL OF PATHFINDERS
       ══════════════════════════════════════════ */}
-      <section className="bg-gradient-to-b from-[#0a2463] to-[#081b4b] dark:from-[#03091e] dark:to-[#020617] py-20 px-4 relative overflow-hidden">
-        {/* Glow blobs */}
-        <div className="absolute top-10 left-10 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <section className="py-20 px-4 relative overflow-hidden" style={{ background: `linear-gradient(to bottom, ${MIDNIGHT}, #0D1F38)` }}>
+        {/* Subtle glow blobs */}
+        <div className="absolute top-10 left-10 w-96 h-96 rounded-full blur-[100px] pointer-events-none" style={{ background: `${MIDNIGHT}30` }} />
+        <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full blur-[100px] pointer-events-none" style={{ background: `${AMBER}08` }} />
 
         <motion.div
           variants={stagger}
@@ -468,13 +470,14 @@ const HomePage: React.FC = () => {
           className="max-w-screen-lg mx-auto relative z-10"
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="inline-block px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-[12px] font-bold uppercase tracking-widest mb-3 border border-orange-500/30">
+            <span className="inline-block px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest mb-3 border"
+              style={{ background: `${AMBER}20`, color: AMBER, borderColor: `${AMBER}30` }}>
               Community Legends
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-white">
               Wall of Pathfinders
             </h2>
-            <p className="mt-3 text-white/60 max-w-md mx-auto">
+            <p className="mt-3 text-white/60 max-w-md mx-auto" style={{ lineHeight: 1.6 }}>
               Meet the top contributors who mapped the unknown for you. Share your survival hacks and join the ranks.
             </p>
           </motion.div>
@@ -484,18 +487,20 @@ const HomePage: React.FC = () => {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className={`relative group p-6 rounded-3xl border ${p.border} bg-white/5 backdrop-blur-xl
-                  hover:bg-white/10 transition-all duration-300 overflow-hidden flex flex-col justify-between
+                className={`relative group p-6 rounded-lg border bg-white/5 backdrop-blur-xl
+                  hover:bg-white/8 transition-all duration-300 overflow-hidden flex flex-col justify-between
                   ${p.colSpan}`}
+                style={{ borderColor: `${AMBER}25` }}
               >
-                {/* Gradient background hover effect */}
+                {/* Gradient bg hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-                
+
                 <div className="relative z-10 flex items-start justify-between mb-6">
                   <div className="flex items-center gap-4">
-                    <img src={p.avatar} alt={p.name} className="w-12 h-12 rounded-full border-2 border-white/20 object-cover" />
+                    <img src={p.avatar} alt={p.name} className="w-12 h-12 rounded-full border-2 object-cover"
+                      style={{ borderColor: `${AMBER}40` }} />
                     <div>
-                      <h3 className="text-lg font-bold text-white leading-tight">{p.name}</h3>
+                      <h3 className="text-lg font-semibold text-white leading-tight">{p.name}</h3>
                       <p className="text-sm text-white/60">{p.role}</p>
                     </div>
                   </div>
@@ -507,10 +512,11 @@ const HomePage: React.FC = () => {
                 <div className="relative z-10 flex flex-col items-start mt-auto">
                   <div className="flex items-end justify-between w-full">
                     <div>
-                      <div className="text-3xl font-black text-white">{p.hacks}</div>
+                      <div className="text-3xl font-bold text-white">{p.hacks}</div>
                       <div className="text-[12px] font-medium text-white/50 uppercase tracking-wider">Hacks Shared</div>
                     </div>
-                    <span className="px-3 py-1 bg-white/10 rounded-full text-[11px] font-bold text-white/80 border border-white/10">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold border"
+                      style={{ background: `${AMBER}15`, color: AMBER, borderColor: `${AMBER}30` }}>
                       {p.badge}
                     </span>
                   </div>
@@ -523,14 +529,22 @@ const HomePage: React.FC = () => {
               <Link
                 to="/community/contributor"
                 className="relative group h-full p-6 text-center flex flex-col items-center justify-center cursor-pointer
-                  rounded-3xl border-2 border-dashed border-white/20 bg-white/5 backdrop-blur-xl
-                  hover:bg-white/10 hover:border-[#f97316]/60 transition-all duration-300"
+                  rounded-lg border-2 border-dashed bg-white/5 backdrop-blur-xl
+                  transition-all duration-300"
+                style={{ borderColor: 'rgba(255,255,255,0.2)' }}
+                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = `${AMBER}60`; }}
+                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(255,255,255,0.2)'; }}
               >
-                <div className="w-14 h-14 rounded-full border border-dashed border-white/40 flex items-center justify-center mb-4 
-                  group-hover:scale-110 group-hover:bg-[#f97316] group-hover:border-[#f97316] text-white/50 group-hover:text-white transition-all duration-300">
+                <div className="w-14 h-14 rounded-full border border-dashed border-white/40 flex items-center justify-center mb-4
+                  group-hover:scale-110 transition-all duration-300 text-white/50 group-hover:text-white"
+                  style={{}}
+                  onMouseEnter={e => { const t = e.currentTarget as HTMLDivElement; t.style.backgroundColor = AMBER; t.style.borderColor = AMBER; t.style.color = MIDNIGHT; }}
+                  onMouseLeave={e => { const t = e.currentTarget as HTMLDivElement; t.style.backgroundColor = ''; t.style.borderColor = ''; t.style.color = ''; }}
+                >
                   <span className="text-3xl font-light leading-none">+</span>
                 </div>
-                <p className="text-[13px] font-medium text-white/60 group-hover:text-white/90 leading-relaxed px-1">
+                <p className="text-[13px] font-medium text-white/60 group-hover:text-white/90 leading-relaxed px-1"
+                   style={{ lineHeight: 1.6 }}>
                   Your face here? Share your first note to join the elite flock of Pathfinders.
                 </p>
               </Link>
@@ -542,7 +556,7 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 3 — THE FIRST PADDLE
       ══════════════════════════════════════════ */}
-      <section className="bg-white dark:bg-gray-950 py-20 px-4">
+      <section className="bg-white dark:bg-[#0B1220] py-20 px-4">
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -551,13 +565,14 @@ const HomePage: React.FC = () => {
           className="max-w-screen-lg mx-auto"
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="inline-block px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 text-[#f97316] text-[12px] font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest mb-3 border"
+              style={{ background: `${AMBER}15`, color: MIDNIGHT, borderColor: `${AMBER}40` }}>
               {tr('home', 'sec2Badge')}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl font-semibold dark:text-white" style={{ color: MIDNIGHT }}>
               {tr('home', 'sec2Title')}
             </h2>
-            <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+            <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto" style={{ lineHeight: 1.6 }}>
               {tr('home', 'sec2Desc')}
             </p>
           </motion.div>
@@ -568,17 +583,20 @@ const HomePage: React.FC = () => {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="flex flex-col items-start p-6 rounded-2xl border border-gray-100
+                className="group flex flex-col items-start p-6 rounded-lg border border-gray-100
                   dark:border-gray-800 shadow-sm hover:shadow-md dark:hover:shadow-gray-900
-                  bg-gray-50/50 dark:bg-gray-900/50 transition-shadow duration-200"
+                  bg-gray-50/50 dark:bg-gray-900/50 transition-all duration-300"
               >
-                <span className={`flex items-center justify-center w-10 h-10 rounded-xl mb-4 ${item.bg}`}>
-                  <span className={item.color}>{item.icon}</span>
+                <span
+                  className="flex items-center justify-center w-10 h-10 rounded-lg mb-4 transition-all duration-300"
+                  style={{ backgroundColor: item.bg, color: item.color }}
+                >
+                  {item.icon}
                 </span>
-                <h3 className="text-[15px] font-bold text-gray-800 dark:text-gray-100 mb-1.5">
+                <h3 className="text-[15px] font-semibold dark:text-gray-100 mb-1.5" style={{ color: MIDNIGHT }}>
                   {tr('home', item.trTitle)}
                 </h3>
-                <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
+                <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed" style={{ lineHeight: 1.6 }}>
                   {tr('home', item.trDesc)}
                 </p>
               </motion.div>
@@ -590,7 +608,7 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 3 — WISE QUACKS (rotating tips)
       ══════════════════════════════════════════ */}
-      <section className="bg-[#0a2463] dark:bg-[#060f2e] py-16 px-4 overflow-hidden">
+      <section className="py-16 px-4 overflow-hidden" style={{ backgroundColor: MIDNIGHT }}>
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -602,7 +620,7 @@ const HomePage: React.FC = () => {
             <span className="inline-block px-3 py-1 rounded-full bg-white/10 text-white/80 text-[12px] font-bold uppercase tracking-widest mb-3">
               {tr('home', 'sec3Badge')}
             </span>
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-3xl font-semibold text-white">
               {tr('home', 'sec3Title')}
             </h2>
           </motion.div>
@@ -618,7 +636,7 @@ const HomePage: React.FC = () => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -20, scale: 0.97 }}
                     transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                    className={`relative p-7 rounded-2xl border ${q.border} bg-gradient-to-br ${q.color} backdrop-blur-md`}
+                    className={`relative p-7 rounded-lg border ${q.border} bg-gradient-to-br ${q.color} backdrop-blur-md`}
                   >
                     <motion.div
                       className="text-4xl mb-4"
@@ -627,7 +645,7 @@ const HomePage: React.FC = () => {
                     >
                       🦆
                     </motion.div>
-                    <p className="text-white text-lg leading-relaxed font-medium mb-4">
+                    <p className="text-white text-lg leading-relaxed font-medium mb-4" style={{ lineHeight: 1.6 }}>
                       "{tr('home', q.trTip)}"
                     </p>
                     <span className={`text-[11px] font-bold uppercase tracking-widest ${q.tagColor}`}>
@@ -638,16 +656,18 @@ const HomePage: React.FC = () => {
               )}
             </AnimatePresence>
 
-            {/* Dot indicators */}
+            {/* Dot indicators — Amber Gold */}
             <div className="flex items-center justify-center gap-2 mt-5">
               {WISE_QUACKS.map((_, i) => (
                 <button
                   key={i}
                   onClick={() => setActiveQuack(i)}
-                  className={`rounded-full transition-all duration-300 ${i === activeQuack
-                      ? 'w-6 h-2 bg-[#f97316]'
-                      : 'w-2 h-2 bg-white/30 hover:bg-white/50'
-                    }`}
+                  className="rounded-full transition-all duration-300"
+                  style={{
+                    width: i === activeQuack ? '24px' : '8px',
+                    height: '8px',
+                    backgroundColor: i === activeQuack ? AMBER : 'rgba(255,255,255,0.3)',
+                  }}
                   aria-label={`Tip ${i + 1}`}
                 />
               ))}
@@ -659,7 +679,7 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 4 — TOPIC CARDS
       ══════════════════════════════════════════ */}
-      <section className="bg-gray-50 dark:bg-gray-900 py-20 px-4">
+      <section className="py-20 px-4" style={{ backgroundColor: '#F3F4F6' }}>
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -668,13 +688,14 @@ const HomePage: React.FC = () => {
           className="max-w-screen-lg mx-auto"
         >
           <motion.div variants={fadeUp} className="text-center mb-12">
-            <span className="inline-block px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 text-[#0a2463] dark:text-blue-400 text-[12px] font-bold uppercase tracking-widest mb-3">
+            <span className="inline-block px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-widest mb-3 border"
+              style={{ background: `${AMBER}15`, color: MIDNIGHT, borderColor: `${AMBER}40` }}>
               {tr('home', 'sec4Badge')}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+            <h2 className="text-3xl sm:text-4xl font-semibold dark:text-white" style={{ color: MIDNIGHT }}>
               {tr('home', 'sec4Title')}
             </h2>
-            <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto">
+            <p className="mt-3 text-gray-500 dark:text-gray-400 max-w-md mx-auto" style={{ lineHeight: 1.6 }}>
               {tr('home', 'sec4Desc')}
             </p>
           </motion.div>
@@ -684,35 +705,48 @@ const HomePage: React.FC = () => {
               <motion.div key={section.href} variants={fadeUp}>
                 <Link
                   to={section.href}
-                  className={`group flex flex-col h-full p-6 rounded-2xl border ${section.border}
-                    bg-white dark:bg-gray-800/60 hover:shadow-lg dark:hover:shadow-gray-900/50
-                    transition-all duration-200 hover:-translate-y-1 overflow-hidden relative`}
+                  className="group flex flex-col h-full p-6 rounded-lg border border-gray-200
+                    bg-white dark:bg-gray-800/60 dark:border-gray-700
+                    hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden relative"
                 >
-                  {/* Gradient background blob */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${section.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
+                  {/* Amber Gold hover gradient */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                    style={{ background: `linear-gradient(135deg, ${AMBER}08 0%, transparent 70%)` }}
+                  />
+                  {/* Left accent bar — Amber Gold on hover */}
+                  <div
+                    className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ backgroundColor: AMBER }}
+                  />
 
-                  {/* Icon chip */}
+                  {/* Icon chip — Midnight Blue */}
                   <span
-                    className="relative z-10 flex items-center justify-center w-11 h-11 rounded-xl mb-4
-                      transition-transform duration-200 group-hover:scale-110"
-                    style={{ backgroundColor: `${section.accent}18`, color: section.accent }}
+                    className="relative z-10 flex items-center justify-center w-11 h-11 rounded-lg mb-4 transition-all duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: `${MIDNIGHT}10`, color: MIDNIGHT }}
                   >
                     {section.icon}
                   </span>
 
                   {/* Text */}
-                  <h3 className="relative z-10 text-[16px] font-bold text-gray-900 dark:text-white mb-1.5
-                    group-hover:text-[#0a2463] dark:group-hover:text-white transition-colors">
+                  <h3
+                    className="relative z-10 text-[16px] font-semibold mb-1.5 dark:text-white transition-colors duration-300"
+                    style={{ color: MIDNIGHT }}
+                  >
                     {tr('home', section.trLabel)}
                   </h3>
-                  <p className="relative z-10 text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1">
+                  <p className="relative z-10 text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed flex-1" style={{ lineHeight: 1.6 }}>
                     {tr('home', section.trTagline)}
                   </p>
 
-                  {/* Explore link */}
-                  <div className="relative z-10 flex items-center gap-1.5 mt-5 text-[13px] font-semibold transition-all duration-200 group-hover:gap-2.5"
-                    style={{ color: section.accent }}>
-                    {tr('home', 'explore')}
+                  {/* Explore link — Amber Gold */}
+                  <div
+                    className="relative z-10 flex items-center gap-1.5 mt-5 text-[13px] font-semibold transition-all duration-300 group-hover:gap-2.5"
+                    style={{ color: MIDNIGHT }}
+                  >
+                    <span className="group-hover:text-[#b89300] transition-colors duration-300">
+                      {tr('home', 'explore')}
+                    </span>
                     <ArrowRight size={14} />
                   </div>
                 </Link>
@@ -725,10 +759,12 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 5 — COMMUNITY CTA
       ══════════════════════════════════════════ */}
-      <section className="relative bg-[#0a2463] dark:bg-[#060f2e] py-20 px-4 overflow-hidden">
+      <section className="relative py-20 px-4 overflow-hidden" style={{ backgroundColor: MIDNIGHT }}>
         {/* Decorative blobs */}
-        <div className="absolute top-0 left-0 w-72 h-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 translate-x-1/2 translate-y-1/2 rounded-full bg-indigo-400/10 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-0 w-72 h-72 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl pointer-events-none"
+          style={{ backgroundColor: `${MIDNIGHT}40` }} />
+        <div className="absolute bottom-0 right-0 w-72 h-72 translate-x-1/2 translate-y-1/2 rounded-full blur-3xl pointer-events-none"
+          style={{ backgroundColor: `${AMBER}08` }} />
 
         <motion.div
           initial="hidden"
@@ -739,23 +775,28 @@ const HomePage: React.FC = () => {
         >
           <motion.div variants={fadeUp} className="text-5xl mb-6">🦆</motion.div>
 
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold text-white mb-3 leading-tight">
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-semibold text-white mb-3 leading-tight">
             {tr('home', 'sec5Title1')}
             <br />
-            <span className="text-[#f97316]">{tr('home', 'sec5Title2')}</span>
+            <span style={{ color: AMBER }}>{tr('home', 'sec5Title2')}</span>
           </motion.h2>
 
-          <motion.p variants={fadeUp} className="text-white/60 mb-8 text-[15px] leading-relaxed max-w-sm mx-auto">
+          <motion.p variants={fadeUp} className="text-white/60 mb-8 text-[15px] max-w-sm mx-auto" style={{ lineHeight: 1.6 }}>
             {tr('home', 'sec5Desc')}
           </motion.p>
 
           <motion.div variants={fadeUp}>
             <Link
               to="/community/contributor"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl
-                bg-[#f97316] hover:bg-[#ea6c0a] text-white font-semibold text-[15px]
-                shadow-lg shadow-orange-500/30 transition-all duration-200
-                hover:scale-105 active:scale-95"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-lg font-semibold text-[15px]
+                transition-all duration-300 hover:scale-105 active:scale-95"
+              style={{
+                backgroundColor: AMBER,
+                color: MIDNIGHT,
+                boxShadow: `0 4px 20px ${AMBER}35`,
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = AMBER_DIM; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = AMBER; }}
             >
               <Users size={17} />
               {tr('home', 'sec5Btn')}

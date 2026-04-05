@@ -1,10 +1,11 @@
 // frontend/src/components/train/TransitKnowledgeBase.tsx
 import React, { useState, useMemo } from 'react';
-import { knowledgeData } from './knowledge/data';
-import type { KnowledgeCategory, KnowledgeItem } from './knowledge/data';
-import { ShortFormCard } from './knowledge/ShortFormCard';
-import { LongFormModal } from './knowledge/LongFormModal';
-import { NumberedPagination } from '../../ui/numbered-pagination';
+import { knowledgeData } from '../knowledge/data';
+import type { KnowledgeCategory, KnowledgeItem } from '../knowledge/data';
+import { ShortFormCard } from '../ui/ShortFormCard';
+import { LongFormModal } from '../ui/LongFormModal';
+import { NumberedPagination } from '../../../ui/numbered-pagination';
+import { Badge } from '../../../ui/badge';
 import { Train, Ticket, BookOpen } from 'lucide-react';
 
 const ITEMS_PER_PAGE = 5;
@@ -46,19 +47,19 @@ const TransitKnowledgeBase: React.FC = () => {
 
     return (
         <>
-            <section className="py-16 bg-white px-4">
+            <section className="py-16 bg-white dark:bg-gray-900 px-4">
                 <div className="max-w-screen-lg mx-auto">
-
                     <div className="text-center mb-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] mb-4">Transit Knowledge Base</h2>
-                        <p className="text-gray-500 max-w-2xl mx-auto text-lg">Your survival guide to the German railway network. Select a topic to learn more.</p>
+                        <Badge variant="orange" className="mb-3">German Transit Knowledge</Badge>
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#0a2463] dark:text-yellow-300 mb-4">Transit Knowledge Base</h2>
+                        <p className="text-gray-500 dark:text-gray-400 max-w-2xl mx-auto text-lg">Your survival guide to the German railway network. Select a topic to learn more.</p>
                     </div>
 
                     {/* MAIN CONTAINER: Fixed size, shadow, border */}
-                    <div className="w-full h-[650px] bg-gray-50 rounded-[2rem] border border-gray-200 shadow-sm flex flex-col overflow-hidden">
+                    <div className="w-full h-[650px] bg-gray-50 dark:bg-gray-950 rounded-[2rem] border border-gray-200 dark:border-gray-800 shadow-sm flex flex-col overflow-hidden">
 
                         {/* Header / Tabs */}
-                        <div className="bg-white border-b border-gray-200 p-4 flex justify-center gap-2 md:gap-4 shrink-0 overflow-x-auto">
+                        <div className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 p-4 flex justify-center gap-2 md:gap-4 shrink-0 overflow-x-auto">
                             {tabs.map(tab => {
                                 const isActive = activeTab === tab.id;
                                 return (
@@ -66,9 +67,9 @@ const TransitKnowledgeBase: React.FC = () => {
                                         key={tab.id}
                                         onClick={() => setActiveTab(tab.id)}
                                         className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all whitespace-nowrap
-                      ${isActive
-                                                ? 'bg-[#0a2463] text-white shadow-md'
-                                                : 'bg-white text-[#0a2463] border border-gray-200 hover:bg-blue-50'
+                                            ${isActive
+                                                ? 'bg-[#0a2463] dark:bg-yellow-600 text-white shadow-md'
+                                                : 'bg-white dark:bg-gray-800 text-[#0a2463] dark:text-yellow-200 border border-gray-200 dark:border-gray-700 hover:bg-yellow-50 dark:hover:bg-gray-700'
                                             }`}
                                     >
                                         {tab.icon} {tab.label}
@@ -91,7 +92,7 @@ const TransitKnowledgeBase: React.FC = () => {
                         </div>
 
                         {/* Pagination fixed at the bottom of the container */}
-                        <div className="bg-white border-t border-gray-200 p-4 shrink-0">
+                        <div className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 p-4 shrink-0">
                             {totalPages > 1 && (
                                 <NumberedPagination
                                     currentPage={currentPage}

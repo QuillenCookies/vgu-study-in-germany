@@ -3,6 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, TrendingUp, Wallet, ArrowRight, CheckCircle, Database, Code, Cloud, Terminal, GraduationCap, Building2, Mail } from 'lucide-react';
 import Layout from '../components/Layout';
 
+const MIDNIGHT = '#1A2B4C';
+const AMBER    = '#FFCC00';
+
 const SalaryPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,7 +24,7 @@ const SalaryPage: React.FC = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen relative font-sans selection:bg-orange-500/30 overflow-hidden bg-white dark:bg-gray-950">
+      <div className="min-h-screen relative font-sans overflow-hidden bg-white dark:bg-[#0B1220]">
         
         {/* Faint Golden/Amber mesh gradient (2% opacity) */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden h-full">
@@ -34,8 +37,9 @@ const SalaryPage: React.FC = () => {
         <main className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center text-center pt-32 pb-32 px-6">
           
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex flex-col items-center w-full">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-[#0F172A] dark:text-white tracking-tighter leading-tight mb-6 w-full">
-              Salary & <span className="text-[#F97316]">Finance</span>
+            <h1 className="text-5xl md:text-7xl font-semibold dark:text-white tracking-tight leading-tight mb-6 w-full"
+              style={{ color: MIDNIGHT }}>
+              Salary & <span style={{ color: AMBER }}>Finance</span>
             </h1>
             
             <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 leading-relaxed font-medium max-w-2xl mx-auto mb-20 text-balance">
@@ -49,11 +53,11 @@ const SalaryPage: React.FC = () => {
             {/* 1. Interactive Salary Heatmap */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-slate-200 dark:border-gray-700 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-orange-100 rounded-2xl text-orange-600">
-                  <MapPin size={24} />
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(26,43,76,0.08)' }}>
+                  <MapPin size={24} strokeWidth={1.75} style={{ color: MIDNIGHT }} />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">The Regional Guide</h2>
               </div>
@@ -107,11 +111,11 @@ const SalaryPage: React.FC = () => {
             {/* 2. Technical Role Benchmarks */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-slate-200 dark:border-gray-700 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-blue-100 rounded-2xl text-blue-600">
-                  <TrendingUp size={24} />
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(26,43,76,0.08)' }}>
+                  <TrendingUp size={24} strokeWidth={1.75} style={{ color: MIDNIGHT }} />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">The CS Special</h2>
               </div>
@@ -160,11 +164,11 @@ const SalaryPage: React.FC = () => {
             {/* 3. The "Gross vs. Net" Logic */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-              className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-slate-200 dark:border-gray-700 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-emerald-100 rounded-2xl text-emerald-600">
-                  <Wallet size={24} />
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(26,43,76,0.08)' }}>
+                  <Wallet size={24} strokeWidth={1.75} style={{ color: MIDNIGHT }} />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Financial Transparency</h2>
               </div>
@@ -204,13 +208,15 @@ const SalaryPage: React.FC = () => {
                 </div>
 
                 {/* Pension Insurance */}
-                <div className="flex items-center p-5 bg-orange-50/50 border border-orange-100 rounded-2xl">
-                  <div className="w-12 h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center shadow-sm border border-orange-100 mr-4 text-orange-500">
+                <div className="flex items-center p-5 rounded-lg border"
+                  style={{ background: `${AMBER}08`, borderColor: `${AMBER}30` }}>
+                  <div className="w-12 h-12 flex-shrink-0 bg-white rounded-full flex items-center justify-center shadow-sm border border-amber-200 mr-4"
+                    style={{ color: MIDNIGHT }}>
                      <span className="font-bold text-sm">9.3%</span>
                   </div>
                   <div className="text-left">
-                    <h4 className="font-bold text-orange-900 text-sm">Pension Insurance (Rentenversicherung)</h4>
-                    <p className="text-xs text-orange-700/80 mt-1">If earning &gt;538€, you usually pay 9.3% in pension. The rest is yours.</p>
+                    <h4 className="font-semibold text-sm" style={{ color: MIDNIGHT }}>Pension Insurance (Rentenversicherung)</h4>
+                    <p className="text-xs text-gray-600 mt-1">If earning &gt;538€, you usually pay 9.3% in pension. The rest is yours.</p>
                   </div>
                 </div>
 
@@ -220,11 +226,11 @@ const SalaryPage: React.FC = () => {
             {/* 4. Negotiation & Rights Playbook */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-              className="bg-white dark:bg-gray-900 rounded-3xl p-8 border border-slate-200 dark:border-gray-700 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300 flex flex-col"
+              className="bg-white dark:bg-gray-900 rounded-lg p-8 border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-fuchsia-100 rounded-2xl text-fuchsia-600">
-                  <GraduationCap size={24} />
+                <div className="p-3 rounded-lg" style={{ background: 'rgba(26,43,76,0.08)' }}>
+                  <GraduationCap size={24} strokeWidth={1.75} style={{ color: MIDNIGHT }} />
                 </div>
                 <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Rights Playbook</h2>
               </div>
@@ -260,8 +266,9 @@ const SalaryPage: React.FC = () => {
               </div>
 
               {/* CTA Button */}
-              <button className="mt-8 w-full py-4 px-6 bg-[#0F172A] hover:bg-[#1E293B] text-white rounded-2xl font-bold flex items-center justify-center gap-3 transition-colors shadow-lg shadow-slate-800/20 group">
-                <Mail size={18} className="text-slate-300 group-hover:text-white transition-colors" />
+              <button className="mt-8 w-full py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-lg group hover:opacity-90"
+                style={{ backgroundColor: MIDNIGHT, color: 'white' }}>
+                <Mail size={18} className="opacity-70 group-hover:opacity-100 transition-opacity" strokeWidth={1.75} />
                 Get Raise Request Template
               </button>
             </motion.div>

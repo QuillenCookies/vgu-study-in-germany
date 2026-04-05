@@ -1,28 +1,36 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import TrainHeroSection from '../components/pages/train/TrainHeroSection';
-import CommuteExplorer from '../components/pages/train/CommuteExplorer';
-import JourneyCalculator from '../components/pages/train/JourneyCalculator';
-import TransitKnowledgeBase from '../components/pages/train/TransitKnowledgeBase';
-import { useLanguage } from '../contexts/LanguageContext';
+import TrainHeroSection from '../components/pages/train/sections/TrainHeroSection';
+import TransitOverview from '../components/pages/train/sections/TransitOverview';
+import JourneyCalculator from '../components/pages/train/sections/JourneyCalculator';
+import TransitKnowledgeBase from '../components/pages/train/sections/TransitKnowledgeBase';
+import TypeOfTrain from '../components/pages/train/sections/TypeOfTrain';
+import TicketPrice from '../components/pages/train/sections/TicketPrice';
+import DelayCheck from '../components/pages/train/sections/DelayCheck';
 
 const TrainPage: React.FC = () => {
-  const { tr } = useLanguage();
-
   return (
     <Layout>
       {/* Hero Section */}
       <TrainHeroSection />
 
-      {/* Feature D: Housing & Commute Explorer */}
-      <CommuteExplorer />
+      {/* Transit Overview */}
+      <TransitOverview />
 
-      {/* Feature C: Budgeting & Journey Pricing */}
-      <JourneyCalculator />
+      {/* German Transit Types */}
+      <TypeOfTrain />
 
-      {/* Feature A & B: The Crash Course */}
+      {/* Ticket Guide & Semesterticket */}
+      <TicketPrice />
+
+      {/* The Crash Course (knowledge base) */}
       <TransitKnowledgeBase />
 
+      {/* Budgeting & Journey Pricing */}
+      <JourneyCalculator />
+
+      {/* Real-Time Delay & Station Board */}
+      <DelayCheck />
     </Layout>
   );
 };

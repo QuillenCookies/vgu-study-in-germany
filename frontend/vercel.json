@@ -8,6 +8,10 @@
         {
             "source": "/((?!api/).*)",
             "destination": "/index.html"
+        },
+        {
+            "source": "/db-api/:path*",
+            "destination": "https://v6.db.transport.rest/:path*"
         }
     ]
 }

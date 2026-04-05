@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Home, MapPin, FileText, Shield, Phone, AlertCircle } from 'lucide-react';
@@ -74,7 +74,7 @@ const resources = [
 const HousingPage: React.FC = () => {
   const { tr } = useLanguage();
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
       {/* Navbar spacer — compensates for fixed positioning */}
       <div className="h-[59px]" />
@@ -82,7 +82,7 @@ const HousingPage: React.FC = () => {
       {/* Hero */}
       <section className="relative w-full flex items-center justify-center" style={{ minHeight: '60vh' }}>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1920&q=80)' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#0a2463]/70 to-[#0a2463]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a1628]/85 via-[#1A2B4C]/70 to-[#1A2B4C]/50" />
         <div className="relative z-10 flex flex-col items-center text-center px-4 py-20 w-full max-w-4xl mx-auto">
           <Link to="/" className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/20 text-white text-sm font-medium hover:bg-white/30 transition-colors backdrop-blur-sm">
             <ArrowLeft className="w-4 h-4" /> {tr('housing', 'backHome')}
@@ -190,7 +190,7 @@ const HousingPage: React.FC = () => {
           <div className="overflow-x-auto rounded-2xl shadow border border-gray-100 dark:border-gray-700">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-[#0a2463] text-white">
+                <tr className="bg-[#1A2B4C] text-white">
                   <th className="px-5 py-4 text-left font-semibold">District</th>
                   <th className="px-5 py-4 text-left font-semibold">Type</th>
                   <th className="px-5 py-4 text-left font-semibold">Avg Rent</th>
@@ -221,7 +221,7 @@ const HousingPage: React.FC = () => {
       </section>
 
       {/* Legal Information */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#0a1628] to-[#0a2463]">
+      <section className="py-20 px-4 bg-gradient-to-br from-[#0a1628] to-[#1A2B4C]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/20 text-white text-sm font-semibold">{tr('housing', 'secLegalBadge')}</span>
