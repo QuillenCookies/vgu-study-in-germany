@@ -394,6 +394,141 @@ export const translations = {
     bentoSub4: { EN: 'You are not alone', DE: 'Du bist nicht allein', VN: 'Bạn không đơn độc' },
     bentoDesc4: { EN: 'Resources for student stress, university counseling services, and finding English-speaking therapists covered by insurance.', DE: 'Ressourcen bei studentischem Stress, universitäre Beratungsstellen und die Suche nach englischsprachigen Therapeuten, die von der Kasse bezahlt werden.', VN: 'Nguồn lực giải tỏa căng thẳng, dịch vụ tham vấn đại học, và cách tìm bác sĩ trị liệu tiếng Anh được bảo hiểm chi trả.' },
     quickGuide: { EN: 'Quick Guide', DE: 'Kurzanleitung', VN: 'Hướng Dẫn Nhanh' },
+
+    // ── ACCORDION PAGE CONTENT ────────────────────────────────────────────────
+    emergencyBar: {
+      EN: '🚨 Emergency: 112 (ambulance/fire) | After-hours doctor: 116 117 (non-life-threatening)',
+      DE: '🚨 Notfall: 112 (Krankenwagen/Feuerwehr) | Ärztlicher Bereitschaftsdienst: 116 117 (nicht lebensbedrohlich)',
+      VN: '🚨 Khẩn cấp: 112 (cấp cứu/cứu hỏa) | Bác sĩ trực ngoài giờ: 116 117 (không nguy hiểm tính mạng)',
+    },
+    expand:   { EN: 'Show more', DE: 'Mehr anzeigen', VN: 'Xem thêm' },
+    collapse: { EN: 'Show less', DE: 'Weniger anzeigen', VN: 'Thu gọn' },
+
+    // Card 1 — Insurance & Benefits
+    c1Title:  { EN: 'Insurance & Benefits', DE: 'Versicherung & Leistungen', VN: 'Bảo Hiểm & Quyền Lợi' },
+    c1Sub:    { EN: 'The foundation of all healthcare access', DE: 'Die Grundlage jeder medizinischen Versorgung', VN: 'Nền tảng để tiếp cận mọi dịch vụ y tế' },
+    c1P1:     { EN: 'Public insurance (TK, AOK, Barmer) covers students under 30 — sign up within 3 months of arrival.', DE: 'Gesetzliche Krankenversicherung (TK, AOK, Barmer) für Studenten unter 30 — Anmeldung innerhalb von 3 Monaten nach Ankunft.', VN: 'Bảo hiểm công (TK, AOK, Barmer) dành cho sinh viên dưới 30 tuổi — đăng ký trong vòng 3 tháng sau khi đến Đức.' },
+    c1P2:     { EN: 'Activate your eGK card via the insurer\'s app and get your Versicherungsbescheinigung for the university.', DE: 'Aktiviere deine eGK-Karte über die App deiner Kasse und erhalte die Versicherungsbescheinigung für die Uni.', VN: 'Kích hoạt thẻ eGK qua app bảo hiểm và lấy Versicherungsbescheinigung nộp cho trường.' },
+    c1P3:     { EN: 'Bonus-Programm: get cashback for dental check-ups and sports club memberships.', DE: 'Bonus-Programm: Erhalte Rückerstattungen für Zahnarztbesuche und Vereinsmitgliedschaften.', VN: 'Bonus-Programm: Hoàn tiền khi đi khám răng định kỳ và tham gia câu lạc bộ thể thao.' },
+    c1P4:     { EN: 'Insurance pays 80–100% for yoga, swimming, or stress-management courses (Stressbewältigung).', DE: 'Krankenkassen übernehmen 80–100% der Kosten für Yoga-, Schwimm- oder Stressbewältigungskurse.', VN: 'Bảo hiểm trả 80–100% cho các lớp Yoga, bơi lội, hoặc khóa học giảm stress (Stressbewältigung).' },
+    c1P5:     { EN: 'Low-income tip: ask your insurer about co-payment exemption (Zuzahlungsbefreiung) for medication.', DE: 'Tipp für Geringverdiener: Frage deine Kasse nach der Zuzahlungsbefreiung für Medikamente.', VN: 'Mẹo: Xin miễn phụ thu thuốc (Zuzahlungsbefreiung) nếu thu nhập thấp — dành cho sinh viên.' },
+    c1Tip:    { EN: '🦆 Die Ente says: Compare TK and AOK before choosing — TK has a better English-language app and support.', DE: '🦆 Die Ente sagt: Vergleiche TK und AOK — TK bietet eine bessere englischsprachige App und Support.', VN: '🦆 Die Ente mách: So sánh TK và AOK trước khi chọn — TK có app tiếng Anh tốt hơn và hỗ trợ đa ngôn ngữ.' },
+
+    // Card 2 — Medical Care & Pharmacy
+    c2Title:  { EN: 'Medical Care & Pharmacy', DE: 'Arztbesuche & Apotheke', VN: 'Khám Bệnh & Nhà Thuốc' },
+    c2Sub:    { EN: 'Step-by-step when you feel unwell', DE: 'Schritt für Schritt, wenn du dich unwohl fühlst', VN: 'Hướng dẫn từng bước khi bạn không khỏe' },
+    c2P1:     { EN: 'Find a Hausarzt (GP) near you right after arrival — they are your entry point for all specialist care.', DE: 'Finde direkt nach der Ankunft einen Hausarzt in deiner Nähe — er ist dein Einstiegspunkt für alle Fachärzte.', VN: 'Tìm Bác sĩ gia đình (Hausarzt) gần nhà ngay khi mới sang — họ là "người gác cổng" của hệ thống y tế.' },
+    c2P2:     { EN: 'Book appointments via Doctolib — filter for English or Vietnamese-speaking doctors.', DE: 'Buche Termine über Doctolib — filtere nach englisch- oder vietnamesischsprachigen Ärzten.', VN: 'Đặt lịch qua app Doctolib — lọc bác sĩ nói tiếng Anh hoặc tiếng Việt.' },
+    c2P3:     { EN: 'Pink prescription (rosa Rezept) = insurance pays; Blue prescription (blaues Rezept) = you pay.', DE: 'Rosa Rezept = Kasse zahlt; Blaues Rezept = du zahlst selbst.', VN: 'Đơn thuốc hồng (rosa Rezept) = bảo hiểm trả; Đơn thuốc xanh (blaues Rezept) = tự trả.' },
+    c2P4:     { EN: 'Find a 24/7 emergency pharmacy (Notdienst) via apotheken.de or the Apotheken-Notdienst app.', DE: 'Finde eine 24/7-Notdienstapotheke über apotheken.de oder die Apotheken-Notdienst-App.', VN: 'Tìm nhà thuốc trực đêm/cuối tuần (Notdienst) qua apotheken.de hoặc app Apotheken-Notdienst.' },
+    c2P5:     { EN: 'Sick note (AU-Bescheinigung): get it from your doctor to excuse absences from university or part-time work.', DE: 'Krankschreibung (AU-Bescheinigung): Hole sie beim Arzt, um Fehlzeiten an der Uni oder beim Nebenjob zu entschuldigen.', VN: 'Giấy nghỉ ốm (AU-Bescheinigung): lấy từ bác sĩ để xin nghỉ học hoặc nghỉ làm thêm hợp lệ.' },
+    c2Tip:    { EN: '🦆 Die Ente says: Call 116 117 before rushing to the ER — they can often solve your problem over the phone.', DE: '🦆 Die Ente sagt: Ruf 116 117 an, bevor du in die Notaufnahme fährst — oft kann das Problem telefonisch gelöst werden.', VN: '🦆 Die Ente mách: Gọi 116 117 trước khi vào phòng cấp cứu — thường có thể giải quyết qua điện thoại.' },
+
+    // Card 3 — Sport & Physical Activity
+    c3Title:  { EN: 'Sport & Physical Activity', DE: 'Sport & Bewegung', VN: 'Thể Thao & Hoạt Động Thể Chất' },
+    c3Sub:    { EN: 'Stay active, beat stress, make friends', DE: 'Aktiv bleiben, Stress abbauen, Freunde finden', VN: 'Năng động, giải tỏa stress, kết bạn' },
+    c3P1:     { EN: 'Hochschulsport: your university offers 50–100+ sports courses (yoga, climbing, football) — often free or cheap.', DE: 'Hochschulsport: Deine Uni bietet 50–100+ Sportkurse (Yoga, Klettern, Fußball) — oft kostenlos oder günstig.', VN: 'Hochschulsport: Trường cung cấp 50–100+ môn thể thao (yoga, leo núi, bóng đá) — thường miễn phí hoặc rất rẻ.' },
+    c3P2:     { EN: 'Register for Hochschulsport online — courses fill up fast, so book as soon as the semester opens.', DE: 'Melde dich online für den Hochschulsport an — Kurse sind schnell ausgebucht, also frühzeitig buchen.', VN: 'Đăng ký Hochschulsport online — các khóa học hết chỗ rất nhanh, hãy đăng ký sớm khi học kỳ mới mở.' },
+    c3P3:     { EN: 'Your insurer may reimburse fitness studio fees if the gym is certified — ask your provider.', DE: 'Deine Krankenkasse erstattet ggf. Fitnessstudiogebühren, wenn das Studio zertifiziert ist — frag deine Kasse.', VN: 'Bảo hiểm có thể hoàn tiền học phí phòng gym nếu phòng được chứng nhận — hỏi nhà cung cấp của bạn.' },
+    c3P4:     { EN: 'Cycling infrastructure in Germany is excellent — a bike is the cheapest and healthiest transport option.', DE: 'Die Radinfrastruktur in Deutschland ist ausgezeichnet — ein Fahrrad ist die günstigste und gesündeste Transportoption.', VN: 'Cơ sở hạ tầng xe đạp ở Đức rất tốt — đạp xe là phương tiện rẻ nhất và lành mạnh nhất.' },
+    c3Tip:    { EN: '🦆 Die Ente says: Check the campus sports calendar every semester — some workshops like first aid or self-defense are free.', DE: '🦆 Die Ente sagt: Schau jeden Semester ins Hochschulsportprogramm — manche Workshops wie Erste Hilfe sind kostenlos.', VN: '🦆 Die Ente mách: Xem lịch thể thao trường mỗi học kỳ — một số khóa sơ cứu hay tự vệ miễn phí.' },
+
+    // Card 4 — Mental Health
+    c4Title:  { EN: 'Mental Health & Support', DE: 'Mentale Gesundheit & Unterstützung', VN: 'Sức Khỏe Tinh Thần & Hỗ Trợ' },
+    c4Sub:    { EN: 'You are not alone', DE: 'Du bist nicht allein', VN: 'Bạn không đơn độc' },
+    c4P1:     { EN: 'Every German university has a free psychological counseling service (Psychologische Beratungsstelle).', DE: 'Jede deutsche Uni hat einen kostenlosen psychologischen Beratungsdienst (Psychologische Beratungsstelle).', VN: 'Mọi trường đại học Đức đều có dịch vụ tư vấn tâm lý miễn phí (Psychologische Beratungsstelle).' },
+    c4P2:     { EN: 'Public insurance covers therapy sessions (Psychotherapie) — use Doctolib to find insured therapists.', DE: 'Gesetzliche Krankenkassen decken Therapiesitzungen (Psychotherapie) ab — nutze Doctolib für Kassenzulassung.', VN: 'Bảo hiểm công chi trả các buổi trị liệu tâm lý (Psychotherapie) — dùng Doctolib tìm bác sĩ được bảo hiểm hỗ trợ.' },
+    c4P3:     { EN: 'Crisis hotline: Telefonseelsorge 0800 111 0 111 (free, 24/7, available in German and some other languages).', DE: 'Krisenhotline: Telefonseelsorge 0800 111 0 111 (kostenlos, 24/7, auf Deutsch und weiteren Sprachen).', VN: 'Đường dây hỗ trợ khủng hoảng: Telefonseelsorge 0800 111 0 111 (miễn phí, 24/7, có tiếng Đức và một số ngôn ngữ khác).' },
+    c4P4:     { EN: 'Student Advisory Office (Studienberatung) also offers social counseling for visa stress, homesickness, and loneliness.', DE: 'Die Studienberatung bietet auch Sozialberatung bei Visastress, Heimweh und Einsamkeit.', VN: 'Văn phòng tư vấn sinh viên (Studienberatung) cũng hỗ trợ về stress visa, nhớ nhà và cô đơn.' },
+    c4Tip:    { EN: '🦆 Die Ente says: Seeking help is a sign of strength, not weakness. Book early — waitlists for therapists can be long.', DE: '🦆 Die Ente sagt: Hilfe zu suchen ist ein Zeichen von Stärke. Früh buchen — Wartelisten für Therapeuten können lang sein.', VN: '🦆 Die Ente mách: Tìm kiếm giúp đỡ là dấu hiệu của sức mạnh. Đặt lịch sớm — danh sách chờ bác sĩ trị liệu có thể rất dài.' },
+
+    // Card 5 — Lifestyle & Hacks
+    c5Title:  { EN: 'Lifestyle & Local Hacks', DE: 'Lebensstil & Lokale Tipps', VN: 'Lối Sống & Mẹo Bản Địa' },
+    c5Sub:    { EN: 'Little-known tips to live better in Germany', DE: 'Wenig bekannte Tipps für ein besseres Leben in Deutschland', VN: 'Những mẹo ít người biết để sống tốt hơn ở Đức' },
+    c5Tag1:   { EN: '🧖 Sauna culture', DE: '🧖 Saunakultur', VN: '🧖 Văn hóa tắm Sauna' },
+    c5Tag2:   { EN: '💧 Tap water is safe', DE: '💧 Leitungswasser trinkbar', VN: '💧 Nước máy uống được' },
+    c5Tag3:   { EN: '🍵 Herbal tea > pills', DE: '🍵 Kräutertee > Tabletten', VN: '🍵 Trà thảo mộc > thuốc' },
+    c5Tag4:   { EN: '🚴 Cycle commuting', DE: '🚴 Fahrrad zur Uni', VN: '🚴 Đi xe đạp đến trường' },
+    c5Tag5:   { EN: '🌿 Farmers markets', DE: '🌿 Wochenmärkte', VN: '🌿 Chợ nông sản' },
+    c5Tag6:   { EN: '☀️ Vitamin D supplements', DE: '☀️ Vitamin D Nahrungsergänzung', VN: '☀️ Bổ sung Vitamin D' },
+    c5Tag7:   { EN: '🏊 City pools (Stadtbad)', DE: '🏊 Hallenbad der Stadt', VN: '🏊 Bể bơi thành phố' },
+    c5Tag8:   { EN: '🌲 Forest walks (Waldspaziergang)', DE: '🌲 Waldspaziergang', VN: '🌲 Đi bộ trong rừng' },
+    c5Tag9:   { EN: '🍎 Student canteen (Mensa)', DE: '🍎 Mensa der Hochschule', VN: '🍎 Căng tin sinh viên (Mensa)' },
+    c5Tag10:  { EN: '😴 Sleep hygiene matters', DE: '😴 Schlafhygiene ist wichtig', VN: '😴 Thói quen ngủ tốt' },
+    c5Tip:    { EN: '🦆 Die Ente says: Germans swear by "Lüften" — opening windows for 10 min daily is their secret to avoiding illness.', DE: '🦆 Die Ente sagt: Deutsche schwören auf "Lüften" — 10 Minuten täglich Fenster öffnen als Geheimrezept gegen Krankheit.', VN: '🦆 Die Ente mách: Người Đức tin vào "Lüften" — mở cửa sổ 10 phút mỗi ngày là bí quyết không bị bệnh của họ.' },
+
+    // ── Lifestyle Hacks Grid (interactive cards) ──────────────────────────────
+    lhSectionTitle: { EN: 'Lifestyle & Local Hacks', DE: 'Lebensstil & Geheimtipps', VN: 'Lối Sống & Mẹo Bản Địa' },
+    lhSectionSub:   { EN: 'Cultural codes Germans follow silently — now you know them too.', DE: 'Kulturelle Codes, die Deutsche stillschweigend befolgen — jetzt weißt du sie auch.', VN: 'Những "luật bất thành văn" người Đức tuân theo — giờ bạn cũng biết rồi đó.' },
+    lhClickHint:    { EN: 'Click any card to expand', DE: 'Karte anklicken zum Erweitern', VN: 'Nhấn vào thẻ để xem chi tiết' },
+    lhClose:        { EN: 'Close', DE: 'Schließen', VN: 'Đóng lại' },
+
+    // Hack 1 — Pfand
+    lh1Title:  { EN: 'Pfand System', DE: 'Pfandsystem', VN: 'Hệ Thống Pfand' },
+    lh1Teaser: { EN: 'Every plastic bottle is worth 0.25 €', DE: 'Jede Pfandflasche ist 0,25 € wert', VN: 'Mỗi chai nhựa đáng giá 0,25€' },
+    lh1Detail: {
+      EN: 'Never throw away a bottle with the Pfand logo (♻️ symbol)! Each one is worth €0.25 — about 6,000 VND. Return them at the supermarket\'s Pfand machine (Leergutautomat). Collect for a month and you\'ll have enough for a full grocery run. Look for the Pfand logo on the bottle label before tossing it.',
+      DE: 'Wirf niemals eine Flasche mit Pfand-Logo weg! Jede ist €0,25 wert. Gib sie am Leergutautomaten im Supermarkt ab. Sammel einen Monat lang und du hast genug für einen vollen Einkauf.',
+      VN: 'Đừng bao giờ vứt chai có logo Pfand (♻️)! Mỗi chai đáng giá 0,25€ (khoảng 6.000 VNĐ). Trả lại tại máy Leergutautomat ở siêu thị. Gom cả tháng là đủ tiền đi chợ một bữa!',
+    },
+
+    // Hack 2 — Sunday Rules
+    lh2Title:  { EN: 'Sonntag Rules', DE: 'Sonntagsregeln', VN: 'Luật Ngày Chủ Nhật' },
+    lh2Teaser: { EN: 'Everything shuts down — plan your Saturday', DE: 'Alles zu — plane deinen Samstag', VN: 'Mọi thứ đóng cửa — hãy mua sắm thứ 7' },
+    lh2Detail: {
+      EN: 'Sunday is "Ruhetag" (rest day) in Germany — supermarkets, clothing shops, and most stores are completely closed. Pharmacies rotate duty (Notdienst), but rely on the apotheken.de app. Plan your groceries and errands on Saturday. Gas stations and train station shops remain open as exceptions.',
+      DE: 'Sonntag ist Ruhetag in Deutschland — Supermärkte, Bekleidungsgeschäfte und die meisten Läden sind geschlossen. Plane deine Einkäufe für Samstag. Tankstellen und Bahnhofsgeschäfte bleiben als Ausnahme geöffnet.',
+      VN: 'Chủ nhật là "Ruhetag" (ngày nghỉ) ở Đức — siêu thị, cửa hàng quần áo và hầu hết các cửa hàng đều đóng cửa. Hãy mua sắm vào thứ 7! Chỉ trạm xăng và cửa hàng trong ga tàu mở cửa như ngoại lệ.',
+    },
+
+    // Hack 3 — Cash is King
+    lh3Title:  { EN: 'Bargeld (Cash)', DE: 'Bargeld ist König', VN: 'Tiền Mặt Là Vua' },
+    lh3Teaser: { EN: 'Many small shops still don\'t accept cards', DE: 'Viele Läden akzeptieren keine Karten', VN: 'Nhiều tiệm nhỏ vẫn chưa nhận thẻ' },
+    lh3Detail: {
+      EN: 'Even in 2026, many small bakeries (Bäckerei), Turkish döner shops, market stalls, and local restaurants only accept cash (Bargeld). Always carry €20–40 in cash. Look for the "Nur Barzahlung" sign. ATMs (Geldautomat) are widely available — use your bank\'s network to avoid fees.',
+      DE: 'Auch 2026 akzeptieren viele Bäckereien, Dönerbuden, Marktstände und Restaurants nur Bargeld. Trage immer €20–40 dabei. Achte auf das Schild "Nur Barzahlung". Geldautomaten sind weit verbreitet.',
+      VN: 'Dù là năm 2026, nhiều tiệm bánh mì (Bäckerei), quán döner, sạp chợ và nhà hàng địa phương chỉ nhận tiền mặt (Bargeld). Luôn mang theo 20–40€ tiền mặt. Tìm dấu hiệu "Nur Barzahlung". ATM (Geldautomat) có khắp nơi.',
+    },
+
+    // Hack 4 — Punctuality
+    lh4Title:  { EN: 'Pünktlichkeit', DE: 'Pünktlichkeit', VN: 'Đúng Giờ (Pünktlichkeit)' },
+    lh4Teaser: { EN: '5 minutes early = German on-time', DE: '5 Minuten früher = pünktlich auf Deutsch', VN: '5 phút sớm = đúng giờ theo chuẩn Đức' },
+    lh4Detail: {
+      EN: '"5 minutes early is on time, on time is late, late is unacceptable." Germans take punctuality extremely seriously in academic, professional, and social settings. Arriving on time for university lectures, appointments, and meetings is non-negotiable. Notify in advance if you\'re running late — it\'s a basic sign of respect.',
+      DE: '"5 Minuten früher ist pünktlich, pünktlich ist zu spät, zu spät ist inakzeptabel." Deutsche nehmen Pünktlichkeit sehr ernst. Informiere immer im Voraus, wenn du zu spät kommst.',
+      VN: '"5 phút sớm = đúng giờ, đúng giờ = muộn, muộn = không thể chấp nhận." Người Đức coi trọng đúng giờ cực kỳ. Hãy thông báo trước nếu bạn sẽ đến muộn — đó là dấu hiệu tôn trọng cơ bản.',
+    },
+
+    // Hack 5 — Cycling Rules
+    lh5Title:  { EN: 'Fahrrad Rules', DE: 'Fahrradregeln', VN: 'Luật Đi Xe Đạp' },
+    lh5Teaser: { EN: 'No lights = €25 fine from the police', DE: 'Kein Licht = 25 € Strafe', VN: 'Không đèn = bị phạt 25€' },
+    lh5Detail: {
+      EN: 'Cycling is the best way to get around German cities — but there are strict rules. You MUST have a white front light and red rear light after dark (fines: €20–30). Use the Radweg (bike lane, usually red pavement) and never cycle on the sidewalk. Always lock your bike — theft is common. A good lock costs €30–50 and is worth every cent.',
+      DE: 'Radfahren ist die beste Art, deutsche Städte zu erkunden — aber es gibt strenge Regeln. Du MUSST nach Einbruch der Dunkelheit ein weißes Vorderlicht und ein rotes Rücklicht haben (Bußgeld: 20–30 €). Nutze den Radweg und fahre nie auf dem Gehweg.',
+      VN: 'Đạp xe là cách di chuyển tốt nhất ở các thành phố Đức — nhưng có quy tắc nghiêm ngặt. BẮT BUỘC phải có đèn trắng phía trước và đèn đỏ phía sau khi trời tối (phạt 20–30€). Đi trên Radweg (làn xe đạp — mặt đường màu đỏ). Đừng quên khóa xe — trộm xe rất phổ biến.',
+    },
+
+    // Hack 6 — Lüften
+    lh6Title:  { EN: 'Lüften (Ventilation)', DE: 'Stoßlüften', VN: 'Lüften — Thông Gió' },
+    lh6Teaser: { EN: 'Open windows for 10 min daily — it\'s science', DE: '10 Min. täglich lüften — das ist Wissenschaft', VN: 'Mở cửa sổ 10 phút mỗi ngày — có cơ sở khoa học' },
+    lh6Detail: {
+      EN: '"Stoßlüften" (burst ventilation) is a German ritual: open all windows fully for 10 minutes instead of leaving them slightly open for hours. Germans believe this prevents mold (Schimmel), reduces allergens, and boosts immunity — and the science actually supports it. Your landlord may mention it in your rental contract. Do it every morning and your German neighbors will approve of you.',
+      DE: '"Stoßlüften" ist ein deutsches Ritual: Fenster 10 Minuten weit öffnen statt stundenlang leicht. Deutsche glauben, das verhindert Schimmel, reduziert Allergene und stärkt die Immunabwehr — und die Wissenschaft gibt ihnen Recht.',
+      VN: '"Stoßlüften" là nghi lễ của người Đức: mở toàn bộ cửa sổ trong 10 phút thay vì để hé cả tiếng. Người Đức tin rằng điều này ngăn nấm mốc (Schimmel), giảm dị ứng và tăng đề kháng — và khoa học thực sự đồng ý. Chủ nhà có thể ghi điều này vào hợp đồng thuê nhà. Làm mỗi sáng và hàng xóm người Đức sẽ gật đầu tán thưởng.',
+    },
+
+    // Q&A Section
+    qaTitle:  { EN: 'Frequently Asked Questions', DE: 'Häufig gestellte Fragen', VN: 'Câu Hỏi Thường Gặp' },
+    qa1q:     { EN: 'Do I need health insurance as an international student in Germany?', DE: 'Brauche ich als internationaler Student in Deutschland eine Krankenversicherung?', VN: 'Tôi có cần bảo hiểm y tế khi là du học sinh ở Đức không?' },
+    qa1a:     { EN: 'Yes, health insurance is mandatory for enrollment. Students under 30 can join public insurance (TK, AOK, Barmer) at a subsidized rate (~€120/month). Over 30? You\'ll need private insurance.', DE: 'Ja, Krankenversicherung ist für die Immatrikulation Pflicht. Studenten unter 30 können der gesetzlichen KV (TK, AOK, Barmer) zu einem Subventionstarif (~120 €/Monat) beitreten. Über 30? Dann brauchst du eine private KV.', VN: 'Có, bảo hiểm y tế là bắt buộc để nhập học. Sinh viên dưới 30 tuổi có thể tham gia bảo hiểm công (TK, AOK, Barmer) với mức phí ưu đãi (~120€/tháng). Trên 30 tuổi? Bạn cần bảo hiểm tư nhân.' },
+    qa2q:     { EN: 'What should I do in a medical emergency?', DE: 'Was soll ich bei einem medizinischen Notfall tun?', VN: 'Tôi phải làm gì trong tình huống y tế khẩn cấp?' },
+    qa2a:     { EN: 'Call 112 immediately for life-threatening emergencies (ambulance, fire). For urgent but non-life-threatening issues (high fever, injury), call 116 117 to reach the after-hours doctor service.', DE: 'Ruf sofort 112 bei lebensbedrohlichen Notfällen (Krankenwagen, Feuerwehr) an. Bei dringenden, aber nicht lebensbedrohlichen Problemen (hohes Fieber, Verletzung) ruf 116 117 an.', VN: 'Gọi 112 ngay cho trường hợp nguy hiểm tính mạng (cứu thương, cứu hỏa). Với vấn đề khẩn cấp không nguy hiểm tính mạng (sốt cao, chấn thương), gọi 116 117 để gặp bác sĩ trực.' },
+    qa3q:     { EN: 'Can I see a specialist without a referral?', DE: 'Kann ich ohne Überweisung einen Facharzt aufsuchen?', VN: 'Tôi có thể gặp bác sĩ chuyên khoa mà không cần giấy chuyển viện không?' },
+    qa3a:     { EN: 'For most specialists, you need a referral (Überweisung) from your Hausarzt. Exceptions include ophthalmologists, gynecologists, and dermatologists — you can visit them directly with your insurance card.', DE: 'Für die meisten Fachärzte brauchst du eine Überweisung vom Hausarzt. Ausnahmen: Augenarzt, Gynäkologe und Dermatologe — die kannst du direkt mit der Versichertenkarte aufsuchen.', VN: 'Hầu hết các bác sĩ chuyên khoa cần giấy chuyển viện (Überweisung) từ Hausarzt. Ngoại lệ: bác sĩ nhãn khoa, phụ khoa và da liễu — bạn có thể đến trực tiếp với thẻ bảo hiểm.' },
+    qa4q:     { EN: 'How do I find a pharmacy open at night or on weekends?', DE: 'Wie finde ich eine Apotheke, die nachts oder am Wochenende geöffnet ist?', VN: 'Làm thế nào để tìm nhà thuốc mở cửa vào ban đêm hoặc cuối tuần?' },
+    qa4a:     { EN: 'Visit apotheken.de or use the "Apotheke vor Ort" app to find your nearest Notdienst pharmacy. German pharmacies take turns being on-call — there\'s always one open nearby.', DE: 'Besuche apotheken.de oder nutze die "Apotheke vor Ort" App, um die nächste Notdienstapotheke zu finden. Deutsche Apotheken übernehmen abwechselnd den Bereitschaftsdienst.', VN: 'Truy cập apotheken.de hoặc dùng app "Apotheke vor Ort" để tìm nhà thuốc Notdienst gần nhất. Các nhà thuốc Đức luân phiên trực — luôn có một nhà thuốc mở cửa gần bạn.' },
+    qa5q:     { EN: 'What mental health resources are available for international students?', DE: 'Welche Ressourcen für psychische Gesundheit stehen internationalen Studenten zur Verfügung?', VN: 'Có những nguồn hỗ trợ sức khỏe tâm thần nào dành cho du học sinh không?' },
+    qa5a:     { EN: 'Your university\'s Psychological Counseling Center (Psychologische Beratungsstelle) offers free sessions. Public insurance covers licensed therapists. For immediate help, call Telefonseelsorge: 0800 111 0 111 (free, 24/7).', DE: 'Die Psychologische Beratungsstelle deiner Uni bietet kostenlose Sitzungen an. Gesetzliche KV deckt zugelassene Therapeuten ab. Bei sofortiger Hilfe: Telefonseelsorge 0800 111 0 111 (kostenlos, 24/7).', VN: 'Trung tâm tư vấn tâm lý của trường (Psychologische Beratungsstelle) cung cấp các buổi tư vấn miễn phí. Bảo hiểm công chi trả bác sĩ trị liệu có giấy phép. Hỗ trợ khẩn cấp: Telefonseelsorge 0800 111 0 111 (miễn phí, 24/7).' },
   },
 
   // ── COMMON ────────────────────────────────────────────────────────────────
