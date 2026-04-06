@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
+import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const MIDNIGHT = '#1A2B4C';
@@ -66,8 +66,6 @@ const ContributorsPage: React.FC = () => {
       >
         <div className="relative z-10 w-full">
           <Navbar />
-          {/* Navbar spacer — compensates for fixed positioning */}
-          <div className="h-[59px]" />
 
           {/* ══════════════════════════════════════════
           SECTION 1 — HERO
@@ -275,69 +273,67 @@ const ContributorsPage: React.FC = () => {
                               <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" /></svg>
                             </div>
                           </div>
+                        </div>
 
-                          <div>
-                            <label className="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-1.5">
-                              Hack Title
-                            </label>
-                            <input
-                              type="text"
-                              required
-                              value={formData.title}
-                              onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                              placeholder="e.g. The fastest way to get Anmeldung"
-                              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all"
-                              style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-1.5">
+                            Hack Title
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={formData.title}
+                            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                            placeholder="e.g. The fastest way to get Anmeldung"
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all"
+                            style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
+                          />
+                        </div>
 
-                          <div>
-                            <label className="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-1.5">
-                              Content
-                            </label>
-                            <textarea
-                              required
-                              rows={4}
-                              value={formData.content}
-                              onChange={(e) => setFormData({ ...formData, content: e.target.value })}
-                              placeholder="Share your experience, tips, and step-by-step hacks here..."
-                              className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all resize-none"
-                              style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
-                            />
-                          </div>
+                        <div>
+                          <label className="block text-xs font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-1.5">
+                            Content
+                          </label>
+                          <textarea
+                            required
+                            rows={4}
+                            value={formData.content}
+                            onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                            placeholder="Share your experience, tips, and step-by-step hacks here..."
+                            className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-slate-900 dark:text-white text-[14px] focus:outline-none focus:ring-2 transition-all resize-none"
+                            style={{ '--tw-ring-color': `${AMBER}40` } as React.CSSProperties}
+                          />
+                        </div>
                       </form>
                     )}
                   </div>
-              </div>
-          </section>
 
-          {/* Footer */}
-          {!submitted && (
-            <div className="px-6 py-4 border-t border-slate-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/50 flex justify-end gap-3">
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="px-5 py-2.5 rounded-xl font-semibold text-slate-500 dark:text-gray-400 hover:bg-slate-200 dark:hover:bg-gray-800 transition-colors text-[13px]"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleSubmit}
-                className="px-6 py-2.5 rounded-lg font-semibold text-[13px] shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5"
-                style={{ backgroundColor: AMBER, color: MIDNIGHT, boxShadow: `0 4px 14px ${AMBER}30` }}
-              >
-                Submit <Send size={14} strokeWidth={1.75} />
-              </button>
-            </div>
-          )}
+                  {/* Footer */}
+                  {!submitted && (
+                    <div className="px-6 py-4 border-t border-slate-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-950/50 flex justify-end gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setIsModalOpen(false)}
+                        className="px-5 py-2.5 rounded-xl font-semibold text-slate-500 dark:text-gray-400 hover:bg-slate-200 dark:hover:bg-gray-800 transition-colors text-[13px]"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        onClick={handleSubmit}
+                        className="px-6 py-2.5 rounded-lg font-semibold text-[13px] shadow-lg transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5"
+                        style={{ backgroundColor: AMBER, color: MIDNIGHT, boxShadow: `0 4px 14px ${AMBER}30` }}
+                      >
+                        Submit <Send size={14} strokeWidth={1.75} />
+                      </button>
+                    </div>
+                  )}
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
+        </div>
       </motion.div>
     </div>
-  )
-}
-      </AnimatePresence >
-        </div >
-      </motion.div >
-    </div >
   );
 };
 

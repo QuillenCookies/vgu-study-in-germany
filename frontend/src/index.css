@@ -1,6 +1,9 @@
 /* Tailwind CSS import */
 @import "tailwindcss";
 
+/* ── DARK MODE: class-based (ThemeContext adds/removes .dark on <html>) ──── */
+@custom-variant dark (&:where(.dark, .dark *));
+
 *,
 *::before,
 *::after {
