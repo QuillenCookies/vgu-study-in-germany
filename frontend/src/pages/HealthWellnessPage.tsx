@@ -11,7 +11,7 @@ import { LifestyleHacksGrid } from '../components/pages/health/LifestyleHacksGri
 
 // ── Design tokens ─────────────────────────────────────────────────────────────
 const MIDNIGHT = '#1A2B4C';
-const AMBER    = '#FFCC00';
+const AMBER = '#FFCC00';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type HWKey =
@@ -27,8 +27,8 @@ type HWKey =
   | 'qa4q' | 'qa4a' | 'qa5q' | 'qa5a';
 
 const QA_KEYS: [HWKey, HWKey][] = [
-  ['qa1q','qa1a'], ['qa2q','qa2a'], ['qa3q','qa3a'],
-  ['qa4q','qa4a'], ['qa5q','qa5a'],
+  ['qa1q', 'qa1a'], ['qa2q', 'qa2a'], ['qa3q', 'qa3a'],
+  ['qa4q', 'qa4a'], ['qa5q', 'qa5a'],
 ];
 
 // ── Card base — clean white, no blur ─────────────────────────────────────────
@@ -52,13 +52,13 @@ export default function HealthWellnessPage() {
   // Per-card focus motion props
   const focus = (id: string, delay = 0) => ({
     animate: {
-      scale:   hoveredCell !== null && hoveredCell !== id ? 0.99 : 1,
+      scale: hoveredCell !== null && hoveredCell !== id ? 0.99 : 1,
       opacity: hoveredCell !== null && hoveredCell !== id ? 0.65 : 1,
     },
     transition: { duration: 0.18, ease: 'easeOut' as const, delay },
     onMouseEnter: () => setHoveredCell(id),
     onMouseLeave: () => setHoveredCell(null),
-    whileHover:   { scale: 1.02 },
+    whileHover: { scale: 1.02 },
   });
 
   // ── Sub-components ────────────────────────────────────────────────────────
@@ -179,9 +179,8 @@ export default function HealthWellnessPage() {
 
               {/* ── ROW 1 col 1-8: Insurance ─────────────────────────────── */}
               <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, delay: 0 }}
-                {...focus('insurance')}
+                initial={{ opacity: 0 }}
+                {...focus('insurance')} // Removed explicit animate and transition
                 className={`col-span-12 md:col-span-8 p-6 ${CARD}`}
                 style={{ borderTop: `3px solid ${MIDNIGHT}` }}
               >
@@ -231,9 +230,8 @@ export default function HealthWellnessPage() {
 
               {/* ── ROW 1 col 9-12: Emergency Numbers ────────────────────── */}
               <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, delay: 0.05 }}
-                {...focus('emergency')}
+                initial={{ opacity: 0 }}
+                {...focus('emergency', 0.05)} // Let focus handle the delay and animation
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #ef4444' }}
               >
@@ -283,7 +281,7 @@ export default function HealthWellnessPage() {
               {/* ── ROW 2 col 1-4: Medical Care ──────────────────────────── */}
               <motion.div
                 initial={{ opacity: 0 }}
-                {...focus('medical', 0.1)}
+                {...focus('medical', 0.1)} // This handles animate and transition automatically
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #10b981' }}
               >
@@ -336,7 +334,7 @@ export default function HealthWellnessPage() {
               {/* ── ROW 2 col 5-8: Mental Health ─────────────────────────── */}
               <motion.div
                 initial={{ opacity: 0 }}
-                {...focus('mental', 0.15)}
+                {...focus('mental', 0.15)} // Delay is handled inside the focus function
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #8b5cf6' }}
               >
@@ -427,7 +425,7 @@ export default function HealthWellnessPage() {
                 description={hw('subtitle')}
                 faqs={QA_KEYS.map(([qKey, aKey]) => ({
                   question: hw(qKey),
-                  answer:   hw(aKey),
+                  answer: hw(aKey),
                 }))}
               />
             </motion.div>
