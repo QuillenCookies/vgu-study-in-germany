@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Home, MapPin, FileText, Shield, Phone, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 
 const districts = [
   {
@@ -76,6 +76,8 @@ const HousingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* Hero */}
       <section className="relative w-full flex items-center justify-center" style={{ minHeight: '60vh' }}>
@@ -270,8 +272,7 @@ const HousingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

@@ -7,7 +7,7 @@ import {
   Zap, Heart, CheckCircle, ArrowRight,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ─── Types ─────────────────────────────────────────────────────────────────
@@ -264,6 +264,8 @@ const ToolsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220]">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* ── Hero Banner ─────────────────────────────────────────────────── */}
       <section className="relative w-full overflow-hidden" style={{ minHeight: '72vh' }}>
@@ -410,11 +412,10 @@ const ToolsPage: React.FC = () => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                  activeCategory === cat
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === cat
                     ? 'bg-blue-600 text-white shadow-md'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                }`}
+                  }`}
               >
                 {cat === 'All' ? tr('tools', 'filterAll') : cat}
               </button>
@@ -568,7 +569,6 @@ const ToolsPage: React.FC = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

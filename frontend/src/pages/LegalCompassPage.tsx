@@ -474,9 +474,9 @@ const ARTICLE_DATA: ArticleRaw[] = [
               </thead>
               <tbody className="divide-y" style={{ borderColor: BORDER }}>
                 {[
-                  { name: 'Telekom',  p1: '20GB (M)', p2: '40GB (L)', pro: t('Best network, rollover data', 'Bestes Netz, Datenübertrag', 'Mạng tốt nhất, rollover data') },
-                  { name: 'Vodafone', p1: '25GB (S)', p2: '50GB (M)', pro: t('Large volume, EU roaming',    'Hohes Volumen, EU-Roaming',   'Volume lớn, EU roaming') },
-                  { name: 'O2',       p1: '20GB (S)', p2: '40GB (M)', pro: t('1Mbit/s fallback, cheapest',  '1Mbit/s nach Limit, günstig', '1Mbit/s sau hết data, rẻ nhất') },
+                  { name: 'Telekom', p1: '20GB (M)', p2: '40GB (L)', pro: t('Best network, rollover data', 'Bestes Netz, Datenübertrag', 'Mạng tốt nhất, rollover data') },
+                  { name: 'Vodafone', p1: '25GB (S)', p2: '50GB (M)', pro: t('Large volume, EU roaming', 'Hohes Volumen, EU-Roaming', 'Volume lớn, EU roaming') },
+                  { name: 'O2', p1: '20GB (S)', p2: '40GB (M)', pro: t('1Mbit/s fallback, cheapest', '1Mbit/s nach Limit, günstig', '1Mbit/s sau hết data, rẻ nhất') },
                 ].map(r => (
                   <tr key={r.name} className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-2.5 font-bold" style={{ color: NAVY }}>{r.name}</td>
@@ -589,9 +589,9 @@ const ARTICLE_DATA: ArticleRaw[] = [
     extraContent: (lang) => {
       const t = sl(lang);
       const rules = [
-        { label: t('140 days/year', '140 Tage/Jahr', '140 ngày/năm'),   detail: t('Full-time',         'Vollzeit',        'Full-time (toàn thời gian)'), safe: true },
-        { label: t('280 days/year', '280 Tage/Jahr', '280 ngày/năm'),   detail: t('Half-time',         'Teilzeit',        'Half-time (bán thời gian)'), safe: true },
-        { label: t('20 hours/week', '20 Std./Woche', '20 giờ/tuần'),    detail: t('During semester',   'Im Semester',     'Trong kỳ học'), safe: true },
+        { label: t('140 days/year', '140 Tage/Jahr', '140 ngày/năm'), detail: t('Full-time', 'Vollzeit', 'Full-time (toàn thời gian)'), safe: true },
+        { label: t('280 days/year', '280 Tage/Jahr', '280 ngày/năm'), detail: t('Half-time', 'Teilzeit', 'Half-time (bán thời gian)'), safe: true },
+        { label: t('20 hours/week', '20 Std./Woche', '20 giờ/tuần'), detail: t('During semester', 'Im Semester', 'Trong kỳ học'), safe: true },
         { label: t('Exceeding limit', 'Überschreitung', 'Vượt hạn mức'), detail: t('Card revoked + 1-3 yr ban', 'Karte entzogen + 1-3 Jahre', 'Thu hồi thẻ + cấm 1-3 năm'), safe: false },
       ];
       return (
@@ -804,8 +804,8 @@ const ARTICLE_DATA: ArticleRaw[] = [
               </thead>
               <tbody className="divide-y" style={{ borderColor: BORDER }}>
                 {[
-                  { type: 'Minijob',     limit: t('≤ 556€/month', '≤ 556€/Monat', '≤ 556€/tháng'), wage: '12,82€/h' },
-                  { type: 'Werkstudent', limit: t('No limit',      'Kein Limit',    'Không giới hạn'), wage: '12,82€/h' },
+                  { type: 'Minijob', limit: t('≤ 556€/month', '≤ 556€/Monat', '≤ 556€/tháng'), wage: '12,82€/h' },
+                  { type: 'Werkstudent', limit: t('No limit', 'Kein Limit', 'Không giới hạn'), wage: '12,82€/h' },
                 ].map(row => (
                   <tr key={row.type} className="hover:bg-slate-50 transition-colors">
                     <td className="px-4 py-2.5 font-bold" style={{ color: NAVY }}>{row.type}</td>

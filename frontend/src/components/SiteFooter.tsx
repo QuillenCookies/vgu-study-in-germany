@@ -160,7 +160,7 @@ const SiteFooter: React.FC<SiteFooterProps> = ({ accentColor = '#FFCC00' }) => {
                 <button
                   type="submit"
                   disabled={isLoading || status === 'success'}
-                style={{ backgroundColor: isLoading || status === 'success' ? undefined : accentColor, color: (isLoading || status === 'success') ? undefined : '#1A2B4C' }}
+                  style={{ backgroundColor: isLoading || status === 'success' ? undefined : accentColor, color: (isLoading || status === 'success') ? undefined : '#1A2B4C' }}
                   className={`w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed
                     ${isLoading || status === 'success' ? 'bg-white/20' : 'hover:opacity-90 active:scale-95'}`}
                 >

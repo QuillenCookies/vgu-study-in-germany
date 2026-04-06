@@ -20,34 +20,34 @@ const spring = { type: 'spring' as const, stiffness: 300, damping: 30 };
 const megaMenuVariants: Variants = {
   initial: { opacity: 0, y: 8 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.18, ease: [0.4, 0, 0.2, 1] } },
-  exit:    { opacity: 0, y: 8, transition: { duration: 0.12, ease: [0.4, 0, 1, 1] } },
+  exit: { opacity: 0, y: 8, transition: { duration: 0.12, ease: [0.4, 0, 1, 1] } },
 };
 
 // ── STATIC DATA ─────────────────────────────────────────────────────────────
 const EXPLORE_ITEMS = [
-  { icon: <GraduationCap size={15} strokeWidth={1.75} />, trKey: 'education'    as const, trSubKey: 'eduSub'     as const, href: '/university'    },
-  { icon: <TrainFront   size={15} strokeWidth={1.75} />, trKey: 'transport'    as const, trSubKey: 'transSub'   as const, href: '/bahn'           },
-  { icon: <Building2    size={15} strokeWidth={1.75} />, trKey: 'housing'      as const, trSubKey: 'housingSub' as const, href: '/housing'        },
-  { icon: <UtensilsCrossed size={15} strokeWidth={1.75} />, trKey: 'food'      as const, trSubKey: 'foodSub'   as const, href: '/food'           },
-  { icon: <Ticket       size={15} strokeWidth={1.75} />, trKey: 'entertainment'as const, trSubKey: 'entSub'    as const, href: '/entertainment'  },
-  { icon: <BookOpen     size={15} strokeWidth={1.75} />, trKey: 'library'      as const, trSubKey: 'libSub'    as const, href: '/explore/library'},
-  { icon: <Gavel        size={15} strokeWidth={1.75} />, trKey: 'legal'        as const, trSubKey: 'legalSub'  as const, href: '/explore/legal'  },
-  { icon: <HeartPulse   size={15} strokeWidth={1.75} />, trKey: 'health'       as const, trSubKey: 'healthSub' as const, href: '/explore/health' },
-  { icon: <Rocket       size={15} strokeWidth={1.75} />, trKey: 'careerLaunch' as const, trSubKey: 'careerSub' as const, href: '/explore/career' },
-  { icon: <Coins        size={15} strokeWidth={1.75} />, trKey: 'salaryFinance'as const, trSubKey: 'salarySub' as const, href: '/explore/salary' },
+  { icon: <GraduationCap size={15} strokeWidth={1.75} />, trKey: 'education' as const, trSubKey: 'eduSub' as const, href: '/university' },
+  { icon: <TrainFront size={15} strokeWidth={1.75} />, trKey: 'transport' as const, trSubKey: 'transSub' as const, href: '/bahn' },
+  { icon: <Building2 size={15} strokeWidth={1.75} />, trKey: 'housing' as const, trSubKey: 'housingSub' as const, href: '/housing' },
+  { icon: <UtensilsCrossed size={15} strokeWidth={1.75} />, trKey: 'food' as const, trSubKey: 'foodSub' as const, href: '/food' },
+  { icon: <Ticket size={15} strokeWidth={1.75} />, trKey: 'entertainment' as const, trSubKey: 'entSub' as const, href: '/entertainment' },
+  { icon: <BookOpen size={15} strokeWidth={1.75} />, trKey: 'library' as const, trSubKey: 'libSub' as const, href: '/explore/library' },
+  { icon: <Gavel size={15} strokeWidth={1.75} />, trKey: 'legal' as const, trSubKey: 'legalSub' as const, href: '/explore/legal' },
+  { icon: <HeartPulse size={15} strokeWidth={1.75} />, trKey: 'health' as const, trSubKey: 'healthSub' as const, href: '/explore/health' },
+  { icon: <Rocket size={15} strokeWidth={1.75} />, trKey: 'careerLaunch' as const, trSubKey: 'careerSub' as const, href: '/explore/career' },
+  { icon: <Coins size={15} strokeWidth={1.75} />, trKey: 'salaryFinance' as const, trSubKey: 'salarySub' as const, href: '/explore/salary' },
 ];
 
 const LANG_OPTIONS = [
-  { code: 'EN' as const, label: 'English'    },
-  { code: 'DE' as const, label: 'Deutsch'    },
+  { code: 'EN' as const, label: 'English' },
+  { code: 'DE' as const, label: 'Deutsch' },
   { code: 'VN' as const, label: 'Tiếng Việt' },
 ];
 
 const NAV_LINKS = [
-  { trKey: 'home'      as const, href: '/'          },
-  { trKey: 'tools'     as const, href: '/tools'     },
+  { trKey: 'home' as const, href: '/' },
+  { trKey: 'tools' as const, href: '/tools' },
   { trKey: 'community' as const, href: '/community' },
-  { trKey: 'about'     as const, href: '/about'     },
+  { trKey: 'about' as const, href: '/about' },
 ];
 
 // ── NAV LINK ────────────────────────────────────────────────────────────────
@@ -95,22 +95,22 @@ interface NavbarProps {
 }
 
 const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
-  const { pathname }              = useLocation();
-  const { lang, setLang, tr }     = useLanguage();
-  const { isDark, toggleTheme }   = useTheme();
+  const { pathname } = useLocation();
+  const { lang, setLang, tr } = useLanguage();
+  const { isDark, toggleTheme } = useTheme();
   const [isMobileOpen, setMobile] = useState(false);
   const [exploreOpen, setExplore] = useState(false);
-  const [searchOpen, setSearch]   = useState(false);
-  const [searchQuery, setQ]       = useState('');
-  const [langOpen, setLangOpen]   = useState(false);
+  const [searchOpen, setSearch] = useState(false);
+  const [searchQuery, setQ] = useState('');
+  const [langOpen, setLangOpen] = useState(false);
 
-  const langRef       = useRef<HTMLDivElement>(null);
-  const searchRef     = useRef<HTMLInputElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
   const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const isActive        = (p: string) => pathname === p;
+  const isActive = (p: string) => pathname === p;
   const isExploreActive = EXPLORE_ITEMS.some(i => pathname === i.href);
-  const activeLang      = LANG_OPTIONS.find(l => l.code === lang)!;
+  const activeLang = LANG_OPTIONS.find(l => l.code === lang)!;
 
   // Close language dropdown on outside click
   useEffect(() => {
@@ -170,14 +170,12 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
             />
           </motion.div>
           <div className="hidden sm:flex flex-col items-start" style={{ gap: '0px', lineHeight: 1 }}>
-            <span className={`text-[15px] font-bold tracking-tight transition-colors duration-200 ${
-              isTransparentTop ? 'text-white' : 'text-[#1A2B4C] dark:text-white'
-            }`} style={{ marginBottom: '-3px' }}>
+            <span className={`text-[15px] font-bold tracking-tight transition-colors duration-200 ${isTransparentTop ? 'text-white' : 'text-[#1A2B4C] dark:text-white'
+              }`} style={{ marginBottom: '-3px' }}>
               Study in Germany
             </span>
-            <span className={`text-[11px] font-normal transition-colors duration-200 ${
-              isTransparentTop ? 'text-white/55' : 'text-gray-400 dark:text-slate-500'
-            }`}>
+            <span className={`text-[11px] font-normal transition-colors duration-200 ${isTransparentTop ? 'text-white/55' : 'text-gray-400 dark:text-slate-500'
+              }`}>
               International Student Guide
             </span>
           </div>
@@ -465,11 +463,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                               className={active ? 'text-[#FFCC00]' : 'text-slate-400 dark:text-slate-500 group-hover:text-gray-600 dark:group-hover:text-white transition-colors'}
                             />
                             <div className="flex items-baseline gap-1.5">
-                              <span className={`text-[13px] transition-colors ${
-                                active
+                              <span className={`text-[13px] transition-colors ${active
                                   ? 'font-semibold text-gray-900 dark:text-white'
                                   : 'font-medium text-gray-600 dark:text-slate-300 group-hover:text-gray-900 dark:group-hover:text-white'
-                              }`}>
+                                }`}>
                                 {opt.label}
                               </span>
                               <span className="text-[10px] text-slate-400 dark:text-slate-500">{opt.code}</span>
@@ -500,17 +497,17 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               {isDark ? (
                 <motion.span key="sun"
                   initial={{ rotate: -90, opacity: 0, scale: 0.6 }}
-                  animate={{ rotate: 0,   opacity: 1, scale: 1   }}
-                  exit={{    rotate: 90,  opacity: 0, scale: 0.6 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: 90, opacity: 0, scale: 0.6 }}
                   transition={{ duration: 0.18 }}
                 >
                   <Sun size={13} />
                 </motion.span>
               ) : (
                 <motion.span key="moon"
-                  initial={{ rotate: 90,  opacity: 0, scale: 0.6 }}
-                  animate={{ rotate: 0,   opacity: 1, scale: 1   }}
-                  exit={{    rotate: -90, opacity: 0, scale: 0.6 }}
+                  initial={{ rotate: 90, opacity: 0, scale: 0.6 }}
+                  animate={{ rotate: 0, opacity: 1, scale: 1 }}
+                  exit={{ rotate: -90, opacity: 0, scale: 0.6 }}
                   transition={{ duration: 0.18 }}
                 >
                   <Moon size={13} />
@@ -522,9 +519,8 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
 
         {/* ── Mobile hamburger ── */}
         <button
-          className={`flex md:hidden items-center justify-center w-9 h-9 rounded-xl transition-colors ${
-            isTransparentTop ? 'text-white/65 hover:text-white hover:bg-white/10' : 'text-slate-400 hover:text-gray-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.06]'
-          }`}
+          className={`flex md:hidden items-center justify-center w-9 h-9 rounded-xl transition-colors ${isTransparentTop ? 'text-white/65 hover:text-white hover:bg-white/10' : 'text-slate-400 hover:text-gray-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/[0.06]'
+            }`}
           onClick={() => setMobile(v => !v)}
           aria-label="Toggle menu"
         >
@@ -564,11 +560,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               <Link
                 to="/"
                 onClick={() => setMobile(false)}
-                className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${
-                  isActive('/')
+                className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${isActive('/')
                     ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
                     : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {tr('navbar', 'home')}
               </Link>
@@ -584,11 +579,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                       key={item.href}
                       to={item.href}
                       onClick={() => setMobile(false)}
-                      className={`flex items-center gap-3 px-3 py-2.5 text-[13px] rounded-xl transition-colors ${
-                        isActive(item.href)
+                      className={`flex items-center gap-3 px-3 py-2.5 text-[13px] rounded-xl transition-colors ${isActive(item.href)
                           ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
                           : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
-                      }`}
+                        }`}
                     >
                       <span style={{ color: isActive(item.href) ? AMBER : undefined }} className="dark:text-slate-500">
                         {item.icon}
@@ -605,11 +599,10 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   key={href}
                   to={href}
                   onClick={() => setMobile(false)}
-                  className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${
-                    isActive(href)
+                  className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${isActive(href)
                       ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
                       : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
-                  }`}
+                    }`}
                 >
                   {tr('navbar', trKey)}
                 </Link>
