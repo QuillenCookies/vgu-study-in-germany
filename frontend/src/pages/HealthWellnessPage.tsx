@@ -50,12 +50,12 @@ export default function HealthWellnessPage() {
   useEffect(() => { window.scrollTo(0, 0); }, [lang]);
 
   // Per-card focus motion props
-  const focus = (id: string) => ({
+  const focus = (id: string, delay = 0) => ({
     animate: {
       scale:   hoveredCell !== null && hoveredCell !== id ? 0.99 : 1,
       opacity: hoveredCell !== null && hoveredCell !== id ? 0.65 : 1,
     },
-    transition: { duration: 0.18, ease: 'easeOut' },
+    transition: { duration: 0.18, ease: 'easeOut' as const, delay },
     onMouseEnter: () => setHoveredCell(id),
     onMouseLeave: () => setHoveredCell(null),
     whileHover:   { scale: 1.02 },
@@ -282,9 +282,8 @@ export default function HealthWellnessPage() {
 
               {/* ── ROW 2 col 1-4: Medical Care ──────────────────────────── */}
               <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, delay: 0.1 }}
-                {...focus('medical')}
+                initial={{ opacity: 0 }}
+                {...focus('medical', 0.1)}
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #10b981' }}
               >
@@ -336,9 +335,8 @@ export default function HealthWellnessPage() {
 
               {/* ── ROW 2 col 5-8: Mental Health ─────────────────────────── */}
               <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, delay: 0.15 }}
-                {...focus('mental')}
+                initial={{ opacity: 0 }}
+                {...focus('mental', 0.15)}
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #8b5cf6' }}
               >
@@ -374,9 +372,8 @@ export default function HealthWellnessPage() {
 
               {/* ── ROW 2 col 9-12: Sport & Fitness ──────────────────────── */}
               <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                transition={{ duration: 0.25, delay: 0.2 }}
-                {...focus('fitness')}
+                initial={{ opacity: 0 }}
+                {...focus('fitness', 0.2)}
                 className={`col-span-12 md:col-span-4 p-6 ${CARD}`}
                 style={{ borderTop: '3px solid #f59e0b' }}
               >
