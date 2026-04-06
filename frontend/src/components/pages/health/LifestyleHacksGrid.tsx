@@ -88,16 +88,16 @@ const containerVariants: Variants = {
   visible: { transition: { staggerChildren: 0.05 } },
 };
 
-const cardVariants: Variants = {
+const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { type: 'spring', stiffness: 100, damping: 20 },
+    transition: { type: 'spring' as const, stiffness: 100, damping: 20 },
   },
-};
+} satisfies Variants;
 
-const modalVariants: Variants = {
+const modalVariants = {
   hidden: {
     opacity: 0,
     scale: 0.97,
@@ -105,20 +105,20 @@ const modalVariants: Variants = {
   visible: {
     opacity: 1,
     scale: 1,
-    transition: { type: 'tween', ease: 'easeOut', duration: 0.18 } as const,
+    transition: { type: 'tween' as const, ease: 'easeOut' as const, duration: 0.18 },
   },
   exit: {
     opacity: 0,
     scale: 1,
-    transition: { type: 'tween', ease: 'easeIn', duration: 0.12 } as const,
+    transition: { type: 'tween' as const, ease: 'easeIn' as const, duration: 0.12 },
   },
-};
+} satisfies Variants;
 
-const backdropVariants: Variants = {
+const backdropVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.15, ease: 'easeOut' } as const },
-  exit: { opacity: 0, transition: { duration: 0.10, ease: 'easeIn' } as const },
-};
+  visible: { opacity: 1, transition: { duration: 0.15, ease: 'easeOut' as const } },
+  exit: { opacity: 0, transition: { duration: 0.10, ease: 'easeIn' as const } },
+} satisfies Variants;
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export function LifestyleHacksGrid() {
