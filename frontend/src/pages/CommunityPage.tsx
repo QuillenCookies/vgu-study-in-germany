@@ -8,7 +8,7 @@ import {
   ArrowLeft, ChevronRight, Mail,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+
 import { useLanguage } from '../contexts/LanguageContext';
 
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
@@ -227,6 +227,8 @@ const CommunityPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-[#0B1220] font-sans max-w-full overflow-x-hidden">
       <Navbar />
+      {/* Navbar spacer — compensates for fixed positioning */}
+      <div className="h-[59px]" />
 
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO: "Join the Flock"
@@ -429,11 +431,10 @@ const CommunityPage: React.FC = () => {
                 <button
                   key={i}
                   onClick={() => setActiveNote(i)}
-                  className={`rounded-full transition-all duration-300 ${
-                    i === activeNote
-                      ? 'w-6 h-2 bg-[#FFCC00]'
-                      : 'w-2 h-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400'
-                  }`}
+                  className={`rounded-full transition-all duration-300 ${i === activeNote
+                    ? 'w-6 h-2 bg-[#FFCC00]'
+                    : 'w-2 h-2 bg-gray-300 dark:bg-white/20 hover:bg-gray-400'
+                    }`}
                   aria-label={`Note ${i + 1}`}
                 />
               ))}
@@ -478,7 +479,7 @@ const CommunityPage: React.FC = () => {
 
           {/* Bento grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {FORUM_CATEGORIES.map((cat, _idx) => (
+            {FORUM_CATEGORIES.map((cat) => (
               <motion.div
                 key={cat.title}
                 variants={fadeUp}
@@ -612,11 +613,11 @@ const CommunityPage: React.FC = () => {
               <span className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#FFCC00]/20 text-[#FFCC00] text-[12px] font-bold uppercase tracking-widest border border-amber-400/20">
                 <PenLine size={13} /> The Pathfinder Initiative
               </span>
-              
+
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 leading-tight">
                 From Resident to <span className="text-[#FFCC00]">Pathfinder.</span>
               </h2>
-              
+
               <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-lg mb-8 max-w-xl leading-relaxed">
                 Your struggle yesterday is someone else's guide today. Share your notes and get recognized in the Wall of Pathfinders.
               </p>
@@ -697,8 +698,7 @@ const CommunityPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <Footer />
+      {/* Footer component moved to App.tsx */}
     </div>
   );
 };

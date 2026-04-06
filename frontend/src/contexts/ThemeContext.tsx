@@ -9,7 +9,10 @@ const ThemeContext = createContext<ThemeContextValue>({ isDark: false, toggleThe
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isDark, setIsDark] = useState<boolean>(() => {
-    return localStorage.getItem('vgu_theme') === 'dark';
+    const dark = localStorage.getItem('vgu_theme') === 'dark';
+    // Apply synchronously to avoid flash of unstyled content on first paint
+    document.documentElement.classList.toggle('dark', dark);
+    return dark;
   });
 
   const toggleTheme = () => {

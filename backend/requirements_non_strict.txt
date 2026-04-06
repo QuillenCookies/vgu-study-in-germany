@@ -1,0 +1,14 @@
+# Django & DRF
+django
+django-filter
+django-cors-headers
+djangorestframework
+dj_database_url
+
+psycopg2-binary
+python-dotenv
+
+gunicorn
+markdown
+requests
+whitenoisepip install -r requirements_non_strict.txt
