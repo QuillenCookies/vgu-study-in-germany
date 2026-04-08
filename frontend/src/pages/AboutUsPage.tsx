@@ -19,21 +19,21 @@ const stagger: Variants = {
 // ── DATA ────────────────────────────────────────────────────────────────────
 const TEAM = [
   {
-    name: 'Die Ente',
+    name: 'Phạm Trọng Quý',
     role: 'Founder & Lead Developer',
     avatar: 'https://i.pravatar.cc/150?img=3',
     bio: 'VGU student who survived the German bureaucracy and lived to tell the tale (and build a website about it).',
     github: 'https://github.com',
   },
   {
-    name: 'Minh Tri Nguyen',
+    name: 'Hồ Nguyễn Phú',
     role: 'Content & Research',
     avatar: 'https://i.pravatar.cc/150?img=7',
     bio: 'Passionate about making information accessible for every international student arriving in Germany.',
     github: 'https://github.com',
   },
   {
-    name: 'Linh Tran',
+    name: 'Cao Tuệ Anh',
     role: 'UI / UX Designer',
     avatar: 'https://i.pravatar.cc/150?img=9',
     bio: 'Turns complicated bureaucratic processes into clean, beautiful interfaces that actually make sense.',
