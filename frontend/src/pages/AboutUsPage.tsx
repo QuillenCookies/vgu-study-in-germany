@@ -79,8 +79,8 @@ const AboutUsPage: React.FC = () => {
           ══════════════════════════════════════════ */}
           <section className="relative w-full overflow-hidden bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#060f2e] pt-16 pb-28 px-4 flex flex-col items-center box-border">
             {/* Glow blobs */}
-            <div className="absolute top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-orange-500/15 blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-96 h-96 translate-y-1/2 -translate-x-1/2 rounded-full bg-blue-500/15 blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-96 h-96 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#FFCC00]/10 blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 translate-y-1/2 -translate-x-1/2 rounded-full bg-[#1A2B4C]/30 blur-[100px] pointer-events-none" />
 
             <div className="relative z-10 max-w-screen-lg mx-auto w-full">
               {/* Back link */}
@@ -103,7 +103,7 @@ const AboutUsPage: React.FC = () => {
                 {/* Badge */}
                 <motion.span
                   variants={fadeUp}
-                  className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-orange-500/20 backdrop-blur-md border border-orange-500/30 text-orange-400 text-[11px] font-bold uppercase tracking-widest"
+                  className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#FFCC00]/20 backdrop-blur-md border border-[#FFCC00]/30 text-[#FFCC00] text-[11px] font-bold uppercase tracking-widest"
                 >
                   <BookOpen size={12} /> Our Story
                 </motion.span>
@@ -113,7 +113,7 @@ const AboutUsPage: React.FC = () => {
                   className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight tracking-tight mb-4 drop-shadow-xl"
                 >
                   Built by Students,{' '}
-                  <span className="text-[#f97316]">for Students</span>
+                  <span className="text-[#FFCC00]">for Students</span>
                 </motion.h1>
 
                 <motion.p
@@ -186,7 +186,7 @@ const AboutUsPage: React.FC = () => {
               >
                 <div className="flex flex-col sm:flex-row gap-8 items-center">
                   {/* Duck mascot placeholder */}
-                  <div className="shrink-0 w-28 h-28 rounded-full bg-gradient-to-br from-[#f97316] to-[#fbbf24] flex items-center justify-center text-5xl shadow-lg shadow-orange-300/30">
+                  <div className="shrink-0 w-28 h-28 rounded-full bg-gradient-to-br from-[#FFCC00] to-[#e6b800] flex items-center justify-center text-5xl shadow-lg shadow-[#FFCC00]/30">
                     🦆
                   </div>
                   <div className="space-y-4 text-slate-600 dark:text-gray-300 text-[15px] leading-relaxed">
@@ -220,7 +220,7 @@ const AboutUsPage: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-12"
               >
-                <span className="inline-block mb-3 px-3 py-1 rounded-full bg-orange-500/10 text-[#f97316] text-[11px] font-bold uppercase tracking-widest">
+                <span className="inline-block mb-3 px-3 py-1 rounded-full bg-[#FFCC00]/15 text-[#1A2B4C] dark:text-[#FFCC00] text-[11px] font-bold uppercase tracking-widest">
                   What We Stand For
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a2463] dark:text-white">
@@ -269,8 +269,8 @@ const AboutUsPage: React.FC = () => {
                 transition={{ duration: 0.6 }}
                 className="bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#1a3a7a] rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"
               >
-                <div className="absolute top-0 right-0 w-64 h-64 -translate-y-1/3 translate-x-1/3 rounded-full bg-orange-500/20 blur-[80px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 translate-y-1/3 -translate-x-1/3 rounded-full bg-blue-500/20 blur-[80px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 -translate-y-1/3 translate-x-1/3 rounded-full bg-[#FFCC00]/15 blur-[80px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 translate-y-1/3 -translate-x-1/3 rounded-full bg-[#1A2B4C]/40 blur-[80px] pointer-events-none" />
 
                 <div className="relative z-10">
                   <span className="text-4xl mb-4 block">🦆</span>
@@ -284,7 +284,7 @@ const AboutUsPage: React.FC = () => {
                   <div className="flex flex-col sm:flex-row gap-3 justify-center">
                     <Link
                       to="/contributors"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-[#f97316] hover:bg-[#ea6c0a] text-white font-bold text-[14px] shadow-lg shadow-orange-500/30 transition-all duration-200 hover:scale-105 active:scale-95"
+                      className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-[#FFCC00] hover:bg-[#e6b800] text-[#1A2B4C] font-bold text-[14px] shadow-lg shadow-[#FFCC00]/30 transition-all duration-200 hover:scale-105 active:scale-95"
                     >
                       <Users size={15} /> Become a Contributor
                     </Link>
