@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="mt-auto relative z-50 bg-[#0a2463] text-white">
+    <footer className="mt-auto relative z-50 bg-[#1A2B4C] text-white">
       <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
@@ -54,18 +54,18 @@ const Footer: React.FC = () => {
               <img
                 src={LOGO_URL}
                 alt="Study in Germany logo"
-                className="w-14 h-14 rounded-full object-cover border-2 border-[#f97316]"
+                className="w-14 h-14 rounded-full object-cover border-2 border-[#FFCC00]"
               />
               <span className="text-xl font-bold">Study in Germany</span>
             </div>
-            <p className="text-sm text-blue-200 leading-relaxed">
+            <p className="text-sm text-white/60 leading-relaxed">
               Empowering international students with everything they need to thrive — from universities to housing, transport, food, and beyond.
             </p>
           </div>
 
           {/* Column 2: Useful Links */}
           <div>
-            <h3 className="text-base font-semibold mb-4 text-[#f97316] uppercase tracking-wide">
+            <h3 className="text-base font-semibold mb-4 text-[#FFCC00] uppercase tracking-wide">
               Useful Links
             </h3>
             <ul className="space-y-2">
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                 <li key={label}>
                   <a
                     href={href}
-                    className="flex items-center gap-1 text-sm text-blue-200 hover:text-white transition-colors group"
+                    className="flex items-center gap-1 text-sm text-white/60 hover:text-white transition-colors group"
                   >
                     <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {label}
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
 
           {/* Column 3: Follow Us */}
           <div>
-            <h3 className="text-base font-semibold mb-4 text-[#f97316] uppercase tracking-wide">
+            <h3 className="text-base font-semibold mb-4 text-[#FFCC00] uppercase tracking-wide">
               Follow Us
             </h3>
             <ul className="space-y-3">
@@ -95,9 +95,9 @@ const Footer: React.FC = () => {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-blue-200 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-sm text-white/60 hover:text-white transition-colors group"
                   >
-                    <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 group-hover:bg-[#f97316] transition-colors">
+                    <span className="flex items-center justify-center w-9 h-9 rounded-full bg-white/10 group-hover:bg-[#FFCC00] group-hover:text-[#1A2B4C] transition-colors">
                       <Icon className="w-4 h-4" />
                     </span>
                     {label}
@@ -109,30 +109,30 @@ const Footer: React.FC = () => {
 
           {/* Column 4: Newsletter */}
           <div>
-            <h3 className="text-base font-semibold mb-4 text-[#f97316] uppercase tracking-wide">
+            <h3 className="text-base font-semibold mb-4 text-[#FFCC00] uppercase tracking-wide">
               Newsletter
             </h3>
-            <p className="text-sm text-blue-200 mb-4">
+            <p className="text-sm text-white/60 mb-4">
               Get the latest tips and guides for studying in Germany, straight to your inbox.
             </p>
             <div className="relative">
               <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
-                <div className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 border border-white/20 focus-within:border-[#f97316] transition-colors">
-                  <Mail className="w-4 h-4 text-blue-300 shrink-0" />
+                <div className="flex items-center gap-2 bg-white/10 rounded-xl px-4 py-2 border border-white/20 focus-within:border-[#FFCC00] transition-colors">
+                  <Mail className="w-4 h-4 text-white/50 shrink-0" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={loading || overlay !== null}
                     placeholder="your@email.com"
-                    className="flex-1 bg-transparent text-sm text-white placeholder-blue-300 outline-none disabled:opacity-60"
+                    className="flex-1 bg-transparent text-sm text-white placeholder-white/40 outline-none disabled:opacity-60"
                     required
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading || overlay !== null}
-                  className="w-full py-2.5 bg-[#f97316] hover:bg-[#ea6c0a] disabled:opacity-70 text-white text-sm font-semibold rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 disabled:scale-100"
+                  className="w-full py-2.5 bg-[#FFCC00] hover:bg-[#e6b800] disabled:opacity-70 text-[#1A2B4C] text-sm font-bold rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 disabled:scale-100"
                 >
                   {loading ? 'Subscribing...' : 'Subscribe'}
                 </button>
@@ -141,7 +141,7 @@ const Footer: React.FC = () => {
               {/* Overlay */}
               {overlay && (
                 <div
-                  className="absolute inset-0 flex items-center justify-center rounded-xl bg-[#0a2463]/95 backdrop-blur-sm animate-fade-in"
+                  className="absolute inset-0 flex items-center justify-center rounded-xl bg-[#1A2B4C]/95 backdrop-blur-sm animate-fade-in"
                   style={{ animation: 'fadeIn 0.4s ease' }}
                 >
                   <p className="text-center text-sm font-semibold px-4">
@@ -158,7 +158,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-300">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <span>© 2026 Study in Germany. All rights reserved.</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
