@@ -3,21 +3,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
-  Search, Loader2, GraduationCap, TrainFront, Building2,
+  GraduationCap, TrainFront, Building2,
   UtensilsCrossed, Ticket, ArrowRight, Users, MapPin, Compass,
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useUniversity } from '../contexts/UniversityContext';
+import { HeroSearchBar } from '../components/pages/home/sections/HeroSearchBar';
 import type { LocationState } from '../types';
 
 // ── DESIGN TOKENS ──────────────────────────────────────────────────────────
 const MIDNIGHT = '#1A2B4C';
-const AMBER    = '#FFCC00';
+const AMBER = '#FFCC00';
 const AMBER_DIM = '#e6b800';
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────
 const HERO_BG =
-  'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1920&q=80';
+  'https://images.unsplash.com/photo-1774112168776-1e1f4e2797e5?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
 const WISE_QUACKS = [
   {
@@ -173,159 +174,6 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.1 } },
 };
 
-// ── HERO SEARCH BAR ────────────────────────────────────────────────────────
-interface SearchBarProps {
-  onNavigate: (path: string) => void;
-}
-
-const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
-  const { tr } = useLanguage();
-  const [query, setQuery] = useState('');
-  const [suggestions, setSuggestions] = useState<{ cities: any[]; universities: any[] }>({ cities: [], universities: [] });
-  const [isLoading, setIsLoading] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const { selectedLocation, setSelectedLocation } = useUniversity();
-
-  useEffect(() => {
-    const handler = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setShowDropdown(false);
-      }
-    };
-    document.addEventListener('mousedown', handler);
-    return () => document.removeEventListener('mousedown', handler);
-  }, []);
-
-  useEffect(() => {
-    if (query.trim().length < 3) { setSuggestions({ cities: [], universities: [] }); return; }
-    const t = setTimeout(async () => {
-      setIsLoading(true); setShowDropdown(true);
-      try {
-        const res = await fetch(`/api/cities/search?q=${encodeURIComponent(query)}`);
-        const result = await res.json();
-        if (result.status === 'success' && result.data) {
-          setSuggestions({ cities: result.data.cities || [], universities: result.data.universities || [] });
-        } else if (Array.isArray(result)) {
-          setSuggestions({ cities: result, universities: [] });
-        }
-      } catch { /* silently fail */ }
-      finally { setIsLoading(false); }
-    }, 300);
-    return () => clearTimeout(t);
-  }, [query]);
-
-  const handleSelect = (item: any, type: 'city' | 'university') => {
-    const loc: LocationState = { id: item.id || item.city_id || item.uni_id, name: item.name || item.city_name || item.uni_name, type };
-    setSelectedLocation(loc);
-    setShowDropdown(false);
-    setQuery('');
-    onNavigate('/university');
-  };
-
-  const placeholder = selectedLocation?.name
-    ? `Ask Die Ente about ${selectedLocation.name}...`
-    : 'Ask Die Ente... (e.g., How to find a WG? What is Pfand?)';
-
-  return (
-    <div className="relative w-full max-w-2xl mx-auto" ref={dropdownRef}>
-      <form
-        onSubmit={e => { e.preventDefault(); setShowDropdown(false); onNavigate('/university'); }}
-        className="flex w-full items-center
-          bg-white/12 dark:bg-white/8 backdrop-blur-xl
-          border border-white/25 rounded-lg overflow-hidden
-          shadow-[0_8px_32px_rgba(0,0,0,0.24)]
-          focus-within:border-white/50 transition-all duration-300"
-      >
-        <div className="flex items-center pl-4 text-white/60">
-          <Search size={18} />
-        </div>
-        <input
-          type="text"
-          value={query}
-          onChange={e => { setQuery(e.target.value); if (e.target.value.trim().length >= 3) setShowDropdown(true); }}
-          onFocus={() => { if (query.trim().length >= 3) setShowDropdown(true); }}
-          placeholder={placeholder}
-          className="flex-1 px-4 py-4 bg-transparent text-white placeholder-white/50 text-[15px] outline-none"
-        />
-        {isLoading && (
-          <div className="flex items-center pr-3 text-white/50">
-            <Loader2 size={17} className="animate-spin" />
-          </div>
-        )}
-        {/* CTA button — Amber Gold + Midnight Blue text */}
-        <button
-          type="submit"
-          className="m-2 px-6 py-2.5 font-semibold rounded-lg transition-all duration-300 text-[14px] whitespace-nowrap hover:scale-105 active:scale-95 shadow-lg"
-          style={{
-            backgroundColor: AMBER,
-            color: MIDNIGHT,
-            boxShadow: '0 4px 14px rgba(255,204,0,0.35)',
-          }}
-          onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER_DIM; }}
-          onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER; }}
-        >
-          {tr('home', 'searchBtn')}
-        </button>
-      </form>
-
-      {/* Autocomplete dropdown */}
-      <AnimatePresence>
-        {showDropdown && (suggestions.cities.length > 0 || suggestions.universities.length > 0) && (
-          <motion.div
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 6 }}
-            transition={{ duration: 0.15 }}
-            className="absolute top-full mt-2 w-full bg-white dark:bg-[#0D1F38] rounded-lg
-              shadow-2xl border border-gray-100 dark:border-gray-800 overflow-hidden z-50 text-left"
-          >
-            <div className="max-h-72 overflow-y-auto py-2">
-              {suggestions.universities.length > 0 && (
-                <div className="mb-1">
-                  <div className="px-4 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Universities</div>
-                  {suggestions.universities.map((uni, i) => (
-                    <button
-                      key={`uni-${uni.id || i}`}
-                      type="button"
-                      onClick={() => handleSelect(uni, 'university')}
-                      className="w-full text-left px-4 py-2.5 text-gray-800 dark:text-gray-100 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50 dark:hover:bg-amber-950/20"
-                    >
-                      <span className="text-lg">🎓</span>
-                      <div>
-                        <p className="text-[13px] font-medium">{uni.name || uni.uni_name}</p>
-                        {uni.city_name && <p className="text-[11px] text-gray-400">{uni.city_name}, Germany</p>}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-              {suggestions.cities.length > 0 && (
-                <div>
-                  <div className="px-4 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Cities</div>
-                  {suggestions.cities.map((city, i) => (
-                    <button
-                      key={`city-${city.id || i}`}
-                      type="button"
-                      onClick={() => handleSelect(city, 'city')}
-                      className="w-full text-left px-4 py-2.5 text-gray-800 dark:text-gray-100 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50 dark:hover:bg-amber-950/20"
-                    >
-                      <span className="text-lg">📍</span>
-                      <p className="text-[13px] font-medium">
-                        {city.name || city.city_name}{city.state ? `, ${city.state}` : ''}, Germany
-                      </p>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
-
 // ── MAIN PAGE ──────────────────────────────────────────────────────────────
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -357,63 +205,24 @@ const HomePage: React.FC = () => {
         }} aria-hidden="true" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" aria-hidden="true" />
 
-        {/* Duck Easter Egg */}
-        <motion.div
-          className="absolute bottom-8 right-8 text-4xl select-none cursor-pointer z-10"
-          title="Quack!"
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          whileHover={{ scale: 1.3, rotate: 15 }}
-        >
-          🦆
-        </motion.div>
+        {/* Horizontal dark-blue gradient (left edge) */}
+        <div
+          className="absolute inset-0 pointer-events-none z-[1]"
+          style={{
+            background: 'linear-gradient(to right, #0D1226 0%, #0D1226CC 8%, transparent 22%)',
+          }}
+          aria-hidden="true"
+        />
 
         {/* Hero content */}
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="show"
-          className="relative z-10 flex flex-col items-center text-center px-4 py-20 w-full max-w-3xl mx-auto"
+          className="relative z-10 flex flex-col items-center px-4 py-20 w-full max-w-4xl mx-auto"
         >
-          {/* Badge */}
-          <motion.span
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full
-              bg-white/15 backdrop-blur-md border border-white/20 text-white/90 text-[13px] font-medium"
-          >
-            🦆 <span>{tr('home', 'badgeText')}</span>
-          </motion.span>
-
-          {/* Main headline */}
-          <motion.h1
-            variants={fadeUp}
-            className="text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-tight tracking-tight mb-3 drop-shadow-xl"
-          >
-            Notes from{' '}
-            <span style={{ color: AMBER }}>Die Ente</span>
-          </motion.h1>
-
-          {/* Sub-headline */}
-          <motion.p
-            variants={fadeUp}
-            className="text-lg sm:text-xl text-white/80 mb-4 max-w-xl leading-relaxed"
-          >
-            {tr('home', 'subHeadline')}
-          </motion.p>
-
-          {/* Narrative hook */}
-          <motion.blockquote
-            variants={fadeUp}
-            className="text-sm text-white/65 italic max-w-lg mb-10 leading-relaxed pl-4 text-left"
-            style={{ borderLeft: `2px solid ${AMBER}80` }}
-          >
-            {tr('home', 'narrative')}
-          </motion.blockquote>
-
-          {/* Glassmorphic search bar */}
-          <motion.div variants={fadeUp} className="w-full">
-            <HeroSearchBar onNavigate={navigate} />
-          </motion.div>
+          {/* HeroSearchBar: stamp title + duck GIF + search bar */}
+          <HeroSearchBar onNavigate={navigate} />
 
           {/* CTA: Join the Migration */}
           <motion.div variants={fadeUp} className="mt-5 mb-1">
@@ -544,7 +353,7 @@ const HomePage: React.FC = () => {
                   <span className="text-3xl font-light leading-none">+</span>
                 </div>
                 <p className="text-[13px] font-medium text-white/60 group-hover:text-white/90 leading-relaxed px-1"
-                   style={{ lineHeight: 1.6 }}>
+                  style={{ lineHeight: 1.6 }}>
                   Your face here? Share your first note to join the elite flock of Pathfinders.
                 </p>
               </Link>
