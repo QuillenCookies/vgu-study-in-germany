@@ -7,7 +7,6 @@ import type { LocationState } from '../../../../types';
 
 // ── DESIGN TOKENS ───────────────────────────────────────────────────────────
 const MIDNIGHT = '#1A2B4C';
-const DEEP_NAVY = '#0D1226';
 const AMBER = '#FFCC00';
 const AMBER_DIM = '#e6b800';
 
@@ -34,7 +33,6 @@ export const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
     const dropdownRef = useRef<HTMLDivElement>(null);
     const { setSelectedLocation } = useUniversity();
 
-    // Close dropdown on outside click
     useEffect(() => {
         const handler = (e: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
@@ -45,7 +43,6 @@ export const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
         return () => document.removeEventListener('mousedown', handler);
     }, []);
 
-    // Debounced search
     useEffect(() => {
         if (query.trim().length < 3) { setSuggestions({ cities: [], universities: [] }); return; }
         const t = setTimeout(async () => {
@@ -73,127 +70,105 @@ export const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
     };
 
     return (
+        // Full-screen overlay — sits over the hero section background
         <motion.div
             variants={stagger}
             initial="hidden"
             animate="show"
-            className="relative z-10 w-full"
-            style={{ maxWidth: '960px', margin: '0 auto', padding: '0 1.5rem' }}
+            className="absolute inset-0 z-10 flex flex-col justify-center"
+            style={{ padding: '5vh clamp(3rem, 8vw, 9rem) 5vh clamp(3rem, 8vw, 9rem)' }}
         >
-            {/* ── HORIZONTAL GRADIENT OVERLAY (left edge) ── */}
-            <div
-                className="pointer-events-none absolute inset-0 z-0"
-                style={{
-                    background: `linear-gradient(to right, ${DEEP_NAVY} 0%, ${DEEP_NAVY}CC 8%, transparent 22%)`,
-                    borderRadius: '16px',
-                    margin: '-2rem -1.5rem',
-                    padding: '2rem 1.5rem',
-                }}
-                aria-hidden="true"
-            />
-
-            {/* ── UPPER SECTION: Title-stamp (left) + Duck GIF (right) ── */}
+            {/* ── UPPER ROW: Stamp+Title left | Duck right ── */}
             <motion.div
                 variants={fadeUp}
-                className="relative z-10 flex items-end justify-between gap-6 mb-8"
+                className="flex items-end justify-between w-full mb-16"
             >
-                {/* Left: Stamp */}
-                <div className="flex flex-col items-start">
+                {/* LEFT: Stamp badge + Title + Subtitle */}
+                <div className="flex flex-col items-start max-w-[55%]">
+
                     {/* Stamp badge */}
                     <div
-                        className="inline-block mb-2 px-3 py-1 rounded-sm"
-                        style={{
-                            border: `2px solid ${AMBER}60`,
-                            transform: 'rotate(-2deg)',
-                            background: `${MIDNIGHT}80`,
-                        }}
+                        className="inline-block mb-3 px-3 py-1 rounded-sm border-2 border-[#FFCC00]/60 -rotate-2 bg-[#1A2B4C]/80"
                     >
-                        <span
-                            className="text-[11px] font-bold uppercase tracking-[0.2em]"
-                            style={{ color: `${AMBER}CC` }}
-                        >
-                            Note from die Ente
+                        <span className="text-[25px] sm:text-[20px] font-bold uppercase tracking-[0.1em] text-[#FFCC00]/80">
+                            Your Trip
                         </span>
                     </div>
 
                     {/* Title */}
                     <h1
-                        className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight drop-shadow-xl"
-                        style={{ lineHeight: 1.1 }}
+                        className="flex flex-col items-start font-bold drop-shadow-xl text-[clamp(2.8rem,7vw,6.5rem)] tracking-[-0.04em]"
                     >
                         <span className="text-white">Notes from</span>
-                        <br />
-                        <span style={{ color: AMBER }}>die Ente</span>
+                        <span className="text-[#FFCC00] -mt-[0.6em]">
+                            die Ente
+                        </span>
                     </h1>
 
                     {/* Subtitle */}
                     <p
-                        className="mt-3 text-sm sm:text-base text-white/70 max-w-sm leading-relaxed italic"
-                        style={{ lineHeight: 1.6 }}
+                        className="text-white/75 italic tracking-tight text-[clamp(0.95rem,1.6vw,1.5rem)] max-w-[38ch] -mt-[0.6em] mb-[4em]"
                     >
-                        Curiosity is your best guide — follow it to get to the bottom of things.
+                        Curiosity is your best guide - follow it to get to the bottom of things.
                     </p>
                 </div>
 
-                {/* Right: Duck GIF */}
-                <div className="relative flex-shrink-0 hidden sm:block" style={{ marginBottom: '-0.5rem' }}>
+                {/* RIGHT: Duck GIF */}
+                <div className="sm:block absolute bottom-[40vh] md:bottom-[35vh] right-4 md:right-10 pointer-events-none z-10">
                     <motion.img
                         src="/duck_walking.gif"
                         alt="Duck walking"
-                        className="select-none"
-                        style={{
-                            width: '140px',
-                            height: 'auto',
-                            filter: 'drop-shadow(0 4px 16px rgba(0,0,0,0.4))',
-                        }}
-                        animate={{ y: [0, -4, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="select-none w-[clamp(160px,25vw,600px)] max-h-[50vh] h-auto object-contain drop-shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
+                        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
                     />
                 </div>
             </motion.div>
 
-            {/* ── LOWER SECTION: Search bar ── */}
-            <motion.div variants={fadeUp} className="relative z-10 w-full" ref={dropdownRef}>
+            {/* ── LOWER ROW: Search bar ── */}
+            <motion.div variants={fadeUp} className="relative w-full" ref={dropdownRef}>
                 <form
                     onSubmit={e => { e.preventDefault(); setShowDropdown(false); onNavigate('/university'); }}
                     className="flex w-full items-center overflow-hidden transition-all duration-300"
                     style={{
-                        background: 'rgba(128,128,128,0.10)',
-                        border: '1.5px solid rgba(255,255,255,0.55)',
-                        borderRadius: '12px',
-                        boxShadow: '0 8px 32px rgba(0,0,0,0.24)',
+                        background: 'rgba(128,128,128,0.12)',
+                        border: '2px solid rgba(255,255,255,0.55)',
+                        borderRadius: '14px',
+                        boxShadow: '0 10px 40px rgba(0,0,0,0.3)',
                     }}
                 >
-                    {/* Search icon */}
-                    <div className="flex items-center pl-4 text-white/60">
-                        <Search size={18} />
+                    <div className="flex items-center pl-5 text-white/60">
+                        <Search size={22} />
                     </div>
 
-                    {/* Input */}
                     <input
                         type="text"
                         value={query}
                         onChange={e => { setQuery(e.target.value); if (e.target.value.trim().length >= 3) setShowDropdown(true); }}
                         onFocus={() => { if (query.trim().length >= 3) setShowDropdown(true); }}
                         placeholder="Los geht's! Möchten Sie den Dingen auf den Grund gehen?"
-                        className="flex-1 px-4 py-4 bg-transparent text-white placeholder-white/50 text-[15px] outline-none"
+                        className="flex-1 bg-transparent text-white placeholder-white/50 outline-none"
+                        style={{
+                            padding: 'clamp(0.9rem, 2vw, 1.4rem) 1.25rem',
+                            fontSize: 'clamp(0.95rem, 1.5vw, 1.3rem)',
+                        }}
                     />
 
-                    {/* Loader */}
                     {isLoading && (
-                        <div className="flex items-center pr-3 text-white/50">
-                            <Loader2 size={17} className="animate-spin" />
+                        <div className="flex items-center pr-4 text-white/50">
+                            <Loader2 size={20} className="animate-spin" />
                         </div>
                     )}
 
-                    {/* CTA button */}
                     <button
                         type="submit"
-                        className="m-2 px-6 py-2.5 font-semibold rounded-lg transition-all duration-300 text-[14px] whitespace-nowrap hover:scale-105 active:scale-95 cursor-pointer"
+                        className="font-bold whitespace-nowrap hover:scale-105 active:scale-95 cursor-pointer transition-all duration-300 rounded-xl"
                         style={{
+                            margin: '0.4rem',
+                            padding: 'clamp(0.6rem, 1.2vw, 1rem) clamp(1.2rem, 3vw, 2.5rem)',
+                            fontSize: 'clamp(0.9rem, 1.4vw, 1.2rem)',
                             backgroundColor: AMBER,
                             color: MIDNIGHT,
-                            boxShadow: '0 4px 14px rgba(255,204,0,0.35)',
+                            boxShadow: '0 4px 16px rgba(255,204,0,0.35)',
                         }}
                         onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER_DIM; }}
                         onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.backgroundColor = AMBER; }}
@@ -202,35 +177,32 @@ export const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
                     </button>
                 </form>
 
-                {/* ── Autocomplete dropdown ── */}
+                {/* Autocomplete dropdown */}
                 <AnimatePresence>
                     {showDropdown && (suggestions.cities.length > 0 || suggestions.universities.length > 0) && (
                         <motion.div
-                            initial={{ opacity: 0, y: 6 }}
+                            initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 6 }}
+                            exit={{ opacity: 0, y: 8 }}
                             transition={{ duration: 0.15 }}
-                            className="absolute top-full mt-2 w-full rounded-lg shadow-2xl border overflow-hidden z-50 text-left"
-                            style={{
-                                background: 'white',
-                                borderColor: 'rgba(0,0,0,0.08)',
-                            }}
+                            className="absolute top-full mt-3 w-full rounded-2xl shadow-2xl border overflow-hidden z-50 text-left"
+                            style={{ background: 'white', borderColor: 'rgba(0,0,0,0.1)' }}
                         >
-                            <div className="max-h-72 overflow-y-auto py-2">
+                            <div className="max-h-[40vh] overflow-y-auto py-3">
                                 {suggestions.universities.length > 0 && (
-                                    <div className="mb-1">
-                                        <div className="px-4 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Universities</div>
+                                    <div className="mb-2">
+                                        <div className="px-5 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">Universities</div>
                                         {suggestions.universities.map((uni, i) => (
                                             <button
                                                 key={`uni-${uni.id || i}`}
                                                 type="button"
                                                 onClick={() => handleSelect(uni, 'university')}
-                                                className="w-full text-left px-4 py-2.5 text-gray-800 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50"
+                                                className="w-full text-left px-5 py-3 text-gray-800 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50"
                                             >
-                                                <span className="text-lg">🎓</span>
+                                                <span className="text-xl">🎓</span>
                                                 <div>
-                                                    <p className="text-[13px] font-medium">{uni.name || uni.uni_name}</p>
-                                                    {uni.city_name && <p className="text-[11px] text-gray-400">{uni.city_name}, Germany</p>}
+                                                    <p className="text-[14px] font-medium">{uni.name || uni.uni_name}</p>
+                                                    {uni.city_name && <p className="text-xs text-gray-500 mt-0.5">{uni.city_name}, Germany</p>}
                                                 </div>
                                             </button>
                                         ))}
@@ -238,16 +210,16 @@ export const HeroSearchBar: React.FC<SearchBarProps> = ({ onNavigate }) => {
                                 )}
                                 {suggestions.cities.length > 0 && (
                                     <div>
-                                        <div className="px-4 py-1 text-[10px] font-bold text-gray-400 uppercase tracking-wider">Cities</div>
+                                        <div className="px-5 py-2 text-xs font-bold text-gray-400 uppercase tracking-wider">Cities</div>
                                         {suggestions.cities.map((city, i) => (
                                             <button
                                                 key={`city-${city.id || i}`}
                                                 type="button"
                                                 onClick={() => handleSelect(city, 'city')}
-                                                className="w-full text-left px-4 py-2.5 text-gray-800 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50"
+                                                className="w-full text-left px-5 py-3 text-gray-800 transition-all duration-300 flex items-center gap-3 hover:bg-amber-50"
                                             >
-                                                <span className="text-lg">📍</span>
-                                                <p className="text-[13px] font-medium">
+                                                <span className="text-xl">📍</span>
+                                                <p className="text-[14px] font-medium">
                                                     {city.name || city.city_name}{city.state ? `, ${city.state}` : ''}, Germany
                                                 </p>
                                             </button>

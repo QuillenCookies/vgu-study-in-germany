@@ -47,13 +47,6 @@ const WISE_QUACKS = [
   },
 ];
 
-const QUICK_TAGS = [
-  { emoji: '🏫', trKey: 'tagEducation' as const, href: '/university' },
-  { emoji: '🚲', trKey: 'tagTransport' as const, href: '/bahn' },
-  { emoji: '🏠', trKey: 'tagHousing' as const, href: '/housing' },
-  { emoji: '🥨', trKey: 'tagFood' as const, href: '/food' },
-  { emoji: '🎉', trKey: 'tagEntertainment' as const, href: '/entertainment' },
-];
 
 // All Topic Sections standardized to Midnight Blue + Amber Gold
 const TOPIC_SECTIONS = [
@@ -192,7 +185,7 @@ const HomePage: React.FC = () => {
       {/* ══════════════════════════════════════════
           SECTION 1 — HERO
       ══════════════════════════════════════════ */}
-      <section className="relative w-full flex items-center justify-center min-h-screen overflow-hidden">
+      <section className="relative w-full min-h-screen overflow-hidden">
         {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
@@ -209,58 +202,13 @@ const HomePage: React.FC = () => {
         <div
           className="absolute inset-0 pointer-events-none z-[1]"
           style={{
-            background: 'linear-gradient(to right, #0D1226 0%, #0D1226CC 8%, transparent 22%)',
+            background: 'linear-gradient(to right, #0D1226 0%, #0D1226CC 8%, transparent 40%)',
           }}
           aria-hidden="true"
         />
 
-        {/* Hero content */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="show"
-          className="relative z-10 flex flex-col items-center px-4 py-20 w-full max-w-4xl mx-auto"
-        >
-          {/* HeroSearchBar: stamp title + duck GIF + search bar */}
-          <HeroSearchBar onNavigate={navigate} />
-
-          {/* CTA: Join the Migration */}
-          <motion.div variants={fadeUp} className="mt-5 mb-1">
-            <Link to="/community/contributor" className="group flex items-center justify-center gap-2 text-[14px] text-white/80 hover:text-white transition-colors cursor-pointer">
-              <span className="font-medium text-white/90">Have a survival hack?</span>
-              <span className="font-semibold group-hover:underline underline-offset-4" style={{ color: AMBER, textDecorationColor: `${AMBER}80` }}>Join the Migration</span>
-              <ArrowRight size={14} style={{ color: AMBER }} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </motion.div>
-
-          {/* Quick tags */}
-          <motion.div variants={stagger} className="flex flex-wrap gap-2.5 mt-6 justify-center">
-            {QUICK_TAGS.map(tag => (
-              <motion.div key={tag.href} variants={fadeUp}>
-                <Link
-                  to={tag.href}
-                  className="flex items-center gap-1.5 px-4 py-2 rounded-lg
-                    bg-white/12 hover:bg-white/22 backdrop-blur-sm border border-white/15
-                    text-white text-[13px] font-medium transition-all duration-300 hover:scale-105
-                    hover:border-white/30"
-                >
-                  <span>{tag.emoji}</span>
-                  <span>{tr('home', tag.trKey)}</span>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        >
-          <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent" />
-          <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: `${AMBER}80` }} />
-        </motion.div>
+        {/* HeroSearchBar fills the entire hero section */}
+        <HeroSearchBar onNavigate={navigate} />
       </section>
 
       {/* ══════════════════════════════════════════
