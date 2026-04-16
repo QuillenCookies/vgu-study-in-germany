@@ -308,7 +308,7 @@ const ToolsPage: React.FC = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <span className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-blue-500/20 text-blue-300 text-sm font-semibold border border-blue-400/25 backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 rounded-full bg-[#FFCC00]/20 text-[#FFCC00] text-sm font-semibold border border-[#FFCC00]/30 backdrop-blur-sm">
                 {tr('tools', 'badge')}
               </span>
 
@@ -317,7 +317,7 @@ const ToolsPage: React.FC = () => {
                 <br />
                 <span
                   style={{
-                    background: 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #38bdf8 100%)',
+                    background: 'linear-gradient(135deg, #FFCC00 0%, #e6b800 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
                     backgroundClip: 'text',
@@ -334,8 +334,8 @@ const ToolsPage: React.FC = () => {
               <div className="flex flex-wrap gap-3">
                 <a
                   href="#tools-grid"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all"
-                  style={{ background: 'linear-gradient(135deg, #2563eb, #7c3aed)' }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-[#1A2B4C] transition-all hover:opacity-90"
+                  style={{ background: 'linear-gradient(135deg, #FFCC00, #e6b800)' }}
                 >
                   {tr('tools', 'browseBtn')}
                   <ArrowRight className="w-4 h-4" />
@@ -367,9 +367,9 @@ const ToolsPage: React.FC = () => {
                 >
                   <div
                     className="absolute -top-6 -right-6 w-20 h-20 rounded-full opacity-30 blur-2xl"
-                    style={{ background: 'radial-gradient(circle, #60a5fa, transparent)' }}
+                    style={{ background: 'radial-gradient(circle, #FFCC00, transparent)' }}
                   />
-                  <div className="text-blue-400 relative z-10">{stat.icon}</div>
+                  <div className="text-[#FFCC00] relative z-10">{stat.icon}</div>
                   <div>
                     <div className="text-3xl font-black text-white leading-none">{stat.value}</div>
                     <div className="text-sm text-white/55 mt-1 font-medium">
@@ -402,7 +402,7 @@ const ToolsPage: React.FC = () => {
               placeholder={tr('tools', 'searchPlaceholder')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition"
+              className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
             />
           </div>
 
@@ -413,7 +413,7 @@ const ToolsPage: React.FC = () => {
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === cat
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-[#1A2B4C] text-white shadow-md'
                     : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                   }`}
               >
@@ -506,10 +506,10 @@ const ToolsPage: React.FC = () => {
       </section>
 
       {/* ── Pro Tips ────────────────────────────────────────────────────── */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#0a1628] to-[#0d2d5e]">
+      <section className="py-20 px-4 bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#1a3a7a]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
-            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-500/30 text-blue-300 text-sm font-semibold border border-blue-400/30">
+            <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-[#FFCC00]/20 text-[#FFCC00] text-sm font-semibold border border-[#FFCC00]/30">
               Insider Knowledge
             </span>
             <h2 className="text-3xl md:text-4xl font-extrabold text-white mb-4">
@@ -542,7 +542,7 @@ const ToolsPage: React.FC = () => {
       {/* ── Submit a Tool CTA ────────────────────────────────────────────── */}
       <section className="py-20 px-4 bg-white dark:bg-gray-900">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/30 text-blue-700 dark:text-blue-300 text-sm font-semibold">
+          <span className="inline-block mb-3 px-4 py-1.5 rounded-full bg-[#FFCC00]/15 text-[#1A2B4C] dark:text-[#FFCC00] text-sm font-semibold">
             Community Driven
           </span>
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -554,7 +554,7 @@ const ToolsPage: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/community"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors shadow-lg hover:shadow-blue-200"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#FFCC00] text-[#1A2B4C] font-semibold hover:bg-[#e6b800] transition-colors shadow-lg shadow-[#FFCC00]/30"
             >
               Share with Community
               <ArrowRight className="w-4 h-4" />

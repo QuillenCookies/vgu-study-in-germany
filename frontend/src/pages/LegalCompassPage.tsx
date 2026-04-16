@@ -11,7 +11,6 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 import type { Language } from '../lib/translations';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 /* ─── Color Tokens ───────────────────────────────────────────── */
 const NAVY = '#001A3F';
@@ -1082,8 +1081,6 @@ const LegalCompassPage: React.FC = () => {
 
       </main>
 
-      {/* ── Footer ── */}
-      <Footer />
     </div>
   );
 };
