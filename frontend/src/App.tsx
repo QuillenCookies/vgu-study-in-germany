@@ -16,6 +16,7 @@ import LibraryPage from './pages/LibraryPage';
 import LegalCompassPage from './pages/LegalCompassPage';
 import HealthWellnessPage from './pages/HealthWellnessPage';
 import CareerPage from './pages/CareerPage';
+import SalaryPage from './pages/SalaryPage';
 import AboutUsPage from './pages/AboutUsPage';
 
 import Footer from './components/Footer';
@@ -53,6 +54,7 @@ export default function App() {
                 <Route path="/explore/legal-compass" element={<LegalCompassPage />} />
                 <Route path="/explore/health" element={<HealthWellnessPage />} />
                 <Route path="/explore/career" element={<CareerPage />} />
+                <Route path="/explore/salary" element={<SalaryPage />} />
                 <Route path="/about" element={<AboutUsPage />} />
               </Routes>
             </AnimatePresence>
