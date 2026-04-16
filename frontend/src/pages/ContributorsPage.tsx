@@ -13,6 +13,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 const MIDNIGHT = '#1A2B4C';
 const AMBER = '#FFCC00';
 
+
 // ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
