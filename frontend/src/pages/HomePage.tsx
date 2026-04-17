@@ -384,209 +384,263 @@ const MentorOrb: React.FC<{ duck: typeof ALPHA_DUCKS[0] }> = ({ duck }) => {
 
 
 // ── JOURNEY MAP ─────────────────────────────────────────────────────────────
-// Step data: 10 steps across 4 sections
-interface StepDef {
+// Two item kinds: section checkpoint or numbered step
+interface SectionItem {
+  kind: 'section';
+  id: string;
+  roman: string;       // "I" / "II" / "III" / "IV"
+  label: string;       // e.g. "Preparing the Wings"
+  sub: string;         // e.g. "Preparing your documents"
+}
+
+interface StepItem {
+  kind: 'step';
+  id: string;
   num: number;
   label: string;
   sub: string;
   href: string;
-  isFlag?: boolean; // section starters: 1, 4, 6, 9
-  sectionLabel?: string;
-  sectionSub?: string;
 }
 
-const STEPS: StepDef[] = [
-  { num: 1, label: 'Education', sub: 'Knowledge Lake – Wading through Uni-Assist', href: '/university', isFlag: true, sectionLabel: 'Section I', sectionSub: 'Preparing the Wings' },
-  { num: 2, label: 'Legal Compass', sub: 'Orientation Compass – Visa laws & contracts', href: '/explore/legal' },
-  { num: 3, label: 'Library', sub: 'The Archive – Secret scrolls & senior notes', href: '/explore/library' },
-  { num: 4, label: 'Housing', sub: 'Shelter Burrow – Finding a cozy nest', href: '/housing', isFlag: true, sectionLabel: 'Section II', sectionSub: 'Building the Nest' },
-  { num: 5, label: 'Health & Wellness', sub: 'Recovery Station – Caring body & soul', href: '/explore/health' },
-  { num: 6, label: 'Food', sub: 'The Grocery Store – Mensa to cooking Phở', href: '/food', isFlag: true, sectionLabel: 'Section III', sectionSub: 'Daily Survival' },
-  { num: 7, label: 'Transport', sub: 'Migration Tracks – Mastering DB trains', href: '/bahn' },
-  { num: 8, label: 'Entertainment', sub: 'The Dance Club – Relaxing after long swims', href: '/entertainment' },
-  { num: 9, label: 'Career', sub: 'Takeoff Strip – Werkstudent to dream job', href: '/explore/career', isFlag: true, sectionLabel: 'Section IV', sectionSub: 'Flying Further' },
-  { num: 10, label: 'Salary & Finance', sub: "The Duck's Purse – Managing Euros", href: '/explore/salary' },
+type MapItem = SectionItem | StepItem;
+
+// 14 items – 4 section checkpoints + 10 numbered steps
+// Row 0 (LTR, 5):  SecI  · 1 · 2 · 3 · SecII
+// Row 1 (RTL, 5):  4 · 5 · SecIII · 6 · 7   (displayed reversed: 7 · 6 · SecIII · 5 · 4)
+// Row 2 (LTR, 4):  8 · SecIV · 9 · 10
+const MAP_PATH: MapItem[] = [
+  // ── Row 0 ──
+  { kind: 'section', id: 'sec-I',   roman: 'I',   label: 'Preparing the Wings', sub: 'Documents & applications' },
+  { kind: 'step',    id: 'edu',     num: 1,  label: 'Education',       sub: 'Knowledge Lake',      href: '/university' },
+  { kind: 'step',    id: 'legal',   num: 2,  label: 'Legal Compass',   sub: 'Orientation Compass', href: '/explore/legal' },
+  { kind: 'step',    id: 'lib',     num: 3,  label: 'Library',         sub: 'The Archive',          href: '/explore/library' },
+  { kind: 'section', id: 'sec-II',  roman: 'II',  label: 'Building the Nest', sub: 'Setting up your home' },
+  { kind: 'step',    id: 'hous',    num: 4,  label: 'Housing',         sub: 'Shelter Burrow',       href: '/housing' },
+  { kind: 'step',    id: 'health',  num: 5,  label: 'Health',          sub: 'Recovery Station',     href: '/explore/health' },
+  { kind: 'section', id: 'sec-III', roman: 'III', label: 'Daily Survival',    sub: 'Life in Germany' },
+  { kind: 'step',    id: 'food',    num: 6,  label: 'Food',            sub: 'The Grocery Store',    href: '/food' },
+  { kind: 'step',    id: 'trans',   num: 7,  label: 'Transport',       sub: 'Migration Tracks',     href: '/bahn' },
+  { kind: 'step',    id: 'ent',     num: 8,  label: 'Entertainment',   sub: 'The Dance Club',       href: '/entertainment' },
+  { kind: 'section', id: 'sec-IV',  roman: 'IV',  label: 'Flying Further',    sub: 'Career & finances' },
+  { kind: 'step',    id: 'career',  num: 9,  label: 'Career',          sub: 'Takeoff Strip',        href: '/explore/career' },
+  { kind: 'step',    id: 'salary',  num: 10, label: 'Salary',          sub: "The Duck's Purse",    href: '/explore/salary' },
 ];
 
-// Build rows: groups of 4-5 steps, direction alternates
-// Row 0: steps 1-4 → LTR
-// Row 1: steps 5-8 → RTL (displayed reversed so snake continues)
-// Row 2: steps 9-10 → LTR
-const STEP_ROWS: StepDef[][] = [
-  STEPS.slice(0, 4),  // 1-4, LTR
-  STEPS.slice(4, 8),  // 5-8, RTL
-  STEPS.slice(8, 10), // 9-10, LTR
+const MAP_ROWS: MapItem[][] = [
+  MAP_PATH.slice(0, 5),
+  MAP_PATH.slice(5, 10),
+  MAP_PATH.slice(10),
 ];
 
-// Footprints between two steps (horizontal)
-const FootprintsH: React.FC<{ rtl?: boolean }> = ({ rtl = false }) => (
-  <div className="flex items-center justify-center gap-1 flex-1 self-center" style={{ opacity: 0.5, minWidth: 0 }}>
-    {[0, 1, 2, 3].map(i => (
-      <img
-        key={i}
-        src="/duck_fp.png"
-        alt=""
-        className="w-5 h-5 object-contain flex-shrink-0"
-        style={{
-          transform: `rotate(${rtl ? '270deg' : '90deg'}) scaleX(${i % 2 === 0 ? 1 : -1})`,
-        }}
-      />
-    ))}
+// ── SECTION CHECKPOINT NODE ───────────────────────────────────────────────
+const SectionNode: React.FC<{ item: SectionItem }> = ({ item }) => (
+  <div className="flex flex-col items-center" style={{ width: '82px', flexShrink: 0 }}>
+    {/* Red-flag button — same size as StepNode */}
+    <div
+      style={{
+        width: '70px', height: '64px',
+        background: '#fff5f5',
+        border: '2.5px dashed #fca5a5',
+        borderBottom: '5px solid #f87171',
+        borderRadius: '18px',
+        boxShadow: '0 3px 0 rgba(239,68,68,0.15), inset 0 0 0 1.5px rgba(255,255,255,0.7)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        cursor: 'default',
+      }}
+      aria-label={`Section ${item.roman}`}
+    >
+      <span style={{ fontSize: '26px', lineHeight: 1 }}>🚩</span>
+    </div>
+    {/* Roman numeral */}
+    <span
+      className="mt-2 text-center font-extrabold leading-none"
+      style={{ fontSize: '12px', color: '#dc2626', fontFamily: "'Courier New', monospace", letterSpacing: '0.06em' }}
+    >
+      {item.roman}
+    </span>
+    {/* Section title */}
+    <span
+      className="text-center leading-tight mt-1 font-bold"
+      style={{ fontSize: '10px', color: '#b91c1c', maxWidth: '82px', fontFamily: "'Courier New', monospace" }}
+    >
+      {item.label}
+    </span>
+    {/* Section sub */}
+    <span
+      className="text-center leading-tight mt-0.5 italic"
+      style={{ fontSize: '9px', color: '#ef4444', maxWidth: '82px', opacity: 0.75 }}
+    >
+      {item.sub}
+    </span>
   </div>
 );
 
-// Footprints for the vertical turn between rows
-const FootprintsV: React.FC<{ side: 'right' | 'left' }> = ({ side }) => (
-  <div
-    className={`flex flex-col items-center gap-1.5 py-2 ${side === 'right' ? 'self-end mr-10' : 'self-start ml-10'}`}
-    style={{ opacity: 0.5 }}
-  >
-    {[0, 1, 2, 3].map(i => (
-      <img
-        key={i}
-        src="/duck_fp.png"
-        alt=""
-        className="w-5 h-5 object-contain"
-        style={{ transform: `scaleX(${i % 2 === 0 ? 1 : -1})` }}
-      />
-    ))}
-  </div>
-);
-
-// Single step node
-const StepNode: React.FC<{ step: StepDef }> = ({ step }) => {
+// \u2500\u2500 NUMBERED STEP NODE \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+const StepNode: React.FC<{ item: StepItem }> = ({ item }) => {
   const navigate = useNavigate();
-
   const handleClick = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    navigate(step.href);
+    navigate(item.href);
   };
-
   return (
-    <div className="flex flex-col items-center shrink-0" style={{ minWidth: '80px', maxWidth: '100px' }}>
-      {/* Section flag badge above step 1/4/6/9 */}
-      {step.isFlag && step.sectionLabel && (
-        <div className="mb-1.5 flex flex-col items-center">
-          <span
-            className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[9px] font-bold text-white uppercase tracking-wide"
-            style={{ background: '#DC2626', boxShadow: '0 1px 4px rgba(220,38,38,0.30)' }}
-          >
-            🚩 {step.sectionLabel}
-          </span>
-          <span className="text-[8.5px] font-semibold mt-0.5 text-center" style={{ color: '#0369a1' }}>
-            {step.sectionSub}
-          </span>
-        </div>
-      )}
-
-      {/* Duolingo-style beige button */}
+    <div className="flex flex-col items-center" style={{ width: '82px', flexShrink: 0 }}>
       <button
         onClick={handleClick}
-        className="relative box-border cursor-pointer touch-manipulation rounded-xl transition-all duration-150 active:translate-y-[2px] hover:brightness-105"
+        className="relative box-border cursor-pointer touch-manipulation rounded-2xl transition-all duration-150 active:translate-y-[2px] hover:brightness-105"
         style={{
-          width: '72px',
-          height: '52px',
-          background: '#f5e6cc',
-          border: 'none',
-          borderBottom: '4px solid #c5a67a',
-          boxShadow: '0 2px 0 rgba(0,0,0,0.10)',
+          width: '70px', height: '64px',
+          background: '#fdf6ec',
+          border: '2.5px dashed #d4a97e',
+          borderBottom: '5px solid #c5956a',
+          boxShadow: '0 3px 0 rgba(0,0,0,0.09), inset 0 0 0 1.5px rgba(255,255,255,0.7)',
           fontFamily: 'inherit',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}
-        aria-label={step.label}
+        aria-label={item.label}
       >
-        <span className="text-[15px] font-extrabold" style={{ color: '#78583a' }}>
-          {step.num}
+        <span
+          className="font-extrabold"
+          style={{ fontSize: '22px', color: '#8a6240', letterSpacing: '-0.5px', fontFamily: "'Courier New', monospace" }}
+        >
+          {item.num}
         </span>
       </button>
-
       {/* Step name */}
       <span
-        className="mt-1.5 text-[10px] font-bold text-center leading-tight"
-        style={{ color: '#1e3a5f', maxWidth: '84px' }}
+        className="mt-2 text-center leading-tight font-bold"
+        style={{ fontSize: '11px', color: '#1e3a5f', maxWidth: '82px', fontFamily: "'Courier New', monospace" }}
       >
-        {step.label}
+        {item.label}
       </span>
-
-      {/* Short sub-description */}
+      {/* Sub */}
       <span
-        className="text-[8.5px] text-center leading-tight mt-0.5"
-        style={{ color: '#4a6fa5', maxWidth: '88px', opacity: 0.85 }}
+        className="text-center leading-tight mt-1"
+        style={{ fontSize: '9.5px', color: '#4a6fa5', maxWidth: '82px', opacity: 0.85, fontFamily: "'Courier New', monospace" }}
       >
-        {step.sub}
+        {item.sub}
       </span>
     </div>
   );
 };
 
+// \u2500\u2500 DUCK FOOTPRINT PAIR \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// Left foot toes inward (+15\u00b0), right foot toes inward (-15\u00b0), close together.
+const FootprintPair: React.FC<{ rtl?: boolean; vertical?: boolean }> = ({ rtl = false, vertical = false }) => {
+  const FP_SIZE = 16;
+  const style0 = { width: FP_SIZE, height: FP_SIZE, objectFit: 'contain' as const, opacity: 0.52 };
+
+  if (vertical) {
+    // Turning corner: feet V-shape side by side
+    return (
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '1px' }}>
+        <img src="/duck_fp.png" alt="" style={{ ...style0, transform: 'rotate(-15deg) translateY(-2px)' }} />
+        <img src="/duck_fp.png" alt="" style={{ ...style0, transform: 'scaleX(-1) rotate(-15deg) translateY(2px)' }} />
+      </div>
+    );
+  }
+  // Horizontal path: left foot (top) +15\u00b0, right foot (bottom) -15\u00b0 — toes kiss toward center
+  const base = rtl ? 270 : 90;
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0px' }}>
+      <img src="/duck_fp.png" alt="" style={{ ...style0, transform: `rotate(${base + 15}deg)` }} />
+      <img src="/duck_fp.png" alt="" style={{ ...style0, transform: `rotate(${base - 15}deg) scaleX(-1)` }} />
+    </div>
+  );
+};
+
+
 const JourneyMap: React.FC = () => {
   return (
     <div
-      className="w-full py-8 px-4 rounded-3xl"
-      style={{ background: 'linear-gradient(150deg, #dbeafe 0%, #bfdbfe 40%, #e0f2fe 100%)' }}
+      className="w-full py-7 px-5 rounded-3xl"
+      style={{
+        background: 'linear-gradient(145deg, #eff6ff 0%, #dbeafe 50%, #e0f2fe 100%)',
+        border: '2.5px dashed #93c5fd',
+        position: 'relative',
+        overflow: 'hidden',
+      }}
     >
-      {/* Header */}
-      <div className="text-center mb-7">
-        <p className="text-[10px] font-bold uppercase tracking-[0.24em] mb-1" style={{ color: '#1d4ed8' }}>
-          Die Ente's Transoceanic Journey
-        </p>
-        <h3
-          className="text-[20px] font-bold"
-          style={{ color: '#1e3a8a', fontFamily: "'Playfair Display', Georgia, serif" }}
-        >
-          The Map 🗺️
-        </h3>
-        <p className="text-[11px] mt-1" style={{ color: '#3b82f6', opacity: 0.8 }}>
-          Follow the duck's footprints through each milestone
-        </p>
-      </div>
+      {/* Sketch notebook grid watermark */}
+      <div
+        aria-hidden
+        style={{
+          position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.04,
+          backgroundImage:
+            'repeating-linear-gradient(0deg,#1d4ed8 0px,#1d4ed8 1px,transparent 1px,transparent 28px),' +
+            'repeating-linear-gradient(90deg,#1d4ed8 0px,#1d4ed8 1px,transparent 1px,transparent 28px)',
+          zIndex: 0,
+        }}
+      />
 
-      {/* S-shaped grid */}
-      <div className="flex flex-col w-full gap-0">
-        {STEP_ROWS.map((rowSteps, rowIdx) => {
-          const isLTR = rowIdx % 2 === 0;
-          // RTL rows are displayed reversed so the path continues from where it ended
-          const displaySteps = isLTR ? rowSteps : [...rowSteps].reverse();
-          const isLastRow = rowIdx === STEP_ROWS.length - 1;
+      <div style={{ position: 'relative', zIndex: 1 }}>
+        {/* ── 3 S-shaped rows ── */}
+        <div className="flex flex-col w-full" style={{ gap: '6px' }}>
+          {MAP_ROWS.map((rowItems, rowIdx) => {
+            const isLTR = rowIdx % 2 === 0;
+            const display = isLTR ? rowItems : [...rowItems].reverse();
+            const isLast = rowIdx === MAP_ROWS.length - 1;
 
-          return (
-            <div key={rowIdx} className="flex flex-col">
-              {/* Row of steps + footprints */}
-              <div className="flex items-end w-full px-2">
-                {displaySteps.map((step, si) => (
-                  <React.Fragment key={step.num}>
-                    <StepNode step={step} />
-                    {si < displaySteps.length - 1 && (
-                      <FootprintsH rtl={!isLTR} />
-                    )}
-                  </React.Fragment>
-                ))}
+            return (
+              <div key={rowIdx} className="flex flex-col">
+                {/* Horizontal row — items-start keeps all buttons on the same baseline */}
+                <div
+                  className="flex items-start w-full"
+                  style={{ justifyContent: 'space-between', paddingLeft: '2px', paddingRight: '2px' }}
+                >
+                  {display.map((item, si) => (
+                    <React.Fragment key={item.id}>
+                      {item.kind === 'section'
+                        ? <SectionNode item={item} />
+                        : <StepNode item={item} />}
+                      {si < display.length - 1 && (
+                        /* 2 duck strides (pairs) between each button */
+                        <div
+                          style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', alignSelf: 'center', minWidth: 0 }}
+                        >
+                          <FootprintPair rtl={!isLTR} />
+                          <FootprintPair rtl={!isLTR} />
+                        </div>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+
+                {/* Vertical turn connector */}
+                {!isLast && (
+                  <div
+                    style={{
+                      alignSelf: isLTR ? 'flex-end' : 'flex-start',
+                      marginRight: isLTR ? '28px' : undefined,
+                      marginLeft: !isLTR ? '28px' : undefined,
+                      display: 'flex', flexDirection: 'column', alignItems: 'center',
+                      gap: '6px', paddingTop: '6px', paddingBottom: '6px',
+                    }}
+                  >
+                    <FootprintPair vertical />
+                    <FootprintPair vertical />
+                  </div>
+                )}
               </div>
-
-              {/* Vertical connector between rows */}
-              {!isLastRow && (
-                <FootprintsV side={isLTR ? 'right' : 'left'} />
-              )}
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Legend */}
-      <div className="flex items-center justify-center gap-5 mt-7 flex-wrap">
-        <div className="flex items-center gap-1.5">
-          <span className="text-sm">🚩</span>
-          <span className="text-[9px] font-semibold uppercase tracking-wide" style={{ color: '#475569' }}>New Section</span>
+            );
+          })}
         </div>
-        <div className="flex items-center gap-1.5">
-          <img src="/duck_fp.png" alt="" className="w-3.5 h-3.5 opacity-60" />
-          <span className="text-[9px] font-semibold uppercase tracking-wide" style={{ color: '#475569' }}>Duck's Path</span>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <div className="w-5 h-3.5 rounded-lg" style={{ background: '#f5e6cc', border: '2px solid #c5a67a' }} />
-          <span className="text-[9px] font-semibold uppercase tracking-wide" style={{ color: '#475569' }}>Checkpoint</span>
+
+        {/* Legend */}
+        <div
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '14px', marginTop: '16px', paddingTop: '12px', borderTop: '1.5px dashed #93c5fd' }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <span style={{ fontSize: '14px' }}>🚩</span>
+            <span style={{ fontSize: '10px', fontWeight: 700, color: '#64748b', fontFamily: "'Courier New', monospace", textTransform: 'uppercase', letterSpacing: '0.06em' }}>Section</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <FootprintPair />
+            <span style={{ fontSize: '10px', fontWeight: 700, color: '#64748b', fontFamily: "'Courier New', monospace", textTransform: 'uppercase', letterSpacing: '0.06em' }}>Duck's Path</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div style={{ width: '20px', height: '15px', borderRadius: '6px', background: '#fdf6ec', border: '2px dashed #d4a97e' }} />
+            <span style={{ fontSize: '10px', fontWeight: 700, color: '#64748b', fontFamily: "'Courier New', monospace", textTransform: 'uppercase', letterSpacing: '0.06em' }}>Checkpoint</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1017,35 +1071,53 @@ const HomePage: React.FC = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="max-w-6xl mx-auto px-6 relative z-10"
         >
-          {/* Header của Section */}
-          <div className="flex flex-col items-center mb-20 text-center">
+          {/* Section header — matches reference: pill badge + big serif title + subtitle */}
+          <div className="flex flex-col items-center mb-10 text-center">
+
+            {/* Pill badge */}
             <motion.div variants={fadeUp} className="mb-4">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase"
-                style={{ backgroundColor: GOLD, color: CHARCOAL }}>
-                Interactive Map
+              <span
+                style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '6px',
+                  padding: '7px 20px',
+                  borderRadius: '999px',
+                  background: '#FCF3D9',
+                  border: '1.5px solid #E8C97A',
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  letterSpacing: '0.13em',
+                  color: '#A07820',
+                  textTransform: 'uppercase',
+                  boxShadow: '0 1px 6px rgba(0,0,0,0.05)',
+                }}
+              >
+                <span>🗺️</span> THE MAP
               </span>
             </motion.div>
 
+            {/* Big serif heading */}
             <motion.h2 variants={fadeUp} style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
+              fontFamily: "'Playfair Display', Georgia, serif",
+              fontSize: 'clamp(2rem, 5vw, 3.2rem)',
               color: CHARCOAL,
-              fontWeight: 700
+              fontWeight: 800,
+              fontStyle: 'italic',
+              letterSpacing: '-0.01em',
+              lineHeight: 1.1,
+              marginBottom: '12px',
             }}>
-              The Migratory Path
+              Die Ente's Oceanic Journey
             </motion.h2>
 
-            <motion.p variants={fadeUp} className="mt-4 max-w-xl" style={{
+            {/* Subtitle */}
+            <motion.p variants={fadeUp} style={{
               color: SLATE_BODY,
               fontSize: '15px',
-              lineHeight: 1.6
+              lineHeight: 1.65,
+              maxWidth: '480px',
             }}>
-              Mỗi bước chân của Die Ente là một cột mốc quan trọng. Hãy đi theo dấu chân vịt để chuẩn bị
-              cho hành trình định cư và học tập tại Đức của bạn.
+              Ten checkpoints. Every pond you'll cross as an international student in Germany.
             </motion.p>
-
-            {/* Đường line mảnh Bauhaus */}
-            <motion.div variants={fadeUp} className="mt-8 w-12 h-1 bg-charcoal" style={{ backgroundColor: CHARCOAL }} />
           </div>
 
           {/* Render JourneyMap Component */}
@@ -1056,21 +1128,7 @@ const HomePage: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Chân trang section: Legend hoặc Note */}
-          <motion.div variants={fadeUp} className="mt-16 flex justify-center gap-8 flex-wrap">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: STAGE_ACCENTS[0].iconColor }} />
-              <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: SLATE_MUTED }}>Vorbereitung</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: STAGE_ACCENTS[2].iconColor }} />
-              <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: SLATE_MUTED }}>Ankunft</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full" style={{ backgroundColor: STAGE_ACCENTS[3].iconColor }} />
-              <span className="text-[11px] font-medium uppercase tracking-wider" style={{ color: SLATE_MUTED }}>Integration</span>
-            </div>
-          </motion.div>
+
 
         </motion.div>
       </section>
