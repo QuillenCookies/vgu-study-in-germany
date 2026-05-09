@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { Variants } from 'framer-motion';
 import {
   GraduationCap, TrainFront, Building2,
-  UtensilsCrossed, Ticket, ArrowRight, Users, MapPin, Compass,
-  Search, Loader2, Heart, Scale, BookOpen, Briefcase, Wallet,
+  UtensilsCrossed, Ticket, ArrowRight, Users,
+  Heart, Scale, BookOpen, Briefcase, Wallet,
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useUniversity } from '../contexts/UniversityContext';
 import { HeroSearchBar } from '../components/pages/home/sections/HeroSearchBar';
-import type { LocationState } from '../types';
 
 // ── DESIGN TOKENS (Bauhaus / Scandinavian EU Light) ───────────────────────
 const CREAM = '#F9F9F7';  // main bg — warm off-white, never pure white
@@ -30,40 +28,10 @@ const FROST_STROKE = '1.5px';       // consistent border weight
 
 // Hero-section legacy tokens (dark overlay)
 const MIDNIGHT = '#1A2B4C';
-const AMBER = '#FFCC00';
-const AMBER_DIM = '#e6b800';
 
 // ── CONSTANTS ──────────────────────────────────────────────────────────────
 const HERO_BG =
   'https://images.unsplash.com/photo-1774112168776-1e1f4e2797e5?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-
-const WISE_QUACKS = [
-  {
-    id: 0,
-    trTip: 'tip0' as const,
-    trTag: 'tip0tag' as const,
-    color: 'from-[#1A2B4C]/30 to-[#1A2B4C]/10',
-    border: 'border-[#FFCC00]/20',
-    tagColor: 'text-[#FFCC00]',
-  },
-  {
-    id: 1,
-    trTip: 'tip1' as const,
-    trTag: 'tip1tag' as const,
-    color: 'from-[#1A2B4C]/25 to-[#0D1F38]/15',
-    border: 'border-[#FFCC00]/15',
-    tagColor: 'text-[#FFCC00]',
-  },
-  {
-    id: 2,
-    trTip: 'tip2' as const,
-    trTag: 'tip2tag' as const,
-    color: 'from-[#1A2B4C]/20 to-[#132038]/10',
-    border: 'border-[#FFCC00]/25',
-    tagColor: 'text-[#FFCC00]',
-  },
-];
-
 
 // ── DIFFICULTY BADGES — light pastel ──────────────────────────────────────
 const DIFFICULTY = {
@@ -150,24 +118,6 @@ const stagger: Variants = {
   show: { transition: { staggerChildren: 0.09 } },
 };
 
-// ── GOLD DUCK SVG (wireframe, light mode) ────────────────────────────────
-const DuckSVG: React.FC<{ className?: string; style?: React.CSSProperties }> = ({ className, style }) => (
-  <svg viewBox="0 0 200 140" fill="none" xmlns="http://www.w3.org/2000/svg"
-    className={className} style={style} aria-hidden="true">
-    <ellipse cx="88" cy="90" rx="52" ry="28" stroke={GOLD} strokeWidth="1.5" />
-    <circle cx="130" cy="52" r="22" stroke={GOLD} strokeWidth="1.5" />
-    <path d="M148 47 L172 44 L172 56 L148 52 Z" stroke={GOLD} strokeWidth="1.5" />
-    <circle cx="138" cy="46" r="3.5" fill={GOLD} />
-    <path d="M116 68 C110 78 110 84 120 90" stroke={GOLD} strokeWidth="1.5" />
-    <path d="M52 86 C75 70 100 72 116 80" stroke={GOLD} strokeWidth="1" strokeDasharray="4 3" opacity="0.55" />
-    <path d="M38 76 C26 60 28 48 38 42" stroke={GOLD} strokeWidth="1.5" />
-    <path d="M72 118 L63 130 M72 118 L77 130 M72 118 L72 130" stroke={GOLD} strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-    <path d="M96 120 L87 132 M96 120 L101 132" stroke={GOLD} strokeWidth="1.2" strokeLinecap="round" opacity="0.7" />
-    <path d="M14 114 Q50 108 88 114 Q126 120 186 114" stroke={GOLD} strokeWidth="0.6" opacity="0.5" />
-    <path d="M22 120 Q60 116 100 120 Q140 124 180 120" stroke={GOLD} strokeWidth="0.6" opacity="0.25" />
-  </svg>
-);
-
 // ── GERMAN FLAG DUCK SVG v2 (ink-style, hand-drawn, warm flag palette) ───
 const GermanFlagDuckSVG: React.FC<{ className?: string; style?: React.CSSProperties }> = ({ className, style }) => (
   <svg viewBox="0 0 220 165" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -233,59 +183,6 @@ const GermanFlagDuckSVG: React.FC<{ className?: string; style?: React.CSSPropert
     <path d="M6 118 Q50 112 94 118 Q140 124 214 118" stroke="#D86210" strokeWidth="0.72" strokeLinecap="round" opacity="0.38" />
     <path d="M28 139 Q66 134 108 139 Q151 144 207 138" stroke="#E8A810" strokeWidth="0.65" strokeLinecap="round" opacity="0.32" />
     <path d="M16 147 Q60 142 102 147 Q144 152 202 146" stroke="#E8A810" strokeWidth="0.5" strokeLinecap="round" opacity="0.20" />
-  </svg>
-);
-
-// ── DUCK LITHOGRAPH SVG (cream-on-dark, for circular plate) ─────────────
-const DuckLithographSVG: React.FC<{ className?: string; style?: React.CSSProperties }> = ({ className, style }) => (
-  <svg viewBox="0 0 220 165" fill="none" xmlns="http://www.w3.org/2000/svg"
-    className={className} style={style} aria-hidden="true">
-    <defs>
-      <linearGradient id="litoGrad" x1="0" y1="0" x2="0" y2="165" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#F0E4C8" stopOpacity="0.90" />
-        <stop offset="55%" stopColor="#E8C86A" stopOpacity="0.84" />
-        <stop offset="100%" stopColor="#D4A030" stopOpacity="0.80" />
-      </linearGradient>
-    </defs>
-    {/* Body */}
-    <path d="M98 71 C130 70 155 85 154 104 C153 122 129 137 96 136 C64 135 39 122 40 104 C41 87 65 72 98 71 Z"
-      stroke="url(#litoGrad)" strokeWidth="1.7" strokeLinejoin="round" />
-    <path d="M98 76 C128 75 150 88 149 104 C148 119 126 131 97 130 C68 129 45 117 46 104 C47 91 68 77 98 76 Z"
-      stroke="url(#litoGrad)" strokeWidth="0.45" opacity="0.28" />
-    {/* Head */}
-    <path d="M144 36 C158 35 168 46 167 60 C166 74 155 84 142 84 C129 84 118 75 118 61 C118 47 129 36 144 36 Z"
-      stroke="url(#litoGrad)" strokeWidth="1.7" strokeLinejoin="round" />
-    {/* Beak */}
-    <path d="M163 54 L192 50 L192 65 L163 60 Z"
-      fill="#D4A030" fillOpacity="0.32" stroke="#E8C070" strokeWidth="1.4" strokeLinejoin="round" />
-    <line x1="164" y1="57.5" x2="192" y2="57.5" stroke="#E8C070" strokeWidth="0.5" opacity="0.34" />
-    {/* Eye */}
-    <circle cx="152" cy="52" r="3.8" fill="#F0E4C8" opacity="0.88" />
-    {/* Neck */}
-    <path d="M127 78 C120 90 120 98 131 106"
-      stroke="url(#litoGrad)" strokeWidth="1.8" strokeLinecap="round" />
-    {/* Wing */}
-    <path d="M57 100 C82 84 114 85 128 94"
-      stroke="url(#litoGrad)" strokeWidth="1.6" strokeLinecap="round" opacity="0.84" />
-    <path d="M63 98 C72 93 80 93 85 97" stroke="url(#litoGrad)" strokeWidth="0.9" strokeLinecap="round" opacity="0.50" />
-    <path d="M80 94 C90 89 98 89 103 94" stroke="url(#litoGrad)" strokeWidth="0.9" strokeLinecap="round" opacity="0.43" />
-    <path d="M96 91 C106 86 116 87 121 92" stroke="url(#litoGrad)" strokeWidth="0.9" strokeLinecap="round" opacity="0.37" />
-    {/* Tail */}
-    <path d="M41 88 C29 71 31 56 42 49" stroke="url(#litoGrad)" strokeWidth="1.7" strokeLinecap="round" />
-    <path d="M39 92 C25 74 23 57 37 49" stroke="url(#litoGrad)" strokeWidth="0.7" strokeLinecap="round" opacity="0.24" />
-    {/* Feet */}
-    <path d="M79 136 L70 150 M79 136 L84 150 M79 136 L79 150"
-      stroke="#E8C070" strokeWidth="1.5" strokeLinecap="round" opacity="0.76" />
-    <path d="M71 150 Q79 147 84 150" stroke="#E8C070" strokeWidth="0.8" strokeLinecap="round" opacity="0.44" />
-    <path d="M106 138 L97 152 M106 138 L112 152"
-      stroke="#E8C070" strokeWidth="1.5" strokeLinecap="round" opacity="0.76" />
-    <path d="M98 152 Q106 149 112 152" stroke="#E8C070" strokeWidth="0.8" strokeLinecap="round" opacity="0.44" />
-    {/* Water ripples */}
-    <path d="M12 124 Q56 118 97 124 Q140 130 208 124" stroke="#E8C070" strokeWidth="0.95" strokeLinecap="round" opacity="0.50" />
-    <path d="M22 131 Q63 125 104 131 Q147 137 205 130" stroke="#D4A030" strokeWidth="0.72" strokeLinecap="round" opacity="0.36" />
-    <path d="M6 118 Q50 112 94 118 Q140 124 214 118" stroke="#E8C070" strokeWidth="0.55" strokeLinecap="round" opacity="0.26" />
-    <path d="M28 139 Q66 134 108 139 Q151 144 207 138" stroke="#D4A030" strokeWidth="0.48" strokeLinecap="round" opacity="0.22" />
-    <path d="M16 147 Q60 142 102 147 Q144 152 202 146" stroke="#E8C070" strokeWidth="0.40" strokeLinecap="round" opacity="0.16" />
   </svg>
 );
 
