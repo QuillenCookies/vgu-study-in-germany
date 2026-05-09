@@ -712,7 +712,7 @@ const HomePage: React.FC = () => {
             textTransform: 'uppercase',
             marginBottom: '1.3rem',
           }}>
-            § 01 · CHAPTER I
+            § 01 Wildcard · A New Chapter
           </motion.p>
 
           {/* Main title — all caps, editorial */}
@@ -726,7 +726,7 @@ const HomePage: React.FC = () => {
             lineHeight: 1.12,
             textShadow: '0 4px 28px rgba(0,0,0,0.4)',
           }}>
-            The Anatomy<br />of a Mascot
+            LET US START <br /> OUR JOURNEY
           </motion.h2>
 
           {/* Amber thin rule */}
@@ -745,7 +745,7 @@ const HomePage: React.FC = () => {
             color: 'rgba(255,255,255,0.24)',
             textTransform: 'uppercase',
           }}>
-            DIE ENTE · ORIGIN STORY
+            DIE ENTE · THE DUCK FROM VIET DUC UNIVERSITY
           </motion.p>
         </motion.div>
       </section >
@@ -875,175 +875,6 @@ const HomePage: React.FC = () => {
         </motion.div>
       </section >
 
-
-      <section className="relative py-24 md:py-32 overflow-hidden" style={{ backgroundColor: CREAM }}>
-
-        {/* Nền trang trí: Dấu chân vịt mờ chạy dọc trang */}
-        <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-full max-w-4xl pointer-events-none opacity-[0.03]">
-          <FootprintSVG className="w-24 h-auto absolute top-10 left-1/4 rotate-12" />
-          <FootprintSVG className="w-20 h-auto absolute top-80 right-1/4 -rotate-12" />
-          <FootprintSVG className="w-28 h-auto absolute top-[40%] left-1/3 rotate-45" />
-          <FootprintSVG className="w-22 h-auto absolute bottom-40 right-1/3 -rotate-12" />
-        </div>
-
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="max-w-6xl mx-auto px-6 relative z-10"
-        >
-          {/* Header của Section */}
-          <div className="flex flex-col items-center mb-20 text-center">
-            <motion.div variants={fadeUp} className="mb-4">
-              <span className="px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase"
-                style={{ backgroundColor: GOLD, color: CHARCOAL }}>
-                Interactive Map
-              </span>
-            </motion.div>
-
-            <motion.h2 variants={fadeUp} style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: CHARCOAL,
-              fontWeight: 700
-            }}>
-              The Migratory Path
-            </motion.h2>
-
-            <motion.p variants={fadeUp} className="mt-4 max-w-xl" style={{
-              color: SLATE_BODY,
-              fontSize: '15px',
-              lineHeight: 1.6
-            }}>
-              Mỗi bước chân của Die Ente là một cột mốc quan trọng. Hãy đi theo dấu chân vịt để chuẩn bị
-              cho hành trình định cư và học tập tại Đức của bạn.
-            </motion.p>
-
-            {/* Đường line mảnh Bauhaus */}
-            <motion.div variants={fadeUp} className="mt-8 w-12 h-1 bg-charcoal" style={{ backgroundColor: CHARCOAL }} />
-          </div>
-
-          {/* Render JourneyMap Component */}
-          <motion.div variants={fadeUp} className="w-full flex justify-center">
-            {/* Chúng ta bọc JourneyMap trong một container để kiểm soát layout bento-style nếu cần */}
-            <div className="w-full max-w-6xl bg-white/40 backdrop-blur-sm rounded-[40px] p-6 md:p-10 border border-white/60 shadow-sm">
-              <div className="flex flex-col md:flex-row">
-
-                {/* ── LEFT 70% — book text column ── */}
-                <div className="flex-[7] py-8 md:pr-14 flex flex-col">
-
-                  {/* Main heading — large italic serif */}
-                  <h2 className="mb-5" style={{
-                    fontFamily: "'Playfair Display', Georgia, serif",
-                    fontSize: 'clamp(2.7rem, 5vw, 3.9rem)',
-                    fontStyle: 'italic',
-                    fontWeight: 700,
-                    color: '#201E1A',
-                    lineHeight: 1.04,
-                    letterSpacing: '-0.01em',
-                  }}>
-                    Why "Die Ente"?
-                  </h2>
-
-                  {/* Thin rule */}
-                  <div className="mb-6" style={{ height: '0.75px', background: 'rgba(0,0,0,0.12)' }} />
-
-                  {/* Lead paragraph — slightly larger, lighter */}
-                  <p className="mb-5" style={{
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '15.5px',
-                    fontWeight: 300,
-                    color: '#4A4540',
-                    lineHeight: 1.78,
-                  }}>
-                    {tr('home', 'philosophyAbove')}
-                  </p>
-
-                  {/* Body paragraphs */}
-                  {(['philosophyPara1', 'philosophyPara2', 'philosophyPara3'] as const).map((key, i) => (
-                    <p key={key}
-                      className={i < 2 ? 'mb-[1.45rem]' : ''}
-                      dangerouslySetInnerHTML={{ __html: tr('home', key) }}
-                      style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '14.5px',
-                        lineHeight: 1.92,
-                        color: '#3A3530',
-                      }} />
-                  ))}
-
-                  {/* Folio footer */}
-                  <div className="mt-8 pt-4 flex items-center gap-3"
-                    style={{ borderTop: '0.75px solid rgba(0,0,0,0.1)' }}>
-                    <p className="uppercase" style={{
-                      fontSize: '9.5px', letterSpacing: '0.2em',
-                      color: '#7A7468', fontFamily: 'monospace',
-                    }}>
-                      EST. 2026 · GERMANY & VIETNAM
-                    </p>
-                    <span style={{ color: 'rgba(0,0,0,0.2)', fontSize: '10px', lineHeight: 1 }}>·</span>
-                    <p style={{
-                      fontSize: '9.5px', color: '#9A9080',
-                      fontFamily: 'monospace', letterSpacing: '0.16em',
-                    }}>
-                      THE ORIGIN STORY
-                    </p>
-                  </div>
-                </div>
-
-                {/* Vertical gutter — thin book rule */}
-                <div className="hidden md:block w-px self-stretch mx-3"
-                  style={{ background: 'rgba(0,0,0,0.09)' }} />
-
-                {/* ── RIGHT 30% — German flag duck ── */}
-                <div className="flex-[3] py-8 md:pl-12 flex flex-col items-center justify-center">
-
-                  <motion.div
-                    className="w-full max-w-[260px] flex flex-col items-center"
-                    animate={{ y: [0, -9, 0] }}
-                    transition={{ duration: 4.2, repeat: Infinity, ease: 'easeInOut' }}>
-
-                    <GermanFlagDuckSVG style={{ width: '100%', height: 'auto' }} />
-
-                    {/* Thin separator */}
-                    <div className="w-full mt-5 mb-3" style={{
-                      height: '0.75px',
-                      background: 'linear-gradient(to right, transparent, rgba(178,138,50,0.42), transparent)',
-                    }} />
-
-                    {/* DIE ENTE label */}
-                    <p className="text-center font-mono uppercase"
-                      style={{ fontSize: '9.5px', letterSpacing: '0.26em', color: '#8A8070' }}>
-                      DIE ENTE
-                    </p>
-
-                    {/* Heritage oval badge */}
-                    <div className="mt-3">
-                      <svg viewBox="0 0 96 40" width="86" height="36" aria-hidden="true">
-                        <ellipse cx="48" cy="20" rx="44" ry="17" stroke="#B0A080" strokeWidth="0.85" fill="none" opacity="0.48" />
-                        <ellipse cx="48" cy="20" rx="37" ry="12" stroke="#B0A080" strokeWidth="0.5" fill="none" opacity="0.28" />
-                        <circle cx="10" cy="20" r="1.4" fill="#B0A080" opacity="0.38" />
-                        <circle cx="86" cy="20" r="1.4" fill="#B0A080" opacity="0.38" />
-                        <text x="48" y="16.5" textAnchor="middle" fill="#7A7060" opacity="0.78"
-                          style={{ fontSize: '6.5px', letterSpacing: '0.17em', fontFamily: 'monospace' }}>GER · VN</text>
-                        <line x1="18" y1="20" x2="36" y2="20" stroke="#B0A080" strokeWidth="0.5" opacity="0.44" />
-                        <path d="M48 17.5 L50 20 L48 22.5 L46 20 Z" fill="#B0A080" opacity="0.36" />
-                        <line x1="60" y1="20" x2="78" y2="20" stroke="#B0A080" strokeWidth="0.5" opacity="0.44" />
-                        <text x="48" y="27" textAnchor="middle" fill="#7A7060" opacity="0.64"
-                          style={{ fontSize: '5.5px', letterSpacing: '0.14em', fontFamily: 'monospace' }}>EST. 2026</text>
-                      </svg>
-                    </div>
-
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section >
-
-      // ── SECTION 3: THE MIGRATORY PATH (HÀNH TRÌNH VƯỢT ĐẠI DƯƠNG) ──────────────
       <section className="relative py-24 md:py-32 overflow-hidden" style={{ backgroundColor: CREAM }}>
 
         {/* Nền trang trí: Dấu chân vịt mờ chạy dọc trang */}
