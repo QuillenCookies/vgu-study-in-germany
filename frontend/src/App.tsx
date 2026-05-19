@@ -1,3 +1,4 @@
+import { useEffect } from 'react'; // 1. Add useEffect
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { LanguageProvider } from './contexts/LanguageContext';
@@ -27,6 +28,14 @@ if ('scrollRestoration' in history) {
 
 export default function App() {
   const location = useLocation();
+
+  useEffect(() => {
+    const unlisten = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+
+    return () => clearTimeout(unlisten);
+  }, [location.pathname]);
 
   return (
     <ThemeProvider>
