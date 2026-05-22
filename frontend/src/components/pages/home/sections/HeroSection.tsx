@@ -39,7 +39,11 @@ const HeroSection: React.FC = () => {
                 style={{ background: `linear-gradient(to bottom, ${MIDNIGHT}CC, ${MIDNIGHT}99, ${MIDNIGHT}CC)` }}
                 aria-hidden="true"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
+            <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(to top, #0A1525DD 0%, transparent 45%)' }}
+                aria-hidden="true"
+            />
             <div
                 className="absolute inset-0 pointer-events-none z-[1]"
                 style={{ background: 'linear-gradient(to right, #0D1226 0%, #0D1226CC 8%, transparent 50%)' }}

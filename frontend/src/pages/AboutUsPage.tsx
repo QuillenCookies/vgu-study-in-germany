@@ -1,7 +1,7 @@
 import React, { useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { ArrowLeft, Heart, Users, Globe, BookOpen, Lightbulb, Mail } from 'lucide-react';
+import { ArrowLeft, Heart, Users, Globe, BookOpen, Lightbulb, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
@@ -53,6 +53,33 @@ const STATS = [
   { value: '6', label: 'Guide Sections' },
   { value: '3', label: 'Languages' },
   { value: '100%', label: 'Student Built' },
+];
+
+const TEAM = [
+  {
+    emoji: '🦆',
+    gradient: 'from-[#FFCC00] to-[#e6b800]',
+    name: 'Phạm Trọng Quý',
+    role: 'Co-Founder & Lead',
+    funFact: 'The one who turns coffee into the very first lines of Die Ente\'s code.',
+    linkedin: '#',
+  },
+  {
+    emoji: '🎨',
+    gradient: 'from-purple-400 to-purple-600',
+    name: 'Hồ Nguyễn Phú',
+    role: 'Co-Founder & Database Lead',
+    funFact: 'Crafting every pixel and layout to make your browsing experience seamless.',
+    linkedin: '#',
+  },
+  {
+    emoji: '✍️',
+    gradient: 'from-emerald-400 to-emerald-600',
+    name: 'Cao Tuệ Anh',
+    role: 'Co-Founder & Product Lead',
+    funFact: 'Demystifying complex Bahn rules and German paperwork into simple guides.',
+    linkedin: '#',
+  },
 ];
 
 // ── MAIN PAGE ────────────────────────────────────────────────────────────────
@@ -258,45 +285,89 @@ const AboutUsPage: React.FC = () => {
           </section>
 
           {/* ══════════════════════════════════════════
-              SECTION 5 — CTA
+              SECTION 5 — MEET THE TEAM
           ══════════════════════════════════════════ */}
-          <section className="px-4 pb-24">
-            <div className="max-w-3xl mx-auto">
+          <section className="relative overflow-hidden bg-gradient-to-br from-[#f0f4ff] via-white to-[#fdf8ec] pt-16 pb-24 px-6">
+            {/* Subtle gold glow bottom-right */}
+            <div className="absolute bottom-0 right-0 w-80 h-80 translate-x-1/3 translate-y-1/3 rounded-full bg-[#FFCC00]/20 blur-[100px] pointer-events-none" />
+            {/* Subtle blue glow top-left */}
+            <div className="absolute top-0 left-0 w-80 h-80 -translate-x-1/3 -translate-y-1/3 rounded-full bg-[#0a2463]/8 blur-[100px] pointer-events-none" />
+
+            <div className="relative z-10 max-w-5xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+
+              {/* Left column — text */}
               <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: -24 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-gradient-to-br from-[#0a2463] via-[#0d1f4e] to-[#1a3a7a] rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"
+                className="lg:w-[42%] text-center lg:text-left"
               >
-                <div className="absolute top-0 right-0 w-64 h-64 -translate-y-1/3 translate-x-1/3 rounded-full bg-[#FFCC00]/15 blur-[80px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 translate-y-1/3 -translate-x-1/3 rounded-full bg-[#1A2B4C]/40 blur-[80px] pointer-events-none" />
+                <span className="inline-flex items-center gap-2 mb-5 px-3 py-1 rounded-full bg-[#FFCC00]/20 border border-[#FFCC00]/40 text-[#92650a] text-[11px] font-bold uppercase tracking-widest">
+                  <Users size={11} /> Our Core Team
+                </span>
 
-                <div className="relative z-10">
-                  <span className="text-4xl mb-4 block">🦆</span>
-                  <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">
-                    Want to join the flock?
-                  </h2>
-                  <p className="text-white/70 text-[15px] mb-8 max-w-md mx-auto leading-relaxed">
-                    Share your tips, fix an error, or add a whole new section. Every contribution helps
-                    the next wave of students land safely.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                    <Link
-                      to="/contributors"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-[#FFCC00] hover:bg-[#e6b800] text-[#1A2B4C] font-bold text-[14px] shadow-lg shadow-[#FFCC00]/30 transition-all duration-200 hover:scale-105 active:scale-95"
-                    >
-                      <Users size={15} /> Become a Contributor
-                    </Link>
-                    <a
-                      href="mailto:hello@vgu-ente.de"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-[14px] transition-all duration-200"
-                    >
-                      <Mail size={15} /> Get in Touch
-                    </a>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a2463] leading-tight mb-5">
+                  Meet the Minds<br />
+                  <span className="text-[#CA8A04]">Behind Die Ente</span>
+                </h2>
+
+                <p className="text-slate-500 text-[15px] leading-relaxed mb-8 max-w-sm mx-auto lg:mx-0">
+                  We are a team of passionate VGU students dedicated to walking with you through every step of your journey to Germany. No more navigating alone.
+                </p>
+
+                <div className="inline-flex flex-col items-center gap-2">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FFCC00] to-[#e6b800] flex items-center justify-center text-2xl shadow-lg shadow-[#FFCC00]/30">
+                    🦆
                   </div>
+                  <span className="text-[#92650a] text-[12px] font-bold tracking-widest uppercase">Die Ente Core Team</span>
                 </div>
               </motion.div>
+
+              {/* Right column — cards */}
+              <motion.div
+                variants={stagger}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true }}
+                className="lg:w-[58%] w-full grid grid-cols-1 gap-4"
+              >
+                {TEAM.map((member) => (
+                  <motion.div
+                    key={member.name}
+                    variants={fadeUp}
+                    className="flex items-start gap-4 bg-white border border-slate-100 rounded-2xl p-5 shadow-md shadow-black/5 hover:shadow-lg hover:shadow-black/8 transition-shadow duration-200"
+                  >
+                    {/* Avatar */}
+                    <div className={`shrink-0 w-12 h-12 rounded-full bg-gradient-to-br ${member.gradient} flex items-center justify-center text-xl shadow-md`}>
+                      {member.emoji}
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-start justify-between gap-2">
+                        <div>
+                          <p className="text-[#0a2463] font-bold text-[15px] leading-tight">{member.name}</p>
+                          <p className="text-[#CA8A04] text-[11px] font-bold uppercase tracking-wider mt-0.5">{member.role}</p>
+                        </div>
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 text-slate-300 hover:text-[#0a2463] transition-colors duration-200 mt-0.5"
+                          aria-label={`${member.name} on LinkedIn`}
+                        >
+                          <Linkedin size={16} />
+                        </a>
+                      </div>
+                      <p className="text-slate-400 text-[13px] italic leading-relaxed mt-2">
+                        "{member.funFact}"
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+
             </div>
           </section>
 

@@ -4,7 +4,7 @@ import type { Variants } from 'framer-motion';
 import {
     GraduationCap, TrainFront, Building2,
     UtensilsCrossed, Ticket,
-    Heart, Scale, BookOpen, Briefcase, Wallet,
+    Heart, Scale, BookOpen, Briefcase, Wallet, Linkedin,
 } from 'lucide-react';
 import { useLanguage } from '../../../../contexts/LanguageContext';
 
@@ -87,9 +87,9 @@ export const MAP_STAGES: {
 
 // ── ALPHA DUCKS ───────────────────────────────────────────────────────────
 export const ALPHA_DUCKS = [
-    { emoji: '🛂', name: 'Trọng Quý', trBadge: 'duckBadge0' as const, trTitle: 'duckTitle0' as const, survivalRate: 97, winters: 4, trQuote: 'duckQuote0' as const },
-    { emoji: '💻', name: 'Tech Navigator', trBadge: 'duckBadge1' as const, trTitle: 'duckTitle1' as const, survivalRate: 88, winters: 3, trQuote: 'duckQuote1' as const },
-    { emoji: '🎨', name: 'Culture Explorer', trBadge: 'duckBadge2' as const, trTitle: 'duckTitle2' as const, survivalRate: 94, winters: 2, trQuote: 'duckQuote2' as const },
+    { emoji: '🦆', name: 'Phạm Trọng Quý', trBadge: 'duckBadge0' as const, trTitle: 'duckTitle0' as const, survivalRate: 97, winters: 4, trQuote: 'duckQuote0' as const, linkedin: 'https://www.linkedin.com/in/phamtrongquy/' },
+    { emoji: '🎨', name: 'Hồ Nguyễn Phú', trBadge: 'duckBadge1' as const, trTitle: 'duckTitle1' as const, survivalRate: 88, winters: 3, trQuote: 'duckQuote1' as const, linkedin: '#' },
+    { emoji: '✍️', name: 'Cao Tuệ Anh', trBadge: 'duckBadge2' as const, trTitle: 'duckTitle2' as const, survivalRate: 94, winters: 2, trQuote: 'duckQuote2' as const, linkedin: '#' },
 ];
 
 // ── BULLETIN BOARD ────────────────────────────────────────────────────────
@@ -243,7 +243,7 @@ export const MentorOrb: React.FC<{ duck: typeof ALPHA_DUCKS[0] }> = ({ duck }) =
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.95 }}
                         transition={{ duration: 0.18, ease: [0.4, 0, 0.2, 1] }}
-                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 z-30 rounded-3xl p-5 pointer-events-none"
+                        className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-64 z-30 rounded-3xl p-5"
                         style={{
                             background: 'rgba(255,255,255,0.94)',
                             backdropFilter: FROST_BLUR,
@@ -251,15 +251,24 @@ export const MentorOrb: React.FC<{ duck: typeof ALPHA_DUCKS[0] }> = ({ duck }) =
                             border: `${FROST_STROKE} solid rgba(250,204,21,0.38)`,
                             boxShadow: `0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05)`,
                         }}>
-                        <div className="flex items-center justify-between mb-3">
-                            <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: '#D97706' }}>
-                                {duck.survivalRate}% {tr('home', 'duckSurvival')}
-                            </span>
-                            <span className="inline-flex items-center gap-1 text-[10px] font-medium" style={{ color: SLATE_BODY }}>
-                                ❄️ {duck.winters}× {tr('home', 'duckWinters')}
-                            </span>
+                        <div className="flex items-center justify-between mb-2.5">
+                            <p className="text-[13px] font-bold leading-tight" style={{ color: '#0a2463' }}>
+                                {duck.name}
+                            </p>
+                            <a
+                                href={duck.linkedin}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="shrink-0 ml-2 transition-colors duration-150"
+                                style={{ color: '#CBD5E1' }}
+                                onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#0a2463'; }}
+                                onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.color = '#CBD5E1'; }}
+                                aria-label={`${duck.name} on LinkedIn`}
+                            >
+                                <Linkedin size={14} />
+                            </a>
                         </div>
-                        <p className="text-[12px] font-semibold mb-2.5 leading-snug" style={{ color: CHARCOAL }}>
+                        <p className="text-[10px] font-bold uppercase tracking-widest mb-2.5" style={{ color: '#CA8A04' }}>
                             {tr('home', duck.trTitle)}
                         </p>
                         <div style={{ height: '1px', background: '#F1F5F9', marginBottom: '10px' }} />

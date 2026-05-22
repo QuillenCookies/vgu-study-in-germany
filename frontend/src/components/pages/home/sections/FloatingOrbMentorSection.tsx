@@ -13,12 +13,12 @@ import {
 const FloatingOrbMentorSection: React.FC = () => {
     const { tr } = useLanguage();
     return (
-        < section className="py-10 md:py-20 px-6" style={{ backgroundColor: CREAM }}>
+        <section className="py-10 md:py-20 px-6" style={{ backgroundColor: CREAM }}>
 
             {/* Section divider */}
-            < div className="max-w-[1200px] mx-auto mb-8" >
+            <div className="max-w-[1200px] mx-auto mb-8">
                 <div className="h-px" style={{ background: `linear-gradient(to right, transparent, ${GOLD}35, transparent)` }} />
-            </div >
+            </div>
 
             <motion.div variants={stagger} initial="hidden" whileInView="show"
                 viewport={{ once: true, margin: '-80px' }}
@@ -71,7 +71,7 @@ const FloatingOrbMentorSection: React.FC = () => {
                     </Link>
                 </motion.div>
             </motion.div>
-        </section >
+        </section>
     );
 };
 
