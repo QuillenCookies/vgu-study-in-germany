@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import {
   ChevronLeft, Shield, Search, Clock, AlertCircle,
   ChevronDown, CheckSquare, Square, ArrowRight,
@@ -11,21 +10,12 @@ import {
 import { useLanguage } from '../contexts/LanguageContext';
 import type { Language } from '../lib/translations';
 import Navbar from '../components/Navbar';
+import { fadeUp, stagger } from '../components/ui/animation';
 
 /* ─── Color Tokens ───────────────────────────────────────────── */
 const NAVY = '#001A3F';
 const GOLD = '#FFCC00';
 const BORDER = '#E5E7EB';
-
-/* ─── Animation Variants ─────────────────────────────────────── */
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 260, damping: 24 } },
-};
-const stagger: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
-};
 
 /* ─── Multilingual helper ────────────────────────────────────── */
 type ML = Record<Language, string>;

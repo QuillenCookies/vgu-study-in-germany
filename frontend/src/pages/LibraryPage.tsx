@@ -1,7 +1,7 @@
 ﻿import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, Eye, ShieldCheck, ChevronRight, 
+import {
+  Search, Eye, ShieldCheck, ChevronRight,
   Command, Key, Shield, Route, Sparkles
 } from 'lucide-react';
 import Layout from '../components/Layout';
@@ -9,12 +9,9 @@ import Layout from '../components/Layout';
 // ==========================================
 // SVGs & METAPHORS
 // ==========================================
-
-
-
 const Sparkline = () => (
   <svg width="48" height="16" viewBox="0 0 48 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-    <path d="M2 14C3 12 5 8 7 8C9 8 10 12 12 12C14 12 16 6 18 6C20 6 22 10 24 10C26 10 28 4 30 4C32 4 34 8 36 8C38 8 40 4 42 2C44 0 45 4 46 6" stroke="#FFCC00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M2 14C3 12 5 8 7 8C9 8 10 12 12 12C14 12 16 6 18 6C20 6 22 10 24 10C26 10 28 4 30 4C32 4 34 8 36 8C38 8 40 4 42 2C44 0 45 4 46 6" stroke="#FFCC00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -146,33 +143,33 @@ const LibraryPage = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-white transition-colors relative overflow-hidden font-sans mb-32">
-        
+
         {/* Soft Organic Mesh Gradient Background */}
         <div className="absolute top-[-10%] left-[-10%] w-[60vw] h-[60vw] rounded-full bg-blue-100/50 dark:bg-blue-900/20 blur-[140px] pointer-events-none opacity-80 mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
         <div className="absolute top-[5%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-orange-100/40 dark:bg-orange-900/20 blur-[140px] pointer-events-none opacity-80 mix-blend-multiply dark:mix-blend-screen transition-all duration-1000" />
 
         {/* Main Content Container */}
         <div className="max-w-screen-xl mx-auto px-6 pt-52 pb-24 relative z-10">
-          
+
           {/* === HERO & COMMAND SEARCH === */}
           <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-28 animate-fade-in-up">
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="text-5xl md:text-[4rem] font-bold text-[#1A2B4C] dark:text-white tracking-tighter leading-tight mb-6"
             >
               The Duck’s <span className="text-[#FFCC00]">Archive</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-slate-500 dark:text-slate-400 text-lg md:text-xl tracking-tight mb-14 max-w-xl"
             >
               A curated intelligence database for the VGU diaspora.
             </motion.p>
-            
+
             {/* Command-Palette Search */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, delay: 0.2, type: "spring", stiffness: 200, damping: 20 }}
               className="w-full max-w-2xl relative group"
             >
@@ -193,7 +190,7 @@ const LibraryPage = () => {
             </motion.div>
 
             {/* Hint Hashtags */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
               className="flex items-center justify-center gap-5 mt-8 text-[14px] font-semibold text-slate-400"
             >
@@ -218,12 +215,12 @@ const LibraryPage = () => {
                 >
                   {cat.isLarge && (
                     <div className="absolute bottom-0 right-0 w-80 h-80 opacity-[0.03] dark:opacity-10 text-slate-900 pointer-events-none transform translate-x-12 translate-y-12 group-hover:translate-x-8 group-hover:translate-y-8 transition-transform duration-700 ease-out">
-                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12.5 3c-1.38 0-2.5 1.12-2.5 2.5 0 .39.09.76.25 1.08C9.37 7.23 8 8.64 8 10.5c0 1.07.41 2.07 1.12 2.81-.39 1.17-.41 2.45-.63 3.69-.17.98-.94 1.76-1.92 1.95-1.47.28-1.57 2.05-1.57 2.05s1.28.32 2.54.49c1.67.22 3.3.49 5.46.49 4.34 0 7.82-1.96 8.79-4.83.6-1.76.59-4.04-.6-6.19-1.38-2.48-4.22-4.08-6.19-4.73C14.77 5.75 14.86 5.39 14.86 5 14.86 3.62 13.88 3 12.5 3z"/>
-                        </svg>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.5 3c-1.38 0-2.5 1.12-2.5 2.5 0 .39.09.76.25 1.08C9.37 7.23 8 8.64 8 10.5c0 1.07.41 2.07 1.12 2.81-.39 1.17-.41 2.45-.63 3.69-.17.98-.94 1.76-1.92 1.95-1.47.28-1.57 2.05-1.57 2.05s1.28.32 2.54.49c1.67.22 3.3.49 5.46.49 4.34 0 7.82-1.96 8.79-4.83.6-1.76.59-4.04-.6-6.19-1.38-2.48-4.22-4.08-6.19-4.73C14.77 5.75 14.86 5.39 14.86 5 14.86 3.62 13.88 3 12.5 3z" />
+                      </svg>
                     </div>
                   )}
-                  
+
                   <div className="relative z-10 flex items-start justify-between">
                     <div className={`w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 border border-transparent shadow-sm ${cat.isLarge ? 'bg-[#1A2B4C] text-white dark:bg-white dark:text-[#1A2B4C]' : cat.color}`}>
                       {cat.icon}
@@ -254,7 +251,7 @@ const LibraryPage = () => {
               <h2 className="text-2xl font-bold text-[#1A2B4C] dark:text-white tracking-tighter flex items-center gap-3">
                 <span className="w-2 h-2 rounded-full bg-blue-500" /> Documents Library
               </h2>
-              
+
               {/* Ghost Filters */}
               <div className="flex flex-wrap items-center gap-3">
                 {FILTERS.map((filter) => {
@@ -263,11 +260,10 @@ const LibraryPage = () => {
                     <button
                       key={filter}
                       onClick={() => setActiveFilter(filter)}
-                      className={`relative px-5 py-2.5 rounded-full text-[14px] font-bold tracking-tight transition-all duration-300 ${
-                        isActive
+                      className={`relative px-5 py-2.5 rounded-full text-[14px] font-bold tracking-tight transition-all duration-300 ${isActive
                           ? 'text-white border-transparent'
                           : 'text-slate-500 dark:text-slate-400 border border-slate-200/80 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800'
-                      }`}
+                        }`}
                     >
                       {isActive && (
                         <motion.div
@@ -367,7 +363,7 @@ const LibraryPage = () => {
                     <p className="text-base font-medium text-slate-500 max-w-sm mb-8 leading-relaxed">
                       Adjust your filters or try a different search term to surface resources.
                     </p>
-                    <button 
+                    <button
                       onClick={() => { setSearchQuery(''); setActiveFilter('All'); }}
                       className="px-6 py-3 bg-[#1A2B4C] dark:bg-white text-white dark:text-[#1A2B4C] text-sm font-bold tracking-tight rounded-xl hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors shadow-lg shadow-black/10"
                     >

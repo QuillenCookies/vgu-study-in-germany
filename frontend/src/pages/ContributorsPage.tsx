@@ -1,6 +1,5 @@
 import React, { useState, useLayoutEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import type { Variants } from 'framer-motion';
 import {
   X, PenLine, ArrowLeft, Users, Send,
   Globe, Home, ShoppingBag, Train, BookOpen, PartyPopper
@@ -9,20 +8,10 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useLanguage } from '../contexts/LanguageContext';
+import { fadeUp, stagger } from '../components/ui/animation';
 
 const MIDNIGHT = '#1A2B4C';
 const AMBER = '#FFCC00';
-
-
-// ── ANIMATION VARIANTS ─────────────────────────────────────────────────────
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } },
-};
-const stagger: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-};
 
 // ── PATHFINDERS DATA ───────────────────────────────────────────────────────
 const PATHFINDERS = [
