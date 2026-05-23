@@ -47,12 +47,13 @@ const AboutUsPage: React.FC = () => {
           <OurValue />
 
           {/* ══════════════════════════════════════════
-              SECTION 5 — CTA
+              SECTION 5 — MEET THE TEAM
           ══════════════════════════════════════════ */}
           <CTA />
-        </div>
-      </motion.div>
-    </div>
+
+        </div >
+      </motion.div >
+    </div >
   );
 };
 

@@ -1,10 +1,12 @@
-﻿import React, { useState } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
-  ArrowLeft, Globe, Languages, CreditCard, FileText, BookOpen,
+  Globe, Languages, CreditCard, FileText, BookOpen,
   Map, Shield, Smartphone, Star, ExternalLink, Search,
   Zap, Heart, CheckCircle, ArrowRight,
+  Lock, Home, Train, ShoppingBag, Briefcase, ArrowLeftRight,
+  ChevronLeft, ChevronRight,
 } from 'lucide-react';
 import Navbar from '../components/Navbar';
 
@@ -30,7 +32,7 @@ interface Tool {
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
-const categories = ['All', 'Language', 'Banking', 'Documents', 'Study', 'Navigation', 'Health'];
+const categories = ['All', 'Language', 'Banking', 'Documents', 'Study', 'Navigation', 'Health', 'Life', 'Jobs'];
 
 const tools: Tool[] = [
   {
@@ -97,12 +99,40 @@ const tools: Tool[] = [
     bg: 'bg-blue-50',
     badgeBg: 'bg-blue-100',
     badgeText: 'text-blue-700',
-    description: 'Deutsche Kreditbank — popular among students for its free Visa card and free worldwide ATM withdrawals.',
-    features: ['Free Visa card', 'Free global ATM', 'Requires German address', 'Online banking only'],
+    description: 'Deutsche Kreditbank — popular among students for its free Visa card. Note: since 2024, opening an account increasingly requires a German address and Schufa history, making it harder to set up from abroad.',
+    features: ['Free Visa card', 'Free global ATM', 'Requires German address', 'Schufa history needed'],
     url: 'https://www.dkb.de',
     free: true,
     studentDiscount: true,
     rating: 4,
+  },
+  {
+    name: 'Wise',
+    category: 'Banking',
+    icon: <ArrowLeftRight className="w-7 h-7" />,
+    color: 'from-green-600 to-teal-600',
+    bg: 'bg-green-50',
+    badgeBg: 'bg-green-100',
+    badgeText: 'text-green-700',
+    description: 'Best-in-class international money transfer. Send money from Vietnam to Germany in minutes with real exchange rates and ultra-low fees. Ideal before and after arrival.',
+    features: ['Real exchange rate', 'Vietnam → Germany transfers', 'Multi-currency account', 'Low fees'],
+    url: 'https://wise.com',
+    free: true,
+    rating: 5,
+  },
+  {
+    name: 'Expatrio',
+    category: 'Banking',
+    icon: <Lock className="w-7 h-7" />,
+    color: 'from-indigo-700 to-blue-600',
+    bg: 'bg-indigo-50',
+    badgeBg: 'bg-indigo-100',
+    badgeText: 'text-indigo-700',
+    description: 'Government-recognised platform to open a German Blocked Account (Sperrkonto) and purchase a health insurance combo from Vietnam — the fastest path to your student visa.',
+    features: ['Blocked account (Sperrkonto)', 'Visa-approved', 'Health insurance bundle', 'Fast online setup'],
+    url: 'https://www.expatrio.com',
+    free: false,
+    rating: 5,
   },
   {
     name: 'DAAD Portal',
@@ -190,6 +220,20 @@ const tools: Tool[] = [
     rating: 4,
   },
   {
+    name: 'DB Navigator',
+    category: 'Navigation',
+    icon: <Train className="w-7 h-7" />,
+    color: 'from-red-700 to-red-500',
+    bg: 'bg-red-50',
+    badgeBg: 'bg-red-100',
+    badgeText: 'text-red-700',
+    description: 'Official Deutsche Bahn app — the must-have for inter-city travel. Buy tickets, plan routes across all of Germany, and track real-time delays (a classic DB experience).',
+    features: ['National train tickets', 'Live delay tracker', 'Deutschlandticket support', 'Route planner'],
+    url: 'https://www.bahn.de/service/mobile/db-navigator',
+    free: true,
+    rating: 5,
+  },
+  {
     name: 'TK Health App',
     category: 'Health',
     icon: <Heart className="w-7 h-7" />,
@@ -200,6 +244,48 @@ const tools: Tool[] = [
     description: 'Techniker Krankenkasse app — manage your statutory health insurance, find doctors, and submit claims digitally.',
     features: ['Digital health card', 'Doctor search', 'Claim submission', 'Sick note upload'],
     url: 'https://www.tk.de',
+    free: true,
+    rating: 4,
+  },
+  {
+    name: 'WG-Gesucht',
+    category: 'Life',
+    icon: <Home className="w-7 h-7" />,
+    color: 'from-orange-500 to-amber-500',
+    bg: 'bg-orange-50',
+    badgeBg: 'bg-orange-100',
+    badgeText: 'text-orange-700',
+    description: "Germany's largest platform for finding shared apartments (WG) and private rooms. Find accommodation before you fly so you can complete your Anmeldung (address registration) on arrival.",
+    features: ['Room & WG search', 'Direct landlord contact', 'Alert notifications', 'Free listings'],
+    url: 'https://www.wg-gesucht.de',
+    free: true,
+    rating: 4,
+  },
+  {
+    name: 'Too Good To Go',
+    category: 'Life',
+    icon: <ShoppingBag className="w-7 h-7" />,
+    color: 'from-lime-600 to-green-700',
+    bg: 'bg-lime-50',
+    badgeBg: 'bg-lime-100',
+    badgeText: 'text-lime-700',
+    description: 'Rescue surplus food from restaurants, bakeries, and hotels at up to 70% off. The go-to app for budget-conscious students who still want quality meals at end-of-month.',
+    features: ['Meals from ~€3–5', 'Surprise bag deals', 'Local bakeries & cafés', 'Food waste reduction'],
+    url: 'https://www.toogoodtogo.com',
+    free: true,
+    rating: 5,
+  },
+  {
+    name: 'Zenjob',
+    category: 'Jobs',
+    icon: <Briefcase className="w-7 h-7" />,
+    color: 'from-violet-600 to-purple-700',
+    bg: 'bg-violet-50',
+    badgeBg: 'bg-violet-100',
+    badgeText: 'text-violet-700',
+    description: 'Flexible student job platform (Minijob/Studentenjob). Pick your own shifts, get matched instantly via app, and receive weekly pay — no long-term commitment required.',
+    features: ['Flexible shift selection', 'Weekly payout', 'No long-term contract', 'Student-focused'],
+    url: 'https://www.zenjob.com',
     free: true,
     rating: 4,
   },
@@ -255,6 +341,32 @@ const ToolsPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [query, setQuery] = useState('');
 
+  const pillsRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = () => {
+    const el = pillsRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 0);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const el = pillsRef.current;
+    el?.addEventListener('scroll', checkScroll);
+    window.addEventListener('resize', checkScroll);
+    return () => {
+      el?.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('resize', checkScroll);
+    };
+  }, []);
+
+  const scrollPills = (dir: 'left' | 'right') => {
+    pillsRef.current?.scrollBy({ left: dir === 'right' ? 180 : -180, behavior: 'smooth' });
+  };
+
   const filtered = tools.filter((t) => {
     const matchCat = activeCategory === 'All' || t.category === activeCategory;
     const matchQ = query === '' || t.name.toLowerCase().includes(query.toLowerCase()) || t.description.toLowerCase().includes(query.toLowerCase());
@@ -286,17 +398,6 @@ const ToolsPage: React.FC = () => {
           }}
           aria-hidden="true"
         />
-
-        {/* Back button — top left */}
-        <div className="absolute top-6 left-6 z-20">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white/80 text-sm font-medium hover:bg-white/20 hover:text-white transition-all backdrop-blur-sm"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            {tr('tools', 'backHome')}
-          </Link>
-        </div>
 
         {/* Main content — two-column split */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-full flex items-center" style={{ minHeight: '72vh' }}>
@@ -392,34 +493,56 @@ const ToolsPage: React.FC = () => {
       </section>
 
       {/* ── Filter & Search Bar ─────────────────────────────────────────── */}
-      <section id="tools-grid" className="py-8 px-4 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-700 sticky top-[56px] z-20 shadow-sm">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center gap-4">
+      <section id="tools-grid" className="py-5 px-4 bg-gray-50 dark:bg-gray-900 border-b-2 border-gray-200 dark:border-gray-700 sticky top-[56px] z-20 shadow-sm">
+        <div className="flex items-center justify-center gap-3">
           {/* Search */}
-          <div className="relative w-full sm:w-72">
+          <div className="relative flex-shrink-0 w-52">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 dark:text-gray-500" />
             <input
               type="text"
               placeholder={tr('tools', 'searchPlaceholder')}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition"
+              className="w-full pl-9 pr-4 py-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#1A2B4C] focus:border-transparent transition shadow-sm"
             />
           </div>
 
           {/* Category pills */}
-          <div className="flex items-center gap-2 flex-wrap">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === cat
-                    ? 'bg-[#1A2B4C] text-white shadow-md'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
-              >
-                {cat === 'All' ? tr('tools', 'filterAll') : cat}
-              </button>
-            ))}
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => scrollPills('left')}
+              aria-label="Scroll left"
+              className={`flex-shrink-0 p-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ${canScrollLeft ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            <div
+              ref={pillsRef}
+              className="flex items-center gap-2 overflow-x-auto"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`flex-shrink-0 px-4 py-2 rounded-full text-sm transition-all duration-200 ${activeCategory === cat
+                      ? 'bg-[#1A2B4C] text-white shadow-md font-semibold'
+                      : 'bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 font-medium shadow-sm hover:border-[#1A2B4C] hover:text-[#1A2B4C] dark:hover:border-gray-400'
+                    }`}
+                >
+                  {cat === 'All' ? tr('tools', 'filterAll') : cat}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={() => scrollPills('right')}
+              aria-label="Scroll right"
+              className={`flex-shrink-0 p-1.5 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-200 ${canScrollRight ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </section>
@@ -434,14 +557,13 @@ const ToolsPage: React.FC = () => {
               <p className="text-sm mt-1">{tr('tools', 'clearFilter')}</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div key={`${activeCategory}__${query}`} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filtered.map((tool, idx) => (
                 <motion.div
                   key={tool.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.07, duration: 0.45 }}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.06, duration: 0.4, ease: 'easeOut' }}
                   className="bg-white dark:bg-gray-900 rounded-3xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col"
                 >
                   {/* Card Header */}

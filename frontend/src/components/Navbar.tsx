@@ -26,15 +26,15 @@ const megaMenuVariants: Variants = {
 // ── STATIC DATA ─────────────────────────────────────────────────────────────
 const EXPLORE_ITEMS = [
   { icon: <GraduationCap size={15} strokeWidth={1.75} />, trKey: 'education' as const, trSubKey: 'eduSub' as const, href: '/university' },
-  { icon: <TrainFront size={15} strokeWidth={1.75} />, trKey: 'transport' as const, trSubKey: 'transSub' as const, href: '/bahn' },
-  { icon: <Building2 size={15} strokeWidth={1.75} />, trKey: 'housing' as const, trSubKey: 'housingSub' as const, href: '/housing' },
-  { icon: <UtensilsCrossed size={15} strokeWidth={1.75} />, trKey: 'food' as const, trSubKey: 'foodSub' as const, href: '/food' },
-  { icon: <Ticket size={15} strokeWidth={1.75} />, trKey: 'entertainment' as const, trSubKey: 'entSub' as const, href: '/entertainment' },
   { icon: <BookOpen size={15} strokeWidth={1.75} />, trKey: 'library' as const, trSubKey: 'libSub' as const, href: '/explore/library' },
   { icon: <Gavel size={15} strokeWidth={1.75} />, trKey: 'legal' as const, trSubKey: 'legalSub' as const, href: '/explore/legal' },
-  { icon: <HeartPulse size={15} strokeWidth={1.75} />, trKey: 'health' as const, trSubKey: 'healthSub' as const, href: '/explore/health' },
-  { icon: <Rocket size={15} strokeWidth={1.75} />, trKey: 'careerLaunch' as const, trSubKey: 'careerSub' as const, href: '/explore/career' },
-  { icon: <Coins size={15} strokeWidth={1.75} />, trKey: 'salaryFinance' as const, trSubKey: 'salarySub' as const, href: '/explore/salary' },
+  { icon: <TrainFront size={15} strokeWidth={1.75} />, trKey: 'transport' as const, trSubKey: 'transSub' as const, href: '/bahn', comingSoon: true },
+  { icon: <Building2 size={15} strokeWidth={1.75} />, trKey: 'housing' as const, trSubKey: 'housingSub' as const, href: '/housing', comingSoon: true },
+  { icon: <UtensilsCrossed size={15} strokeWidth={1.75} />, trKey: 'food' as const, trSubKey: 'foodSub' as const, href: '/food', comingSoon: true },
+  { icon: <Ticket size={15} strokeWidth={1.75} />, trKey: 'entertainment' as const, trSubKey: 'entSub' as const, href: '/entertainment', comingSoon: true },
+  { icon: <HeartPulse size={15} strokeWidth={1.75} />, trKey: 'health' as const, trSubKey: 'healthSub' as const, href: '/explore/health', comingSoon: true },
+  { icon: <Rocket size={15} strokeWidth={1.75} />, trKey: 'careerLaunch' as const, trSubKey: 'careerSub' as const, href: '/explore/career', comingSoon: true },
+  { icon: <Coins size={15} strokeWidth={1.75} />, trKey: 'salaryFinance' as const, trSubKey: 'salarySub' as const, href: '/explore/salary', comingSoon: true },
 ];
 
 const LANG_OPTIONS = [
@@ -233,15 +233,44 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
           </div>
 
           {/* Tools / Community / About */}
-          {NAV_LINKS.slice(1).map(({ trKey, href }) => (
-            <NavLink
-              key={href}
-              to={href}
-              label={tr('navbar', trKey)}
-              active={isActive(href)}
-              transparent={isTransparentTop}
-            />
-          ))}
+          {NAV_LINKS.slice(1).map(({ trKey, href }) => {
+            if (trKey === 'community') {
+              return (
+                <div key={href} className="relative group">
+                  <span className={`
+                    relative flex items-center px-4 py-2 text-[13px]
+                    select-none whitespace-nowrap cursor-not-allowed
+                    ${isTransparentTop
+                      ? 'text-white/30 font-medium'
+                      : 'text-gray-300 dark:text-slate-600 font-medium'
+                    }
+                  `}>
+                    {tr('navbar', trKey)}
+                  </span>
+                  <span className="
+                    absolute top-full left-1/2 -translate-x-1/2 mt-2
+                    opacity-0 group-hover:opacity-100
+                    transition-opacity duration-150
+                    text-[10px] font-semibold z-50
+                    px-2 py-0.5 rounded-full
+                    bg-gray-800 dark:bg-white text-white dark:text-gray-900
+                    whitespace-nowrap pointer-events-none shadow-md
+                  ">
+                    Coming soon
+                  </span>
+                </div>
+              );
+            }
+            return (
+              <NavLink
+                key={href}
+                to={href}
+                label={tr('navbar', trKey)}
+                active={isActive(href)}
+                transparent={isTransparentTop}
+              />
+            );
+          })}
         </nav>
 
         {/* ── MEGA MENU ── */}
@@ -278,43 +307,90 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
               </div>
 
               {/* Grid */}
-              <div className="px-8 py-5 grid grid-rows-4 grid-flow-col gap-x-6 gap-y-0.5">
-                {EXPLORE_ITEMS.map(({ icon, trKey, trSubKey, href }) => (
-                  <Link
-                    key={href}
-                    to={href}
-                    onClick={() => setExplore(false)}
-                    className="
-                      group relative flex items-center gap-3.5 px-3 py-3 rounded-xl
-                      hover:bg-gray-50 dark:hover:bg-[#1E2D4D]
-                      transition-colors duration-150
-                    "
-                  >
-                    {/* Amber left accent on hover */}
-                    <span
-                      className="absolute left-0 top-3 bottom-3 w-[2.5px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                      style={{ backgroundColor: AMBER }}
-                    />
-                    {/* Icon box */}
-                    <span className="
-                      flex-shrink-0 flex items-center justify-center w-[34px] h-[34px] rounded-lg
-                      text-[#1A2B4C] dark:text-slate-500
-                      bg-gray-100 dark:bg-white/[0.05]
-                      group-hover:bg-gray-200 dark:group-hover:text-[#FFCC00] dark:group-hover:bg-[#FFCC00]/10
-                      transition-all duration-150
-                    ">
-                      {icon}
-                    </span>
-                    <div className="min-w-0">
-                      <p className="text-[13px] font-semibold leading-snug text-[#1A2B4C] dark:text-slate-300 dark:group-hover:text-white transition-colors duration-150">
-                        {tr('navbar', trKey)}
-                      </p>
-                      <p className="text-[11px] leading-snug mt-0.5 truncate text-gray-400 dark:text-slate-600">
-                        {tr('navbar', trSubKey)}
-                      </p>
+              <div className="px-8 py-5 flex gap-4">
+                {/* Column 1: Active items */}
+                <div className="flex flex-col gap-0.5 min-w-[230px]">
+                  {EXPLORE_ITEMS.filter(i => !i.comingSoon).map(({ icon, trKey, trSubKey, href }) => (
+                    <Link
+                      key={href}
+                      to={href}
+                      onClick={() => setExplore(false)}
+                      className="
+                        group relative flex items-center gap-3.5 px-3 py-3 rounded-xl
+                        hover:bg-gray-50 dark:hover:bg-[#1E2D4D]
+                        transition-colors duration-150
+                      "
+                    >
+                      {/* Amber left accent on hover */}
+                      <span
+                        className="absolute left-0 top-3 bottom-3 w-[2.5px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-150"
+                        style={{ backgroundColor: AMBER }}
+                      />
+                      {/* Icon box */}
+                      <span className="
+                        flex-shrink-0 flex items-center justify-center w-[34px] h-[34px] rounded-lg
+                        text-[#1A2B4C] dark:text-slate-500
+                        bg-gray-100 dark:bg-white/[0.05]
+                        group-hover:bg-gray-200 dark:group-hover:text-[#FFCC00] dark:group-hover:bg-[#FFCC00]/10
+                        transition-all duration-150
+                      ">
+                        {icon}
+                      </span>
+                      <div className="min-w-0">
+                        <p className="text-[13px] font-semibold leading-snug text-[#1A2B4C] dark:text-slate-300 dark:group-hover:text-white transition-colors duration-150">
+                          {tr('navbar', trKey)}
+                        </p>
+                        <p className="text-[11px] leading-snug mt-0.5 truncate text-gray-400 dark:text-slate-600">
+                          {tr('navbar', trSubKey)}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Columns 2+: Coming soon items */}
+                <div className="flex-1 grid grid-cols-2 gap-0.5">
+                  {EXPLORE_ITEMS.filter(i => i.comingSoon).map(({ icon, trKey, trSubKey, href }) => (
+                    <div
+                      key={href}
+                      className="
+                        group relative flex items-center gap-3.5 px-3 py-3 rounded-xl
+                        opacity-50 cursor-not-allowed select-none
+                        transition-colors duration-150
+                      "
+                    >
+                      {/* Icon box */}
+                      <span className="
+                        flex-shrink-0 flex items-center justify-center w-[34px] h-[34px] rounded-lg
+                        text-[#1A2B4C] dark:text-slate-500
+                        bg-gray-100 dark:bg-white/[0.05]
+                        transition-all duration-150
+                      ">
+                        {icon}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[13px] font-semibold leading-snug text-[#1A2B4C] dark:text-slate-300">
+                          {tr('navbar', trKey)}
+                        </p>
+                        <p className="text-[11px] leading-snug mt-0.5 truncate text-gray-400 dark:text-slate-600">
+                          {tr('navbar', trSubKey)}
+                        </p>
+                      </div>
+                      {/* Coming soon badge */}
+                      <span className="
+                        absolute top-1.5 right-2
+                        opacity-0 group-hover:opacity-100
+                        transition-opacity duration-150
+                        text-[9px] font-semibold tracking-wide
+                        px-1.5 py-0.5 rounded-full
+                        bg-gray-700/80 dark:bg-white/70 text-white dark:text-gray-800
+                        whitespace-nowrap pointer-events-none
+                      ">
+                        Coming soon
+                      </span>
                     </div>
-                  </Link>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {/* Footer */}
@@ -574,39 +650,72 @@ const Navbar: React.FC<NavbarProps> = ({ transparent = false }) => {
                   {tr('navbar', 'explore')}
                 </p>
                 <div className="space-y-0.5 pl-2 border-l-2 border-[#FFCC00]/30 ml-2">
-                  {EXPLORE_ITEMS.map(item => (
-                    <Link
-                      key={item.href}
-                      to={item.href}
-                      onClick={() => setMobile(false)}
-                      className={`flex items-center gap-3 px-3 py-2.5 text-[13px] rounded-xl transition-colors ${isActive(item.href)
-                          ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
-                          : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
-                        }`}
-                    >
-                      <span style={{ color: isActive(item.href) ? AMBER : undefined }} className="dark:text-slate-500">
-                        {item.icon}
-                      </span>
-                      <span className="font-medium">{tr('navbar', item.trKey)}</span>
-                    </Link>
-                  ))}
+                  {EXPLORE_ITEMS.map(item => {
+                    if (item.comingSoon) {
+                      return (
+                        <div
+                          key={item.href}
+                          className="flex items-center justify-between gap-3 px-3 py-2.5 text-[13px] rounded-xl opacity-40 cursor-not-allowed select-none"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="dark:text-slate-500">{item.icon}</span>
+                            <span className="font-medium text-slate-400 dark:text-slate-500">{tr('navbar', item.trKey)}</span>
+                          </div>
+                          <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-gray-200/70 dark:bg-white/10 text-gray-500 dark:text-slate-500 whitespace-nowrap">
+                            Soon
+                          </span>
+                        </div>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={item.href}
+                        to={item.href}
+                        onClick={() => setMobile(false)}
+                        className={`flex items-center gap-3 px-3 py-2.5 text-[13px] rounded-xl transition-colors ${isActive(item.href)
+                            ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
+                            : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
+                          }`}
+                      >
+                        <span style={{ color: isActive(item.href) ? AMBER : undefined }} className="dark:text-slate-500">
+                          {item.icon}
+                        </span>
+                        <span className="font-medium">{tr('navbar', item.trKey)}</span>
+                      </Link>
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Other links */}
-              {NAV_LINKS.slice(1).map(({ trKey, href }) => (
-                <Link
-                  key={href}
-                  to={href}
-                  onClick={() => setMobile(false)}
-                  className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${isActive(href)
-                      ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
-                      : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
-                    }`}
-                >
-                  {tr('navbar', trKey)}
-                </Link>
-              ))}
+              {NAV_LINKS.slice(1).map(({ trKey, href }) => {
+                if (trKey === 'community') {
+                  return (
+                    <div
+                      key={href}
+                      className="flex items-center justify-between px-3.5 py-2.5 text-[13px] font-medium rounded-xl text-gray-300 dark:text-slate-600 cursor-not-allowed select-none"
+                    >
+                      <span>{tr('navbar', trKey)}</span>
+                      <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-full bg-gray-200/70 dark:bg-white/10 text-gray-400 dark:text-slate-600 whitespace-nowrap">
+                        Coming soon
+                      </span>
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={href}
+                    to={href}
+                    onClick={() => setMobile(false)}
+                    className={`block px-3.5 py-2.5 text-[13px] font-medium rounded-xl transition-colors ${isActive(href)
+                        ? 'bg-[#FFCC00]/10 text-[#1A2B4C] dark:text-white font-semibold'
+                        : 'text-slate-500 dark:text-slate-400 hover:bg-gray-50 dark:hover:bg-white/5'
+                      }`}
+                  >
+                    {tr('navbar', trKey)}
+                  </Link>
+                );
+              })}
 
               {/* Mobile utilities */}
               <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-gray-100 dark:border-white/[0.06]">

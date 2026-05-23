@@ -38,3 +38,30 @@ export const STATS = [
     { value: '3', label: 'Languages' },
     { value: '100%', label: 'Student Built' },
 ];
+
+export const TEAM = [
+    {
+        emoji: '🦆',
+        gradient: 'from-[#FFCC00] to-[#e6b800]',
+        name: 'Phạm Trọng Quý',
+        role: 'Co-Founder & Lead',
+        funFact: 'The one who turns coffee into the very first lines of Die Ente\'s code.',
+        linkedin: '#',
+    },
+    {
+        emoji: '🎨',
+        gradient: 'from-purple-400 to-purple-600',
+        name: 'Hồ Nguyễn Phú',
+        role: 'Co-Founder & Database Lead',
+        funFact: 'Crafting every pixel and layout to make your browsing experience seamless.',
+        linkedin: '#',
+    },
+    {
+        emoji: '✍️',
+        gradient: 'from-emerald-400 to-emerald-600',
+        name: 'Cao Tuệ Anh',
+        role: 'Co-Founder & Product Lead',
+        funFact: 'Demystifying complex Bahn rules and German paperwork into simple guides.',
+        linkedin: '#',
+    },
+];

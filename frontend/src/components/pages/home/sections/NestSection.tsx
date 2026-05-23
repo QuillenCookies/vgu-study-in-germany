@@ -55,30 +55,27 @@ const NestSection: React.FC = () => {
                     {tr('home', 'nestDesc')}
                 </motion.p>
 
-                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-6">
 
-                    {/* Primary — polished gold CTA with frosted glass bezel */}
+                    {/* Primary — gold CTA, single-layer */}
                     <motion.div
-                        className="rounded-2xl"
-                        style={{
-                            padding: '3px',
-                            background: `linear-gradient(135deg, ${GOLD} 0%, #FDE68A 50%, ${GOLD} 100%)`,
-                            boxShadow: `0 0 0 0 ${GOLD}60`,
+                        animate={{
+                            scale: [1, 1.025, 1],
+                            boxShadow: [
+                                `0 4px 18px ${GOLD}50`,
+                                `0 6px 32px ${GOLD}80`,
+                                `0 4px 18px ${GOLD}50`,
+                            ],
                         }}
-                        animate={{ boxShadow: [`0 0 0 0 ${GOLD}60`, `0 0 0 14px ${GOLD}00`] }}
-                        transition={{ duration: 2.2, repeat: Infinity, ease: 'easeOut' }}>
+                        transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+                        className="rounded-2xl">
                         <Link to="/community/contributor"
-                            className="inline-flex items-center gap-2 px-10 py-4 rounded-[14px] font-bold text-[15px] transition-all duration-300 hover:scale-105 active:scale-95"
+                            className="inline-flex items-center gap-2 px-10 py-4 rounded-2xl font-bold text-[15px] hover:brightness-105 active:scale-95 transition-all duration-200"
                             style={{
-                                background: 'rgba(255,255,255,0.18)',
-                                backdropFilter: 'blur(10px)',
-                                WebkitBackdropFilter: 'blur(10px)',
                                 backgroundColor: GOLD,
                                 color: CHARCOAL,
-                                boxShadow: `inset 0 1px 1px rgba(255,255,255,0.45), 0 6px 28px ${GOLD}50`,
-                            }}
-                            onMouseEnter={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = GOLD_DIM; }}
-                            onMouseLeave={e => { (e.currentTarget as HTMLAnchorElement).style.backgroundColor = GOLD; }}>
+                                boxShadow: `inset 0 1px 0 rgba(255,255,255,0.5)`,
+                            }}>
                             <Users size={17} />
                             {tr('home', 'nestBtn')}
                         </Link>
@@ -109,12 +106,6 @@ const NestSection: React.FC = () => {
                     </Link>
                 </motion.div>
 
-                {/* Warm closing note */}
-                <motion.p variants={fadeUp}
-                    className="mt-8 text-[12px] font-medium italic"
-                    style={{ color: `${CHARCOAL}55` }}>
-                    "Đừng để bị lạc giữa dòng đời, hãy về với Nest." — Die Ente
-                </motion.p>
             </motion.div>
         </section >
     );
