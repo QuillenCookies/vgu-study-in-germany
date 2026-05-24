@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Search, Eye, ShieldCheck, Key, Shield, Route
 } from 'lucide-react';
-import { type DocFilter, FILTER, DOCUMENTS, containerVariants, itemVariants } from '../knowledge/data';
+import { type DocFilter, FILTERS, DOCUMENTS, containerVariants, itemVariants } from '../knowledge/data';
 
 // ==========================================
 // SVGs & METAPHORS
