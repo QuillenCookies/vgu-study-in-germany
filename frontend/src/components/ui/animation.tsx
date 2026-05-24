@@ -1,10 +1,10 @@
 import type { Variants } from 'framer-motion';
 
 export const fadeUp: Variants = {
-    hidden: { opacity: 0, y: 24 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.4, 0, 0.2, 1] } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 260, damping: 24 } },
 };
 export const stagger: Variants = {
-    hidden: {},
-    show: { transition: { staggerChildren: 0.1 } },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
 };
